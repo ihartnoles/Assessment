@@ -58,6 +58,11 @@
 			<view-page name="layout" />
 		</event-handler>
 
+		<event-handler event="forgot" access="public">
+			<view-page name="forgot" contentArg="content" />
+			<view-page name="layout" />
+		</event-handler>
+
 		<event-handler event="sayHello" access="public">
 			<view-page name="hello"  />
 		</event-handler>
@@ -88,6 +93,7 @@
 		<page-view name="layout" page="/views/layout.cfm"/>
 		<page-view name="hello" page="/views/hello.cfm" />
 		<page-view name="loginForm" page="/views/loginForm.cfm" />
+		<page-view name="forgot" page="/views/forgot.cfm" />
 		<page-view name="listUsers" page="/views/listUsers.cfm" />
 		<page-view name="mainMenu" page="/views/mainMenu.cfm" />
 		<page-view name="exception" page="/views/exception.cfm" />

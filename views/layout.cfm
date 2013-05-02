@@ -9,8 +9,6 @@
 
 		<title>FAU Assessment Database</title>
 
-  		<
-
 	<!--- iPhone, iPad and Android specific settings --->
 
 		<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1;">
@@ -149,7 +147,7 @@
 		</head>
 		<body>
 		<cfoutput>				
-			<cfif len(trim(#request.event.getArg("message")#)) />
+			<cfif len(trim(#request.event.getArg("message")#)) >
 				#request.event.getArg("message")#
 			</cfif>
 			#request.event.getArg("content")#
