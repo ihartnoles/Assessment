@@ -21,7 +21,7 @@
 									</div>
 								</fieldset>
 								<fieldset class="label_side top">
-									<label for="password_field">Password<span><a href="#">Do you remember?</a></span></label>
+									<label for="password_field">Password<span><a href="index.cfm?event=forgot">Do you remember?</a></span></label>
 									<div>
 										<input type="password" id="password" name="password" class="required">
 									</div>
@@ -43,7 +43,7 @@
 
 					<button onclick="location.href='index.cfm?event=forgot'" class="dialog_button send_right" style="margin-top:10px;">
 
-						<span>Forgot Your Username?</span>
+						<span>Not Registered?</span>
 					</button>
 
 				
