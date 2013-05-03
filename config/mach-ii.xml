@@ -47,6 +47,10 @@
 	<!-- EVENT-HANDLERS -->
 	<event-handlers>
 
+		<event-handler event="sayHello" access="public">
+			<view-page name="hello"  />
+		</event-handler>
+
 		<event-handler event="getUserList" access="public">
 			<notify listener="UserListener" method="getUserList" resultArg="qUsers"  />
 			<view-page name="listUsers"  contentArg="content" />
@@ -58,22 +62,25 @@
 			<view-page name="layout" />
 		</event-handler>
 
+		<event-handler event="validateLogin" access="public">
+			<notify listener="loginListener" method="validateLogin" />
+		</event-handler>
+		
+
 		<event-handler event="forgot" access="public">
 			<view-page name="forgot" contentArg="content" />
 			<view-page name="layout" />
 		</event-handler>
 
-		<event-handler event="sayHello" access="public">
-			<view-page name="hello"  />
+		<event-handler event="ChooseUserRoleForSession" access="public">
+			<view-page name="userrole" contentArg="content" />
+			<view-page name="layout" />
 		</event-handler>
 		
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
 		</event-handler>
 		
-		<event-handler event="validateLogin" access="public">
-			<notify listener="loginListener" method="validateLogin" />
-		</event-handler>
 		
 		<event-handler event="loginSucceeded" access="private">
 			<view-page name="mainMenu" />
@@ -94,6 +101,7 @@
 		<page-view name="hello" page="/views/hello.cfm" />
 		<page-view name="loginForm" page="/views/loginForm.cfm" />
 		<page-view name="forgot" page="/views/forgot.cfm" />
+		<page-view name="userrole" page="/views/userrole.cfm" />
 		<page-view name="listUsers" page="/views/listUsers.cfm" />
 		<page-view name="mainMenu" page="/views/mainMenu.cfm" />
 		<page-view name="exception" page="/views/exception.cfm" />

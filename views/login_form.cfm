@@ -11,6 +11,12 @@
 							<div class="block">
 								<div class="section">
 									<!--- <a href="index.cfm" id="small_logo" width="144" height="80"><span>FAU</span></a> --->
+									<cfif len(trim(#request.event.getArg("message")#)) >
+										<div class="alert dismissible alert_light">
+										#request.event.getArg("message")#
+										</div>
+									</cfif>
+
 									<div class="alert dismissible alert_light">
 										<img width="24" height="24" src="images/icons/small/grey/locked.png">
 										<strong>Wizard.</strong> Please enter your details to login.

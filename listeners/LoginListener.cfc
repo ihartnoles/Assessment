@@ -34,27 +34,41 @@
 			// we'd be hitting a database, LDAP, or something similar
 			if ( len(trim(arguments.event.getArg("username"))) AND len(trim(arguments.event.getArg("password"))) ) {
 
-				userexists = variables.usersService.validateUser(username=arguments.event.getArg("username"),
+				//writeDump(var=arguments.event.getArgs(), abort="false");
+
+				local.userexists = variables.usersService.validateUser(username=arguments.event.getArg("username"),
 																 userpassword=arguments.event.getArg("password"));
 
-				//writeDump(var=userexists, abort="true");
+				//writeDump(var=local.userexists, abort="false", label="@LoginListener");
 				
-				if (userexists) {
-					success = true;
+				if ( local.userexists.recordcount ) {
+					local.success = true;
 				} else {
-					success = false;
+					local.success = false;
 				}
 					
 			}
 			
 			// announce the appropriate event based on the success or failure
 			// of the login
-			if (success) {
-				announceEvent("loginSucceeded");
+			if (local.success) {
+
+				//does the user have a default role?
+				local.hasDefaultRole =  variables.usersService.userHasDefaultRole(userid=userexists.UserID);
+
+				//if not they need to choose a role for the session
+				if (local.hasDefaultRole.recordcount == 0) {
+					//redirect to choose role
+					redirectEvent('ChooseUserRoleForSession');
+				} else {
+					//announceEvent("loginSucceeded");
+					//redirectEvent('ReportingUnitList');
+				}
+
 			} else {
 				// put a message in the event argument so we can tell the
 				// user their login failed
-				arguments.event.setArg("message", "Your login failed.  Please try again.");
+				session.message ="Your login failed.  Please try again.";
 				announceEvent("showLogin", arguments.event.getArgs());
 			}
 		</cfscript>

@@ -147,9 +147,7 @@
 		</head>
 		<body>
 		<cfoutput>				
-			<cfif len(trim(#request.event.getArg("message")#)) >
-				#request.event.getArg("message")#
-			</cfif>
+			
 			#request.event.getArg("content")#
 		</cfoutput>
 

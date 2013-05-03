@@ -148,21 +148,43 @@
 		</cfif>
 	</cffunction>
 
-	<cffunction name="validate" access="public" output="false" returntype="boolean">
+	<cffunction name="validate" access="public" output="false" returntype="query">
 		<cfargument name="username" type="string" required="true" />
 		<cfargument name="UserPassword" type="string" required="true" />
 
+		<!-- <cfdump var="#arguments#" abort="false" label="@usersDAO" /> -->
+
+
 		<cfset var qExists = "">
 		<cfquery name="qExists" datasource="#variables.dsn#" maxrows="1">
-			SELECT count(1) as idexists
+			SELECT  UserID
 			FROM	Users
 			WHERE	UserName = <cfqueryparam value="#arguments.username#" CFSQLType="cf_sql_varchar" />
 			AND     UserPassword = <cfqueryparam value="#arguments.UserPassword#" CFSQLType="cf_sql_varchar" />
 		</cfquery>
 
+		<!-- <cfdump var="#qExists#" abort="false" label="@usersDAO" /> -->
+		
+		<cfreturn qExists />		
+	</cffunction>
+
+
+	<cffunction name="userHasDefaultRole" access="public" output="false" returntype="boolean">
+		<cfargument name="userid" type="string" required="true" />
+		
+
+		<cfset var qDefaultRole = "">
+		<cfquery name="qDefaultRole" datasource="#variables.dsn#" >
+			 SELECT ur.*, AssessmentRoleDescription  
+			 FROM UserRoles ur, Roles r  
+			 WHERE ur.UserID= <cfqueryparam value="#arguments.userid#" CFSQLType="cf_sql_integer" />
+			 AND ur.DefaultRole = 1
+			 AND ur.RoleID=r.AssessmentRoleID
+		</cfquery>
+
 		<!-- <cfdump var="#qExists#" abort="true" /> -->
 
-		<cfif qExists.idexists>
+		<cfif qDefaultRole.recordcount>
 			<cfreturn true />
 		<cfelse>
 			<cfreturn false />
