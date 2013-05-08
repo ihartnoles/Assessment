@@ -163,13 +163,12 @@
 			AND     UserPassword = <cfqueryparam value="#arguments.UserPassword#" CFSQLType="cf_sql_varchar" />
 		</cfquery>
 
-		<!-- <cfdump var="#qExists#" abort="false" label="@usersDAO" /> -->
-		
+			
 		<cfreturn qExists />		
 	</cffunction>
 
 
-	<cffunction name="userHasDefaultRole" access="public" output="false" returntype="boolean">
+	<cffunction name="userHasDefaultRole" access="public" output="false" returntype="query">
 		<cfargument name="userid" type="string" required="true" />
 		
 
@@ -182,12 +181,11 @@
 			 AND ur.RoleID=r.AssessmentRoleID
 		</cfquery>
 
-		<!-- <cfdump var="#qExists#" abort="true" /> -->
 
 		<cfif qDefaultRole.recordcount>
-			<cfreturn true />
+			<cfreturn qDefaultRole />
 		<cfelse>
-			<cfreturn false />
+			<cfreturn qDefaultRole />
 		</cfif>
 	</cffunction>
 

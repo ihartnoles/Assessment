@@ -73,10 +73,14 @@
 	<cffunction name="validateUser" access="public" output="false" returntype="query">
 		<cfargument name="UserName" type="string" required="false" />
 		<cfargument name="UserPassword" type="string" required="false" />
-		
-		<!-- <cfdump var="#arguments#" abort="false" label="@usersService" /> -->
-
+	
 		<cfreturn  variables.usersDAO.validate(argumentCollection=arguments) />
+	</cffunction>
+
+	<cffunction name="userHasDefaultRole" access="public" output="false" returntype="query">
+		<cfargument name="userid" type="string" required="false" />				
+		
+		<cfreturn  variables.usersDAO.userHasDefaultRole(argumentCollection=arguments) />
 	</cffunction>
 
 
