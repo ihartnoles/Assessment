@@ -25,13 +25,13 @@
 								<fieldset class="label_side top">
 									<label for="username_field">Username</label>
 									<div>
-										<input type="text" id="username" name="username" class="required">
+										<input type="text" id="username" name="username" value="ihartste" class="required">
 									</div>
 								</fieldset>
 								<fieldset class="label_side top">
 									<label for="password_field">Password<span><a href="index.cfm?event=forgot">Do you remember?</a></span></label>
 									<div>
-										<input type="password" id="password" name="password" class="required">
+										<input type="password" id="password" name="password" value="ikeARD58" class="required">
 									</div>
 								</fieldset>		
 								

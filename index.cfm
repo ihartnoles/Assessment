@@ -10,5 +10,7 @@
 <cfset MACHII_DTD_PATH     = ExpandPath("/Mach-II/mach-ii_1_1_1.dtd") />
 
 <cfset MACHII_VALIDATE_XML = false />
+
 --->
 <cfinclude template="/MachII/mach-ii.cfm" />
+

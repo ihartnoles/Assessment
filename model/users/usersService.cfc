@@ -77,12 +77,26 @@
 		<cfreturn  variables.usersDAO.validate(argumentCollection=arguments) />
 	</cffunction>
 
+	<cffunction name="setUserRole" access="public" output="false" returntype="boolean">
+		<cfargument name="UserID" type="string" required="false" />
+		<cfargument name="RoleID" type="numeric" required="true" />
+
+		<cfreturn  variables.usersDAO.setUserRole(userid=session.userid,roleid=arguments.roleid) />
+	</cffunction>
+
 	<cffunction name="userHasDefaultRole" access="public" output="false" returntype="query">
 		<cfargument name="userid" type="string" required="false" />				
 		
-		<cfreturn  variables.usersDAO.userHasDefaultRole(argumentCollection=arguments) />
+		<cfreturn  variables.usersDAO.userHasDefaultRole(userid=arguments.userid) />
 	</cffunction>
 
+	<!---
+	<cffunction name="getUserBean" access="public" output="false" returntype="query">
+		<cfargument name="UserID" type="string" required="false" />		
+	
+		<cfreturn  variables.usersDAO.getUserInfo(userid=arguments.userid) />
+	</cffunction>
+    --->
 
 	<cffunction name="onMissingMethod" access="public" output="false" >
 		<cfargument name="missingMethodName" type="string" hint="Name of missing method" />

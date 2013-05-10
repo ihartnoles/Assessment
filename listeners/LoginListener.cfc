@@ -43,9 +43,30 @@
 				
 				if ( local.userexists.recordcount ) {
 					local.success = true;
+
+					//set the session.UserID
+					lock
+						scope="session"
+						type="exlusive"
+						timeout="10"
+						{
+							session.userID = local.userexists.userID;
+						}
+					
 				} else {
 					local.success = false;
+					
+					lock
+						scope="session"
+						type="exlusive"
+						timeout="10"
+						{
+							session.userID = 0;
+						}
 				}
+
+				//writeDump(var=session, abort="false", label="@LoginListener");
+				//writeDump(var=local, abort="true", label="@LoginListener");
 					
 			}
 			
@@ -59,7 +80,10 @@
 				//if not they need to choose a role for the session
 				if (local.hasDefaultRole.recordcount == 0) {
 					//redirect to choose role
-					redirectEvent('ChooseUserRoleForSession');
+
+					//writeDump(var=session, abort="true", label="@LoginListener");
+					 //redirectEvent('ChooseUserRoleForSession', session , true);
+					 announceEvent("ChooseUserRoleForSession");					
 				} else {
 					//announceEvent("loginSucceeded");
 					//redirectEvent('ReportingUnitList');

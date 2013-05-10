@@ -189,6 +189,55 @@
 		</cfif>
 	</cffunction>
 
+
+
+	<cffunction name="setUserRole" access="public" output="false" returntype="boolean">
+		<cfargument name="RoleID" type="numeric" required="false" />
+		
+		<!--- Zero out existing default role --->
+		<cfset clear_existing_default_role = ZeroDefaultRoles() >
+
+
+		<!--- Set new default role--->
+		<cfset local.qSetDefaultRole = "" />		
+		
+		<cftry>	
+			<cfquery name="local.qSetDefaultRole" datasource="#variables.dsn#">
+				UPDATE	UserRoles
+					SET     DefaultRole = 1
+				WHERE	UserID = <cfqueryparam value="#session.UserID#" CFSQLType="cf_sql_integer" />
+					AND     RoleID = <cfqueryparam value="#arguments.RoleID#" CFSQLType="cf_sql_integer" />
+			</cfquery>
+
+		<cfcatch type="database">
+				<cfreturn false />
+			</cfcatch>
+		</cftry>
+
+		<cfreturn true />
+	</cffunction>
+
+
+	<cffunction name="ZeroDefaultRoles" access="public" output="false" returntype="boolean">
+		<cfset local.qZeroDefaultRoles = "" />		
+		
+		<cftry>		
+			<cfquery name="local.qZeroDefaultRoles" datasource="#variables.dsn#">
+				UPDATE	UserRoles
+					SET     DefaultRole = 0
+				WHERE	UserID = <cfqueryparam value="#session.UserID#" CFSQLType="cf_sql_integer" />				
+			</cfquery>
+			<cfcatch type="database">
+				<cfreturn false />
+			</cfcatch>
+		</cftry>
+
+		<cfreturn true />
+			
+	</cffunction>
+
+
+
 	<cffunction name="save" access="public" output="false" returntype="boolean">
 		<cfargument name="users" type="users" required="true" />
 		
