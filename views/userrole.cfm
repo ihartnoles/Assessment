@@ -48,10 +48,10 @@
 							<fieldset class="label_side top">
 								<label>Roles</label>
 								<div class="uniform">
-									<label for="yes3"><input type="radio" name="answer3" id="yes3"/>Administrator</label>
-									<label for="no3"><input type="radio" name="answer3" id="no3"/>Reporter</label>
-									<label for="cant3"><input type="radio" disabled="disabled" name="answer3" id="cant3"/>Reviewer</label>
-									<label for="yes4"><input type="checkbox" name="answer4" id="yes4"/>Make this my default role</label>
+									<label for="yes3"><input type="radio" name="role" id="yes3" value="1"/>Administrator</label>
+									<label for="no3"><input type="radio" name="role" id="no3" value="2"/>Reporter</label>
+									<label for="cant3"><input type="radio" disabled="disabled" name="role" id="cant3" value="3"/>Reviewer</label>
+									<label for="yes4"><input type="checkbox" name="UpdateDefaultCheckbox" id="yes4"/>Make this my default role</label>
 								</div>
 							</fieldset>				
 
