@@ -15,3 +15,7 @@
 
 <cfset wbroot = 'C:\inetpub\wwwroot\Assessment' />
 
+<cfif StructKeyExists(url, "reinit")>
+			<cfsetting requesttimeout="120" />
+			<cfset MACHII_CONFIG_MODE = 1 />
+</cfif>

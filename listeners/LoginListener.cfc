@@ -87,6 +87,7 @@
 				} else {
 					//announceEvent("loginSucceeded");
 					//redirectEvent('ReportingUnitList');
+					 announceEvent("ShowReportingUnits");
 				}
 
 			} else {

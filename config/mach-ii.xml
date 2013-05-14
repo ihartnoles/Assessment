@@ -87,6 +87,12 @@
 			<notify listener="UserListener" method="SetUserRole" />
 		</event-handler>
 
+
+		<event-handler event="ShowReportingUnits" access="public">
+			<view-page name="reportingunits" contentArg="content" />
+			<view-page name="layout" />
+		</event-handler>
+
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
 		</event-handler>
@@ -112,6 +118,7 @@
 		<page-view name="loginForm" page="/views/loginForm.cfm" />
 		<page-view name="forgot" page="/views/forgot.cfm" />
 		<page-view name="userrole" page="/views/userrole.cfm" />
+		<page-view name="reportingunits" page="/views/reportingunits.cfm" />
 		<page-view name="listUsers" page="/views/listUsers.cfm" />
 		<page-view name="mainMenu" page="/views/mainMenu.cfm" />
 		<page-view name="exception" page="/views/exception.cfm" />
