@@ -97,6 +97,11 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+		<event-handler event="faq" access="public">
+			<view-page name="faq" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
+
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
 		</event-handler>
@@ -121,6 +126,7 @@
 		<page-view name="dash_layout" page="/views/dash_layout.cfm"/>
 		<page-view name="dash_main" page="/views/dash_main.cfm"/>
 		<page-view name="page_header" page="/views/page_header.cfm"/>
+		<page-view name="faq" page="/views/faq.cfm"/>
 		<page-view name="hello" page="/views/hello.cfm" />
 		<page-view name="loginForm" page="/views/loginForm.cfm" />
 		<page-view name="forgot" page="/views/forgot.cfm" />

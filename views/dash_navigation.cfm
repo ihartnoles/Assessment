@@ -90,7 +90,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="index.cfm?event=">FAQ</a>
+							<a href="index.cfm?event=faq">FAQ</a>
 						</li>
 						<li>
 							<a href="more-error.html">Error pages</a>
