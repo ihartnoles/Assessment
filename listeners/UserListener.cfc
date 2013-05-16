@@ -52,4 +52,12 @@
 		<cfreturn variables.usersService.SetUserRole(userid=session.userid, roleid=request.event.getArg('role')) >
 	</cffunction>
 
+	<!---
+	<cffunction name="showUserDashboard" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.usersService.showUserDashboard(argumentCollection=arguments) >
+	</cffunction>
+    --->
+    
 </cfcomponent>

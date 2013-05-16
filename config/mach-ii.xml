@@ -5,7 +5,7 @@
 	<!-- PROPERTIES -->
 	<properties>
 		<property name="applicationRoot" value="/Assessment" />
-		<property name="defaultEvent" value="sayHello" />
+		<property name="defaultEvent" value="showLogin" />
 		<property name="eventParameter" value="event" />
 		<property name="parameterPrecedence" value="form" />
 		<property name="maxEvents" value="10" />
@@ -87,10 +87,14 @@
 			<notify listener="UserListener" method="SetUserRole" />
 		</event-handler>
 
+		<event-handler event="showUserDashboard" access="public">
+			<view-page name="dash_main" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
 
 		<event-handler event="ShowReportingUnits" access="public">
 			<view-page name="reportingunits" contentArg="content" />
-			<view-page name="layout" />
+			<view-page name="dash_layout" />
 		</event-handler>
 
 		<event-handler event="showInputForm" access="public">
@@ -114,6 +118,9 @@
 	<!-- PAGE-VIEWS -->
 	<page-views>
 		<page-view name="layout" page="/views/layout.cfm"/>
+		<page-view name="dash_layout" page="/views/dash_layout.cfm"/>
+		<page-view name="dash_main" page="/views/dash_main.cfm"/>
+		<page-view name="page_header" page="/views/page_header.cfm"/>
 		<page-view name="hello" page="/views/hello.cfm" />
 		<page-view name="loginForm" page="/views/loginForm.cfm" />
 		<page-view name="forgot" page="/views/forgot.cfm" />

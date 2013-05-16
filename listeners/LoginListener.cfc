@@ -86,8 +86,9 @@
 					 announceEvent("ChooseUserRoleForSession");					
 				} else {
 					//announceEvent("loginSucceeded");
-					//redirectEvent('ReportingUnitList');
-					 announceEvent("ShowReportingUnits");
+					
+					//announceEvent("ShowReportingUnits");
+					redirectEvent("showUserDashboard");
 				}
 
 			} else {

@@ -1,353 +1,296 @@
-	<div id="pjax">
-		<div id="wrapper" data-adminica-nav-top="3" data-adminica-nav-inner="1">
-			<div id="topbar" class="clearfix">
+<cfscript>
+title = "Reporting Units";
+</cfscript>
 
-	<a href="dashboard_sorter.php" class="logo"><span>Adminica</span></a>
-
-	<div class="user_box dark_box clearfix">
-		<img src="images/interface/profile.jpg" width="55" alt="Profile Pic" />
-		<h2>Administrator</h2>
-		<h3><a class="text_shadow" href="#">John Smith</a></h3>
-		<ul>
-			<li><a href="#">profile</a><span class="divider">|</span></li>
-			<li><a href="#">settings</a><span class="divider">|</span></li>
-			<li><a href="login_slide.php" class="dialog_button" data-dialog="dialog_logout">Logout</a></li>
-		</ul>
-	</div><!-- #user_box -->
-</div><!-- #topbar -->			<div id="sidebar" class="sidebar pjax_links">
-	<div class="cog">+</div>
-
-	<a href="index.php" class="logo"><span>Adminica</span></a>
-
-	<div class="user_box dark_box clearfix">
-		<img src="images/interface/profile.jpg" width="55" alt="Profile Pic" />
-		<h2>Administrator</h2>
-		<h3><a href="#">John Smith</a></h3>
-		<ul>
-			<li><a href="#">settings</a><span class="divider">|</span></li>
-			<li><a href="login_slide.php" class="dialog_button" data-dialog="dialog_logout">Logout</a></li>
-		</ul>
-	</div><!-- #user_box -->
-
-	<ul class="side_accordion" id="nav_side"> <!-- add class 'open_multiple' to change to from accordion to toggles -->
-		<li><a href="#" class="dialog_button" data-dialog="dialog_welcome"><img src="images/icons/small/grey/speech_bubble.png"/>Adminica</a></li>
-		<li><a href="empty.php" class="pjax"><img src="images/icons/small/grey/document.png"/>Empty</a></li>
-
-		<li><a href="#"><img src="images/icons/small/grey/mail.png"/>Mailbox<div class="alert badge alert_red">5</div></a>
-			<ul class="drawer">
-				<li><a href="#">Inbox</a></li>
-				<li><a href="#">Sent Items</a></li>
-				<li><a href="#">Drafts<div class="alert badge alert_grey">2</div></a></li>
-				<li><a href="#">Trash<div class="alert badge alert_grey">3</div></a></li>
-			</ul>
-		</li>
-		<li><a href="#"><img src="images/icons/small/grey/documents.png"/>Documents<div class="alert badge alert_black">2</div></a>
-			<ul class="drawer">
-				<li><a href="files.php" class="pjax">View All</a></li>
-				<li><a href="files.php" class="pjax">Upload/Download<div class="alert badge alert_grey">2</div></a></li>
-			</ul>
-		</li>
-		<li><a href="#"><img src="images/icons/small/grey/users.png"/>Members</a>
-			<ul class="drawer">
-				<li><a href="contacts.php" class="pjax">Add New</a></li>
-				<li><a href="contacts.php" class="pjax">Edit/Delete</a></li>
-				<li><a href="contacts.php" class="pjax">Search Profiles</a></li>
-			</ul>
-		</li>
-		<li><a href="http://www.google.com"><img src="images/icons/small/grey/graph.png"/>Statistics</a></li>
-		<li><a href="#"><img src="images/icons/small/grey/cog_2.png"/>Settings</a>
-			<ul class="drawer">
-				<li><a href="#">Account</a></li>
-				<li><a href="#">System</a></li>
-			</ul>
-		</li>
-	</ul>
-
-	<div id="search_side" class="dark_box"><form><input class="" type="text" placeholder="Search Adminica..."></form></div>
-
-	<ul id="side_links" class="side_links" style="margin-bottom:0;">
-		<li><a href="#">Documentation</a>
-		<li><a href="#">Support Forum</a></li>
-		<li><a href="#">Contact</a></li>
-		<li><a href="#">Subscribe</a></li>
-	</ul>
-</div><!-- #sidebar -->
-			<div id="stackbar" class="stackbar">	<div class="user_box dark_box clearfix">
-		<img src="images/interface/profile.jpg" width="55" alt="Profile Pic" />
-		<h2>Administrator</h2>
-		<h3><a href="#">John Smith</a></h3>
-		<ul>
-			<li><a href="#">settings</a><span class="divider">|</span></li>
-			<li><a href="login_slide.php" class="dialog_button" data-dialog="dialog_logout">Logout</a></li>
-		</ul>
-	</div>
-	<ul class="">
-		<li>
-			<a href="#"><img src="images/icons/large/grey/computer_imac.png"/><span>Dashboard</span></a>
-			<ul>
-				<li><a href="index.php" class="pjax">Dashboard</a></li>
-				<li><a href="layout.php" class="pjax">Layout</a></li>
-				<li><a href="text.php" class="pjax">Typography</a></li>
-				<li><a href="isolated_wizard.php" class="pjax">Isolated</a></li>
-				<li><a href="logout_button.php" class="pjax">Logout</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="#"><img src="images/icons/large/grey/mail.png"/><span>Widgets</span><div class="alert badge alert_green">1</div></a>
-			<ul>
-				<li><a href="#">Widgets</a></li>
-				<li><a href="tabs.php" class="pjax">Tabs</a></li>
-				<li><a href="accordions.php" class="pjax">Accordions</a></li>
-				<li><a href="wizard.php" class="pjax">Wizard</a></li>
-				<li><a href="code.php" class="pjax">Code View</a></li>
-				<li><a href="editor.php" class="pjax">Text Editor</a></li>
-				<li><a href="dialog.php" class="pjax">Dialogs</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="#"><img src="images/icons/large/grey/users.png"/><span>Contacts</span><div class="alert badge alert_blue">2</div></a>
-			<ul>
-				<li><a href="#">Contacts</a></li>
-				<li><a href="contacts.php" class="pjax">Profiles</a></li>
-				<li><a href="contacts.php" class="pjax">Manage</a></li>
-				<li><a href="#" class="dialog_button" data-dialog="dialog_register">Add</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="#"><img src="images/icons/large/grey/graph.png"/><span>Reports</span></a>
-			<ul>
-				<li><a href="#" class="pjax">Reports</a></li>
-				<li><a href="charts.php" class="pjax">Graphs</a></li>
-				<li><a href="graphs.php" class="pjax">Charts</a></li>
-			</ul>
-		</li>
-	</ul>
-
-</div><!-- Closing Div for Stack Nav, you can boxes under the stack before this -->
-
-			<div id="main_container" class="main_container container_16 clearfix">
-				
-				<div class="flat_area grid_16">
-					<h2>My Reporting Units</h2>
-					
+<div id="main" style="margin-left: 0px;">
+			<div class="container-fluid">
+				<cfinclude template="/Assessment/views/page_header.cfm">
+				<!---
+				<div class="page-header">
+					<div class="pull-left">
+						<h1>Reporting Units</h1>
+					</div>
+					<div class="pull-right">
+						<ul class="minitiles">
+							<li class='grey'>
+								<a href="#"><i class="icon-cogs"></i></a>
+							</li>							
+						</ul>
+						<ul class="stats">
+							
+							<li class='lightred'>
+								<i class="icon-calendar"></i>
+								<div class="details">
+									<span class="big">February 22, 2013</span>
+									<span>Wednesday, 13:56</span>
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div>
-
-				<div class="box grid_16 tabs">
-					<ul class="tab_header clearfix">
-						<li><a href="#tabs-1">Academic Unit</a></li>
-						<li><a href="#tabs-2">Administrative/Support Unit</a></li>
+				<div class="breadcrumbs">
+					<ul>
+						<li>
+							<a href="more-login.html">Home</a>
+							<i class="icon-angle-right"></i>
+						</li>
+						<li>
+							<a href="more-files.html">Pages</a>
+							<i class="icon-angle-right"></i>
+						</li>
+						<li>
+							<a href="more-blank.html">Blank page</a>
+						</li>
 					</ul>
-					<div class="controls">
-						<a href="#" class="grabber"></a>
-						<a href="#" class="toggle"></a>
-						<a href="#" class="show_all_tabs"></a>
+					<div class="close-bread">
+						<a href="#"><i class="icon-remove"></i></a>
 					</div>
-					<div class="toggle_container">
-
-						<div id="tabs-1" class="block">
-							<div class="section" />
-								<div class="section side_tabs tabs">
-									<div class="side_holder">
-										<ul class="tab_sider col_25">
-											<li><a href="#tabs-aa">Arts & Letters</a></li>
-											<li><a href="#tabs-bb">Business</a></li>
-											<li><a href="#tabs-cc">Water</a></li>
-											<li><a href="#tabs-dd">Tab 4</a></li>
-											<li><a href="#tabs-ee">Tab 5</a></li>
-										</ul>
-									</div>
-									<div id="tabs-aa" class="block">
-										<div class="section content">
-											<ul class="content_accordion col_75">
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Anthropology</h3>
-													<div class="section content">
-														<p><a href="##">BA Anthropology</a></p>
-														<p><a href="##">MA and MAT Anthroplogy</a></p>
-													</div>
+				</div>
+				--->
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="box">
+							<div class="box box-bordered">
+							<div class="box-title">
+								<ul class="tabs tabs tabs-left">
+									<li class="active">
+										<a href="#t1" data-toggle="tab">Academic Units</a>
+									</li>
+									<li>
+										<a href="#t2" data-toggle="tab">Administrative/Support Units</a>
+									</li>
+									
+								</ul>
+							</div>
+							<div class="box-content">
+								<div class="tab-content">
+									<div class="tab-pane active" id="t1">
+										<div class="box box-bordered box-color">
+											<div class="box-title">
+												<h3>
+													<i class="icon-reorder"></i>
+													Academic Units
+												</h3>
+											</div>
+								<div class="box-content nopadding">
+										<div class="tabs-container">
+											<ul class="tabs tabs-inline tabs-left">
+												<li class='active'>
+													<a href="#first" data-toggle='tab'> Arts & Letters</a>
 												</li>
 												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">English</h3>
-													<div class="section content">
-														<p><a href="##">BA English</a></p>
-														<p><a href="##">MA English</a></p>
-														<p><a href="##">MAT English</a></p>
-													</div>
+													<a href="#second" data-toggle='tab'> Business</a>
 												</li>
 												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">History</h3>
-													<div class="section content">
-														<p >Content goes here</p>
-													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Lang & Linguistics</h3>
-													<div class="section content">
-														<p>Content goes here</p>
-													</div>
+													<a href="#thirds" data-toggle='tab'> Social</a>
 												</li>
 											</ul>
 										</div>
-									</div>
-									<div id="tabs-bb" class="block content">
-										<div class="section content">
-											<ul class="content_accordion col_75">
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Accounting</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
+										<div class="tab-content padding tab-content-inline">
+											<div class="tab-pane active" id="first">
+												<div class="accordion" id="accordion3">
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseOne2">
+																Anim pariatur cliche...Lorem  ???
+															</a>
+														</div>
+														<div id="collapseOne2" class="accordion-body collapse in">
+															<div class="accordion-inner">
+																Anim pariatur cliche...Lorem ipsum dolore dolor occaecat dolore elit deserunt incididunt ex sed nostrud aute aliquip ut elit sed nisi. 
+															</div>
+														</div>
 													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Business Administration</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo2">
+																Anthropology
+															</a>
+														</div>
+														<div id="collapseTwo2" class="accordion-body collapse">
+															<div class="accordion-inner">
+																<p><a href="##">BA Anthropology</a></p>
+															    <p><a href="##">MA and MAT Anthroplogy</a></p>
+															</div>
+														</div>
 													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Economics</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree2">
+																English
+															</a>
+														</div>
+														<div id="collapseThree2" class="accordion-body collapse">
+															<div class="accordion-inner">
+																<p><a href="##">BA English</a></p>
+																<p><a href="##">MA English</a></p>
+																<p><a href="##">MAT English</a></p>
+															</div>
+														</div>
 													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Finance</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapseFour2">
+																History
+															</a>
+														</div>
+														<div id="collapseFour2" class="accordion-body collapse">
+															<div class="accordion-inner">
+																<p><a href="##">BA History</a></p>
+																<p><a href="##">MA History</a></p>
+															</div>
+														</div>
 													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<div id="tabs-cc" class="block">
-										<div class="section content">
-											<p>Content goes here.</p>
-										</div>
-									</div>
-									<div id="tabs-dd" class="block">
-										<div class="section content">
-											<p>Content goes here.</p>
-										</div>
-									</div>
-									<div id="tabs-ee" class="block">
-										<div class="section content">
-											<p>Content goes here.</p>
-										</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="second">
+												<div class="accordion" id="accordion4">
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseOne3">
+																Anim pariatur cliche...Lorem  ???
+															</a>
+														</div>
+														<div id="collapseOne3" class="accordion-body collapse in">
+															<div class="accordion-inner">
+																Anim pariatur cliche...Lorem ipsum dolore dolor occaecat dolore elit deserunt incididunt ex sed nostrud aute aliquip ut elit sed nisi. 
+															</div>
+														</div>
+													</div>
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion4" href="#collapseTwo3">
+																Sed laboris ut adipisicing ut et aute occaecat aute enim occaecat?
+															</a>
+														</div>
+														<div id="collapseTwo3" class="accordion-body collapse">
+															<div class="accordion-inner">
+																Anim pariatur cliche...Lorem ipsum Duis occaecat Excepteur est magna tempor ex ea enim sunt mollit proident. Lorem ipsum sed laboris ut adipisicing ut et aute occaecat aute enim occaecat. 
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="thirds">
+												<div class="accordion" id="accordion5">
+													<div class="accordion-group">
+														<div class="accordion-heading">
+															<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseOne4">
+																Lorem ipsum dolor sit amet, consectetur adipisicing?
+															</a>
+														</div>
+														<div id="collapseOne4" class="accordion-body collapse in">
+															<div class="accordion-inner">
+																Anim pariatur cliche...Lorem ipsum dolore dolor occaecat dolore elit deserunt incididunt ex sed nostrud aute aliquip ut elit sed nisi. 
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 									</div>
 								</div>
-							</div><!---added --->
-						</div>
-						<div id="tabs-2" class="block">
-								
-								<!---
-								<div class="section">
-									<h1>Primary Heading</h1>
-									<p>Lorem Ipsum is simply dummy text of the <a href="#" title="This is a tooltip">printing industry</a>. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-									<h2>Secondary Heading</h2>
-									<p>Lorem Ipsum is simply dummy text of the printing industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> 					
-								</div>
-								--->
-							<div class="section" />	
-								<div class="section side_tabs tabs">
-									<div class="side_holder">
-										<ul class="tab_sider ">
-											<li><a href="#tabs-a">Academic Affairs</a></li>
-											<li><a href="#tabs-b">Comm. Engagement</a></li>
-										
-										</ul>
+							</div>
 									</div>
-									<div id="tabs-a" class="block">
-										<div class="section content">
-											<ul class="content_accordion col_75">
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Undergraduate Studies</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
+									<div class="tab-pane" id="t2"><!--- begin #t2 --->
+										<div class="box box-bordered box-color">
+											<div class="box-title">
+												<h3>
+													<i class="icon-reorder"></i>
+													Administrative/Support Units
+												</h3>
+											</div>
+											<div class="box-content nopadding">
+												<div class="tabs-container">
+													<ul class="tabs tabs-inline tabs-left">
+														<li class='active'>
+															<a href="#supportfirst" data-toggle='tab'> Academic Affairs</a>
+														</li>
+														<li>
+															<a href="#supportsecond" data-toggle='tab'> Comm. Engagement</a>
+														</li>
+														
+													</ul>
+												</div>
+												<div class="tab-content padding tab-content-inline" >
+													<div class="tab-pane active" id="supportfirst">
+														<div class="accordion" id="supportaccordion3">
+															<div class="accordion-group">
+																<div class="accordion-heading">
+																	<a class="accordion-toggle" data-toggle="collapse" data-parent="#supportaccordion3" href="#collapse22">
+																		Undergraduate Studies
+																	</a>
+																</div>
+																<div id="collapse22" class="accordion-body collapse in">
+																	<div class="accordion-inner">
+																		<p><a href="#">Test 1</a></p>
+																		<p><a href="#">Test 2</a></p>
+																	</div>
+																</div>
+															</div>
+															<div class="accordion-group">
+																<div class="accordion-heading">
+																	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#supportaccordion3" href="#collapseThree3">
+																		University Libraries
+																	</a>
+																</div>
+																<div id="collapseThree3" class="accordion-body collapse">
+																	<div class="accordion-inner">
+																			<p><a href="#">Test 1</a></p>
+																			<p><a href="#">Test 2</a></p>
+																	</div>
+																</div>
+															</div>
+															<div class="accordion-group">
+																<div class="accordion-heading">
+																	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#supportaccordion3" href="#collapseFour4">
+																		Question #3 Culpa Adiposisisng?
+																	</a>
+																</div>
+																<div id="collapseFour4" class="accordion-body collapse">
+																	<div class="accordion-inner">
+																		Anim pariatur cliche...Lorem ipsum do culpa adipisicing quis non nisi ullamco. Lorem ipsum velit dolore qui Excepteur fugiat et dolor proident reprehenderit magna aliqua enim consectetur nisi. Lorem ipsum sit laborum est magna veniam ex ut velit do aliqua amet dolore enim minim eu. Lorem ipsum adipisicing officia occaecat deserunt enim minim veniam sint amet sed consectetur nisi quis. 
+																	</div>
+																</div>
+															</div>
+														</div>
 													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">University Libraries</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
+													<div class="tab-pane" id="supportsecond">
+														<div class="accordion" id="supportaccordion4">
+															<div class="accordion-group">
+																<div class="accordion-heading">
+																	<a class="accordion-toggle" data-toggle="collapse" data-parent="#supportaccordion4" href="#collapseFive5">
+																		Advancement/Development
+																	</a>
+																</div>
+																<div id="collapseFive5" class="accordion-body collapse in">
+																	<div class="accordion-inner">
+																		<p><a href="#">Test 1</a></p>
+																		<p><a href="#">Test 2</a></p>
+																	</div>
+																</div>
+															</div>
+															<div class="accordion-group">
+																<div class="accordion-heading">
+																	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#supportaccordion4" href="#collapseSix6">
+																		Creative Services & Marketing
+																	</a>
+																</div>
+																<div id="collapseSix6" class="accordion-body collapse">
+																	<div class="accordion-inner">
+																		Anim pariatur cliche...Lorem ipsum Duis occaecat Excepteur est magna tempor ex ea enim sunt mollit proident. Lorem ipsum sed laboris ut adipisicing ut et aute occaecat aute enim occaecat. 
+																	</div>
+																</div>
+															</div>
+														</div>
 													</div>
-												</li>
-											
-											</ul>
+													
+												</div>
+											</div>
 										</div>
-									</div>
-									<div id="tabs-b" class="block content">
-										<div class="section content">
-											<ul class="content_accordion col_75">
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Advancement/Development</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
-													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Creative Services & Marketing</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
-													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Government Relations</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
-													</div>
-												</li>
-												<li>
-													<a href="#" class="handle"></a>
-													<h3 class="bar">Media Relations</h3>
-													<div class="section content">
-														<p><a href="##">Test 1</a></p>
-														<p><a href="##">Test 2</a></p>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-
-
-								</div>
-							</div><!--- added --->
+									</div><!--- end of #t2 --->
 						</div>
 					</div>
 				</div>
-
-
-
 			</div>
-		</div>
+		</div></div>
 
-		
-
-</div>			
-		
-
-		
-</div>
-
-</div>

@@ -1,58 +1,38 @@
-<div id="pjax">
-		<div id="wrapper">
-			<div class="isolate">
-				<div class="center narrow">
-					<div class="main_container full_size container_8 clearfix">
-						<div class="box">
-							<div class="block">
-								<div class="section">
-									<!--- <a href="index.cfm" id="small_logo" width="144" height="80"><span>FAU</span></a> --->
-									<cfoutput>
-									<cfif  structKeyExists(session, "message") AND len(trim(session.message))>
-										<div class="alert dismissible alert_red">
-											#session.message#										
-										</div>
-									</cfif>
-									</cfoutput>	
-
-									<div class="alert dismissible alert_light error">
-										<img width="24" height="24" src="images/icons/small/grey/locked.png">
-										<strong>Assessment Database</strong> Please enter your details to login.
-									</div>
-								</div>
-						
-							<form action="index.cfm?event=validateLogin" method="post" class="validate_form" name="loginform" id="loginform">
-								<fieldset class="label_side top">
-									<label for="username_field">Username</label>
-									<div>
-										<input type="text" id="username" name="username" value="ihartste" class="required">
-									</div>
-								</fieldset>
-								<fieldset class="label_side top">
-									<label for="password_field">Password<span><a href="index.cfm?event=forgot">Do you remember?</a></span></label>
-									<div>
-										<input type="password" id="password" name="password" value="ikeARD58" class="required">
-									</div>
-								</fieldset>		
-								
-
-								<div class="button_bar clearfix">
-									<button class="wide" type="submit">
-										<img src="images/icons/small/white/key_2.png">
-										<span>Login</span>
-									</button>
-								</div>
-							</form>
+<body class='login'>
+	<div class="wrapper">
+		<h1><a href="index.cfm"><img src="img/logo-big.png" alt="" class='retina-ready' width="59" height="49">FLAT</a></h1>
+		<div class="login-body">
+			
+			<cfoutput>
+				<cfif  structKeyExists(session, "message") AND len(trim(session.message))>
+					<div class="alert dismissible alert_red">
+						#session.message#										
+					</div>
+				</cfif>
+			</cfoutput>	
+			
+			<h2>SIGN IN</h2>
+			<form action="index.cfm?event=validateLogin" method='post' class='form-validate' id="loginform">
+				<div class="control-group">
+					<div class="controls">
+						<input type="text" name="username" placeholder="Username" class='input-block-level' data-rule-required="true">
 					</div>
 				</div>
+				<div class="control-group">
+					<div class="pw controls">
+						<input type="password" name="password" placeholder="Password" class='input-block-level' data-rule-required="true">
+					</div>
+				</div>
+				<div class="submit">
+					<div class="remember">
+						<input type="checkbox" name="remember" class='icheck-me' data-skin="square" data-color="blue" id="remember"> <label for="remember">Remember me</label>
+					</div>
+					<input type="submit" value="Sign me in" class='btn btn-primary'>
+				</div>
+			</form>
+			<div class="forget">
+				<a href="#"><span>Forgot password?</span></a>
 			</div>
-
-					 <a href="index.cfm" id="small_logo" width="144" height="80"><span>FAU</span></a>
-
-					<button onclick="location.href='index.cfm?event=forgot'" class="dialog_button send_right" style="margin-top:10px;">
-
-						<span>Not Registered?</span>
-					</button>
-
-				
-</div>
+		</div>
+	</div>
+</body>

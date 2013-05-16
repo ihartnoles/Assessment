@@ -90,6 +90,15 @@
 		<cfreturn  variables.usersDAO.userHasDefaultRole(userid=arguments.userid) />
 	</cffunction>
 
+
+	<!---
+	<cffunction name="showUserDashboard" access="public" output="false" returntype="query">
+		<cfargument name="userid" type="string" required="false" />				
+		
+		<cfreturn  variables.usersDAO.???(userid=arguments.userid) />
+	</cffunction>
+	--->
+
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" returntype="query">
 		<cfargument name="UserID" type="string" required="false" />		
@@ -99,9 +108,7 @@
     --->
 
 	<cffunction name="onMissingMethod" access="public" output="false" >
-		<cfargument name="missingMethodName" type="string" hint="Name of missing method" />
-		<cfargument name="missingMethodArguments" type="any" hint="Arguments passed to the missing method, maybe a named arg set or a numerically indexed set" />
-
+		
 		<cfset var ret = ""/>
 		<cfinvoke component="#variables.usersGateway#" 
 				  method="#arguments.missingMethodName#" 
