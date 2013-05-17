@@ -1,6 +1,6 @@
 <body class='login'>
 	<div class="wrapper">
-		<h1><a href="index.cfm"><img src="img/logo-big.png" alt="" class='retina-ready' width="59" height="49">FLAT</a></h1>
+		<h1><a href="index.cfm"><img src="img/logo-big.png" alt="" class='retina-ready' width="59" height="49">FAU Assessment</a></h1>
 		<div class="login-body">
 			
 			<cfoutput>
@@ -31,7 +31,7 @@
 				</div>
 			</form>
 			<div class="forget">
-				<a href="#"><span>Forgot password?</span></a>
+				<a href="index.cfm?event=forgot"><span>Forgot password?</span></a>
 			</div>
 		</div>
 	</div>

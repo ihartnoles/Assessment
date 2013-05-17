@@ -59,7 +59,7 @@
 	}
 
 	function moneyRandom(){
-		var $el = $(".stats .icon-money").parent().find(".details .big");
+		var $el = $(".stats .icon-arrow-up").parent().find(".details .big");
 		var current = parseFloat($el.html().replace("$","").replace(",",".")),
 		randomOperation = (Math.random() * 10),
 		operation = 1;
@@ -187,7 +187,7 @@
 	}
 
 	// Random money value
-	moneyRandom();
+	// moneyRandom();
 	// Set current Time
 	currentTime();
 	// Random feeds update

@@ -82,7 +82,7 @@
 	<!-- Theme scripts -->
 	<script src="js/application.min.js"></script>
 	<!-- Just for demonstration -->
-	<script src="js/demonstration.min.js"></script>
+	<script src="js/demonstration.js"></script>
 
 	<script src="js/modernizr.custom.js"></script>
 	
@@ -91,6 +91,7 @@
 	<script type="text/javascript" src="js/flashcanvas.js"></script>
 	<![endif]-->
 
+	<!--[if lte IE 9]>
 	<script>
 		var canvas = document.createElement("canvas");
 		document.getElementById("target").appendChild(canvas);
@@ -98,7 +99,7 @@
 		    FlashCanvas.initElement(canvas);
 		}
 	</script>
-	<!--[if lte IE 9]>
+	
 		<script src="js/plugins/placeholder/jquery.placeholder.min.js"></script>
 		<script>
 			$(document).ready(function() {
@@ -117,9 +118,12 @@
 <body>
 
 	
-	<cfinclude template="/Assessment/views/dash_navigation.cfm">
+	
 
-	<cfoutput>#request.event.getArg("content")#</cfoutput>
+	<cfoutput>
+		<cfinclude template="/Assessment/views/dash_navigation.cfm">
+		#request.event.getArg("content")#
+	</cfoutput>
 
 
 </body>

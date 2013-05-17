@@ -163,7 +163,7 @@
 			<div class="user">
 				<ul class="icon-nav">
 					<li class='dropdown'>
-						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-envelope-alt"></i><span class="label label-lightred">4</span></a>
+						<a href="index.cfm?event=messagecenter" class='dropdown-toggle' rel="tooltip" data-placement="bottom" title="My Messages"><i class="icon-envelope-alt"></i><span class="label label-lightred">4</span></a>
 						<ul class="dropdown-menu pull-right message-ul">
 							<li>
 								<a href="#">
@@ -203,7 +203,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="components-messages.html" class='more-messages'>Go to Message center <i class="icon-arrow-right"></i></a>
+								<a href="index.cfm?event=messagecenter" class='more-messages'>Go to Message center <i class="icon-arrow-right"></i></a>
 							</li>
 						</ul>
 					</li>

@@ -386,20 +386,13 @@ title = "Dashboard";
 						<h1>Dashboard</h1>
 					</div>
 					<div class="pull-right">
-						<ul class="minitiles">
-							<li class='grey'>
-								<a href="#"><i class="icon-cogs"></i></a>
-							</li>
-							<li class='lightgrey'>
-								<a href="#"><i class="icon-globe"></i></a>
-							</li>
-						</ul>
+						
 						<ul class="stats">
-							<li class='satgreen'>
-								<i class="icon-money"></i>
+							<li class='green'>
+								<i class="icon-arrow-up"></i>
 								<div class="details">
-									<span class="big">$324,12</span>
-									<span>Balance</span>
+									<span class="big">60%</span>
+									<span>Lorem Ipsum</span>
 								</div>
 							</li>
 							<li class='lightred'>
@@ -410,6 +403,8 @@ title = "Dashboard";
 								</div>
 							</li>
 						</ul>
+						
+
 					</div>
 				</div>
 				<div class="breadcrumbs">
@@ -432,7 +427,7 @@ title = "Dashboard";
 							<div class="box-title">
 								<h3>
 									<i class="icon-bar-chart"></i>
-									Audience Overview
+									Lorem Ipsum One
 								</h3>
 								<div class="actions">
 									<a href="#" class="btn btn-mini content-refresh"><i class="icon-refresh"></i></a>
@@ -505,7 +500,7 @@ title = "Dashboard";
 							<div class="box-title">
 								<h3>
 									<i class="icon-bar-chart"></i>
-									HDD usage
+									Lorem Ipsum Two
 								</h3>
 								<div class="actions">
 									<a href="#" class="btn btn-mini content-refresh"><i class="icon-refresh"></i></a>
