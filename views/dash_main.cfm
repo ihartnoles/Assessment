@@ -407,6 +407,7 @@ title = "Dashboard";
 
 					</div>
 				</div>
+				<!---
 				<div class="breadcrumbs">
 					<ul>
 						<li>
@@ -421,6 +422,39 @@ title = "Dashboard";
 						<a href="#"><i class="icon-remove"></i></a>
 					</div>
 				</div>
+				--->
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="box">
+							<div class="box-title">
+								<h3>
+									Quick Links
+								</h3>
+							</div>
+							<div class="box-content">
+								<ul class="tiles tiles-center nomargin">
+									<li class="red">
+										<span class="label label-info">17</span>
+										<a href="index.cfm?event=showreportingunits"><span><i class="icon-pencil"></i></span><span class='name'>My Reporting Units</span></a>
+									</li>
+									<li class="blue">
+										<span class="label label-important">444</span>
+										<a href="#"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
+									</li>
+									<li class="blue">
+										<span class="label label-important">444</span>
+										<a href="#"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
+									</li>
+									<li class="orange">
+										<span class="label label-inverse">4</span>
+										<a href="index.cfm?event=messagecenter"><span><i class="icon-envelope"></i></span><span class='name'>My Messages</span></a>
+									</li>
+								</ul>								
+							</div>
+						</div>
+					</div>
+				</div>
+<hr>
 				<div class="row-fluid">
 					<div class="span6">
 						<div class="box box-color box-bordered">
@@ -569,11 +603,12 @@ title = "Dashboard";
 						</div>
 					</div>
 				</div>
+			<hr>
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box box-color box-bordered lightgrey">
 							<div class="box-title">
-								<h3><i class="icon-ok"></i> Tasks</h3>
+								<h3><i class="icon-ok"></i>My Tasks</h3>
 								<div class="actions">
 									<a href="#new-task" data-toggle="modal" class='btn'><i class="icon-plus-sign"></i> Add Task</a>
 								</div>
@@ -645,7 +680,7 @@ title = "Dashboard";
 						</div>
 					</div>
 				</div>
-				
+	<hr>			
 				<div class="row-fluid">
 					<div class="span6">
 						<div class="box">

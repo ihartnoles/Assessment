@@ -20,6 +20,7 @@
 						</ul>
 					</div>
 				</div>
+				<!---
 				<div class="breadcrumbs">
 					<ul>
 						<li>
@@ -38,3 +39,4 @@
 						<a href="#"><i class="icon-remove"></i></a>
 					</div>
 				</div>
+				--->
