@@ -50,22 +50,31 @@ title = "Reporting Units";
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box">
-							<div class="box box-bordered">
-							<div class="box-title">
-								<ul class="tabs tabs tabs-left">
-									<li class="active">
-										<a href="#t1" data-toggle="tab">Academic Units</a>
-									</li>
-									<li>
-										<a href="#t2" data-toggle="tab">Administrative/Support Units</a>
-									</li>
-									
-								</ul>
-							</div>
+							<div class="box box-color">
+								<div class="box-title">
+									<h3>									
+										My Reporting Units
+									</h3>
+
+									<ul class="tabs">
+										<li class="active">
+											<a href="#t1" data-toggle="tab">Academic Units</a>
+										</li>
+										<li>
+											<a href="#t2" data-toggle="tab">Administrative/Support Units</a>
+										</li>
+										
+									</ul>
+
+								</div>
+
 							<div class="box-content">
 								<div class="tab-content">
+									
+									<span class="help-block">The reporting units available to you are listed below</span>
+									
 									<div class="tab-pane active" id="t1">
-										<div class="box box-bordered box-color">
+										<div class="box box-color box-bordered green">
 											<div class="box-title">
 												<h3>
 													<i class="icon-reorder"></i>
@@ -192,7 +201,7 @@ title = "Reporting Units";
 							</div>
 									</div>
 									<div class="tab-pane" id="t2"><!--- begin #t2 --->
-										<div class="box box-bordered box-color">
+										<div class="box box-bordered box-color orange">
 											<div class="box-title">
 												<h3>
 													<i class="icon-reorder"></i>

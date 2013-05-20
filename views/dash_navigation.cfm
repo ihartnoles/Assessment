@@ -7,7 +7,7 @@
 			<ul class='main-nav'>
 				<li class='active'>
 					<a href="index.cfm?event=showUserDashboard">
-						<span>Dashboard</span>
+						<span>My Dashboard</span>
 					</a>
 				</li>
 			
@@ -163,7 +163,7 @@
 			<div class="user">
 				<ul class="icon-nav">
 					<li class='dropdown'>
-						<a href="index.cfm?event=messagecenter" class='dropdown-toggle' rel="tooltip" data-placement="bottom" title="My Messages"><i class="icon-envelope-alt"></i><span class="label label-lightred">4</span></a>
+						<a href="index.cfm?event=messagecenter" class='dropdown-toggle' rel="tooltip" data-placement="bottom" title="View/Send Your Messages"><i class="icon-envelope-alt"></i><span class="label label-lightred">4</span></a>
 						<ul class="dropdown-menu pull-right message-ul">
 							<li>
 								<a href="#">
@@ -207,6 +207,7 @@
 							</li>
 						</ul>
 					</li>
+					<!---
 					<li class="dropdown sett">
 						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-cog"></i></a>
 						<ul class="dropdown-menu pull-right theme-settings">
@@ -233,6 +234,8 @@
 							</li>
 						</ul>
 					</li>
+                    --->
+					<!---
 					<li class='dropdown colo'>
 						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-tint"></i></a>
 						<ul class="dropdown-menu pull-right theme-colors">
@@ -259,21 +262,21 @@
 							</li>
 						</ul>
 					</li>
+					--->
+					<!---
 					<li>
 						<a href="more-locked.html" class='lock-screen' rel='tooltip' title="Lock screen" data-placement="bottom"><i class="icon-lock"></i></a>
 					</li>
+					--->
 				</ul>
 				<div class="dropdown">
 					<a href="#" class='dropdown-toggle' data-toggle="dropdown">John Doe <img src="img/demo/user-avatar.jpg" alt=""></a>
 					<ul class="dropdown-menu pull-right">
 						<li>
-							<a href="more-userprofile.html">Edit profile</a>
+							<a href="index.cfm?event=accountsettings">Account settings</a>
 						</li>
 						<li>
-							<a href="#">Account settings</a>
-						</li>
-						<li>
-							<a href="more-login.html">Sign out</a>
+							<a href="index.cfm?event=showLogin">Sign out</a>
 						</li>
 					</ul>
 				</div>

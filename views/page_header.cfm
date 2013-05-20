@@ -3,18 +3,22 @@
 						<h1><cfoutput>#title#</cfoutput></h1>
 					</div>
 					<div class="pull-right">
+						<!--- 
 						<ul class="minitiles">
 							<li class='grey'>
 								<a href="#"><i class="icon-cogs"></i></a>
 							</li>							
 						</ul>
+						--->
 						<ul class="stats">
 							
 							<li class='lightred'>
 								<i class="icon-calendar"></i>
 								<div class="details">
-									<span class="big">February 22, 2013</span>
-									<span>Wednesday, 13:56</span>
+									<span class="big"><cfoutput>#DateFormat(now(),"long")#</cfoutput></span>
+									<span>
+										<cfoutput>#DateFormat(now(),"dddd")#, #TimeFormat(now(), "hh:mm tt")# </cfoutput>
+									</span>
 								</div>
 							</li>
 						</ul>

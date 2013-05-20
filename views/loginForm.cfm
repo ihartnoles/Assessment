@@ -1,4 +1,4 @@
-<body class='login'>
+<body class='login theme-darkblue' >
 	<div class="wrapper">
 		<h1><a href="index.cfm"><img src="img/logo-big.png" alt="" class='retina-ready' width="59" height="49">FAU Assessment</a></h1>
 		<div class="login-body">

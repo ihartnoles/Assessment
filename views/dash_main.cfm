@@ -1,5 +1,5 @@
 <cfscript>
-title = "Dashboard";
+title = "My Dashboard";
 </cfscript>
 
 <div id="new-task" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -425,7 +425,7 @@ title = "Dashboard";
 				--->
 				<div class="row-fluid">
 					<div class="span12">
-						<div class="box">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									Quick Links
@@ -434,26 +434,28 @@ title = "Dashboard";
 							<div class="box-content">
 								<ul class="tiles tiles-center nomargin">
 									<li class="red">
-										<span class="label label-info">17</span>
-										<a href="index.cfm?event=showreportingunits"><span><i class="icon-pencil"></i></span><span class='name'>My Reporting Units</span></a>
+										<!--- <span class="label label-info">17</span> --->
+										<a href="index.cfm?event=showreportingunits" rel="tooltip" data-placement="bottom" title="View Reporting Units"><span><i class="icon-pencil"></i></span><span class='name'>Reporting Units</span></a>
 									</li>
 									<li class="blue">
-										<span class="label label-important">444</span>
-										<a href="#"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
+										<!--- <span class="label label-important">444</span> --->
+										<a href="#" rel="tooltip" data-placement="bottom" title="View/Create Reports"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
 									</li>
-									<li class="blue">
-										<span class="label label-important">444</span>
-										<a href="#"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
+									<li class="green">
+										<!--- <span class="label label-important">444</span> --->
+										<a id="calendar_button" href="#" rel="tooltip" data-placement="bottom" title="View Calendar"><span><i class="icon-calendar"></i></span><span class='name'>My Calendar</span></a>
 									</li>
 									<li class="orange">
 										<span class="label label-inverse">4</span>
-										<a href="index.cfm?event=messagecenter"><span><i class="icon-envelope"></i></span><span class='name'>My Messages</span></a>
+										<a href="index.cfm?event=messagecenter" rel="tooltip" data-placement="bottom" title="View/Send Messages"><span><i class="icon-envelope"></i></span><span class='name'>My Messages</span></a>
 									</li>
 								</ul>								
 							</div>
 						</div>
 					</div>
 				</div>
+
+<!---				
 <hr>
 				<div class="row-fluid">
 					<div class="span6">
@@ -604,6 +606,7 @@ title = "Dashboard";
 					</div>
 				</div>
 			<hr>
+--->
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box box-color box-bordered lightgrey">
@@ -680,11 +683,11 @@ title = "Dashboard";
 						</div>
 					</div>
 				</div>
-	<hr>			
+	<!--- <hr> --->
 				<div class="row-fluid">
 					<div class="span6">
-						<div class="box">
-							<div class="box-title">
+						<div class="box box-color box-bordered">
+							<div class="box-title" id="calendar">
 								<h3><i class="icon-calendar"></i>My calendar</h3>
 							</div>
 							<div class="box-content nopadding">
@@ -732,3 +735,15 @@ title = "Dashboard";
 				</div>
 			</div>
 		</div></div>
+
+
+<script>
+	$("#calendar_button").click(function (){
+            //$(this).animate(function(){
+                $('html, body').animate({
+                    scrollTop: $("#calendar").offset().top
+                     }, 2000);
+            //});
+        });
+
+</script>
