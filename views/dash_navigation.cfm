@@ -2,7 +2,9 @@
 		<div class="container-fluid">
 			<a href="#" id="brand">FAU Assessment</a>
 			
+			<!---
 			<a href="#" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+			--->
 			
 			<ul class='main-nav'>
 				<li class='active'>

@@ -36,30 +36,11 @@ title = "Message Center";
 													<div class="btn-group visible-480">
 														<a href="" class="btn btn-danger">New</a>
 													</div>
-													<div class="btn-group"><a href="#" class="btn" rel="tooltip" data-placement="bottom" title="Refresh results"><i class="icon-refresh"></i></a></div>
-													<div class="btn-group hidden-768">
-														<div class="dropdown">
-															<a href="#" class="btn" data-toggle="dropdown" rel="tooltip" data-placement="bottom" title="Mark elements"><i class="icon-check-empty"></i><span class="caret"></span></a>
-															<ul class="dropdown-menu">
-																<li><a href="#" class='sel-all'>All</a></li>
-																<li><a href="#" class='sel-unread'>Unread</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="btn-group">
-														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Archive"><i class="icon-inbox"></i></a>
-														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Mark as spam"><i class="icon-exclamation-sign"></i></a>
+													
+													<div class="btn-group">														
 														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Delete"><i class="icon-trash"></i></a>
 													</div>
-													<div class="btn-group hidden-768">
-														<div class="dropdown">
-															<a href="#" class="btn" data-toggle="dropdown" rel="tooltip" data-placement="bottom" title="Move to folder"><i class="icon-folder-close"></i><span class="caret"></span></a>
-															<ul class="dropdown-menu">
-																<li><a href="#">Some folder</a></li>
-																<li><a href="#">Another folder</a></li>
-															</ul>
-														</div>
-													</div>
+													
 												</div></div>
 												<div class="pull-right">
 													<div class="btn-toolbar">
@@ -70,18 +51,7 @@ title = "Message Center";
 															<a href="#" class="btn"><i class="icon-angle-left"></i></a>
 															<a href="#" class="btn"><i class="icon-angle-right"></i></a>
 														</div>
-														<div class="btn-group hidden-768">
-															<div class="dropdown">
-																<a href="#" class="btn" data-toggle="dropdown"><i class="icon-cog"></i><span class="caret"></span></a>
-																<ul class="dropdown-menu pull-right">
-																	<li><a href="#">Settings</a></li>
-																	<li><a href="#">Account settings</a></li>
-																	<li><a href="#">Email settings</a></li>
-																	<li><a href="#">Themes</a></li>
-																	<li><a href="#">Help &amp; FAQ</a></li>
-																</ul>
-															</div>
-														</div>
+														
 													</div>
 												</div>
 											</div>
