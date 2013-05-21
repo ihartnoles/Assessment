@@ -31,7 +31,26 @@ title = "BA Anthropology";
 													<a href="##" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #idx#</a>
 													<!--- <p class="url">www.loremasdasdd.com/</p> --->
 													
-													<p>Status: #ListGetRandom("Approved (complete) ,Submitted for review, Collect data, Revise Plan")#</p>
+													<p>Status:
+														<cfset tmp = ListGetRandom("Approved (complete),Submitted for review,Collect data,Revise Plan") />
+
+														<cfswitch expression="#tmp#">
+															<cfcase value="Approved (complete)">
+																<cfset class = "text-success" />
+															</cfcase>
+															<cfcase value="Revise Plan">
+																<cfset class = "text-error" />
+															</cfcase>
+															<cfdefaultcase>
+																<cfset class = "text-info" />
+															</cfdefaultcase>
+														</cfswitch>
+
+														<span class="#class#"> 
+
+															#tmp#
+														</span>
+													</p>
 												</div>
 											</li>
 										</cfoutput>
