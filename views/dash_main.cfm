@@ -449,6 +449,9 @@ title = "My Dashboard";
 										<span class="label label-inverse">4</span>
 										<a href="index.cfm?event=messagecenter" rel="tooltip" data-placement="bottom" title="View/Send Messages"><span><i class="icon-envelope"></i></span><span class='name'>My Messages</span></a>
 									</li>
+									<li class="satblue">
+										<a href="index.cfm?event=faq" rel="tooltip" data-placement="bottom" title="Frequently Asked Questions"><span><i class=" icon-question-sign"></i></span><span class='name'>F.A.Q.</span></a>
+									</li>
 								</ul>								
 							</div>
 						</div>

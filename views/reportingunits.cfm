@@ -98,6 +98,7 @@ title = "Reporting Units";
 										<div class="tab-content padding tab-content-inline">
 											<div class="tab-pane active" id="first">
 												<div class="accordion" id="accordion3">
+													<!---
 													<div class="accordion-group">
 														<div class="accordion-heading">
 															<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseOne2">
@@ -110,19 +111,33 @@ title = "Reporting Units";
 															</div>
 														</div>
 													</div>
+													--->
 													<div class="accordion-group">
 														<div class="accordion-heading">
-															<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo2">
-																Anthropology
-															</a>
+																<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo2">
+																	Anthropology
+																</a>																
 														</div>
+
+																												
 														<div id="collapseTwo2" class="accordion-body collapse">
 															<div class="accordion-inner">
-																<p><a href="##">BA Anthropology</a></p>
-															    <p><a href="##">MA and MAT Anthroplogy</a></p>
+																<div class="span4"> 
+																	<p><a href="index.cfm?event=showAssessmentPlanList">BA Anthropology</a></p>
+																    <p><a href="##">MA and MAT Anthroplogy</a></p>					    
+																</div>
+																
+																<div class="span4">
+																	<div class="pull-right">
+																		<a href="#">Dept. level reporting</a>
+																	</div>
+																</div>																
 															</div>
 														</div>
+													
 													</div>
+
+
 													<div class="accordion-group">
 														<div class="accordion-heading">
 															<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree2">
@@ -131,9 +146,17 @@ title = "Reporting Units";
 														</div>
 														<div id="collapseThree2" class="accordion-body collapse">
 															<div class="accordion-inner">
-																<p><a href="##">BA English</a></p>
-																<p><a href="##">MA English</a></p>
-																<p><a href="##">MAT English</a></p>
+																<div class="span4">
+																	<p><a href="##">BA English</a></p>
+																	<p><a href="##">MA English</a></p>
+																	<p><a href="##">MAT English</a></p>
+																</div>
+
+																<div class="span4">
+																	<div class="pull-right">
+																		<a href="#">Dept. level reporting</a>
+																	</div>
+																</div>			
 															</div>
 														</div>
 													</div>
