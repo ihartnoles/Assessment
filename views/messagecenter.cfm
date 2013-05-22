@@ -16,7 +16,7 @@ title = "Message Center";
 								<div class="box-content nopadding">
 								<ul class="tabs tabs-inline tabs-left">
 									<li class='write hidden-480'>
-										<a href="#">Write message</a>
+										<a href="index.cfm?event=writemessage">Write message</a>
 									</li>
 									<li class='active'>
 										<a href="#inbox" data-toggle="tab"><i class="icon-inbox"></i> Inbox <strong>(3)</strong></a>

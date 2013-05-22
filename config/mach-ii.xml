@@ -117,10 +117,18 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+		<event-handler event="writemessage" access="public">
+			<view-page name="writemessage" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
+
 		<event-handler event="accountsettings" access="public">
 			<view-page name="accountsettings" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
+
+
+
 
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
@@ -148,6 +156,7 @@
 		<page-view name="page_header" page="/views/page_header.cfm"/>
 		<page-view name="faq" page="/views/faq.cfm"/>
 		<page-view name="messagecenter" page="/views/messagecenter.cfm"/>
+		<page-view name="writemessage" page="/views/writemessage.cfm"/>
 		<page-view name="accountsettings" page="/views/accountsettings.cfm"/>
 		<page-view name="hello" page="/views/hello.cfm" />
 		<page-view name="loginForm" page="/views/loginForm.cfm" />

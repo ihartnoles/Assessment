@@ -47,6 +47,10 @@
 	<script src="js/plugins/jquery-ui/jquery.ui.draggable.min.js"></script>
 	<script src="js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
 	<script src="js/plugins/jquery-ui/jquery.ui.sortable.min.js"></script>
+	<script src="js/plugins/jquery-ui/jquery.ui.selectable.min.js"></script>
+	<script src="js/plugins/jquery-ui/jquery.ui.droppable.min.js"></script>
+	<script src="js/plugins/jquery-ui/jquery.ui.draggable.min.js"></script>
+	
 	<!-- Touch enable for jquery UI -->
 	<script src="js/plugins/touch-punch/jquery.touch-punch.min.js"></script>
 	<!-- slimScroll -->
@@ -64,6 +68,8 @@
 	<script src="js/plugins/flot/jquery.flot.bar.order.min.js"></script>
 	<script src="js/plugins/flot/jquery.flot.pie.min.js"></script>
 	<script src="js/plugins/flot/jquery.flot.resize.min.js"></script>
+	<!-- CKEditor -->
+	<script src="js/plugins/ckeditor/ckeditor.js"></script>
 	<!-- imagesLoaded -->
 	<script src="js/plugins/imagesLoaded/jquery.imagesloaded.min.js"></script>
 	<!-- PageGuide -->
