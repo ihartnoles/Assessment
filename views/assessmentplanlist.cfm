@@ -28,7 +28,7 @@ title = "BA Anthropology";
 													<img src="http://www.placehold.it/80" alt="">		
 												</div>
 												<div class="search-info">
-													<a href="##" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #idx#</a>
+													<a href="index.cfm?event=showplan" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #idx#</a>
 													<!--- <p class="url">www.loremasdasdd.com/</p> --->
 													
 													<p>Status:
