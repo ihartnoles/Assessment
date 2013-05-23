@@ -9,7 +9,7 @@ title = "Reporting Units";
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box">
-							<div class="box box-bordered box-color">
+							<div class="box box-color">
 								<div class="box-title">
 									<h3>									
 										My Reporting Units
@@ -35,7 +35,7 @@ title = "Reporting Units";
 									--->
 
 									<div class="tab-pane active" id="t1">
-										<div class="box box-bordered box-color green ">
+										<div class="box">
 											<!---
 											<div class="box-title">
 												<h3>
@@ -62,101 +62,68 @@ title = "Reporting Units";
 											<div class="tab-pane active" id="first">
 												<!--- START --->
 													<div class="row-fluid">
-					<div class="span12">
-						<div class="box box-color box-bordered">
-							<div class="box-title">
-								<h3>
-									Arts & Letters
-								</h3>
-							</div>
-							<div class="box-content nopadding">
-								
-								<div class="search-results">
-									<ul>
-										<li>
-											
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											
-											<div class="search-info">
-												<p><h4>Anthropology</h4></p>
-												<p><a href="index.cfm?event=showAssessmentPlanList" rel="tooltip" data-placement="right" title="View Assessment Plan" >BA Anthropology</a></p>
-												<p><a href="##" rel="tooltip" data-placement="right" title="View Assement Plan">MA and MAT Anthropology</a></p>		
-											</div>
+														<div class="span12">
+															<div class="box">
+																<!---
+																<div class="box-title">
+																	<h3>
+																		Arts & Letters
+																	</h3>
+																</div>
+																--->
+																<div class="box-content nopadding">
+																	
+																	<div class="search-results">
+																		<ul>
+																			<li>
+																				<!---
+																				<div class="thumbnail">
+																					<img src="http://www.placehold.it/80" alt="">
+																				</div>
+																				--->
 
-											
-										</li>
-										<li>
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											
-											<div class="search-info">
-												<p><h4>English</h4></p>
-												<p><a href="##">BA English</a></p>
-												<p><a href="##">MA English</a></p>
-												<p><a href="##">MAT English</a></p>		
-											</div>
-										</li>
-										<li>
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											
-											<div class="search-info">
-												<p><h4>History</h4></p>
-												<p><a href="##">BA History</a></p>
-												<p><a href="##">MA History</a></p>	
-											</div>
-										</li>
-										<li>
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											<div class="search-info">
-												<a href="#">Lorem ipsum dolor</a>
-												<p class="url">www.loremasdasdd.com/</p>
-												<p>Lorem ipsum minim quis mollit occaecat consectetur irure. Lorem ipsum officia Excepteur ut aliqua cillum est laboris. Lorem ipsum in exercitation enim veniam exercitation consectetur. Lorem ipsum cupidatat ea culpa cupidatat sed proident officia consequat irure dolore Excepteur consectetur. Lorem ipsum sunt ut aliquip commodo mollit ad culpa. Lorem ipsum aliquip sit laborum reprehenderit amet et anim pariatur. Lorem ipsum Ut quis irure enim quis commodo ullamco ad qui qui ut id. </p>
-											</div>
-										</li>
-										<li>
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											<div class="search-info">
-												<a href="#">Lorem ipsum dolor</a>
-												<p class="url">www.loremasdasdd.com/</p>
-												<p>Lorem ipsum minim quis mollit occaecat consectetur irure. Lorem ipsum officia Excepteur ut aliqua cillum est laboris. Lorem ipsum in exercitation enim veniam exercitation consectetur. Lorem ipsum cupidatat ea culpa cupidatat sed proident officia consequat irure dolore Excepteur consectetur. Lorem ipsum sunt ut aliquip commodo mollit ad culpa. Lorem ipsum aliquip sit laborum reprehenderit amet et anim pariatur. Lorem ipsum Ut quis irure enim quis commodo ullamco ad qui qui ut id. </p>
-											</div>
-										</li>
-										<li>
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											<div class="search-info">
-												<a href="#">Lorem ipsum dolor</a>
-												<p class="url">www.loremasdasdd.com/</p>
-												<p>Lorem ipsum minim quis mollit occaecat consectetur irure. Lorem ipsum officia Excepteur ut aliqua cillum est laboris. Lorem ipsum in exercitation enim veniam exercitation consectetur. Lorem ipsum cupidatat ea culpa cupidatat sed proident officia consequat irure dolore Excepteur consectetur. Lorem ipsum sunt ut aliquip commodo mollit ad culpa. Lorem ipsum aliquip sit laborum reprehenderit amet et anim pariatur. Lorem ipsum Ut quis irure enim quis commodo ullamco ad qui qui ut id. </p>
-											</div>
-										</li>
-										<li>
-											<div class="thumbnail">
-												<img src="http://www.placehold.it/80" alt="">
-											</div>
-											<div class="search-info">
-												<a href="#">Lorem ipsum dolor</a>
-												<p class="url">www.loremasdasdd.com/</p>
-												<p>Lorem ipsum minim quis mollit occaecat consectetur irure. Lorem ipsum officia Excepteur ut aliqua cillum est laboris. Lorem ipsum in exercitation enim veniam exercitation consectetur. Lorem ipsum cupidatat ea culpa cupidatat sed proident officia consequat irure dolore Excepteur consectetur. Lorem ipsum sunt ut aliquip commodo mollit ad culpa. Lorem ipsum aliquip sit laborum reprehenderit amet et anim pariatur. Lorem ipsum Ut quis irure enim quis commodo ullamco ad qui qui ut id. </p>
-											</div>
-										</li>
-									</ul>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
+																				<div class="span12 search-info">
+																					<p><h4>Anthropology</h4></p>
+																					<p><a href="index.cfm?event=showAssessmentPlanList" rel="tooltip" data-placement="right" title="View Assessment Plan" >BA Anthropology</a></p>
+																					<p><a href="##" rel="tooltip" data-placement="right" title="View Assement Plan">MA and MAT Anthropology</a></p>		
+																				</div>
+
+																				
+																			</li>
+																			<li>
+																				<!---
+																				<div class="thumbnail">
+																					<img src="http://www.placehold.it/80" alt="">
+																				</div>
+																				--->
+																				
+																				<div class="span12 search-info">
+																					<p><h4>English</h4></p>
+																					<p><a href="##">BA English</a></p>
+																					<p><a href="##">MA English</a></p>
+																					<p><a href="##">MAT English</a></p>		
+																				</div>
+																			</li>
+																			<li>
+																				<!---
+																				<div class="thumbnail">
+																					<img src="http://www.placehold.it/80" alt="">
+																				</div>
+																				--->
+																				
+																				<div class="span12 search-info">
+																					<p><h4>History</h4></p>
+																					<p><a href="##">BA History</a></p>
+																					<p><a href="##">MA History</a></p>	
+																				</div>
+																			</li>																			
+																		</ul>
+																	</div>
+																	
+																</div>
+															</div>
+														</div>
+													</div>
 												<!--- END --->
 											</div>
 											<div class="tab-pane" id="second">
@@ -208,7 +175,7 @@ title = "Reporting Units";
 							</div>
 									</div>
 									<div class="tab-pane" id="t2"><!--- begin #t2 --->
-										<div class="box box-bordered box-color orange">
+										<div class="box">
 											<!---
 											<div class="box-title">
 												<h3>
@@ -234,23 +201,26 @@ title = "Reporting Units";
 													<!--- START --->
 													<div class="row-fluid">
 														<div class="span12">
-															<div class="box box-color box-bordered">
+															<div class="box">
+																<!---
 																<div class="box-title">
 																	<h3>
 																		Academic Affairs
 																	</h3>
 																</div>
+																--->
 																<div class="box-content nopadding">
 																	
 																	<div class="search-results">
 																		<ul>
 																			<li>
-																				
+																				<!---
 																				<div class="thumbnail">
 																					<img src="http://www.placehold.it/80" alt="">
 																				</div>
+																				--->
 																				
-																				<div class="search-info">
+																				<div class="span12 search-info">
 																					<p><h4>Undergraduate Studies</h4></p>
 																					<p><a href="index.cfm?event=showAssessmentPlanList" rel="tooltip" data-placement="right" title="View Assessment Plan" >Lorem Ipsum</a></p>
 																					<p><a href="##" rel="tooltip" data-placement="right" title="View Assement Plan">Lorem Ipsum</a></p>		
@@ -259,11 +229,12 @@ title = "Reporting Units";
 																				
 																			</li>
 																			<li>
+																				<!---
 																				<div class="thumbnail">
 																					<img src="http://www.placehold.it/80" alt="">
 																				</div>
-																				
-																				<div class="search-info">
+																				--->
+																				<div class="span12 search-info">
 																					<p><h4>University Libraries</h4></p>
 																					<p><a href="index.cfm?event=showAssessmentPlanList" rel="tooltip" data-placement="right" title="View Assessment Plan" >Lorem Ipsum</a></p>
 																					<p><a href="##" rel="tooltip" data-placement="right" title="View Assement Plan">Lorem Ipsum</a></p>	
