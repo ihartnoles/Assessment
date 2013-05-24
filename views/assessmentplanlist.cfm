@@ -14,8 +14,12 @@ title = "BA Anthropology";
 							<div class="box-title">
 								<h3>
 									<i class="icon-search"></i>
-									Assessment Plan List
+									Assessment Plan Periods
 								</h3>
+
+									<div class="actions">
+									<a href="##" class='btn' rel="popover" data-trigger="hover" title="" data-placement="left" data-content="This is a list of the available plan periods Click on the plan-period to view the plan specifics." ><i class=" icon-question-sign"></i> Help</a>
+								</div>
 							</div>
 							<div class="box-content nopadding">
 								

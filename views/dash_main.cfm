@@ -425,11 +425,19 @@ title = "My Dashboard";
 				--->
 				<div class="row-fluid">
 					<div class="span12">
-						<div class="box box-color box-bordered">
+						<div class="box box-color">
 							<div class="box-title">
 								<h3>
-									Quick Links
+									Quick Links    
+
 								</h3>
+								<div class="actions">
+									<a href="##" class='btn' rel="popover" data-trigger="hover" title="" data-placement="left" data-content="These are your quick links. You can click on a tile to quickly access a specific area in the system." ><i class=" icon-question-sign"></i> Help</a>
+								</div>
+
+								<!---
+								<a href="#" class="btn" rel="popover" data-trigger="hover" title="" data-placement="left" data-content="Lorem ipsum et dolor aute deserunt nisi do. Lorem ipsum irure aute officia id pariatur ex adipisicing deserunt velit consequat cupidatat adipisicing commodo. Lorem ipsum ad fugiat velit elit et non id. " data-original-title="Left popover">Left popover</a>
+								--->
 							</div>
 							<div class="box-content">
 								<ul class="tiles tiles-center nomargin">
@@ -616,8 +624,8 @@ title = "My Dashboard";
 							<div class="box-title">
 								<h3><i class="icon-ok"></i>My Tasks</h3>
 								<div class="actions">
-									<a href="#new-task" data-toggle="modal" class='btn'><i class="icon-plus-sign"></i> Add Task</a>
-								</div>
+									<a href="#new-task" data-toggle="modal" class='btn'><i class="icon-plus-sign"></i> Add Task</a>  <a href="##" class='btn' rel="popover" data-trigger="hover" title="" data-placement="left" data-content="This is your personalized task list.  It allows you to keep track of what you need to do in the system." ><i class=" icon-question-sign"></i> Help</a>
+								</div>								
 							</div>
 							<div class="box-content nopadding">
 								<ul class="tasklist">
@@ -692,6 +700,7 @@ title = "My Dashboard";
 						<div class="box box-color box-bordered">
 							<div class="box-title" id="calendar">
 								<h3><i class="icon-calendar"></i>My calendar</h3>
+
 							</div>
 							<div class="box-content nopadding">
 								<div class="calendar"></div>
@@ -704,6 +713,8 @@ title = "My Dashboard";
 								<h3><i class="icon-bullhorn"></i>System Activity</h3>
 								<div class="actions">
 									<a href="#" class="btn btn-mini custom-checkbox checkbox-active">Automatic refresh<i class="icon-check-empty"></i></a>
+
+									<a href="##" class='btn' rel="popover" data-trigger="hover" title="" data-placement="left" data-content="This is the system activity feed. It gives you an idea of what others are doing in the system." ><i class=" icon-question-sign"></i> Help</a>
 								</div>
 							</div>
 							<div class="box-content nopadding scrollable" data-height="400" data-visible="true">

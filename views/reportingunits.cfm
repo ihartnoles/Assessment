@@ -71,6 +71,11 @@ title = "Reporting Units";
 																	</h3>
 																</div>
 																--->
+																<div class="span12">
+																	<h3>
+																		Arts & Letters
+																	</h3>
+																</div>
 																<div class="box-content nopadding">
 																	
 																	<div class="search-results">
@@ -127,6 +132,10 @@ title = "Reporting Units";
 												<!--- END --->
 											</div>
 											<div class="tab-pane" id="second">
+												<div class="span12 nopadding">
+													<h3>Business</h3>
+												</div>
+												<!---
 												<div class="accordion" id="accordion4">
 													<div class="accordion-group">
 														<div class="accordion-heading">
@@ -153,6 +162,7 @@ title = "Reporting Units";
 														</div>
 													</div>
 												</div>
+												--->
 											</div>
 											<div class="tab-pane" id="thirds">
 												<div class="accordion" id="accordion5">
@@ -184,14 +194,15 @@ title = "Reporting Units";
 												</h3>
 											</div>
 											--->
+
 											<div class="nopadding">
 												<div class="tabs-container">
 													<ul class="tabs tabs-inline tabs-left">
 														<li class='active'>
-															<a href="#supportfirst" data-toggle='tab'> Academic Affairs</a>
+															<a href="#supportfirst" data-toggle='tab'>Academic Affairs</a>
 														</li>
 														<li>
-															<a href="#supportsecond" data-toggle='tab'> Comm. Engagement</a>
+															<a href="#supportsecond" data-toggle='tab'>Comm. Engagement</a>
 														</li>
 														
 													</ul>
@@ -200,6 +211,9 @@ title = "Reporting Units";
 													<div class="tab-pane active" id="supportfirst">
 													<!--- START --->
 													<div class="row-fluid">
+														<div class="span12 nopadding">
+															<h3>Academic Affairs</h3>
+														</div>
 														<div class="span12">
 															<div class="box">
 																<!---
@@ -248,6 +262,10 @@ title = "Reporting Units";
 																					<!--- END --->
 													</div>
 													<div class="tab-pane" id="supportsecond">
+														<div class="span12 nopadding">
+															<h3>Community Engagement</h3>
+														</div>
+														<!---
 														<div class="accordion" id="supportaccordion4">
 															<div class="accordion-group">
 																<div class="accordion-heading">
@@ -264,6 +282,7 @@ title = "Reporting Units";
 															</div>
 															
 														</div>
+														--->
 													</div>
 													
 												</div>
