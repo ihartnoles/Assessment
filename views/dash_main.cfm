@@ -388,6 +388,7 @@ title = "My Dashboard";
 					<div class="pull-right">
 						
 						<ul class="stats">
+							<!---
 							<li class='green'>
 								<i class="icon-arrow-up"></i>
 								<div class="details">
@@ -395,6 +396,7 @@ title = "My Dashboard";
 									<span>Lorem Ipsum</span>
 								</div>
 							</li>
+							--->
 							<li class='lightred'>
 								<i class="icon-calendar"></i>
 								<div class="details">
