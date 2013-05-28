@@ -18,8 +18,88 @@
 		</cfscript>
 	</cffunction>
 
-
 	
+	<cffunction name="preProcess" access="public" returntype="void" output="true" 
+		hint="I am step 1/3 of the API call cycle. I am followed by handleRequest()">  
+	     <cfargument name="event" type="MachII.framework.Event" required="true" />
+	     <cfscript> 
+	     	super.preProcess(arguments.event);
+		 	setResponseFormat(arguments.event);
+		 	//checkProtocol();
+		 	//checkCredentials(arguments.event);
+	     </cfscript>
+	</cffunction>
+	 
+	 
+	<!--- 
+	<cffunction name="handleRequest" access="public" returntype="void" output="true"
+		hint="I am step 2/3 of the API call cycle. I am preceded by preProcess() and followed by postProcess(). I call the defined REST Endpoint function and render the response.">
+		<cfargument name="event" type="MachII.framework.Event" required="true" /> 
+		
+		<!--- <cfif arguments.event.getArg('status',false) EQ true> --->
+			<cfset local.pathinfo   = arguments.event.getArg("pathInfo", "") />
+			<cfset local.httpMethod = arguments.event.getArg("httpMethod", "") />
+			<cfset local.restUri    = variables.restUris.findRestUri(local.pathinfo, local.httpMethod) />
+			<cfset local.userinfo 	= arguments.event.getArg('userinfo') />
+
+			<!---<cfdump var="#local#" abort="true" />--->
+
+			<cfif IsObject(local.restUri)>
+				<cfset local.restResponseBody = callEndpointFunction(local.restUri, event) />
+				<cfset addContentTypeHeaderFromFormat(event.getArg("format", "")) />
+				<cfset arguments.event.setArg("_responseBody", local.restResponseBody) />
+				<cfsetting enablecfoutputonly="false" /><cfoutput>#local.restResponseBody#</cfoutput><cfsetting enablecfoutputonly="true" />	
+			<cfelse>
+				<cfthrow type    = "404"
+					     message = "No URI Found"
+					     detail  = "No REST URI was found for '#local.pathinfo#', httpMethod='#local.httpMethod#'" />
+			</cfif>
+		<!--- </cfif> --->
+	</cffunction>
+	--->
+	
+
+	<cffunction name="postProcess" access="public" output="false"
+		hint="I am step 3/3 of the API call cycle. I am preceded by handleRequest() and I tie loose end before shipping back the generated response.">     
+     	<cfargument name="event" type="MachII.framework.Event" required="true" />   
+		<cfscript>	
+		 	local.uri        = arguments.event.getArg('uri', arguments.event.getArg('pathInfo'));
+		    //local.version    = listGetAt(listGetAt(local.uri,1,"/"),1,"."); 
+		 	//local.location   = listSetAt(local.uri,1,local.version,"/");
+		 	local.location  = "test";
+		 	local.rHeaders   = arguments.event.getArg('responseHeaders',[]);
+		 	local.statusCode = arguments.event.getArg('statusCode','');
+		 	local.status     = arguments.event.getArg('status',false);
+		 	local.response   = (event.isArgDefined("_responseBody")) ? event.getArg('_responseBody') : '';
+		 	local.event      = arguments.event;
+		 	local.utcNow     = dateConvert("local2Utc",now());
+		 	local.rightNow   = dateFormat(local.utcNow,"ddd, DD mmm YYYY") & " " & timeFormat(local.utcNow,"HH:MM:ss") & " GMT";
+		 	
+		 	writedump(var=local, abort="true");
+
+		 	// set static headers
+		 	setResponseHeader("Location","#local.location#",true); 
+		 	setResponseHeader("Content-Size","#getPageContext().getCFOutput().getBuffer().size()#",true);
+			setResponseHeader("Cache-Control","private,no-store,no-cache,must-revalidate",true); 		 	
+		 	setResponseHeader("Expires","#local.rightNow#",true); 
+		 	
+		 	// set dynamic headers by looping over event.responseHeaders
+		 	if( arraylen(local.rHeaders) GTE 1){
+		 		local.it = local.rHeaders.iterator();                 
+                 
+            	while(local.it.hasNext()){                 
+                 	local.rhi = it.next();  
+                 	setResponseHeader(headerName  = local.rhi.headerName,
+                 					  headerValue = local.rhi.headerValue);               
+                }
+		 	}
+		 	
+		 	if(len(local.statusCode)){
+		 		getpagecontext().getresponse().setstatus(local.statusCode);
+		 	}
+		</cfscript>     
+	</cffunction>
+
 	
 		<cffunction name="onException" access="public" returntype="void" output="false" 
 		hint="Override abstract onException() to report exceptions in our private API">
