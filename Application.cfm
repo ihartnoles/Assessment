@@ -1,6 +1,8 @@
 
 <cfapplication name="Assessment" sessionmanagement="yes" />
 
+<cfsetting requesttimeout="120" showDebugOutput = "yes"/>
+
 <!--- Set the path to the application's mach-ii.xml file. --->
 <cfset MACHII_CONFIG_PATH = ExpandPath("./config/mach-ii.xml") />
 <!--- Set the configuration mode (when to reload): -1=never, 0=dynamic, 1=always --->
@@ -13,9 +15,11 @@
 
 <cfset MACHII_VALIDATE_XML = false />
 
-<cfset wbroot = 'C:\inetpub\wwwroot\Assessment' />
+<cfset application.wbroot = 'C:\inetpub\wwwroot\Assessment' />
+
+<cfset application.devEmails = 'ihartstein@fau.edu' />
 
 <cfif StructKeyExists(url, "reinit")>
-			<cfsetting requesttimeout="120" />
+			<cfsetting requesttimeout="120"/>
 			<cfset MACHII_CONFIG_MODE = 1 />
 </cfif>
