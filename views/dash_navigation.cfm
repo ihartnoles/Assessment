@@ -13,6 +13,7 @@
 					</a>
 				</li>
 			
+				<!---
 				<li>
 					<a href="#" data-toggle="dropdown" class='dropdown-toggle'>
 						<span>Components</span>
@@ -54,7 +55,8 @@
 						</li>
 					</ul>
 				</li>
-				
+				--->
+				<!---
 				<li>
 					<a href="#" data-toggle="dropdown" class='dropdown-toggle'>
 						<span>Plugins</span>
@@ -85,6 +87,7 @@
 						
 					</ul>
 				</li>
+				--->
 				<li>
 					<a href="#" data-toggle="dropdown" class='dropdown-toggle'>
 						<span>Help</span>

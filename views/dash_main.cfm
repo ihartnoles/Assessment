@@ -286,6 +286,7 @@ title = "My Dashboard";
 		</form>
 
 	</div>
+	<!---
 	<div id="modal-user" class="modal hide">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -330,6 +331,7 @@ title = "My Dashboard";
 			<button class="btn" data-dismiss="modal">Close</button>
 		</div>
 	</div>
+	--->
 	
 	<div class="container-fluid" id="content">
 		<div id="left nav_hidden"  style="display: none;">
@@ -449,7 +451,7 @@ title = "My Dashboard";
 									</li>
 									<li class="blue">
 										<!--- <span class="label label-important">444</span> --->
-										<a href="#" rel="tooltip" data-placement="bottom" title="View/Create Reports"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
+										<a href="index.cfm?event=reports" rel="tooltip" data-placement="bottom" title="View/Create Reports"><span><i class="icon-bar-chart"></i></span><span class='name'>Reports</span></a>
 									</li>
 									<li class="green">
 										<!--- <span class="label label-important">444</span> --->

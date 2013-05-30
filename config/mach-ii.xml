@@ -132,6 +132,11 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+		<event-handler event="reports" access="public">
+			<view-page name="reports" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
+
 
 
 
@@ -170,6 +175,7 @@
 		<page-view name="reportingunits" page="/views/reportingunits.cfm" />
 		<page-view name="assessmentplanlist" page="/views/assessmentplanlist.cfm" />
 		<page-view name="assessmentplan" page="/views/assessmentplan.cfm" />
+		<page-view name="reports" page="/views/reports.cfm" />
 		<page-view name="listUsers" page="/views/listUsers.cfm" />
 		<page-view name="mainMenu" page="/views/mainMenu.cfm" />
 		<page-view name="exception" page="/views/exception.cfm" />
