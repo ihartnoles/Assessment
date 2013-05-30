@@ -51,6 +51,7 @@ title = "Frequently Asked Questions";
 												</div>
 											</div>
 										</div>
+										<!--- 
 										<div class="accordion-group">
 											<div class="accordion-heading">
 												<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
@@ -70,7 +71,7 @@ title = "Frequently Asked Questions";
 											<div id="collapseThree" class="accordion-body collapse">
 												<div class="accordion-inner">Lorem ipsum Labore Excepteur nisi qui eiusmod minim occaecat quis esse quis nostrud Ut. Lorem ipsum Dolore sunt nulla dolor aute pariatur aliqua qui nisi. Lorem ipsum Et enim labore qui in cillum reprehenderit laborum fugiat nostrud in. Lorem ipsum Fugiat in aute do ad sunt nostrud elit enim sed adipisicing.</div>
 											</div>
-										</div>
+										</div> --->
 									</div>
 								</div>
 							</div>

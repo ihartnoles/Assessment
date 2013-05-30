@@ -98,44 +98,9 @@
 							<a href="index.cfm?event=faq">FAQ</a>
 						</li>
 						<li>
-							<a href="more-error.html">Error pages</a>
-						</li>
-						<li class='dropdown-submenu'>
-							<a href="#" data-toggle="dropdown" class='dropdown-toggle'>Shop</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="more-shop-list.html">List view</a>
-								</li>
-								<li>
-									<a href="more-shop-product.html">Product view</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="more-pricing.html">Pricing tables</a>
+							<a href="index.cfm?event=accountsettings">User profile</a>
 						</li>
 						
-						<li>
-							<a href="more-invoice.html">Invoice</a>
-						</li>
-						<li>
-							<a href="more-userprofile.html">User profile</a>
-						</li>
-						<li>
-							<a href="more-searchresults.html">Search results</a>
-						</li>
-						<li>
-							<a href="more-login.html">Login</a>
-						</li>
-						<li>
-							<a href="more-locked.html">Lock screen</a>
-						</li>
-						<li>
-							<a href="more-email.html">Email templates</a>
-						</li>
-						<li>
-							<a href="more-blank.html">Blank page</a>
-						</li>
 						<li class='dropdown-submenu'>
 							<a href="#" data-toggle="dropdown" class='dropdown-toggle'>Another submenu</a>
 							<ul class="dropdown-menu">
@@ -161,6 +126,45 @@
 								</li>
 							</ul>
 						</li>
+						<!--- 
+						<li>
+							<a href="more-error.html">Error pages</a>
+						</li>
+						<li class='dropdown-submenu'>
+							<a href="#" data-toggle="dropdown" class='dropdown-toggle'>Shop</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="more-shop-list.html">List view</a>
+								</li>
+								<li>
+									<a href="more-shop-product.html">Product view</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="more-pricing.html">Pricing tables</a>
+						</li>
+						
+						<li>
+							<a href="more-invoice.html">Invoice</a>
+						</li>
+						
+						<li>
+							<a href="more-searchresults.html">Search results</a>
+						</li>
+						<li>
+							<a href="more-login.html">Login</a>
+						</li>
+						<li>
+							<a href="more-locked.html">Lock screen</a>
+						</li>
+						<li>
+							<a href="more-email.html">Email templates</a>
+						</li>
+						<li>
+							<a href="more-blank.html">Blank page</a>
+						</li> --->
+						
 					</ul>
 				</li>
 				
