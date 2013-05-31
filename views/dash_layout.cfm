@@ -86,7 +86,7 @@
 	<!-- Theme framework -->
 	<script src="js/eakroko.min.js"></script>
 	<!-- Theme scripts -->
-	<script src="js/application.min.js"></script>
+	<script src="js/application.js"></script>
 	<!-- Just for demonstration -->
 	<script src="js/demonstration.js"></script>
 

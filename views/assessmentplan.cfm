@@ -142,8 +142,25 @@ title = "Plan Period: 2012-2013";
 														</li>
 													</ul>
 													<div class="tab-content padding tab-content-inline tab-content-bottom">
-														<div class="tab-pane active" id="first11">
-															Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum voluptatibus velit tempora numquam ipsa consequuntur esse et dolores aliquam sit sunt illo recusandae amet officiis dolorem debitis facilis! Quia dolore facere commodi numquam id quo aperiam inventore ratione reiciendis in unde sequi soluta. Obcaecati hic molestias deleniti aliquid optio fugiat repellat ab modi maiores minus eius quasi exercitationem officia reiciendis molestiae in dignissimos aspernatur eveniet voluptas consequuntur corporis. Magni itaque quod doloremque quas ad incidunt accusamus libero. Id praesentium veniam beatae est in excepturi atque consequuntur odio! Iste maiores exercitationem temporibus optio nostrum doloremque commodi vero accusamus dolorem aut voluptatem tempora maxime tenetur labore nesciunt quis fugit aliquid amet quasi expedita sed delectus voluptatum deserunt illum ad provident suscipit ex consequatur repellat similique qui nemo accusantium distinctio eveniet porro animi obcaecati voluptates quo consequuntur dolores saepe sit. Maxime numquam earum quidem iure a at temporibus minima natus? Impedit quo architecto nobis deserunt cupiditate ex provident consectetur! Obcaecati corrupti tempore adipisci voluptatum vitae perferendis quidem soluta a officia possimus modi nobis velit facere repellendus quia fugiat assumenda? Non magni at nesciunt officia perferendis fuga inventore quis veritatis voluptas laudantium aliquid iusto omnis eaque vitae commodi repellat voluptatibus cupiditate minus ut a.
+														<div class="tab-pane" id="first11">
+															<div class="span6">
+															<div class="box box-color green box-bordered">
+																<div class="box-title">
+																	<h3>
+																		<i class="icon-tint"></i>
+																		Specific color
+																	</h3>
+																	<div class="actions">
+																		<a href="#" class="btn btn-mini content-refresh"><i class="icon-refresh"></i></a>
+																		<a href="#" class="btn btn-mini content-remove"><i class="icon-remove"></i></a>
+																		<a href="#" class="btn btn-mini content-slideUp"><i class="icon-angle-down"></i></a>
+																	</div>
+																</div>
+																<div class="box-content">
+																	You can set the box to a specific color!
+																</div>
+															</div>
+														</div>
 														</div>
 														<div class="tab-pane" id="second22">
 															<div class="row-fluid sortable-box">
@@ -154,8 +171,12 @@ title = "Plan Period: 2012-2013";
 																					<i class="icon-file"></i>
 																					Outcome #1
 																				</h3>
+																				<div class="actions">
+																					<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
+																				</div>
 																			</div>
 																			<div class="box-content">
+																				<h4>Description and Methodology</h4>
 																				<p><strong>Outcome Description </strong><br>
 																				Demonstrate knowledge of the major concepts, theories, and methods of anthropology: archaeology, biological anthropology, and cultural anthropology. Demonstrate knowledge of the major vocabulary, concepts, theories and arguments associated with a research question or topics.</p>
 
@@ -165,8 +186,36 @@ title = "Plan Period: 2012-2013";
 																				     Procedural Knowledge (Research skills) <br>
 																				     ProceduralKnowledge (Technical Skills) <br><br>
 
+
+																				<p><strong>FAU Strategic Plan related goals & objectives:</strong></p>
+																				Goal 1(all objectives): Providing Increased Access to Higher Education
+
+																				<br>Goal 1, Objective 1: Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts
+
+																				<br>Goal 4, Objective 5: Engage students, faculty and staff in service activities that mutually benefit the University and the community<br><br>
+
+
 																				<p><strong>Implementing Strategy :</strong></p>
-																				Ensure that all students accomplish at least six credits in each subfield of anthropology: biological, archaeology, and cultural. In the process they must demonstrate sufficient command of the material as judged by professors on the work produced. Additionally, students must take at least six credits of research methods courses: the methodology sections of their research papers should demonstrate that they can apply theories to particular problems/questions. <br>
+																				<p>Ensure that all students accomplish at least six credits in each subfield of anthropology: biological, archaeology, and cultural. In the process they must demonstrate sufficient command of the material as judged by professors on the work produced. Additionally, students must take at least six credits of research methods courses: the methodology sections of their research papers should demonstrate that they can apply theories to particular problems/questions. </P>
+
+
+																				<p><strong>Assessment Method :</strong></p>
+																				<p>Assessment based on demonstration of satisfactory or better performance (on average) on for a sample of individual student work that is reviewed annually. The methodology sections of student papers in the methods courses will be reviewed to ensure that students' performance meets standards. The rubric used is attached. </p>
+
+																				<p>This method will ensure that we continue to abide by the commitments of our ALC, which require that all graduating students meet the department's standards for content knowledge. If we identify problems in meeting those goals, we will develop a departmental plan to strengthen the problem areas in courses.</p>
+
+
+
+																				<p><strong>Criterion for success </strong></p>
+																				<ul>
+																					<li>80% will meet expectations.</li>
+																					<li>10% excellent</li>
+																					<li>30% above satisfactory</li>
+																					<li>60% satisfactory</li>
+																				</ul>
+
+																				<p>As this is the first attempt at using this rubric, success criterion is experimental.</p>
+																				
 
 																			</div>
 																		</div>
@@ -176,8 +225,11 @@ title = "Plan Period: 2012-2013";
 																					<i class="icon-file"></i>
 																					Outcome #2
 																				</h3>
+																				<div class="actions">
+																					<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
+																				</div>
 																			</div>
-																			<div class="box-content">
+																			<div class="box-content"  style="display: none;">
 																				Lorem ipsum Ut laborum irure eu quis ex proident.
 																			</div>
 																		</div>
@@ -187,8 +239,12 @@ title = "Plan Period: 2012-2013";
 																					<i class="icon-file"></i>
 																					Outcome #3
 																				</h3>
+																				<div class="actions">
+																					<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
+																				</div>
+																				
 																			</div>
-																			<div class="box-content">
+																			<div class="box-content"  style="display: none;">
 																				Lorem ipsum Amet amet sit dolore fugiat ullamco do. 
 																			</div>
 																		</div>
