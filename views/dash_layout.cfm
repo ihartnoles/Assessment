@@ -33,6 +33,8 @@
 	<!-- Color CSS -->
 	<link rel="stylesheet" href="css/themes.css">
 
+	<!-- rating CSS -->
+	<link rel="stylesheet" href="css/jquery.rating.css">
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -82,6 +84,10 @@
 	<script src="js/plugins/select2/select2.min.js"></script>
 	<!-- icheck -->
 	<script src="js/plugins/icheck/jquery.icheck.min.js"></script>
+
+
+	<script src="js/jquery.MetaData.js"></script>
+	<script src="js/jquery.rating.js"></script>
 
 	<!-- Theme framework -->
 	<script src="js/eakroko.min.js"></script>

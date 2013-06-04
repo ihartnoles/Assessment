@@ -21,6 +21,9 @@
 	<!-- Color CSS -->
 	<link rel="stylesheet" href="css/themes.css">
 
+	<!-- rating CSS -->
+	<link rel="stylesheet" href="css/jquery.rating.css">
+
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -35,6 +38,8 @@
 	<!-- Bootstrap -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/eakroko.js"></script>
+
+	
 
 	<!--[if lte IE 9]>
 		<script src="js/plugins/placeholder/jquery.placeholder.min.js"></script>
