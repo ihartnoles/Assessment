@@ -145,10 +145,12 @@ title = "Plan Period: 2012-2013";
 														<li>
 															<a href="#docs2" data-toggle='tab'><i class="icon-inbox"></i> Supporting Docs</a>
 														</li>
+													
+														<!---
 														<li>
 															<a href="#checklist" data-toggle='tab'><i class="icon-inbox"></i> Plan Checklist</a>
 														</li>
-														<!---
+														
 														<li>
 															<a href="#thirds3322" data-toggle='tab'><i class="icon-tag"></i> Lorem Ipsum</a>
 														</li>

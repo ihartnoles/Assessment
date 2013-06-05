@@ -136,11 +136,13 @@ title = "Plan Period: 2012-2013";
 														<li class='active'>
 															<a href="#second22" data-toggle='tab'><i class="icon-share-alt"></i> Outcomes & Measures</a>
 														</li>
+														<!---
 														<li>
 															<a href="#thirds3322" data-toggle='tab'><i class="icon-tag"></i> Lorem Ipsum</a>
 														</li>
+														--->
 														<li>
-															<a href="#thirds33" data-toggle='tab'><i class="icon-trash"></i> Lorem Ipsum</a>
+															<a href="#checklist" data-toggle='tab'><i class="icon-trash"></i>Plan Checklist</a>
 														</li>
 													</ul>
 													<div class="tab-content padding tab-content-inline tab-content-bottom">
@@ -319,12 +321,106 @@ title = "Plan Period: 2012-2013";
 																	</div>
 																</div>
 														</div>
-														<div class="tab-pane" id="thirds3322">
-															Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ipsum ab odio accusamus similique dicta ipsam dolor magni nemo? Laudantium numquam consectetur maiores quaerat totam cupiditate error repellendus eos quibusdam dolore ipsum sequi illo blanditiis voluptatibus veniam dicta alias tempore consequuntur reprehenderit dignissimos iste sit perferendis possimus quisquam id voluptatum explicabo ut ad accusamus neque. Commodi ipsam quia aperiam nisi id unde sapiente magnam reiciendis voluptate placeat in optio consequuntur culpa magni repudiandae veniam aut. Magni sed asperiores omnis error nemo cum minima illum rerum assumenda ipsa excepturi odit laborum doloremque iure temporibus consectetur in culpa libero iusto repellendus. Culpa perspiciatis nesciunt explicabo officiis beatae ipsam qui odio architecto asperiores ad amet aspernatur veniam ex voluptates cumque expedita reiciendis nobis incidunt harum praesentium a totam ut cum corrupti quia rem provident delectus fuga deserunt itaque aut fugiat veritatis necessitatibus inventore nisi enim aliquid quibusdam! Nihil ratione laboriosam accusamus. Iure sapiente iste odit voluptas sit reiciendis. Cum voluptatibus quia cupiditate cumque eveniet mollitia unde adipisci vel itaque ipsa est iste ducimus sed consequuntur ratione eaque voluptates et odit quod nemo quis aut repudiandae ipsum nostrum deserunt! Excepturi cum eos ut labore debitis facilis ipsum! Fugit eos dicta amet neque qui deserunt!
+														<div class="tab-pane" id="checklist">
+															<form id="form1">
+																	<div class="Clear">
+																	    <h4>Student Learning Outcomes</h4>
+																	    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   <br><br>
+																   <div class="Clear">
+																	    <h4>Assessment Method</h4>
+																	    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-2" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-2" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-2" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-2" value="Exemplary" title="Exemplary"/>
+																   </div>
+																    <br>
+																    <div class="Clear">																	   
+																	    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-3" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-3" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-3" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-3" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   <br>
+																    <div class="Clear">																	   
+																	    <p><strong>C. Types of Measures</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-4" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-4" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-4" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-4" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   <br>
+																    <div class="Clear">																	   
+																	    <p><strong>D.  Specification of desired results for outcomes
+</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-5" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-5" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-5" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-5" value="Exemplary" title="Exemplary"/>
+																   </div>
+																    <br>
+																    <div class="Clear">																	   
+																	    <p><strong>E.   Data collection & reliability
+</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-6" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-6" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-6" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   <br><br>
+																   <div class="Clear">
+																	    <h4>Results of program assessment</h4>
+																	    <p><strong>A. Presentation of results</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-7" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-7" value="Exemplary" title="Exemplary"/>
+																   </div>
+																    <br>
+																    <div class="Clear">																	   
+																	    <p><strong>B. History of results</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-8" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-8" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-8" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-8" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   <br>
+																    <div class="Clear">																	   
+																	    <p><strong>C. Interpreation of Results</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-9" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-9" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-9" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-9" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   <br>
+																    <div class="Clear">																	   
+																	    <p><strong>D. Communication of Results with faculty/stakeholders
+</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-10" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-10" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-10"value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
+																   </div>
+																    <br><br>
+																    <div class="Clear">
+																	    <h4>Use of results for improvement</h4>
+																	    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
+																	    <input class="star" type="radio" name="test-1-rating-11" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-rating-11" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-rating-11" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-rating-11" value="Exemplary" title="Exemplary"/>
+																   </div>
+																   
+															</form>
 														</div>
-														<div class="tab-pane" id="thirds33">
-															Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem tempore accusamus officiis et nihil qui ea voluptatem itaque enim obcaecati iure distinctio quam molestiae deleniti iste necessitatibus dolorem quos rerum inventore suscipit! Temporibus suscipit excepturi molestias harum tempora nihil sed placeat atque nobis a minima sit id deserunt expedita ex! Tempore incidunt animi iste vitae dignissimos adipisci nisi impedit doloribus blanditiis unde nobis totam laboriosam maxime in quam repudiandae eos atque illum. Eaque facilis voluptates architecto suscipit sed dolor possimus earum molestiae ratione porro necessitatibus nihil sint recusandae optio eligendi ipsum maiores cum impedit dolores soluta ullam similique quas quod assumenda laudantium unde excepturi sequi hic aperiam tenetur explicabo laboriosam maxime perspiciatis placeat commodi illo dolorem corporis tempora voluptatem culpa nobis veritatis consequatur veniam mollitia ex animi qui omnis dolore et quae. Natus itaque quisquam repellat enim accusamus vel deserunt veniam vitae earum nostrum nulla maxime quas ipsa cum rem ut fugiat repellendus quis voluptates eligendi voluptatibus animi obcaecati esse illo incidunt? Amet repudiandae ducimus vel sit neque magni optio eveniet ut eum adipisci incidunt laudantium consectetur debitis veniam tempore temporibus maiores inventore! Libero hic quisquam nihil pariatur perspiciatis beatae non at commodi sint dolore tempora corporis explicabo quam saepe? 
-														</div>
+														
 													</div>
 												</div>
 											</div>
