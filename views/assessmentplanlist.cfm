@@ -28,10 +28,12 @@ title = "BA Anthropology";
 										<cfloop list="2012-2013,2011-2012,2010-2011,2009-2010" index="idx">	
 										<cfoutput>		
 											<li>
+												<!---
 												<div class="thumbnail"> 
 													<img src="http://www.placehold.it/80" alt="">		
 												</div>
-												<div class="search-info">
+												--->
+												<div class="span12 search-info">
 													<a href="index.cfm?event=showplan" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #idx#</a>
 													<!--- <p class="url">www.loremasdasdd.com/</p> --->
 													

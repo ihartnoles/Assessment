@@ -36,6 +36,9 @@
 	<!-- rating CSS -->
 	<link rel="stylesheet" href="css/jquery.rating.css">
 
+	<!-- Plupload -->
+	<link rel="stylesheet" href="css/plugins/plupload/jquery.plupload.queue.css">
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	
@@ -72,6 +75,14 @@
 	<script src="js/plugins/flot/jquery.flot.resize.min.js"></script>
 	<!-- CKEditor -->
 	<script src="js/plugins/ckeditor/ckeditor.js"></script>
+
+	<!-- PLUpload -->
+	<script src="js/plugins/plupload/plupload.full.js"></script>
+	<script src="js/plugins/plupload/jquery.plupload.queue.js"></script>
+	<!-- Custom file upload -->
+	<script src="js/plugins/fileupload/bootstrap-fileupload.min.js"></script>
+	<script src="js/plugins/mockjax/jquery.mockjax.js"></script>
+	
 	<!-- imagesLoaded -->
 	<script src="js/plugins/imagesLoaded/jquery.imagesloaded.min.js"></script>
 	<!-- PageGuide -->

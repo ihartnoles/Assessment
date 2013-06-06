@@ -139,7 +139,7 @@ title = "Plan Period: 2012-2013";
 														</li>					
 														
 														<li>
-															<a href="#results3" data-toggle='tab'><i class="icon-share-alt"></i>Results</a>
+															<a href="#results3" data-toggle='tab'><i class="icon-bar-chart"></i>Results</a>
 														</li>
 														
 														<li>
@@ -162,7 +162,7 @@ title = "Plan Period: 2012-2013";
 													<div class="tab-content padding tab-content-inline tab-content-bottom">
 														<div class="tab-pane active" id="descript1">
 															<div class="row-fluid sortable-box">
-																<div class="span6">
+																<div class="span12">
 																	<div class="box box-color box-bordered blue">
 																			<div class="box-title">
 																				
@@ -179,6 +179,8 @@ title = "Plan Period: 2012-2013";
 																				<!--- <h4>Description and Methodology</h4> --->
 																				<p><strong>Outcome Description </strong><br>
 																				Demonstrate knowledge of the major concepts, theories, and methods of anthropology: archaeology, biological anthropology, and cultural anthropology. Demonstrate knowledge of the major vocabulary, concepts, theories and arguments associated with a research question or topics.</p>
+
+																				<HR>
 
 																				<p><strong>Academic Learning Compact (ALC) Categories related to this outcome:</strong></p>
 
@@ -251,6 +253,8 @@ title = "Plan Period: 2012-2013";
 																				--->
 																				<br>
 
+																				<HR>
+
 																				<p><strong>QEP/URI Related</strong></p>
 
 																					<div class="check-line">
@@ -259,6 +263,7 @@ title = "Plan Period: 2012-2013";
 
 																				<br>
 
+																				<HR>
 
 																				<p><strong>FAU Strategic Plan related goals & objectives:</strong></p>
 																				Goal 1(all objectives): Providing Increased Access to Higher Education
@@ -299,7 +304,7 @@ title = "Plan Period: 2012-2013";
 														</div>
 
 														<div class="tab-pane" id="results3">
-															<div class="span6">
+															<div class="span12">
 																<div class="box box-color box-bordered blue">
 																				<div class="box-title">
 																					<h3>
@@ -330,6 +335,8 @@ title = "Plan Period: 2012-2013";
 
 																					<p>Content knowledge score satisfy the standards set by the department.</p>
 
+																					<HR>
+
 																					<p><strong>Program Improvement</strong></p>
 																					<p>The detailed results for the SCRM course (attached) indicate that students could benefit from stronger guidance in linking their ethnographic research to a theoretical perspective. This will be stressed more in the course next spring.</p>
 
@@ -342,8 +349,18 @@ title = "Plan Period: 2012-2013";
 														</div>
 
 														<div class="tab-pane" id="docs2">
-															<div class="span6">
+															<div class="span12">
 																You will be able to upload/download/view documents here!
+
+																<div class="box">
+																	<div class="box-title">
+																		<h3><i class="icon-th"></i> Multi File upload</h3>
+																	</div>
+																	<div class="box-content nopadding">
+																		<div class="plupload"></div>
+																	</div>
+																</div>
+
 															</div>
 														</div>
 														

@@ -142,7 +142,7 @@ title = "Plan Period: 2012-2013";
 														</li>
 														--->
 														<li>
-															<a href="#checklist" data-toggle='tab'><i class="icon-trash"></i>Plan Checklist</a>
+															<a href="#checklist" data-toggle='tab'><i class="glyphicon-check"></i>Plan Checklist</a>
 														</li>
 													</ul>
 													<div class="tab-content padding tab-content-inline tab-content-bottom">
@@ -168,7 +168,7 @@ title = "Plan Period: 2012-2013";
 														</div>
 														<div class="tab-pane active" id="second22">
 															<div class="row-fluid sortable-box">
-																<div class="span6">
+																<div class="span12">
 																	<div class="box box-color box-bordered blue">
 																			<div class="box-title">
 																				<h3>
@@ -183,6 +183,8 @@ title = "Plan Period: 2012-2013";
 																				<h4>Description and Methodology</h4>
 																				<p><strong>Outcome Description </strong><br>
 																				Demonstrate knowledge of the major concepts, theories, and methods of anthropology: archaeology, biological anthropology, and cultural anthropology. Demonstrate knowledge of the major vocabulary, concepts, theories and arguments associated with a research question or topics.</p>
+
+																				<HR>
 
 																				<p><strong>Academic Learning Compact (ALC) Categories related to this outcome:</strong></p>
 																				
@@ -245,6 +247,7 @@ title = "Plan Period: 2012-2013";
 																					</div>
 																				</div>
 
+																				<HR>
 
 																				<p><strong>QEP/URI Related</strong></p>
 
@@ -331,7 +334,9 @@ title = "Plan Period: 2012-2013";
 																	    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
 																	    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
 																   </div>
-																   <br><br>
+
+																   <br>
+																   <HR>
 																   <div class="Clear">
 																	    <h4>Assessment Method</h4>
 																	    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
@@ -340,7 +345,7 @@ title = "Plan Period: 2012-2013";
 																	    <input class="star" type="radio" name="test-1-rating-2" value="Operational" title="Operational"/>
 																	    <input class="star" type="radio" name="test-1-rating-2" value="Exemplary" title="Exemplary"/>
 																   </div>
-																    <br>
+																   <br>																  
 																    <div class="Clear">																	   
 																	    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
 																	    <input class="star" type="radio" name="test-1-rating-3" value="Not Evident" title="Not Evident"/>
@@ -374,7 +379,8 @@ title = "Plan Period: 2012-2013";
 																	    <input class="star" type="radio" name="test-1-rating-6" value="Operational" title="Operational"/>
 																	    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
 																   </div>
-																   <br><br>
+																   <br>
+																   <HR>
 																   <div class="Clear">
 																	    <h4>Results of program assessment</h4>
 																	    <p><strong>A. Presentation of results</strong></p>
@@ -408,7 +414,8 @@ title = "Plan Period: 2012-2013";
 																	    <input class="star" type="radio" name="test-1-rating-10"value="Operational" title="Operational"/>
 																	    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
 																   </div>
-																    <br><br>
+																    <br>
+																    <HR>
 																    <div class="Clear">
 																	    <h4>Use of results for improvement</h4>
 																	    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
