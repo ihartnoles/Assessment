@@ -385,7 +385,9 @@ title = "My Dashboard";
 				
 				<div class="page-header">
 					<div class="pull-left">
-						<h1>Dashboard</h1>
+						<cfoutput>
+							<h1>#title#</h1>
+						</cfoutput>						
 					</div>
 					<div class="pull-right">
 						
@@ -463,6 +465,9 @@ title = "My Dashboard";
 									</li>
 									<li class="satblue">
 										<a href="index.cfm?event=faq" rel="tooltip" data-placement="bottom" title="Frequently Asked Questions"><span><i class=" icon-question-sign"></i></span><span class='name'>F.A.Q.</span></a>
+									</li>
+										<li class="lightgrey">
+										<a href="http://www.fau.edu/iea/assessment/resource.php" rel="tooltip" data-placement="bottom" title="Assessment Resources" target="_blank"><span><i class="icon-book" ></i></span><span class='name'>Assessment Resources</span></a>
 									</li>
 								</ul>								
 							</div>

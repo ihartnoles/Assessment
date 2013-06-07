@@ -186,18 +186,18 @@ title = "Plan Period: 2012-2013";
 
 																				<HR>
 
-																				<p><strong>Academic Learning Compact (ALC) Categories related to this outcome:</strong></p>
+																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
 																				
-																				    <br>
 																				    <div class="row-fluid sortable-box">
 																					<div class="span3">
-																						<strong><em>Content Knowledge</em></strong>
+																						<!--- <strong><em>Content Knowledge</em></strong> --->
 																						    <br><br> 
 																						    
 																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Declarative Knowledge </label>
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
 																							</div>
 
+																							<!---
 																						    <div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
 																							</div>
@@ -205,37 +205,28 @@ title = "Plan Period: 2012-2013";
 																							<div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
 																							</div>
+																							--->
 																					</div>
 
 																					<div class="span3">
-																						<strong><em>Communication</em></strong>
+																						<!--- <strong><em>Communication</em></strong> --->
 																						    <br><br> 
 																						    
 																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Written Communication </label>
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
 																							</div>
 
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Oral Communication</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Multimedia/Graphic communication</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Team/Collaborative communication</label>
-																							</div>
 																					</div>
 
 																					<div class="span3">
-																						<strong><em>Critical Thinking</em></strong>
+																						<!--- <strong><em>Critical Thinking</em></strong> --->
 																						    <br><br> 
 																						    
 																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Analytical Skills</label>
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
 																							</div>
 
+																							<!---
 																						    <div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
 																							</div>
@@ -243,6 +234,7 @@ title = "Plan Period: 2012-2013";
 																							<div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
 																							</div>
+																							--->
 																							
 																					</div>
 																				</div>
@@ -334,7 +326,7 @@ title = "Plan Period: 2012-2013";
 														<div class="tab-pane" id="checklist">
 															<form id="form1">
 																	<div class="Clear">
-																	    <h4>Student Learning Outcomes</h4>
+																	    <h4>I. Student Learning Outcomes</h4>
 																	    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
 																	    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
 																	    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
@@ -345,7 +337,7 @@ title = "Plan Period: 2012-2013";
 																   <br>
 																   <HR>
 																   <div class="Clear">
-																	    <h4>Assessment Method</h4>
+																	    <h4>II. Assessment Method</h4>
 																	    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
 																	    <input class="star" type="radio" name="test-1-rating-2" value="Not Evident" title="Not Evident"/>
 																	    <input class="star" type="radio" name="test-1-rating-2" value="Developing" title="Developing"/>
@@ -389,7 +381,7 @@ title = "Plan Period: 2012-2013";
 																   <br>
 																   <HR>
 																   <div class="Clear">
-																	    <h4>Results of program assessment</h4>
+																	    <h4>IV. Results of program assessment</h4>
 																	    <p><strong>A. Presentation of results</strong></p>
 																	    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
 																	    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
@@ -424,7 +416,7 @@ title = "Plan Period: 2012-2013";
 																    <br>
 																    <HR>
 																    <div class="Clear">
-																	    <h4>Use of results for improvement</h4>
+																	    <h4>V. Use of results for improvement</h4>
 																	    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
 																	    <input class="star" type="radio" name="test-1-rating-11" value="Not Evident" title="Not Evident"/>
 																	    <input class="star" type="radio" name="test-1-rating-11" value="Developing" title="Developing"/>

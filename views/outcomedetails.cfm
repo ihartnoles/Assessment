@@ -182,17 +182,18 @@ title = "Plan Period: 2012-2013";
 
 																				<HR>
 
-																				<p><strong>Academic Learning Compact (ALC) Categories related to this outcome:</strong></p>
+																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
 
 																				<div class="row-fluid sortable-box">
 																					<div class="span3">
-																						<strong><em>Content Knowledge</em></strong>
+																						<!--- <strong><em>Content Knowledge</em></strong> --->
 																						    <br><br> 
 																						    
 																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Declarative Knowledge </label>
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
 																							</div>
 
+																							<!---
 																						    <div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
 																							</div>
@@ -200,37 +201,33 @@ title = "Plan Period: 2012-2013";
 																							<div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
 																							</div>
+																							--->
 																					</div>
 
+
 																					<div class="span3">
-																						<strong><em>Communication</em></strong>
+																						<!--- <strong><em>Communication</em></strong> --->
 																						    <br><br> 
 																						    
 																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Written Communication </label>
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
 																							</div>
 
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Oral Communication</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Multimedia/Graphic communication</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Team/Collaborative communication</label>
-																							</div>
 																					</div>
 
-																					<div class="span3">
-																						<strong><em>Critical Thinking</em></strong>
-																						    <br><br> 
+																					
+
+																				<br>
+
+																				<div class="span3">
+																						<!--- <strong><em>Critical Thinking</em></strong> --->
+																						    <br> 
 																						    
 																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Analytical Skills</label>
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
 																							</div>
 
+																							<!---
 																						    <div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
 																							</div>
@@ -238,10 +235,8 @@ title = "Plan Period: 2012-2013";
 																							<div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
 																							</div>
-																							
+																							--->																
 																					</div>
-
-																				<br>
 
 																					
 																					</div>

@@ -98,7 +98,10 @@
 							<a href="index.cfm?event=faq">FAQ</a>
 						</li>
 						<li>
-							<a href="index.cfm?event=accountsettings">User profile</a>
+							<a href="http://www.fau.edu/iea/assessment/resource.php" target="_blank">Assessment Resources</a>
+						</li>
+						<li>
+							<a href="index.cfm?event=accountsettings">Account Settings</a>
 						</li>
 						
 						<li class='dropdown-submenu'>

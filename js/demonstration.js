@@ -517,7 +517,7 @@ if($("#flot-1").length > 0){
 }
 
 if($("#flot-audience").length > 0){
-	var data = [[1262304000000, 1300], [1264982400000, 2200], [1267401600000, 3600], [1270080000000, 5200], [1272672000000, 4500], [1275350400000, 3900], [1277942400000, 3600], [1280620800000, 4600], [1283299200000, 5300], [1285891200000, 7100], [1288569600000, 7800], [1291241700000, 8195]];
+	var data = [[1262304000000, 1300], [1264982400000, 2200], [1267401600000, 3600], [1270080000000, 5200], [1272672000000, 4500], [1275350400000, 3900], [1277942400000, 3600]];
 
 	$.plot($("#flot-audience"), [{ 
 		label: "Visits", 
@@ -526,10 +526,10 @@ if($("#flot-audience").length > 0){
 	}], {
 		xaxis: {
 			min: (new Date(2009, 12, 1)).getTime(),
-			max: (new Date(2010, 11, 2)).getTime(),
+			max: (new Date(2010, 06, 1)).getTime(),
 			mode: "time",
 			tickSize: [1, "month"],
-			monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			monthNames: ["IA", "IIA", "IIB", "IIC", "IID", "IIIA", "IIIB"],
 		},
 		series: {
 			lines: {
@@ -555,7 +555,7 @@ if($("#flot-audience").length > 0){
 				var y = item.datapoint[1].toFixed();
 
 				showTooltip(item.pageX, item.pageY,
-				            item.series.label + " = " + y);
+				             y);
 			}
 		}
 		else {

@@ -53,9 +53,11 @@ title = "Reporting Units";
 												<li>
 													<a href="#second" data-toggle='tab'> Business</a>
 												</li>
+												<!---
 												<li>
 													<a href="#thirds" data-toggle='tab'> Social</a>
 												</li>
+												--->
 											</ul>
 										</div>
 										<div class="tab-content padding tab-content-inline">
