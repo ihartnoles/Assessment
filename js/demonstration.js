@@ -741,6 +741,7 @@ if($(".calendar").length > 0)
 	var y = date.getFullYear();
 
 	$('.calendar').fullCalendar('addEventSource', [
+	/*
 	{
 		title: 'All Day Event',
 		start: new Date(y, m, 1)
@@ -779,12 +780,45 @@ if($(".calendar").length > 0)
 		end: new Date(y, m, d+1, 22, 30),
 		allDay: false
 	},
+	*/
 	{
+		title: 'Review and analyze data from the previous years assessment and enter this information in the assessment database',
+		start: new Date(y, 7,  1, 8, 0),
+		end: new Date(y, 7,  1, 8, 0),
+		allDay: false
+	},
+	{
+		title: 'All assessment data results and analysis including use of results for program improvement entered in database',
+		start: new Date(y, 9,  1, 8, 0),
+		end: new Date(y, 9,  1, 8, 0),
+		allDay: false
+	},
+	{
+		title: 'Check the information entered in the database using FAU Assessment Plan Checklist',
+		start: new Date(y, 9,  2, 8, 0),
+		end: new Date(y, 9,  2, 8, 0),
+		allDay: false
+	},
+	{
+		title: 'Submit Fall Summary Report to TASL',
+		start: new Date(y, 10,  25, 8, 0),
+		end: new Date(y, 10,  25, 8, 0),
+		allDay: false
+	},
+	{
+		title: 'Fall Summary Report that shows the number of programs completing the Fall assignment',
+		start: new Date(y, 11,  15, 8, 0),
+		end: new Date(y, 11,  15, 8, 0),
+		allDay: false
+	}
+	/*,
+	{
+
 		title: 'Click for Google',
 		start: new Date(y, m, 28),
 		end: new Date(y, m, 29),
 		url: 'http://google.com/'
-	}
+	}*/
 	]);
 }
 var guide = {
