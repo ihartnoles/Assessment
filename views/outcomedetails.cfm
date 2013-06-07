@@ -257,9 +257,15 @@ title = "Plan Period: 2012-2013";
 
 																				<p><strong>QEP/URI Related</strong></p>
 
-																					<div class="check-line">
-																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">QEP/URI Related</label>
-																						</div>
+																						<div class="check-line">
+																						<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+
+
+																					</div>
+
+																				<div class="check-line">
+																					<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																				</div>
 
 																				<br>
 

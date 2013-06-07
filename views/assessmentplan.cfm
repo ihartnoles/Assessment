@@ -92,7 +92,7 @@ title = "Plan Period: 2012-2013";
 											<table class="alert alert-info alert-nomargin">
 												<tr>
 													<td>Plan developed by:</td>
-													<td>Eddie Murphy</td>
+													<td>Jphn Doe</td>
 												</tr>
 												<tr>
 													<td>Contact Person(s):</td>
@@ -252,8 +252,15 @@ title = "Plan Period: 2012-2013";
 																				<p><strong>QEP/URI Related</strong></p>
 
 																				<div class="check-line">
-																						<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">QEP/URI Related</label>
+																						<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+
+
 																					</div>
+
+																				<div class="check-line">
+																					<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																				</div>
+
 																				<div align="right">
 																					<a href="index.cfm?event=outcomedetails">See More ...</a>
 																				</div>
