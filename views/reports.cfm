@@ -19,47 +19,7 @@ title = "Reporting/Statistics";
 								</div>
 							</div>
 							<div class="box-content">
-								<div class="statistic-big">
-									<div class="bottom">
-										<div class="flot medium" id="flot-audience"></div>
-									</div>
-									<div class="bottom">
-										<ul class="stats-overview">
-											<li>
-												<span class="name">
-													Visits
-												</span>
-												<span class="value">
-													11,251
-												</span>
-											</li>
-											<li>
-												<span class="name">
-													Pages / Visit
-												</span>
-												<span class="value">
-													8.31
-												</span>
-											</li>
-											<li>
-												<span class="name">
-													Avg. Duration
-												</span>
-												<span class="value">
-													00:06:41
-												</span>
-											</li>
-											<li>
-												<span class="name">
-													% New Visits
-												</span>
-												<span class="value">
-													67,35%
-												</span>
-											</li>
-										</ul>
-									</div>
-								</div>
+								<div id="flot-2" class='flot'></div>
 							</div>
 						</div>
 				</div>	

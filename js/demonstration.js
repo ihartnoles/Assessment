@@ -293,20 +293,30 @@ if($("#online-users").length > 0){
 	  });
 
 	  if($("#flot-2").length > 0){
-	  	var sin = [], cos = [];
-	  	for (var i = 0; i < 14; i += 0.5) {
-	  		sin.push([i, Math.sin(i)]);
-	  		cos.push([i, Math.cos(i)]);
+	  	var sin = [[0,1] , [1,2], [2,1], [3,3.5], [4,1]], cos = [[0,2], [1,3], [2,1], [3,2], [4,3.5]];
+	  	/*
+	  	for (var i = 0; i < 4; i += 1) {
+	  		//sin.push([i, Math.sin(i)]);
+	  		sin.push([i, i+1]);
+	  		//cos.push([i, Math.cos(i)]);
+	  		cos.push([i, i+0.5]);
 	  	}
+	  	*/
 
 	  	var plot = $.plot($("#flot-2"),
-	  	                  [ { data: sin, label: "sin(x)"}, { data: cos, label: "cos(x)" } ], {
+	  	                  [ { data: sin, label: "series 1"}, { data: cos, label: "series 2" } ], {
 	  	                  	series: {
 	  	                  		lines: { show: true },
 	  	                  		points: { show: true }
 	  	                  	},
 	  	                  	grid: { hoverable: true, clickable: true },
-	  	                  	yaxis: { min: -1.2, max: 1.2 }
+	  	                  	xaxis: {
+									ticks: [
+										 [ 0, "1A" ], [ 1, "1B" ], [2, "1C" ],
+										[ 3, "1D" ], [ 4, "1E" ]
+									]
+								},
+	  	                  	yaxis: { min: 1, max: 4 }
 	  	                  });
 	  }
 
@@ -517,19 +527,19 @@ if($("#flot-1").length > 0){
 }
 
 if($("#flot-audience").length > 0){
-	var data = [[1262304000000, 1300], [1264982400000, 2200], [1267401600000, 3600], [1270080000000, 5200], [1272672000000, 4500], [1275350400000, 3900], [1277942400000, 3600]];
+	var data = [[1, 3], [2, 4] , [1, 3], [2, 4]];
 
 	$.plot($("#flot-audience"), [{ 
 		label: "Visits", 
 		data: data,
 		color: "#3a8ce5"
 	}], {
-		xaxis: {
-			min: (new Date(2009, 12, 1)).getTime(),
-			max: (new Date(2010, 06, 1)).getTime(),
-			mode: "time",
-			tickSize: [1, "month"],
-			monthNames: ["IA", "IIA", "IIB", "IIC", "IID", "IIIA", "IIIB"],
+		xaxis: {					
+			
+				ticks: [
+					0, [ Math.PI/2, "\u03c0/2" ], [ Math.PI, "\u03c0" ],
+					[ Math.PI * 3/2, "3\u03c0/2" ], [ Math.PI * 2, "2\u03c0" ]
+				]
 		},
 		series: {
 			lines: {
@@ -554,8 +564,7 @@ if($("#flot-audience").length > 0){
 				$("#tooltip").remove();
 				var y = item.datapoint[1].toFixed();
 
-				showTooltip(item.pageX, item.pageY,
-				             y);
+				showTooltip(item.pageX, item.pageY, y);
 			}
 		}
 		else {
