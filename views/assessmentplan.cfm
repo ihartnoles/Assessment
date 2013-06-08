@@ -325,104 +325,169 @@ title = "Plan Period: 2012-2013";
 														</div>
 														<div class="tab-pane" id="checklist">
 															<form id="form1">
-																	<div class="Clear">
-																	    <h4>I. Student Learning Outcomes</h4>
-																	    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
-																   </div>
 
+																	<div class="row-fluid">
+																		<div class="span6">
+																				<div class="Clear">
+																				    <h4>I. Student Learning Outcomes</h4>
+																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
+																				    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
+																				    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
+																				    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
+																				    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
+																			   </div>
+																		</div>
+																		<div class="span6">
+																			<div class="control-group">
+																				<label for="textarea" class="control-label">Comments:</label>
+																				<div class="controls">
+																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																				</div>
+																			</div>
+																			<div class="form-actions">
+																				<button type="submit" class="btn btn-primary">Save changes</button>
+																				<button type="button" class="btn">Cancel</button>
+																			</div>
+																		</div>
+																	</div>
 																   <br>
 																   <HR>
-																   <div class="Clear">
-																	    <h4>II. Assessment Method</h4>
-																	    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-2" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-2" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-2" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-2" value="Exemplary" title="Exemplary"/>
-																   </div>
-																   <br>																  
-																    <div class="Clear">																	   
-																	    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-3" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-3" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-3" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-3" value="Exemplary" title="Exemplary"/>
-																   </div>
-																   <br>
-																    <div class="Clear">																	   
-																	    <p><strong>C. Types of Measures</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-4" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-4" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-4" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-4" value="Exemplary" title="Exemplary"/>
-																   </div>
-																   <br>
-																    <div class="Clear">																	   
-																	    <p><strong>D.  Specification of desired results for outcomes
-</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-5" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-5" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-5" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-5" value="Exemplary" title="Exemplary"/>
-																   </div>
-																    <br>
-																    <div class="Clear">																	   
-																	    <p><strong>E.   Data collection & reliability
-</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-6" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-6" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-6" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
-																   </div>
+																   <div class="row-fluid">
+																  		<div class="span6">
+																		   <div class="Clear">
+																			    <h4>II. Assessment Method</h4>
+																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-2" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-2" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-2" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-2" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		   <br>																  
+																		    <div class="Clear">																	   
+																			    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-3" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-3" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-3" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-3" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		   <br>
+																		    <div class="Clear">																	   
+																			    <p><strong>C. Types of Measures</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-4" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-4" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-4" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-4" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		   <br>
+																		    <div class="Clear">																	   
+																			    <p><strong>D.  Specification of desired results for outcomes
+		</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-5" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-5" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-5" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-5" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		    <br>
+																		    <div class="Clear">																	   
+																			    <p><strong>E.   Data collection & reliability
+		</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-6" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-6" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-6" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		</div>
+																   		<div class="span6">
+																			<div class="control-group">
+																				<label for="textarea" class="control-label">Comments:</label>
+																				<div class="controls">
+																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																				</div>
+																			</div>
+																			<div class="form-actions">
+																				<button type="submit" class="btn btn-primary">Save changes</button>
+																				<button type="button" class="btn">Cancel</button>
+																			</div>
+																		</div>
+																	</div>
 																   <br>
 																   <HR>
-																   <div class="Clear">
-																	    <h4>IV. Results of program assessment</h4>
-																	    <p><strong>A. Presentation of results</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-7" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-7" value="Exemplary" title="Exemplary"/>
-																   </div>
-																    <br>
-																    <div class="Clear">																	   
-																	    <p><strong>B. History of results</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-8" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-8" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-8" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-8" value="Exemplary" title="Exemplary"/>
-																   </div>
-																   <br>
-																    <div class="Clear">																	   
-																	    <p><strong>C. Interpreation of Results</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-9" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-9" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-9" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-9" value="Exemplary" title="Exemplary"/>
-																   </div>
-																   <br>
-																    <div class="Clear">																	   
-																	    <p><strong>D. Communication of Results with faculty/stakeholders
-</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-10" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-10" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-10"value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
-																   </div>
+																    <div class="row-fluid">
+																    	<div class="span6">
+																		   <div class="Clear">
+																			    <h4>IV. Results of program assessment</h4>
+																			    <p><strong>A. Presentation of results</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-7" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-7" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		    <br>
+																		    <div class="Clear">																	   
+																			    <p><strong>B. History of results</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-8" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-8" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-8" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-8" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		   <br>
+																		    <div class="Clear">																	   
+																			    <p><strong>C. Interpreation of Results</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-9" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-9" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-9" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-9" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		   <br>
+																		    <div class="Clear">																	   
+																			    <p><strong>D. Communication of Results with faculty/stakeholders
+		</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-10" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-10" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-10"value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		</div>
+
+																   		<div class="span6">
+																			<div class="control-group">
+																				<label for="textarea" class="control-label">Comments:</label>
+																				<div class="controls">
+																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																				</div>
+																			</div>
+																			<div class="form-actions">
+																				<button type="submit" class="btn btn-primary">Save changes</button>
+																				<button type="button" class="btn">Cancel</button>
+																			</div>
+																		</div>
+																	</div>
 																    <br>
 																    <HR>
-																    <div class="Clear">
-																	    <h4>V. Use of results for improvement</h4>
-																	    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
-																	    <input class="star" type="radio" name="test-1-rating-11" value="Not Evident" title="Not Evident"/>
-																	    <input class="star" type="radio" name="test-1-rating-11" value="Developing" title="Developing"/>
-																	    <input class="star" type="radio" name="test-1-rating-11" value="Operational" title="Operational"/>
-																	    <input class="star" type="radio" name="test-1-rating-11" value="Exemplary" title="Exemplary"/>
-																   </div>
+																    <div class="row-fluid">
+																    	<div class="span6">
+																		    <div class="Clear">
+																			    <h4>V. Use of results for improvement</h4>
+																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
+																			    <input class="star" type="radio" name="test-1-rating-11" value="Not Evident" title="Not Evident"/>
+																			    <input class="star" type="radio" name="test-1-rating-11" value="Developing" title="Developing"/>
+																			    <input class="star" type="radio" name="test-1-rating-11" value="Operational" title="Operational"/>
+																			    <input class="star" type="radio" name="test-1-rating-11" value="Exemplary" title="Exemplary"/>
+																		   </div>
+																		</div>
+																	   <div class="span6">
+																			<div class="control-group">
+																				<label for="textarea" class="control-label">Comments:</label>
+																				<div class="controls">
+																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																				</div>
+																			</div>
+																			<div class="form-actions">
+																				<button type="submit" class="btn btn-primary">Save changes</button>
+																				<button type="button" class="btn">Cancel</button>
+																			</div>
+																		</div>
+																	</div>
 																   
 															</form>
 														</div>
