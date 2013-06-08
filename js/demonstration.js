@@ -304,7 +304,7 @@ if($("#online-users").length > 0){
 	  	*/
 
 	  	var plot = $.plot($("#flot-2"),
-	  	                  [ { data: sin, label: "series 1"}, { data: cos, label: "series 2" } ], {
+	  	                  [ { data: sin, label: "2011"}, { data: cos, label: "2012" } ], {
 	  	                  	series: {
 	  	                  		lines: { show: true },
 	  	                  		points: { show: true }

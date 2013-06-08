@@ -10,7 +10,7 @@ title = "Reporting/Statistics";
 							<div class="box-title">
 								<h3>
 									<i class="icon-bar-chart"></i>
-									Overview
+									Student Learning Outcomes - BA Anthropology (2011 - 2012)
 								</h3>
 								<div class="actions">
 									<a href="#" class="btn btn-mini content-refresh"><i class="icon-refresh"></i></a>
