@@ -92,7 +92,7 @@ title = "Plan Period: 2012-2013";
 											<table class="alert alert-info alert-nomargin">
 												<tr>
 													<td>Plan developed by:</td>
-													<td>Jphn Doe</td>
+													<td>John Doe</td>
 												</tr>
 												<tr>
 													<td>Contact Person(s):</td>
@@ -237,6 +237,25 @@ title = "Plan Period: 2012-2013";
 																							--->
 																							
 																					</div>
+																					<div class="span3">
+																						<!--- <strong><em>Critical Thinking</em></strong> --->
+																						    <br><br> 
+																						    
+																						     <div class="check-line">
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
+																							</div>
+
+																							<!---
+																						    <div class="check-line">
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
+																							</div>
+
+																							<div class="check-line">
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
+																							</div>
+																							--->
+																							
+																					</div>
 																				</div>
 
 																				<HR>
@@ -324,10 +343,23 @@ title = "Plan Period: 2012-2013";
 																</div>
 														</div>
 														<div class="tab-pane" id="checklist">
+															
+															<div class="row-fluid">
+																<div class="span6">
+																	<h3>Overall Plan Average</h3>
+																	<div class="Clear">
+																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Not Evident" title="Not Evident"/>
+																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Developing" title="Developing"/>
+																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Operational" title="Operational"/>
+																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Exemplary" title="Exemplary"/>
+																   </div>
+																</div>
+															</div>
+															<hr>
 															<form id="form1">
 
 																	<div class="row-fluid">
-																		<div class="span6">
+																		<div class="span3">
 																				<div class="Clear">
 																				    <h4>I. Student Learning Outcomes</h4>
 																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
@@ -337,7 +369,17 @@ title = "Plan Period: 2012-2013";
 																				    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
 																			   </div>
 																		</div>
-																		<div class="span6">
+																		<div class="span3">
+																				<div class="Clear">
+																				    <h4>Average Score:</h4>
+																				     <p>&nbsp;</p>
+																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Not Evident" title="Not Evident"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Developing" title="Developing"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Operational" title="Operational"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Exemplary" title="Exemplary"/>
+																			   </div>
+																		</div>
+																		<div class="span3">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
@@ -353,7 +395,7 @@ title = "Plan Period: 2012-2013";
 																   <br>
 																   <HR>
 																   <div class="row-fluid">
-																  		<div class="span6">
+																  		<div class="span3">
 																		   <div class="Clear">
 																			    <h4>II. Assessment Method</h4>
 																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
@@ -397,7 +439,17 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
 																		   </div>
 																		</div>
-																   		<div class="span6">
+																		<div class="span3">
+																				<div class="Clear">
+																				    <h4>Average Score:</h4>
+																				    <p>&nbsp;</p>
+																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Not Evident" title="Not Evident"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Developing" title="Developing"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Operational" title="Operational"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Exemplary" title="Exemplary"/>
+																			   </div>
+																		</div>
+																   		<div class="span3">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
@@ -413,7 +465,7 @@ title = "Plan Period: 2012-2013";
 																   <br>
 																   <HR>
 																    <div class="row-fluid">
-																    	<div class="span6">
+																    	<div class="span3">
 																		   <div class="Clear">
 																			    <h4>IV. Results of program assessment</h4>
 																			    <p><strong>A. Presentation of results</strong></p>
@@ -448,8 +500,17 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
 																		   </div>
 																		</div>
-
-																   		<div class="span6">
+																		<div class="span3">
+																				<div class="Clear">
+																				    <h4>Average Score:</h4>
+																				    <p>&nbsp;</p>
+																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Not Evident" title="Not Evident"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Developing" title="Developing"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Operational" title="Operational"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Exemplary" title="Exemplary"/>
+																			   </div>
+																		</div>
+																   		<div class="span3">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
@@ -465,7 +526,7 @@ title = "Plan Period: 2012-2013";
 																    <br>
 																    <HR>
 																    <div class="row-fluid">
-																    	<div class="span6">
+																    	<div class="span3">
 																		    <div class="Clear">
 																			    <h4>V. Use of results for improvement</h4>
 																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
@@ -475,7 +536,17 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-11" value="Exemplary" title="Exemplary"/>
 																		   </div>
 																		</div>
-																	   <div class="span6">
+																		<div class="span3">
+																				<div class="Clear">
+																				    <h4>Average Score:</h4>
+																				    <p>&nbsp;</p>
+																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Not Evident" title="Not Evident"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Developing" title="Developing"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Operational" title="Operational"/>
+																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Exemplary" title="Exemplary"/>
+																			   </div>
+																		</div>
+																	   <div class="span3">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">

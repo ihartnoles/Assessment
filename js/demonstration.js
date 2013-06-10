@@ -96,7 +96,7 @@
 
 	function randomFeed(){
 		var $el = $("#randomFeed");
-		var random = new Array('<span class="label"><i class="icon-plus"></i></span> <a href="#">John Doe</a> added a new photo','<span class="label label-success"><i class="icon-user"></i></span> New user registered','<span class="label label-info"><i class="icon-shopping-cart"></i></span> New order received','<span class="label label-warning"><i class="icon-comment"></i></span> <a href="#">John Doe</a> commented on <a href="#">News #123</a>'),
+		var random = new Array('<span class="label"><i class="icon-plus"></i></span> <a href="#">John Doe</a> added a comment','<span class="label label-success"><i class="icon-user"></i></span> New support plan added for BA English','<span class="label label-info"><i class="icon-shopping-cart"></i></span>BA Anthropology assesment plan updated','<span class="label label-warning"><i class="icon-comment"></i></span> <a href="#">John Doe</a> commented on plan<a href="#"> #123</a>'),
 		auto = $el.parents(".box").find(".box-title .actions .custom-checkbox").hasClass("checkbox-active");
 		var randomIndex = Math.floor(Math.random() * 4);
 		var newElement = random[randomIndex];

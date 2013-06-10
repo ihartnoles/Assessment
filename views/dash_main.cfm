@@ -730,26 +730,30 @@ title = "My Dashboard";
 								<table class="table table-nohead" id="randomFeed">
 									<tbody>
 										<tr>
-											<td><span class="label"><i class="icon-plus"></i></span> <a href="#">John Doe</a> added a new photo</td>
+											<td><span class="label"><i class="icon-plus"></i></span> <a href="#">John Doe</a> added a new Admin Support Plan</td>
 										</tr>
 										<tr>
-											<td><span class="label label-success"><i class="icon-user"></i></span> New user registered</td>
+											<td><span class="label label-success"><i class="icon-user"></i></span> New plan added</td>
 										</tr>
 										<tr>
-											<td><span class="label label-info"><i class="icon-shopping-cart"></i></span> New order received</td>
+											<td><span class="label label-info"><i class="icon-shopping-cart"></i></span> Plan updated</td>
 										</tr>
+										<tr>
+											<td><span class="label label-warning"><i class="icon-comment"></i></span> <a href="#">John Doe</a> commented on <a href="#">#456</a></td>
+										</tr>
+										
+										<tr>
+											<td><span class="label label-success"><i class="icon-user"></i></span> Outcome ##1 added to BA Anthropology Assessment Plan (2012 - 2013)</td>
+										</tr>
+										
+										<tr>
+											<td><span class="label label-info"><i class="icon-shopping-cart"></i></span>BA History plan awaiting feedback</td>
+										</tr>
+										<!---
 										<tr>
 											<td><span class="label label-warning"><i class="icon-comment"></i></span> <a href="#">John Doe</a> commented on <a href="#">News #123</a></td>
 										</tr>
-										<tr>
-											<td><span class="label label-success"><i class="icon-user"></i></span> New user registered</td>
-										</tr>
-										<tr>
-											<td><span class="label label-info"><i class="icon-shopping-cart"></i></span> New order received</td>
-										</tr>
-										<tr>
-											<td><span class="label label-warning"><i class="icon-comment"></i></span> <a href="#">John Doe</a> commented on <a href="#">News #123</a></td>
-										</tr>
+										--->
 									</tbody>
 								</table>
 							</div>

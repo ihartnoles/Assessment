@@ -238,6 +238,25 @@ title = "Plan Period: 2012-2013";
 																							--->																
 																					</div>
 
+																					<div class="span3">
+																						<!--- <strong><em>Critical Thinking</em></strong> --->
+																						    <br> 
+																						    
+																						     <div class="check-line">
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
+																							</div>
+
+																							<!---
+																						    <div class="check-line">
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
+																							</div>
+
+																							<div class="check-line">
+																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
+																							</div>
+																							--->																
+																					</div>
+
 																					
 																					</div>
 																				
