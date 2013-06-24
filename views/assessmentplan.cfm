@@ -2,6 +2,17 @@
 title = "Plan Period: 2012-2013";
 </cfscript>
 
+
+ <script type="text/javascript">
+        $(function () {
+           
+                $('#example-b,#example-c,#example-d,#example-e,#example-f,#example-g,#example-h,#example-i,#example-j,#example-k,#example-l,#example-m').barrating();
+
+          
+        });
+    </script>
+
+
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 
@@ -197,7 +208,7 @@ title = "Plan Period: 2012-2013";
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
 																							</div>
 
-																							<!---
+																							
 																						    <div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
 																							</div>
@@ -205,7 +216,7 @@ title = "Plan Period: 2012-2013";
 																							<div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
 																							</div>
-																							--->
+																							
 																					</div>
 
 																					<div class="span3">
@@ -226,7 +237,7 @@ title = "Plan Period: 2012-2013";
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
 																							</div>
 
-																							<!---
+																							
 																						    <div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
 																							</div>
@@ -234,7 +245,7 @@ title = "Plan Period: 2012-2013";
 																							<div class="check-line">
 																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
 																							</div>
-																							--->
+																							
 																							
 																					</div>
 																					<div class="span3">
@@ -255,25 +266,71 @@ title = "Plan Period: 2012-2013";
 																							</div>
 																							--->
 																							
+																							
 																					</div>
 																				</div>
 
 																				<HR>
 
-																				<p><strong>QEP/URI Related</strong></p>
+																				 <div class="row-fluid">
+																					<div class="span3">
+																						<p><strong>QEP/URI Related</strong></p>
 
-																				<div class="check-line">
-																						<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																						<div class="check-line">
+																								<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
 
+
+																							</div>
+
+																						<div class="check-line">
+																							<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																						</div>
+																					</div>
+
+																					<div class="span3">
+																						<p><strong>Data collected from online coursework?</strong></p>
+
+																						<div class="check-line">
+																								<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+
+
+																							</div>
+
+																						<div class="check-line">
+																							<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																						</div>
+																					</div>
+
+																					<div class="span3">
+																						<p><strong>Relates to FAU Strategic Plan Goals & Objectives</strong></p>
+
+																						<div class="control-group">
+																							
+																							<div class="controls">
+																								<div class="input-xlarge"><select name="select" id="select" class='chosen-select'>
+																									<option value="1">Option-1</option>
+																									<option value="2">Option-2</option>
+																									<option value="3">Option-3</option>
+																									<option value="4">Option-4</option>
+																									<option value="5">Option-5</option>
+																									<option value="6">Option-6</option>
+																									<option value="7">Option-7</option>
+																									<option value="8">Option-8</option>
+																									<option value="9">Option-9</option>
+																								</select></div>
+																							</div>
+																						</div>
 
 																					</div>
 
-																				<div class="check-line">
-																					<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
-																				</div>
 
-																				<div align="right">
-																					<a href="index.cfm?event=outcomedetails">See More ...</a>
+
+																					<div class="span3">
+																						<br><br><br><br>
+																						<div align="right">
+																							<a href="index.cfm?event=outcomedetails">See More ...</a>
+																						</div>
+																					</div>
 																				</div>
 																				<!---
 
@@ -343,9 +400,21 @@ title = "Plan Period: 2012-2013";
 																</div>
 														</div>
 														<div class="tab-pane" id="checklist">
-															
+															<!---
 															<div class="row-fluid">
 																<div class="span6">
+																	<!---
+																	 <div class="input select rating-b">
+															            <label for="example-b">Rating (example B):</label>
+															            <select id="example-b" name="rating">
+															                <option value="Bad">Bad</option>
+															                <option value="Mediocre">Mediocre</option>
+															                <option value="Quite good">Quite good</option>
+															                <option value="Awesome">Awesome</option>
+															            </select>
+															        </div>
+																	--->
+															        <!---
 																	<h3>Overall Plan Average</h3>
 																	<div class="Clear">
 																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Not Evident" title="Not Evident"/>
@@ -353,13 +422,30 @@ title = "Plan Period: 2012-2013";
 																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Operational" title="Operational"/>
 																	    <input class="star" type="radio" name="test-1-overallrating-1" value="Exemplary" title="Exemplary"/>
 																   </div>
+																   --->
 																</div>
 															</div>
+
 															<hr>
+															--->
 															<form id="form1">
 
 																	<div class="row-fluid">
 																		<div class="span3">
+
+																				<h4>I. Student Learning Outcomes</h4>
+																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
+
+																				<div class="input select rating-b">
+																		           
+																		            <select id="example-c" name="rating">
+																		                <option value="Not Evident">Not Evident</option>
+																		                <option value="Developing">Developing</option>
+																		                <option value="Operational">Operational</option>
+																		                <option value="Exemplary">Exemplary</option>
+																		            </select>
+																		        </div>
+																				<!---
 																				<div class="Clear">
 																				    <h4>I. Student Learning Outcomes</h4>
 																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
@@ -368,8 +454,10 @@ title = "Plan Period: 2012-2013";
 																				    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
 																				    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
 																			   </div>
+																			   --->
 																		</div>
 																		<div class="span3">
+																				<!---
 																				<div class="Clear">
 																				    <h4>Average Score:</h4>
 																				     <p>&nbsp;</p>
@@ -378,6 +466,7 @@ title = "Plan Period: 2012-2013";
 																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Operational" title="Operational"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Exemplary" title="Exemplary"/>
 																			   </div>
+																			   --->
 																		</div>
 																		<div class="span3">
 																			<div class="control-group">
@@ -396,6 +485,19 @@ title = "Plan Period: 2012-2013";
 																   <HR>
 																   <div class="row-fluid">
 																  		<div class="span3">
+																  			<h4>II. Assessment Method</h4>
+																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
+
+																  			<div class="input select rating-b">
+																		           
+																		            <select id="example-d" name="rating">
+																		                <option value="Not Evident">Not Evident</option>
+																		                <option value="Developing">Developing</option>
+																		                <option value="Operational">Operational</option>
+																		                <option value="Exemplary">Exemplary</option>
+																		            </select>
+																		        </div>
+																  		   <!---
 																		   <div class="Clear">
 																			    <h4>II. Assessment Method</h4>
 																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
@@ -404,7 +506,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-2" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-2" value="Exemplary" title="Exemplary"/>
 																		   </div>
-																		   <br>																  
+																		   --->
+																		   <br>
+																		    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
+																		    	<div class="input select rating-b">
+																		             <select id="example-e" name="rating">
+																		                <option value="Not Evident">Not Evident</option>
+																		                <option value="Developing">Developing</option>
+																		                <option value="Operational">Operational</option>
+																		                <option value="Exemplary">Exemplary</option>
+																		            </select>
+																		        </div>																  
+																		    <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
 																			    <input class="star" type="radio" name="test-1-rating-3" value="Not Evident" title="Not Evident"/>
@@ -412,7 +525,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-3" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-3" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		   <br>
+																		     <p><strong>C. Types of Measures</strong></p>
+																		     	<div class="input select rating-b">
+																		             <select id="example-f" name="rating">
+																		                <option value="Not Evident">Not Evident</option>
+																		                <option value="Developing">Developing</option>
+																		                <option value="Operational">Operational</option>
+																		                <option value="Exemplary">Exemplary</option>
+																		            </select>
+																		        </div>		
+																		    <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>C. Types of Measures</strong></p>
 																			    <input class="star" type="radio" name="test-1-rating-4" value="Not Evident" title="Not Evident"/>
@@ -420,7 +544,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-4" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-4" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		   <br>
+																		   		<p><strong>D.  Specification of desired results for outcomes</strong></p>
+																		   			<div class="input select rating-b">
+																			             <select id="example-g" name="rating">
+																			                <option value="Not Evident">Not Evident</option>
+																			                <option value="Developing">Developing</option>
+																			                <option value="Operational">Operational</option>
+																			                <option value="Exemplary">Exemplary</option>
+																			            </select>
+																		        	</div>		
+																		    <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>D.  Specification of desired results for outcomes
 		</strong></p>
@@ -429,7 +564,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-5" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-5" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		    <br>
+																		    <p><strong>E.   Data collection & reliability</strong></p>
+																		    		<div class="input select rating-b">
+																			             <select id="example-h" name="rating">
+																			                <option value="Not Evident">Not Evident</option>
+																			                <option value="Developing">Developing</option>
+																			                <option value="Operational">Operational</option>
+																			                <option value="Exemplary">Exemplary</option>
+																			            </select>
+																		        	</div>		
+																		    <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>E.   Data collection & reliability
 		</strong></p>
@@ -438,15 +584,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-6" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		</div>
 																		<div class="span3">
 																				<div class="Clear">
+																				    <!---
 																				    <h4>Average Score:</h4>
 																				    <p>&nbsp;</p>
 																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Not Evident" title="Not Evident"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Developing" title="Developing"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Operational" title="Operational"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Exemplary" title="Exemplary"/>
+																				    --->
 																			   </div>
 																		</div>
 																   		<div class="span3">
@@ -466,15 +615,40 @@ title = "Plan Period: 2012-2013";
 																   <HR>
 																    <div class="row-fluid">
 																    	<div class="span3">
-																		   <div class="Clear">
-																			    <h4>IV. Results of program assessment</h4>
-																			    <p><strong>A. Presentation of results</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-7" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-7" value="Exemplary" title="Exemplary"/>
-																		   </div>
+																    		 <h4>IV. Results of program assessment</h4>
+																			  <p><strong>A. Presentation of results</strong></p>
+
+																			  <div class="input select rating-b">
+																	             <select id="example-i" name="rating">
+																	                <option value="Not Evident">Not Evident</option>
+																	                <option value="Developing">Developing</option>
+																	                <option value="Operational">Operational</option>
+																	                <option value="Exemplary">Exemplary</option>
+																	            </select>
+																		       </div>
+																			  <!---
+																			   <div class="Clear">
+																				    <h4>IV. Results of program assessment</h4>
+																				    <p><strong>A. Presentation of results</strong></p>
+																				    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
+																				    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
+																				    <input class="star" type="radio" name="test-1-rating-7" value="Operational" title="Operational"/>
+																				    <input class="star" type="radio" name="test-1-rating-7" value="Exemplary" title="Exemplary"/>
+																			   </div>
+																			   --->
 																		    <br>
+																		    	 <p><strong>B. History of results</strong></p>
+
+																		   		 <div class="input select rating-b">
+																			             <select id="example-j" name="rating">
+																			                <option value="Not Evident">Not Evident</option>
+																			                <option value="Developing">Developing</option>
+																			                <option value="Operational">Operational</option>
+																			                <option value="Exemplary">Exemplary</option>
+																			            </select>
+																		        	</div>
+
+																		    <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>B. History of results</strong></p>
 																			    <input class="star" type="radio" name="test-1-rating-8" value="Not Evident" title="Not Evident"/>
@@ -482,7 +656,20 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-8" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-8" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		   <br>
+																		   <p><strong>C. Interpreation of Results</strong></p>
+
+																		   <div class="input select rating-b">
+																             <select id="example-k" name="rating">
+																                <option value="Not Evident">Not Evident</option>
+																                <option value="Developing">Developing</option>
+																                <option value="Operational">Operational</option>
+																                <option value="Exemplary">Exemplary</option>
+																            </select>
+															        	</div>
+
+																		   <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>C. Interpreation of Results</strong></p>
 																			    <input class="star" type="radio" name="test-1-rating-9" value="Not Evident" title="Not Evident"/>
@@ -490,7 +677,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-9" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-9" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		   <br>
+																		   <p><strong>D. Communication of Results with faculty/stakeholders</strong></p>
+																		   <div class="input select rating-b">
+																			             <select id="example-l" name="rating">
+																			                <option value="Not Evident">Not Evident</option>
+																			                <option value="Developing">Developing</option>
+																			                <option value="Operational">Operational</option>
+																			                <option value="Exemplary">Exemplary</option>
+																			            </select>
+																		        	</div>
+																		   <!---
 																		    <div class="Clear">																	   
 																			    <p><strong>D. Communication of Results with faculty/stakeholders
 		</strong></p>
@@ -499,15 +697,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-10"value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		</div>
 																		<div class="span3">
 																				<div class="Clear">
+																				    <!---
 																				    <h4>Average Score:</h4>
 																				    <p>&nbsp;</p>
 																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Not Evident" title="Not Evident"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Developing" title="Developing"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Operational" title="Operational"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Exemplary" title="Exemplary"/>
+																				    --->
 																			   </div>
 																		</div>
 																   		<div class="span3">
@@ -527,6 +728,18 @@ title = "Plan Period: 2012-2013";
 																    <HR>
 																    <div class="row-fluid">
 																    	<div class="span3">
+																    		 <h4>V. Use of results for improvement</h4>
+																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
+
+																			 <div class="input select rating-b">
+																			             <select id="example-m" name="rating">
+																			                <option value="Not Evident">Not Evident</option>
+																			                <option value="Developing">Developing</option>
+																			                <option value="Operational">Operational</option>
+																			                <option value="Exemplary">Exemplary</option>
+																			            </select>
+																		        	</div>
+																		   <!---
 																		    <div class="Clear">
 																			    <h4>V. Use of results for improvement</h4>
 																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
@@ -535,15 +748,18 @@ title = "Plan Period: 2012-2013";
 																			    <input class="star" type="radio" name="test-1-rating-11" value="Operational" title="Operational"/>
 																			    <input class="star" type="radio" name="test-1-rating-11" value="Exemplary" title="Exemplary"/>
 																		   </div>
+																		   --->
 																		</div>
 																		<div class="span3">
 																				<div class="Clear">
+																				   <!---
 																				    <h4>Average Score:</h4>
 																				    <p>&nbsp;</p>
 																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Not Evident" title="Not Evident"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Developing" title="Developing"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Operational" title="Operational"/>
 																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Exemplary" title="Exemplary"/>
+																				    --->
 																			   </div>
 																		</div>
 																	   <div class="span3">

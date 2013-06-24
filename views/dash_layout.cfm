@@ -56,6 +56,8 @@
 	<script src="js/plugins/jquery-ui/jquery.ui.droppable.min.js"></script>
 	<script src="js/plugins/jquery-ui/jquery.ui.draggable.min.js"></script>
 	
+	<script src="js/plugins/barrating/jquery.barrating.js"></script>
+
 	<!-- Touch enable for jquery UI -->
 	<script src="js/plugins/touch-punch/jquery.touch-punch.min.js"></script>
 	<!-- slimScroll -->
@@ -136,6 +138,33 @@
 	<!-- Apple devices Homescreen icon -->
 	<link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png" />
 
+
+	<style>
+		.rating-b .bar-rating {
+		    height: 25px;
+		}
+
+		.rating-b .bar-rating a {
+		    display: block;
+		    width: 70px;
+		    height: 16px;
+		    float: left;
+		    background-color: #e3e3e3;
+		    margin: 1px;
+		}
+
+		.rating-b .bar-rating a.active,
+		.rating-b .bar-rating a.selected {
+		    background-color: #59a6d6;
+		}
+
+		.rating-b .bar-rating .current-rating {
+		    line-height: 1.1;
+		    float: left;
+		    padding: 0 20px 0 20px;
+		    color: #646464;
+		}
+	</style>
 </head>
 
 <body class="theme-darkblue" data-theme="theme-darkblue">

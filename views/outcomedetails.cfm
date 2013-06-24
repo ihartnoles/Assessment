@@ -129,7 +129,7 @@ title = "Plan Period: 2012-2013";
 									<div class="span12">
 										<div class="box box-bordered ">
 											<div class="box-title">
-												<h3><i class="icon-reorder"></i>Outcome #1 Details</h3>
+												<h3><i class="icon-reorder"></i>Learning Outcome #1 Details</h3>
 											</div>
 												<div class="box-content nopadding">
 													<ul class="tabs tabs-inline tabs-top">
