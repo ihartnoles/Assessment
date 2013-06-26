@@ -183,103 +183,133 @@ title = "Plan Period: 2012-2013";
 																				<HR>
 
 																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
-
-																				<div class="row-fluid sortable-box">
-																					<div class="span3">
-																						<!--- <strong><em>Content Knowledge</em></strong> --->
-																						    <br><br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
-																							</div>
-
-																							<!---
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
-																							</div>
-																							--->
-																					</div>
-
-
-																					<div class="span3">
-																						<!--- <strong><em>Communication</em></strong> --->
-																						    <br><br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
-																							</div>
-
-																					</div>
-
-																					
-
-																				<br>
-
-																				<div class="span3">
-																						<!--- <strong><em>Critical Thinking</em></strong> --->
-																						    <br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
-																							</div>
-
-																							<!---
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																							</div>
-																							--->																
-																					</div>
-
-																					<div class="span3">
-																						<!--- <strong><em>Critical Thinking</em></strong> --->
-																						    <br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
-																							</div>
-
-																							<!---
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																							</div>
-
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																							</div>
-																							--->																
-																					</div>
-
-																					
-																					</div>
 																				
-																				<!---
-																				<div align="right">
-																					<a href="index.cfm?event=outcomedetails">See More ...</a>
-																				</div>
-																				--->
+																				    <div class="row-fluid sortable-box">
+																						<div class="span3">
+																							<!--- <strong><em>Content Knowledge</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
+																								</div>
+
+																								
+																							    <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
+																								</div>
+
+																								<div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
+																								</div>
+																								
+																						</div>
+
+																						<div class="span3">
+																							<!--- <strong><em>Communication</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
+																								</div>
+
+																						</div>
+
+																						<div class="span3">
+																							<!--- <strong><em>Critical Thinking</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
+																								</div>
+
+																								
+																							    <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
+																								</div>
+
+																								<div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
+																								</div>
+																								
+																								
+																						</div>
+																						<div class="span3">
+																							<!--- <strong><em>Critical Thinking</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
+																								</div>
+
+																								<!---
+																							    <div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
+																								</div>
+
+																								<div class="check-line">
+																									<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
+																								</div>
+																								--->
+																								
+																								
+																						</div>
+																					</div>
 																				<br>
 
 																				<HR>
 
-																				<p><strong>QEP/URI Related</strong></p>
+																					 <div class="row-fluid">
+																						<div class="span3">
+																						<p><strong>QEP/URI Related</strong></p>
 
 																						<div class="check-line">
-																						<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																								<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
 
+
+																							</div>
+
+																						<div class="check-line">
+																							<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																						</div>
+																					</div>
+
+																					<div class="span3">
+																						<p><strong>Data collected from online coursework?</strong></p>
+
+																						<div class="check-line">
+																								<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+
+
+																							</div>
+
+																						<div class="check-line">
+																							<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																						</div>
+																					</div>
+
+																					<div class="span3">
+																						<p><strong>Relates to FAU Strategic Plan Goals & Objectives</strong></p>
+
+																						<div class="control-group">
+																							
+																							<div class="controls">
+																								<div class="input-xlarge"><select name="select" id="select" class='chosen-select'>
+																									<option value="1">Option-1</option>
+																									<option value="2">Option-2</option>
+																									<option value="3">Option-3</option>
+																									<option value="4">Option-4</option>
+																									<option value="5">Option-5</option>
+																									<option value="6">Option-6</option>
+																									<option value="7">Option-7</option>
+																									<option value="8">Option-8</option>
+																									<option value="9">Option-9</option>
+																								</select></div>
+																							</div>
+																						</div>
 
 																					</div>
 
-																				<div class="check-line">
-																					<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
-																				</div>
+																					</div>
 
 																				<br>
 
@@ -361,6 +391,85 @@ title = "Plan Period: 2012-2013";
 																					<p>The detailed results for the SCRM course (attached) indicate that students could benefit from stronger guidance in linking their ethnographic research to a theoretical perspective. This will be stressed more in the course next spring.</p>
 
 																					<p>The review process itself should be carried out on the biological research methods course as well next year</p>
+
+																					<p><strong>Codes</strong></p>
+																					<div class="span3">
+																					    <div class="check-line">
+																							<input type="checkbox" id="c5" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline'>1. Curricular Change
+																							<!---
+																							<a href="##" class="btn" rel="popover" data-trigger="hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Curricular Change">[explain]</a>
+																							--->
+
+																							<a href="#modal-curricular" role="button" class="btn btn-mini" data-toggle="modal">?</a>
+																						</label>
+
+																							<!--- Modal to Explain Curricular Change --->
+																							<div id="modal-curricular" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																								<div class="modal-header">
+																									
+																									<h3 id="myModalLabel">Curricular Change</h3>
+																								</div>
+																								<div class="modal-body">
+																									<p>Curricular change to degree program (add a course or other requirement; change sequence or courses).</p>
+																								</div>
+																								<div class="modal-footer">
+																									<button class="btn btn-primary" data-dismiss="modal">Ok</button>
+																								</div>
+																							</div>
+																						</div>
+
+																						<div class="check-line">
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline'>2. Course Revision 
+																							<a href="#modal-course" role="button" class="btn btn-mini" data-toggle="modal">?</a>
+																						</label>
+																							
+																							<!--- Modal to Explain Course Revision --->
+																							<div id="modal-course" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																								<div class="modal-header">
+																									
+																									<h3 id="myModalLabel">Course Revision</h3>
+																								</div>
+																								<div class="modal-body">
+																									<p>Revise existing course or courses; add assignment; modify assisgnment; modify content of course, change textbook, etc.</p>
+																								</div>
+																								<div class="modal-footer">
+																									<button class="btn btn-primary" data-dismiss="modal">Ok</button>
+																								</div>
+																							</div>
+																						</div>
+
+																						<div class="check-line">
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">3. Pedagogy</label>
+																						</div>
+																					</div>
+
+																					<div class="span3">
+																					    <div class="check-line">																
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">4. Personnel Change</label>
+																						</div>
+
+																						<div class="check-line">
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">5. Assessment Plan Change</label>
+																						</div>
+
+																						<div class="check-line">
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">6. Inform Budget/Resources</label>
+																						</div>
+																					</div>
+
+																					<div class="span3">
+																					    <div class="check-line">																
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">7. Improve Advising</label>
+																						</div>
+
+																						<div class="check-line">
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">8. Faculty Development/Training</label>
+																						</div>
+
+																						<div class="check-line">
+																							<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">9. Other</label>
+																						</div>
+																					</div>
 
 																				</div>
 
