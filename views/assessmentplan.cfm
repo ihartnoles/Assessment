@@ -201,73 +201,99 @@ title = "Plan Period: 2012-2013";
 																				
 																				    <div class="row-fluid sortable-box">
 																					<div class="span3">
-																						<!--- <strong><em>Content Knowledge</em></strong> --->
-																						    <br><br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
-																							</div>
+																							<!--- <strong><em>Content Knowledge</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
+																								</div>
 
-																							
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
-																							</div>
+																								 <div class="check-line offset1">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Declarative Knowledge</label>
+																								</div>
 
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
-																							</div>
-																							
-																					</div>
+																								
+																							    <div class="check-line offset1">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
+																								</div>
 
-																					<div class="span3">
-																						<!--- <strong><em>Communication</em></strong> --->
-																						    <br><br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
-																							</div>
-
-																					</div>
+																								<div class="check-line offset1">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
+																								</div>
+																								
+																						</div>
 
 																					<div class="span3">
-																						<!--- <strong><em>Critical Thinking</em></strong> --->
-																						    <br><br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
-																							</div>
+																							<!--- <strong><em>Communication</em></strong> --->
+																							    <br><br> 
+																							    
+																							    <div class="check-line">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
+																								</div>
 
-																							
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																							</div>
+																								
+																									<div class="check-line offset1">
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Written Communication</label>
+																									</div>
 
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																							</div>
-																							
-																							
-																					</div>
+																								
+																									<div class="check-line offset1">
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Oral Communication</label>
+																									</div>
+																								
+																									<div class="check-line offset1">
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Multimedia/Graphic Communication</label>
+																									</div>
+																									
+																									<div class="check-line offset1">
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Team/Collaborative Communication</label>
+																									</div>
+																					
+
+																						</div>
+
 																					<div class="span3">
-																						<!--- <strong><em>Critical Thinking</em></strong> --->
-																						    <br><br> 
-																						    
-																						     <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
-																							</div>
+																							<!--- <strong><em>Critical Thinking</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
+																								</div>
 
-																							<!---
-																						    <div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																							</div>
+																								<div class="check-line offset1">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Analytical Skills</label>
+																								</div>
 
-																							<div class="check-line">
-																								<input type="checkbox" id="c6" class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																							</div>
-																							--->
-																							
-																							
-																					</div>
+																							    <div class="check-line offset1">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
+																								</div>
+
+																								<div class="check-line offset1">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
+																								</div>
+																								
+																								
+																						</div>
+																					<div class="span3">
+																							<!--- <strong><em>Critical Thinking</em></strong> --->
+																							    <br><br> 
+																							    
+																							     <div class="check-line">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
+																								</div>
+
+																								<!---
+																							    <div class="check-line">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
+																								</div>
+
+																								<div class="check-line">
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
+																								</div>
+																								--->
+																								
+																								
+																						</div>
 																				</div>
 
 																				<HR>
@@ -277,13 +303,13 @@ title = "Plan Period: 2012-2013";
 																						<p><strong>QEP/URI Related</strong></p>
 
 																						<div class="check-line">
-																								<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																								<input type="radio" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
 
 
 																							</div>
 
 																						<div class="check-line">
-																							<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																							<input type="radio" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
 																						</div>
 																					</div>
 
@@ -291,13 +317,13 @@ title = "Plan Period: 2012-2013";
 																						<p><strong>Data collected from online coursework?</strong></p>
 
 																						<div class="check-line">
-																								<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																								<input type="radio" class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
 
 
 																							</div>
 
 																						<div class="check-line">
-																							<input type="radio" id="c6" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																							<input type="radio" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
 																						</div>
 																					</div>
 
@@ -431,7 +457,7 @@ title = "Plan Period: 2012-2013";
 															<form id="form1">
 
 																	<div class="row-fluid">
-																		<div class="span3">
+																		<div class="span6">
 
 																				<h4>I. Student Learning Outcomes</h4>
 																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
@@ -456,19 +482,8 @@ title = "Plan Period: 2012-2013";
 																			   </div>
 																			   --->
 																		</div>
-																		<div class="span3">
-																				<!---
-																				<div class="Clear">
-																				    <h4>Average Score:</h4>
-																				     <p>&nbsp;</p>
-																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Not Evident" title="Not Evident"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Developing" title="Developing"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Operational" title="Operational"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-1" value="Exemplary" title="Exemplary"/>
-																			   </div>
-																			   --->
-																		</div>
-																		<div class="span3">
+																		
+																		<div class="span4">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
@@ -484,7 +499,7 @@ title = "Plan Period: 2012-2013";
 																   <br>
 																   <HR>
 																   <div class="row-fluid">
-																  		<div class="span3">
+																  		<div class="span6">
 																  			<h4>II. Assessment Method</h4>
 																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
 
@@ -586,6 +601,7 @@ title = "Plan Period: 2012-2013";
 																		   </div>
 																		   --->
 																		</div>
+																		<!---
 																		<div class="span3">
 																				<div class="Clear">
 																				    <!---
@@ -598,7 +614,8 @@ title = "Plan Period: 2012-2013";
 																				    --->
 																			   </div>
 																		</div>
-																   		<div class="span3">
+																		--->
+																   		<div class="span4">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
@@ -614,7 +631,7 @@ title = "Plan Period: 2012-2013";
 																   <br>
 																   <HR>
 																    <div class="row-fluid">
-																    	<div class="span3">
+																    	<div class="span6">
 																    		 <h4>IV. Results of program assessment</h4>
 																			  <p><strong>A. Presentation of results</strong></p>
 
@@ -699,6 +716,7 @@ title = "Plan Period: 2012-2013";
 																		   </div>
 																		   --->
 																		</div>
+																		<!---
 																		<div class="span3">
 																				<div class="Clear">
 																				    <!---
@@ -711,7 +729,8 @@ title = "Plan Period: 2012-2013";
 																				    --->
 																			   </div>
 																		</div>
-																   		<div class="span3">
+																		--->
+																   		<div class="span4">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
@@ -727,7 +746,7 @@ title = "Plan Period: 2012-2013";
 																    <br>
 																    <HR>
 																    <div class="row-fluid">
-																    	<div class="span3">
+																    	<div class="span6">
 																    		 <h4>V. Use of results for improvement</h4>
 																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
 
@@ -750,6 +769,7 @@ title = "Plan Period: 2012-2013";
 																		   </div>
 																		   --->
 																		</div>
+																		<!---
 																		<div class="span3">
 																				<div class="Clear">
 																				   <!---
@@ -762,7 +782,8 @@ title = "Plan Period: 2012-2013";
 																				    --->
 																			   </div>
 																		</div>
-																	   <div class="span3">
+																		--->
+																	   <div class="span4">
 																			<div class="control-group">
 																				<label for="textarea" class="control-label">Comments:</label>
 																				<div class="controls">
