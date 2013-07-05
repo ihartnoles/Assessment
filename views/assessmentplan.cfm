@@ -334,15 +334,19 @@ title = "Plan Period: 2012-2013";
 																							
 																							<div class="controls">
 																								<div class="input-xlarge"><select name="select" id="select" class='chosen-select'>
-																									<option value="1">Option-1</option>
-																									<option value="2">Option-2</option>
-																									<option value="3">Option-3</option>
-																									<option value="4">Option-4</option>
-																									<option value="5">Option-5</option>
-																									<option value="6">Option-6</option>
-																									<option value="7">Option-7</option>
-																									<option value="8">Option-8</option>
-																									<option value="9">Option-9</option>
+																									<optgroup label="Goal 1: Providing Increased Access to Higher Education">
+																										<option value="1">Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts</option>
+																										<option value="2">Foster institutional commitment to student satisfaction and success
+</option>
+																										<option value="3">Promote the academic success and improve the retention rate of first-time-in-college (FTIC) students</option>
+																										<option value="4">Promote timely completion of degrees and increase the graduation rate of FTIC students</option>
+																										<option value="5">Promote the timely completion of degrees and increase the graduation rate of Associate in Arts transfer students</option>
+																										<option value="6">Adopt strategies that assure racial and ethnic diversity within the student body</option>
+																										<option value="7">Adopt strategies that assure that degree completions reflect the racial and ethnic composition of the student body</option>
+																										<option value="8">Attain passage rates on certification exams for nursing equal to those approved by the Board of Trustees for the Board of Governors Accountability Targets</option>
+																										<option value="9">Increase graduate enrollments in degree areas targeted by the Board of Governors</option>
+																									</optgroup>
+																									
 																								</select></div>
 																							</div>
 																						</div>
