@@ -16,6 +16,7 @@
 	<!-- helpers -->
 	<bean id="stringHelper" class="Assessment.utility.model.dataHelpers.stringHelper" />
 
+    <!-- users -->
 	<bean id="usersDAO" class="Assessment.model.users.usersDAO">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
 	</bean>
@@ -31,6 +32,7 @@
 		</constructor-arg>
 	</bean>
 
+	<!-- reporting units -->
 	<bean id="reportingunitsDAO" class="Assessment.model.reportingunits.reportingunitsDAO">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
 	</bean>
@@ -46,4 +48,20 @@
 		</constructor-arg>
 	</bean>
 
+	<!-- assessment plans -->
+	<bean id="assessmentplansDAO" class="Assessment.model.assessmentplans.assessmentplansDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentplansGateway" class="Assessment.model.assessmentplans.assessmentplansGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentplansService" class="Assessment.model.assessmentplans.assessmentplansService">
+		<constructor-arg name="assessmentplansDAO">
+			<ref bean="assessmentplansDAO"/>
+		</constructor-arg>
+		<constructor-arg name="assessmentplansGateway">
+			<ref bean="assessmentplansGateway"/>
+		</constructor-arg>
+	</bean>
+	
 </beans>

@@ -51,6 +51,7 @@
 						timeout="10"
 						{
 							session.userID = local.userexists.userID;
+							session.username = local.userexists.username;
 						}
 					
 				} else {
@@ -88,7 +89,8 @@
 					//announceEvent("loginSucceeded");
 					
 					//announceEvent("ShowReportingUnits");
-					redirectEvent("showUserDashboard");
+					//redirectEvent("showUserDashboard");
+					announceEvent("showUserDashboard");
 				}
 
 			} else {

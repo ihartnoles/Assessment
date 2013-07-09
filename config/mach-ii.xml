@@ -51,6 +51,7 @@
 		<listener name="loginListener" type="Assessment.listeners.LoginListener" />
 		<listener name="UserListener" type="Assessment.listeners.UserListener" />
 		<listener name="ReportingUnitListener" type="Assessment.listeners.ReportingUnitListener" />
+		<listener name="AssessmentPlanListener" type="Assessment.listeners.AssessmentPlanListener" />
 	</listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -105,6 +106,7 @@
 		</event-handler>
 
 		<event-handler event="ShowAssessmentPlanList" access="public">
+			<notify listener="AssessmentPlanListener" method="getAssessmentPlanPeriodsQuery" resultArg="planperiods"  />
 			<view-page name="assessmentplanlist" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

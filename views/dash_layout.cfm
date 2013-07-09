@@ -174,6 +174,7 @@
 
 	<cfoutput>
 		<cfinclude template="/Assessment/views/dash_navigation.cfm">
+		<!--- <cfdump var="#session#"> --->
 		#request.event.getArg("content")#
 	</cfoutput>
 

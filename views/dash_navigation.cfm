@@ -282,7 +282,8 @@
 					--->
 				</ul>
 				<div class="dropdown">
-					<a href="#" class='dropdown-toggle' data-toggle="dropdown">John Doe <img src="img/demo/user-avatar.jpg" alt=""></a>
+					<a href="#" class='dropdown-toggle' data-toggle="dropdown">
+						<cfoutput>#session.username#</cfoutput> - <i>Administrator</i></a>
 					<ul class="dropdown-menu pull-right">
 						<li>
 							<a href="index.cfm?event=accountsettings">Account settings</a>

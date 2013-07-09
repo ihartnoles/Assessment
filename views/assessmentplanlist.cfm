@@ -1,5 +1,6 @@
 <cfscript>
-title = "BA Anthropology";
+title 		 = "BA Anthropology";
+qPlanPeriods =  request.event.getArg('planperiods');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -25,45 +26,60 @@ title = "BA Anthropology";
 								
 								<div class="search-results">
 									<ul>
-										<cfloop list="2012-2013,2011-2012,2010-2011,2009-2010" index="idx">	
-										<cfoutput>		
-											<li>
-												<!---
-												<div class="thumbnail"> 
-													<img src="http://www.placehold.it/80" alt="">		
-												</div>
-												--->
-												<div class="span12 search-info">
-													<a href="index.cfm?event=showplan" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #idx#</a>
-													<!--- <p class="url">www.loremasdasdd.com/</p> --->
-													
-													<p>Status:
-														<cfset tmp = ListGetRandom("Approved (complete),Submitted for review,Collect data,Revise Plan") />
 
-														<cfswitch expression="#tmp#">
-															<cfcase value="Approved (complete)">
-																<cfset class = "text-success" />
-															</cfcase>
-															<cfcase value="Revise Plan">
-																<cfset class = "text-error" />
-															</cfcase>
-															<cfdefaultcase>
-																<cfset class = "text-info" />
-															</cfdefaultcase>
-														</cfswitch>
+										<!--- <cfloop list="2012-2013,2011-2012,2010-2011,2009-2010" index="idx"> --->
+										<cfloop query="qPlanPeriods">									
+											<cfoutput>		
+												<li>
+													<!---
+													<div class="thumbnail"> 
+														<img src="http://www.placehold.it/80" alt="">		
+													</div>
+													--->
+													<div class="span12 search-info">
+														<a href="index.cfm?event=showplan&reportingUnitID=#reportingUnitID#&PlanID=#planID#" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #qPlanPeriods.PlanPeriod#</a>
+														<!--- <p class="url">www.loremasdasdd.com/</p> --->
+														<br>Plan Reporter: 
+														
+														<cfif len(trim(#qPlanPeriods.PlanInitialReporter#))>
+															<span class="text-info">#qPlanPeriods.PlanInitialReporter#</span>
+														<cfelse>
+															<span class="text-error">N/A</span>
+														</cfif>
+														
+														
 
-														<span class="#class#"> 
+														<br>Status:
+															<!---
+															<cfset tmp = ListGetRandom("Approved (complete),Submitted for review,Collect data,Revise Plan") />
 
-															#tmp#
-														</span>
-													</p>
-												</div>
-											</li>
-										</cfoutput>
-										</cfloop>
-										
-								</div>
-								
+															<cfswitch expression="#tmp#">
+																<cfcase value="Approved (complete)">
+																	<cfset class = "text-success" />
+																</cfcase>
+																<cfcase value="Revise Plan">
+																	<cfset class = "text-error" />
+																</cfcase>
+																<cfdefaultcase>
+																	<cfset class = "text-info" />
+																</cfdefaultcase>
+															</cfswitch>
+															--->
+															<span class="text-success"> 
+																#qPlanPeriods.WorkFlowStepDescription#
+															</span>
+														  <br>Last Updated: 
+														  	<cfif len(trim(#qPlanPeriods.PlanLastChangeDate#))>
+																<span class="text-info">#DateFormat(qPlanPeriods.PlanLastChangeDate,'mm-dd-yyyy')# @ #TimeFormat(qPlanPeriods.PlanLastChangeDate,'long')# </span>
+															<cfelse>
+																<span class="text-error">N/A</span>
+															</cfif>
+														 
+													</div>
+												</li>
+											</cfoutput>
+										</cfloop>									
+								</div>								
 									
 								</div>
 							</div>

@@ -157,7 +157,7 @@
 
 		<cfset var qExists = "">
 		<cfquery name="qExists" datasource="#variables.dsn#" maxrows="1">
-			SELECT  UserID
+			SELECT  UserID, UserName
 			FROM	Users
 			WHERE	UserName = <cfqueryparam value="#arguments.username#" CFSQLType="cf_sql_varchar" />
 			AND     UserPassword = <cfqueryparam value="#arguments.UserPassword#" CFSQLType="cf_sql_varchar" />
