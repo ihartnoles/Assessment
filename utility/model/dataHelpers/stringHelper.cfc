@@ -1,5 +1,31 @@
 component output="false" hint="I am a collection of functions for working with lists"{
 
+
+	/**
+	 * Strips all characters from a string except the ones that you want to keep.
+	 * 
+	 * @param strSource 	 The string to strip. (Required)
+	 * @param strKeep 	 List of  characters to keep. (Required)
+	 * @param beCS 	 Boolean that determines if the match should be case sensitive. Default is true. (Optional)
+	 * @return Returns a string. 
+	 * @author Scott Jibben (&#115;&#99;&#111;&#116;&#116;&#64;&#106;&#105;&#98;&#98;&#101;&#110;&#46;&#99;&#111;&#109;) 
+	 * @version 1, July 2, 2002 
+	 */
+	function stripAllBut(str,strip) {
+		var badList = "\";
+		var okList = "\\";
+		var bCS = true;
+
+		if(arrayLen(arguments) gte 3) bCS = arguments[3];
+
+		strip = replaceList(strip,badList,okList);
+		
+		if(bCS) return rereplace(str,"[^#strip#]","","all");
+		else return rereplaceNoCase(str,"[^#strip#]","","all");
+	}
+
+
+
 	function removeForeignCharacters(required string inString){
 		var str = ReReplaceNoCase(arguments.inString,"�|�|�","e","all");
 		str = ReReplaceNoCase(str,"�|�|�|�|�|�","a","all");
@@ -302,5 +328,6 @@ component output="false" hint="I am a collection of functions for working with l
 		    var lEntitiesChars = "ç,ô,â,Î,Ç,È,Ó,Ê,Œ,Â,«,»,À,É,?,ý,?,?,?,Ÿ,?,?,?,ñ,ß,„,´,·,–,?,®,‡,?,õ,?,?,ó,­,>,?,?,?,?,?,?,?,?,³,?,é,¹,<,¢,¸,?,?,÷,ƒ,¿,ê,?,?,?,?,?,¡,ø,¬,à,ð,?,º,?,?,?,ö,°,?,ª,‹,?,â,ò,ï,?,æ,?,?,è,¾,&,?,?,“,?,ç,ˆ,©,á,§,—,ë,?,?,?,?,ì,?,?,ô,?,¦,?,¯,½,¤,?,?,?,‘,…,œ,£,?,?,ã,?,?,?,ä,?,¼, ,?,•,?,«,?,?,€,µ,?,?,å,?,í,?,¶,?,»,û,?,‚,?,?,?,”,?,‰,²,?,?,š,¥,?,±,?,þ,?,ù,?,?,?,?,×,?,?,?,?,?,ü,’,?,™,î,?,?,?,˜,ú,¨,?,?,?,?,?,?,›,?,"",?,?,'";
 		    return ReplaceList(arguments.str, lEntities, lEntitiesChars);
 		}
+
 
 }

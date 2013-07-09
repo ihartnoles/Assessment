@@ -13,6 +13,9 @@
 	<import resource="/intfroot/portfolio/config/services.xml.cfm" />
 	-->
 
+	<!-- helpers -->
+	<bean id="stringHelper" class="Assessment.utility.model.dataHelpers.stringHelper" />
+
 	<bean id="usersDAO" class="Assessment.model.users.usersDAO">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
 	</bean>
@@ -25,6 +28,21 @@
 		</constructor-arg>
 		<constructor-arg name="usersGateway">
 			<ref bean="usersGateway"/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="reportingunitsDAO" class="Assessment.model.reportingunits.reportingunitsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="reportingunitsGateway" class="Assessment.model.reportingunits.reportingunitsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="reportingunitsService" class="Assessment.model.reportingunits.reportingunitsService">
+		<constructor-arg name="reportingunitsDAO">
+			<ref bean="reportingunitsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="reportingunitsGateway">
+			<ref bean="reportingunitsGateway"/>
 		</constructor-arg>
 	</bean>
 
