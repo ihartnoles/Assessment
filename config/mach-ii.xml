@@ -52,6 +52,8 @@
 		<listener name="UserListener" type="Assessment.listeners.UserListener" />
 		<listener name="ReportingUnitListener" type="Assessment.listeners.ReportingUnitListener" />
 		<listener name="AssessmentPlanListener" type="Assessment.listeners.AssessmentPlanListener" />
+		<listener name="UserRoleListener" type="Assessment.listeners.UserRoleListener" />
+		<listener name="UserRoleAccessListener" type="Assessment.listeners.UserRoleAccessListener" />
 	</listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -100,6 +102,9 @@
 		</event-handler>
 
 		<event-handler event="ShowReportingUnits" access="public">
+			<notify listener="UserRoleListener" method="getDefaultUserRole" resultArg="UserRoleRecordID"  />
+			<notify listener="UserRoleAccessListener" method="getUserRoleAccessIDs" resultArg="qUserAccessIDs"  />
+			<!-- Need to pass in DivisionID, SuperDivisionID,OrganizationID-->
 			<notify listener="ReportingUnitListener" method="getReportingUnitsQuery" resultArg="reportingUnits"  />
 			<view-page name="reportingunits" contentArg="content" />
 			<view-page name="dash_layout" />

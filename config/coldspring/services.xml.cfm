@@ -32,6 +32,38 @@
 		</constructor-arg>
 	</bean>
 
+	<!-- user roles -->
+	<bean id="userrolesDAO" class="Assessment.model.userroles.userrolesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="userrolesGateway" class="Assessment.model.userroles.userrolesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="userrolesService" class="Assessment.model.userroles.userrolesService">
+		<constructor-arg name="userrolesDAO">
+			<ref bean="userrolesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="userrolesGateway">
+			<ref bean="userrolesGateway"/>
+		</constructor-arg>
+	</bean>
+
+	<!-- user role access -->
+	<bean id="userRoleAccessDAO" class="Assessment.model.userRoleAccess.userRoleAccessDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="userRoleAccessGateway" class="Assessment.model.userRoleAccess.userRoleAccessGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="userRoleAccessService" class="Assessment.model.userRoleAccess.userRoleAccessService">
+		<constructor-arg name="userRoleAccessDAO">
+			<ref bean="userRoleAccessDAO"/>
+		</constructor-arg>
+		<constructor-arg name="userRoleAccessGateway">
+			<ref bean="userRoleAccessGateway"/>
+		</constructor-arg>
+	</bean>
+	
 	<!-- reporting units -->
 	<bean id="reportingunitsDAO" class="Assessment.model.reportingunits.reportingunitsDAO">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>

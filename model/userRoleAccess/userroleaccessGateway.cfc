@@ -1,36 +1,41 @@
 
-<cfcomponent displayname="reportingunitsGateway" output="false">
-	<cffunction name="init" access="public" output="false" returntype="reportingunitsGateway">
+<cfcomponent displayname="userroleaccessGateway" output="false">
+	<cffunction name="init" access="public" output="false" returntype="userroleaccessGateway">
 		<cfargument name="dsn" type="string" required="true" />
 		<cfset variables.dsn = arguments.dsn />
 		<cfreturn this />
 	</cffunction>
 	
 	<cffunction name="getByAttributesQuery" access="public" output="false" returntype="query">
-		<cfargument name="ReportingUnitID" type="numeric" required="false" />
+		<cfargument name="RecordID" type="numeric" required="false" />
+		<cfargument name="UserRoleRecordID" type="numeric" required="false" />
 		<cfargument name="ProgramID" type="numeric" required="false" />
 		<cfargument name="DeptID" type="numeric" required="false" />
 		<cfargument name="DivisionID" type="numeric" required="false" />
 		<cfargument name="SuperDivisionID" type="numeric" required="false" />
 		<cfargument name="OrganizationID" type="numeric" required="false" />
-		<cfargument name="ReportingUnitActive" type="numeric" required="false" />
+		<cfargument name="DateInserted" type="date" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
 			SELECT
-				ReportingUnitID,
+				RecordID,
+				UserRoleRecordID,
 				ProgramID,
 				DeptID,
 				DivisionID,
 				SuperDivisionID,
 				OrganizationID,
-				ReportingUnitActive
-			FROM	ReportingUnit
+				DateInserted
+			FROM	UserRoleAccess
 			WHERE	0=0
 		
-		<cfif structKeyExists(arguments,"ReportingUnitID") and len(arguments.ReportingUnitID)>
-			AND	ReportingUnitID = <cfqueryparam value="#arguments.ReportingUnitID#" CFSQLType="cf_sql_integer" />
+		<cfif structKeyExists(arguments,"RecordID") and len(arguments.RecordID)>
+			AND	RecordID = <cfqueryparam value="#arguments.RecordID#" CFSQLType="cf_sql_integer" />
+		</cfif>
+		<cfif structKeyExists(arguments,"UserRoleRecordID") and len(arguments.UserRoleRecordID)>
+			AND	UserRoleRecordID = <cfqueryparam value="#arguments.UserRoleRecordID#" CFSQLType="cf_sql_integer" />
 		</cfif>
 		<cfif structKeyExists(arguments,"ProgramID") and len(arguments.ProgramID)>
 			AND	ProgramID = <cfqueryparam value="#arguments.ProgramID#" CFSQLType="cf_sql_integer" />
@@ -47,8 +52,8 @@
 		<cfif structKeyExists(arguments,"OrganizationID") and len(arguments.OrganizationID)>
 			AND	OrganizationID = <cfqueryparam value="#arguments.OrganizationID#" CFSQLType="cf_sql_integer" />
 		</cfif>
-		<cfif structKeyExists(arguments,"ReportingUnitActive") and len(arguments.ReportingUnitActive)>
-			AND	ReportingUnitActive = <cfqueryparam value="#arguments.ReportingUnitActive#" CFSQLType="cf_sql_integer" />
+		<cfif structKeyExists(arguments,"DateInserted") and len(arguments.DateInserted)>
+			AND	DateInserted = <cfqueryparam value="#arguments.DateInserted#" CFSQLType="cf_sql_timestamp" />
 		</cfif>
 		<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
 			ORDER BY #arguments.orderby#
@@ -58,71 +63,39 @@
 		<cfreturn qList />
 	</cffunction>
 
-	<cffunction name="getReportingUnitsQuery" access="public" output="false" returntype="query">
-		<cfargument name="qUserAccessIDs" type="query" required="false" />
-				
-		<cfdump var="#arguments#" abort="true" label="@@reportingUnitsGateway" />
+	<cffunction name="getUserRoleAccessIDsQuery" access="public" output="false" returntype="query">
+		<cfargument name="UserRoleRecordID" type="numeric" required="false" />
+		
 		
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			 SELECT  a.*, 
-			         ProgramName, 
-			         ProgramDegreeLevel, 
-			         ProgramDegree, 
-			         ProgramCIP,    
-			         DeptName, 
-			         SamasDeptID,      
-			         DivisionName, 
-			         DivisionAbv, 
-			         SamasDivisionID,        
-			         SuperDivisionName, 
-			         OrganizationName  
- 
- 			FROM ReportingUnit a, 
- 				 OrganizationProgram p, 
- 				 OrganizationDept d, 
- 				 OrganizationDivision di,    
- 				 OrganizationSuperDivision s, 
- 				 Organization o 
- 
- 			WHERE ReportingUnitID IN ( 
-
- 				SELECT ReportingUnitID FROM ReportingUnit WHERE ( 
-
- 				
- 				  <cfif structKeyExists(arguments,"OrganizationID") and len(arguments.OrganizationID)>
- 					OrganizationID=<cfqueryparam value="#arguments.OrganizationID#" CFSQLType="cf_sql_integer" />
- 				  </cfif>
-
- 				   <cfif structKeyExists(arguments,"SuperDivisionID") and len(arguments.SuperDivisionID)>
- 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.SuperDivisionID#" CFSQLType="cf_sql_integer" />
- 				   </cfif>
-
- 				  <cfif structKeyExists(arguments,"DivisionID") and len(arguments.DivisionID)>
- 				   	 AND	DivisionID = <cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />
- 				   </cfif>
- 				
- 			) 
-			 AND a.ProgramID = p.ProgramID 
-			 And a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
-			 And a.SuperDivisionID = s.SuperDivisionID 
-			 And a.OrganizationID = o.OrganizationID  
-			 And a.programID <> -1
-
- 			ORDER BY OrganizationName, SuperDivisionName, DivisionName, DeptName, ProgramName 
+			SELECT
+				
+				DivisionID,
+				SuperDivisionID,
+				OrganizationID
+				
+			FROM	UserRoleAccess
+			WHERE	0=0	
+		
+		<cfif structKeyExists(arguments,"UserRoleRecordID") and len(arguments.UserRoleRecordID)>
+			AND	UserRoleRecordID = <cfqueryparam value="#arguments.UserRoleRecordID#" CFSQLType="cf_sql_integer" />
+		</cfif>
+		
 		</cfquery>
 		
 		<cfreturn qList />
 	</cffunction>
 
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
-		<cfargument name="ReportingUnitID" type="numeric" required="false" />
+		<cfargument name="RecordID" type="numeric" required="false" />
+		<cfargument name="UserRoleRecordID" type="numeric" required="false" />
 		<cfargument name="ProgramID" type="numeric" required="false" />
 		<cfargument name="DeptID" type="numeric" required="false" />
 		<cfargument name="DivisionID" type="numeric" required="false" />
 		<cfargument name="SuperDivisionID" type="numeric" required="false" />
 		<cfargument name="OrganizationID" type="numeric" required="false" />
-		<cfargument name="ReportingUnitActive" type="numeric" required="false" />
+		<cfargument name="DateInserted" type="date" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		
 		<cfset var qList = getByAttributesQuery(argumentCollection=arguments) />		
@@ -130,7 +103,7 @@
 		<cfset var tmpObj = "" />
 		<cfset var i = 0 />
 		<cfloop from="1" to="#qList.recordCount#" index="i">
-			<cfset tmpObj = createObject("component","reportingunits").init(argumentCollection=queryRowToStruct(qList,i)) />
+			<cfset tmpObj = createObject("component","userroleaccess").init(argumentCollection=queryRowToStruct(qList,i)) />
 			<cfset arrayAppend(arrObjects,tmpObj) />
 		</cfloop>
 				

@@ -19,7 +19,7 @@
 	<cffunction name="getReportingUnitsQuery" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
-		<cfreturn variables.reportingUnitsService.getReportingUnitsQuery() >
+		<cfreturn variables.reportingUnitsService.getReportingUnitsQuery(qUserAccessIDs = request.event.getArg("qUserAccessIDs") ) >
 	</cffunction>
 
 	<!---
