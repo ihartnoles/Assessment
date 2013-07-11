@@ -1,6 +1,6 @@
 <cfscript>
 title = "Reporting Units";
-qReportingUnits				  = request.event.getArg('reportingUnits');
+qReportingUnits				  = request.event.getArg('qReportingUnits');
 variables.beanFactory	  	  = variables.propertyManager.getProperty("serviceFactory");
 stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 </cfscript>

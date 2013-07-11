@@ -60,9 +60,11 @@
 
 	<cffunction name="getReportingUnitsQuery" access="public" output="false" returntype="query">
 		<cfargument name="qUserAccessIDs" type="query" required="false" />
-				
-		<cfdump var="#arguments#" abort="true" label="@@reportingUnitsGateway" />
 		
+		<!---		
+		<cfdump var="#arguments#" abort="false" label="@@reportingUnitsGateway" />
+		<cfdump var="#arguments.quseraccessids.divisionID#" abort="true" label="@@reportingUnitsGateway_2" />
+        --->
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
 			 SELECT  a.*, 
@@ -90,19 +92,19 @@
  				SELECT ReportingUnitID FROM ReportingUnit WHERE ( 
 
  				
- 				  <cfif structKeyExists(arguments,"OrganizationID") and len(arguments.OrganizationID)>
- 					OrganizationID=<cfqueryparam value="#arguments.OrganizationID#" CFSQLType="cf_sql_integer" />
+ 				  <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
+ 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
  				  </cfif>
 
- 				   <cfif structKeyExists(arguments,"SuperDivisionID") and len(arguments.SuperDivisionID)>
- 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.SuperDivisionID#" CFSQLType="cf_sql_integer" />
+ 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID)>
+ 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.quseraccessids.SuperDivisionID#" CFSQLType="cf_sql_integer" />
  				   </cfif>
 
- 				  <cfif structKeyExists(arguments,"DivisionID") and len(arguments.DivisionID)>
- 				   	 AND	DivisionID = <cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />
+ 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID)>
+ 				   	 AND	DivisionID = <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_integer" />
  				   </cfif>
  				
- 			) 
+ 			) )
 			 AND a.ProgramID = p.ProgramID 
 			 And a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
 			 And a.SuperDivisionID = s.SuperDivisionID 
@@ -111,6 +113,10 @@
 
  			ORDER BY OrganizationName, SuperDivisionName, DivisionName, DeptName, ProgramName 
 		</cfquery>
+
+		<!---
+		<cfdump var="#qList#" abort="true" label="@@reportingUnitsGateway_3" />
+		--->
 		
 		<cfreturn qList />
 	</cffunction>
