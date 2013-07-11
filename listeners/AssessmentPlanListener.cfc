@@ -22,6 +22,13 @@
 		<cfreturn variables.assessmentplansService.getAssessmentPlanPeriodsQuery(ReportingUnitID=arguments.event.getArg("ReportingUnitID")) >
 	</cffunction>
 
+	<cffunction name="getAssessmentPlanDetails" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getAssessmentPlanDetails(ReportingUnitID=arguments.event.getArg("ReportingUnitID")) >
+	</cffunction>
+
+
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >

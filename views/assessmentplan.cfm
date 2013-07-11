@@ -1,5 +1,6 @@
 <cfscript>
 title = "Plan Period: 2012-2013";
+qPlanDetails				  = request.event.getArg('qPlanDetails');
 </cfscript>
 
 
@@ -18,6 +19,7 @@ title = "Plan Period: 2012-2013";
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 	
+				<cfdump var="#qPlanDetails#" />
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -30,24 +32,27 @@ title = "Plan Period: 2012-2013";
 												<h3><i class="icon-reorder"></i>Assessment Plan Summary</h3>
 										</div>
 										<div class="box-content nopadding">
+
 										<form action="#" method="POST" class='form-horizontal form-column form-bordered'>
+								 <cfloop query="qPlanDetails">
+								 	<cfoutput>
 									<div class="span6">
 										<div class="control-group">
 											<label for="textfield" class="control-label">College/Division</label>
 											<div class="controls">
-												Arts & Letters
+												#qPlanDetails.DivisionName#
 											</div>
 										</div>
 										<div class="control-group">
 											<label for="password" class="control-label">Department</label>
 											<div class="controls">
-												Anthropology
+												#qPlanDetails.DeptName#
 											</div>
 										</div>
 										<div class="control-group">
 											<label class="control-label">Program<small>More information here</small></label>
 											<div class="controls">
-												BA Anthropology
+												#qPlanDetails.programname#
 											</div>
 										</div>
 										<!---
@@ -75,9 +80,9 @@ title = "Plan Period: 2012-2013";
 										<div class="control-group">
 											<label class="control-label">Updated<small>More information here</small></label>
 											<div class="controls">
-												<cfoutput>
+												
 													#DateFormat(now(),'mm/dd/yyyy')#
-												</cfoutput>
+												
 											</div>
 										</div>
 										<!---
@@ -125,7 +130,8 @@ title = "Plan Period: 2012-2013";
 										</center>
 									</div>
 								</form>
-								
+								</cfoutput>
+							</cfloop>
 							</div>
 									</div>
 									

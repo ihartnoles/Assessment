@@ -117,6 +117,7 @@
 		</event-handler>
 
 		<event-handler event="ShowPlan" access="public">
+			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<view-page name="assessmentplan" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

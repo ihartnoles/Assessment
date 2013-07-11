@@ -97,6 +97,40 @@
 	</cffunction>
 
 
+	
+	<cffunction name="getAssessmentPlanDetails" access="public" output="false" returntype="query">
+		<cfargument name="ReportingUnitID" type="numeric" required="false" />
+				
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			 SELECT 
+			 	 a.*, 
+			 	 ProgramName, 
+			 	 ProgramDegreeLevel, 
+			 	 ProgramDegree, 
+			 	 ProgramCIP,    
+			 	 DeptName, 
+			 	 SamasDeptID,      
+			 	 DivisionName, 
+			 	 DivisionAbv, 
+			 	 SamasDivisionID,        
+			 	 SuperDivisionName, 
+			 	 OrganizationName  
+			 FROM ReportingUnit a, OrganizationProgram p, OrganizationDept d, OrganizationDivision di,    OrganizationSuperDivision s, Organization O  
+			 WHERE  a.ProgramID = p.ProgramID And           a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
+			 And a.SuperDivisionID = s.SuperDivisionID 
+			 And a.OrganizationID = o.OrganizationID  
+			 <cfif structKeyExists(arguments,"ReportingUnitID") and len(arguments.ReportingUnitID)>
+				AND	a.ReportingUnitID = <cfqueryparam value="#arguments.ReportingUnitID#" CFSQLType="cf_sql_integer" />
+			</cfif>
+		</cfquery>
+		
+		<!--- <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> --->
+
+		<cfreturn qList />
+	</cffunction>
+
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
 		<cfargument name="PlanID" type="numeric" required="false" />
 		<cfargument name="ReportingUnitID" type="numeric" required="false" />
