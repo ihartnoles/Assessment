@@ -1,6 +1,8 @@
 <cfscript>
-title = "Plan Period: 2012-2013";
-qPlanDetails				  = request.event.getArg('qPlanDetails');
+
+qPlanDetails		= request.event.getArg('qPlanDetails');
+qcountOutcomes    	= request.event.getArg('qcountOutcomes');
+title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 </cfscript>
 
 
@@ -18,8 +20,14 @@ qPlanDetails				  = request.event.getArg('qPlanDetails');
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-	
+				
+				<!---
 				<cfdump var="#qPlanDetails#" />
+
+				<cfdump var="#qcountOutcomes#" />
+				
+				<cfdump var="#arguments#" />
+				--->
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -33,105 +41,7 @@ qPlanDetails				  = request.event.getArg('qPlanDetails');
 										</div>
 										<div class="box-content nopadding">
 
-										<form action="#" method="POST" class='form-horizontal form-column form-bordered'>
-								 <cfloop query="qPlanDetails">
-								 	<cfoutput>
-									<div class="span6">
-										<div class="control-group">
-											<label for="textfield" class="control-label">College/Division</label>
-											<div class="controls">
-												#qPlanDetails.DivisionName#
-											</div>
-										</div>
-										<div class="control-group">
-											<label for="password" class="control-label">Department</label>
-											<div class="controls">
-												#qPlanDetails.DeptName#
-											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label">Program<small>More information here</small></label>
-											<div class="controls">
-												#qPlanDetails.programname#
-											</div>
-										</div>
-										<!---
-										<div class="control-group">
-											<label for="textarea" class="control-label">Textarea</label>
-											<div class="controls">
-												<textarea name="textarea" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-											</div>
-										</div>
-										--->
-									</div>
-									<div class="span6">
-										<div class="control-group">
-											<label for="textfield" class="control-label">Plan Type</label>
-											<div class="controls">
-												 Administrative Support Plan
-											</div>
-										</div>
-										<div class="control-group">
-											<label for="password" class="control-label">Plan Status</label>
-											<div class="controls">
-												Report approved (complete)
-											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label">Updated<small>More information here</small></label>
-											<div class="controls">
-												
-													#DateFormat(now(),'mm/dd/yyyy')#
-												
-											</div>
-										</div>
-										<!---
-										<div class="control-group">
-											<label for="textarea" class="control-label">Textarea</label>
-											<div class="controls">
-												<textarea name="textarea" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-											</div>
-										</div>
-										--->
-									</div>
-									
-									<!---
-									<div class="span12">
-										<div class="form-actions">
-											<button type="submit" class="btn btn-primary">Save changes</button>
-											<button type="button" class="btn">Cancel</button>
-										</div>
-									</div>
-									--->
-									<div class="span12 alert alert-info alert-nomargin">
-										<center>
-											<table class="alert alert-info alert-nomargin">
-												<tr>
-													<td>Plan developed by:</td>
-													<td>John Doe</td>
-												</tr>
-												<tr>
-													<td>Contact Person(s):</td>
-													<td>Deborah Minney </td>
-												</tr>
-											</table>										
-										</center>
-									</div>
-									<div class="span12 alert alert-warning alert-nomargin">
-										<center>
-											<table class="alert alert-warning alert-nomargin">
-												<tr>
-													<td>This plan currently has 2 outcomes.</td>													
-												</tr>
-												<tr>
-													<td>All steps in the plan have been completed.</td>													
-												</tr>											
-											</table>										
-										</center>
-									</div>
-								</form>
-								</cfoutput>
-							</cfloop>
+										<cfinclude template="assessmentplansummary.cfm" />
 							</div>
 									</div>
 									
@@ -184,22 +94,25 @@ qPlanDetails				  = request.event.getArg('qPlanDetails');
 														</div>
 														</div>
 														<div class="tab-pane active" id="second22">
+															<cfloop query="qcountOutcomes">
+															<cfoutput>
 															<div class="row-fluid sortable-box">
 																<div class="span12">
 																	<div class="box box-color box-bordered blue">
 																			<div class="box-title">
 																				<h3>
 																					<i class="icon-file"></i>
-																					Outcome #1
+																					Outcome #qcountOutcomes.currentrow#
 																				</h3>
 																				<div class="actions">
-																					<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
+																					<a href="##" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
 																				</div>
 																			</div>
 																			<div class="box-content">
 																				<h4>Description and Methodology</h4>
 																				<p><strong>Outcome Description </strong><br>
-																				Demonstrate knowledge of the major concepts, theories, and methods of anthropology: archaeology, biological anthropology, and cultural anthropology. Demonstrate knowledge of the major vocabulary, concepts, theories and arguments associated with a research question or topics.</p>
+																				#qcountOutcomes.outcomedescription#
+																				</p>
 
 																				<HR>
 
@@ -364,7 +277,7 @@ qPlanDetails				  = request.event.getArg('qPlanDetails');
 																					<div class="span3">
 																						<br><br><br><br>
 																						<div align="right">
-																							<a href="index.cfm?event=outcomedetails">See More ...</a>
+																							<a href="index.cfm?event=outcomedetails&outcomeID=#qcountOutcomes.outcomeID#&reportingUnitID=#arguments.event.getArg('reportingUnitID')#&planID=#arguments.event.getArg('planID')#">See More ...</a>
 																						</div>
 																					</div>
 																				</div>
@@ -403,6 +316,7 @@ qPlanDetails				  = request.event.getArg('qPlanDetails');
 
 																			</div>
 																		</div>
+																		<!---
 																		<div class="box box-color box-bordered red">
 																			<div class="box-title">
 																				<h3>
@@ -432,8 +346,12 @@ qPlanDetails				  = request.event.getArg('qPlanDetails');
 																				Lorem ipsum Amet amet sit dolore fugiat ullamco do. 
 																			</div>
 																		</div>
+																		--->
 																	</div>
 																</div>
+															 	</cfoutput>
+															</cfloop>
+
 														</div>
 														<div class="tab-pane" id="checklist">
 															<!---

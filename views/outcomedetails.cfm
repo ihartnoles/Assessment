@@ -1,12 +1,19 @@
 <cfscript>
-title = "Plan Period: 2012-2013";
+qPlanDetails		= request.event.getArg('qPlanDetails');
+qcountOutcomes    	= request.event.getArg('qOutcomeDetail');
+title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-	
+				
+				<!---
+				<cfdump var="#qPlanDetails#" />
+
+				<cfdump var="#qcountOutcomes#" />
+				--->
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -20,107 +27,9 @@ title = "Plan Period: 2012-2013";
 												<h3><i class="icon-reorder"></i>Assessment Plan Summary</h3>
 										</div>
 										<div class="box-content nopadding">
-										<form action="#" method="POST" class='form-horizontal form-column form-bordered'>
-									<div class="span6">
-										<div class="control-group">
-											<label for="textfield" class="control-label">College/Division</label>
-											<div class="controls">
-												Arts & Letters
-											</div>
-										</div>
-										<div class="control-group">
-											<label for="password" class="control-label">Department</label>
-											<div class="controls">
-												Anthropology
-											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label">Program<small>More information here</small></label>
-											<div class="controls">
-												BA Anthropology
-											</div>
-										</div>
-										<!---
-										<div class="control-group">
-											<label for="textarea" class="control-label">Textarea</label>
-											<div class="controls">
-												<textarea name="textarea" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-											</div>
-										</div>
-										--->
-									</div>
-									<div class="span6">
-										<div class="control-group">
-											<label for="textfield" class="control-label">Plan Type</label>
-											<div class="controls">
-												Learning Outcome Plan
-											</div>
-										</div>
-										<div class="control-group">
-											<label for="password" class="control-label">Plan Status</label>
-											<div class="controls">
-												Report approved (complete)
-											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label">Updated<small>More information here</small></label>
-											<div class="controls">
-												<cfoutput>
-													#DateFormat(now(),'mm/dd/yyyy')#
-												</cfoutput>
-											</div>
-										</div>
-										<!---
-										<div class="control-group">
-											<label for="textarea" class="control-label">Textarea</label>
-											<div class="controls">
-												<textarea name="textarea" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-											</div>
-										</div>
-										--->
-									</div>
-									
-									<!---
-									<div class="span12">
-										<div class="form-actions">
-											<button type="submit" class="btn btn-primary">Save changes</button>
-											<button type="button" class="btn">Cancel</button>
-										</div>
-									</div>
-									--->
-									<div class="span12 alert alert-info alert-nomargin">
-										<center>
-											<table class="alert alert-info alert-nomargin">
-												<tr>
-													<td>Plan developed by:</td>
-													<td>Eddie Murphy</td>
-												</tr>
-												<tr>
-													<td>Contact Person(s):</td>
-													<td>Deborah Minney </td>
-												</tr>
-											</table>										
-										</center>
-									</div>
-									<div class="span12 alert alert-warning alert-nomargin">
-										<center>
-											<table class="alert alert-warning alert-nomargin">
-												<tr>
-													<td>This plan currently has 2 outcomes.</td>													
-												</tr>
-												<tr>
-													<td>All steps in the plan have been completed.</td>													
-												</tr>											
-											</table>										
-										</center>
-									</div>
-								</form>
-								
+										
+										<cfinclude template="assessmentplansummary.cfm" />
 							</div>
-
-
-
-
 
 									</div>									
 								</div>
@@ -129,7 +38,11 @@ title = "Plan Period: 2012-2013";
 									<div class="span12">
 										<div class="box box-bordered ">
 											<div class="box-title">
-												<h3><i class="icon-reorder"></i>Learning Outcome #1 Details</h3>
+												<h3>
+													<cfoutput>
+													<i class="icon-reorder"></i>Learning Outcome #qcountOutcomes.currentrow# Details
+													</cfoutput>
+												</h3>
 											</div>
 												<div class="box-content nopadding">
 													<ul class="tabs tabs-inline tabs-top">
@@ -178,7 +91,7 @@ title = "Plan Period: 2012-2013";
 																			<div class="box-content">
 																				<!--- <h4>Description and Methodology</h4> --->
 																				<p><strong>Outcome Description </strong><br>
-																				Demonstrate knowledge of the major concepts, theories, and methods of anthropology: archaeology, biological anthropology, and cultural anthropology. Demonstrate knowledge of the major vocabulary, concepts, theories and arguments associated with a research question or topics.</p>
+																				<cfoutput>#qcountOutcomes.outcomedescription#</cfoutput></p>
 
 																				<HR>
 
@@ -347,29 +260,24 @@ title = "Plan Period: 2012-2013";
 																				<br>Goal 1, Objective 1: Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts
 
 																				<br>Goal 4, Objective 5: Engage students, faculty and staff in service activities that mutually benefit the University and the community<br><br>
-
+							<cfloop query="qcountOutcomes">
+								<cfoutput>
 
 																				<p><strong>Implementing Strategy :</strong></p>
-																				<p>Ensure that all students accomplish at least six credits in each subfield of anthropology: biological, archaeology, and cultural. In the process they must demonstrate sufficient command of the material as judged by professors on the work produced. Additionally, students must take at least six credits of research methods courses: the methodology sections of their research papers should demonstrate that they can apply theories to particular problems/questions. </P>
+																				<p>#qcountOutcomes.outcomestrategy#</P>
 
 
 																				<p><strong>Assessment Method :</strong></p>
-																				<p>Assessment based on demonstration of satisfactory or better performance (on average) on for a sample of individual student work that is reviewed annually. The methodology sections of student papers in the methods courses will be reviewed to ensure that students' performance meets standards. The rubric used is attached. </p>
+																				<p>#qcountOutcomes.outcomemethod#</p>
 
 																				<p>This method will ensure that we continue to abide by the commitments of our ALC, which require that all graduating students meet the department's standards for content knowledge. If we identify problems in meeting those goals, we will develop a departmental plan to strengthen the problem areas in courses.</p>
 
 
 
 																				<p><strong>Criterion for success </strong></p>
-																				<ul>
-																					<li>80% will meet expectations.</li>
-																					<li>10% excellent</li>
-																					<li>30% above satisfactory</li>
-																					<li>60% satisfactory</li>
-																				</ul>
-
-																				<p>As this is the first attempt at using this rubric, success criterion is experimental.</p>
-																				
+																				<p>#qcountOutcomes.outcomecriterion#</p>
+									</cfoutput>
+								</cfloop>		
 																				
 
 																			</div>

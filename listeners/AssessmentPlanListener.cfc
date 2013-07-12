@@ -25,7 +25,8 @@
 	<cffunction name="getAssessmentPlanDetails" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
-		<cfreturn variables.assessmentplansService.getAssessmentPlanDetails(ReportingUnitID=arguments.event.getArg("ReportingUnitID")) >
+		<cfreturn variables.assessmentplansService.getAssessmentPlanDetails(ReportingUnitID=arguments.event.getArg("ReportingUnitID"),
+																			PlanID=arguments.event.getArg("PlanID")) >
 	</cffunction>
 
 

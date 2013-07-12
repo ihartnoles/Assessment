@@ -99,31 +99,34 @@
 
 	
 	<cffunction name="getAssessmentPlanDetails" access="public" output="false" returntype="query">
-		<cfargument name="ReportingUnitID" type="numeric" required="false" />
-				
+		<cfargument name="ReportingUnitID" type="numeric" required="true" />
+		<cfargument name="PlanID" type="numeric" required="true" />
+
 		<cfset var qList = "" />		
 		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			 SELECT 
-			 	 a.*, 
-			 	 ProgramName, 
-			 	 ProgramDegreeLevel, 
-			 	 ProgramDegree, 
-			 	 ProgramCIP,    
-			 	 DeptName, 
-			 	 SamasDeptID,      
-			 	 DivisionName, 
-			 	 DivisionAbv, 
-			 	 SamasDivisionID,        
-			 	 SuperDivisionName, 
-			 	 OrganizationName  
-			 FROM ReportingUnit a, OrganizationProgram p, OrganizationDept d, OrganizationDivision di,    OrganizationSuperDivision s, Organization O  
-			 WHERE  a.ProgramID = p.ProgramID And           a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
-			 And a.SuperDivisionID = s.SuperDivisionID 
-			 And a.OrganizationID = o.OrganizationID  
+			SELECT       ru.*, odpt.DeptName, osd.SuperDivisionName,op.ProgramName, 
+                         od.DivisionName, od.DivisionAbv, o.OrganizationName, ap.PlanPeriod, 
+                         ap.PlanType, ap.PlanStatus, ap.PlanInitialReporter, ap.PlanLastChangeDate, 
+                         apt.PlanTypeDescription, apw.WorkflowStepDescription, apw.WorkflowStepInstructions
+			
+			FROM         ReportingUnit ru INNER JOIN
+                         OrganizationProgram op ON ru.ProgramID =op.ProgramID INNER JOIN
+                         OrganizationDept odpt ON ru.DeptID = odpt.DeptID AND op.DeptID = odpt.DeptID INNER JOIN
+                         OrganizationDivision od ON ru.DivisionID = od.DivisionID AND odpt.DivisionID = od.DivisionID INNER JOIN
+                         OrganizationSuperDivision osd ON ru.SuperDivisionID = osd.SuperDivisionID AND od.SuperDivisionID = osd.SuperDivisionID INNER JOIN
+                         Organization o ON ru.OrganizationID = o.OrganizationID AND osd.OrganizationID = o.OrganizationID INNER JOIN
+                         AssessmentPlan ap ON ru.ReportingUnitID = ap.ReportingUnitID INNER JOIN
+                         AssessmentPlanType apt ON ap.PlanType = apt.PlanType INNER JOIN
+						 AssessmentPlanWorkflow apw ON apt.PlanType = apw.PlanType AND ap.planStatus = apw.WorkflowStep 
+			WHERE   0=0   
+
 			 <cfif structKeyExists(arguments,"ReportingUnitID") and len(arguments.ReportingUnitID)>
-				AND	a.ReportingUnitID = <cfqueryparam value="#arguments.ReportingUnitID#" CFSQLType="cf_sql_integer" />
-			</cfif>
+				AND	ap.ReportingUnitID = <cfqueryparam value="#arguments.ReportingUnitID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+ 			 <cfif structKeyExists(arguments,"PlanID") and len(arguments.PlanID)>
+				AND	ap.PlanID = <cfqueryparam value="#arguments.PlanID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
 		</cfquery>
 		
 		<!--- <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> --->

@@ -96,4 +96,20 @@
 		</constructor-arg>
 	</bean>
 	
+	<!-- assessment plan outcomes -->
+	<bean id="assessmentPlanOutcomesDAO" class="Assessment.model.assessmentPlanOutcomes.assessmentPlanOutcomesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanOutcomesGateway" class="Assessment.model.assessmentPlanOutcomes.assessmentPlanOutcomesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanOutcomesService" class="Assessment.model.assessmentPlanOutcomes.assessmentPlanOutcomesService">
+		<constructor-arg name="assessmentPlanOutcomesDAO">
+			<ref bean="assessmentPlanOutcomesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="assessmentPlanOutcomesGateway">
+			<ref bean="assessmentPlanOutcomesGateway"/>
+		</constructor-arg>
+	</bean>
+	
 </beans>
