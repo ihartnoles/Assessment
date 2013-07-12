@@ -54,7 +54,8 @@
 		<listener name="AssessmentPlanListener" type="Assessment.listeners.AssessmentPlanListener" />
 		<listener name="UserRoleListener" type="Assessment.listeners.UserRoleListener" />
 		<listener name="UserRoleAccessListener" type="Assessment.listeners.UserRoleAccessListener" />
-        <listener name="AssessmentPlanOutcomeListener" type="Assessment.listeners.AssessmentPlanOutcomeListener" />		
+        <listener name="AssessmentPlanOutcomeListener" type="Assessment.listeners.AssessmentPlanOutcomeListener" />	
+        <listener name="ALCCategoriesListener" type="Assessment.listeners.ALCCategoriesListener" />		
 	</listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -125,6 +126,7 @@
 		</event-handler>
 
 		<event-handler event="outcomedetails" access="public">
+			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qOutcomeDetail"  />
 			<view-page name="outcomedetails" contentArg="content" />

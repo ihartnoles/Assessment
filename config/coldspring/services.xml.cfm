@@ -111,5 +111,21 @@
 			<ref bean="assessmentPlanOutcomesGateway"/>
 		</constructor-arg>
 	</bean>
-	
+
+
+	<!-- ALC Categories -->
+	<bean id="ALCCategoriesDAO" class="Assessment.model.ALCCategories.ALCCategoriesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ALCCategoriesGateway" class="Assessment.model.ALCCategories.ALCCategoriesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ALCCategoriesService" class="Assessment.model.ALCCategories.ALCCategoriesService">
+		<constructor-arg name="ALCCategoriesDAO">
+			<ref bean="ALCCategoriesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="ALCCategoriesGateway">
+			<ref bean="ALCCategoriesGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

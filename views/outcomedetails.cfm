@@ -1,6 +1,7 @@
 <cfscript>
 qPlanDetails		= request.event.getArg('qPlanDetails');
-qcountOutcomes    	= request.event.getArg('qOutcomeDetail');
+qOutcomeDetail    	= request.event.getArg('qOutcomeDetail');
+qALCCategories		= request.event.getArg('qALCCategories');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 </cfscript>
 
@@ -12,8 +13,10 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 				<!---
 				<cfdump var="#qPlanDetails#" />
 
-				<cfdump var="#qcountOutcomes#" />
+				<cfdump var="#qOutcomeDetail#" />
 				--->
+				<cfdump var="#qALCCategories#" />
+				
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -22,7 +25,6 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 									<div class="box-content">
 								<div class="row-fluid">
 									<div class="box box-bordered">
-										<!---<h4>booyah</h4>--->
 										<div class="box-title">
 												<h3><i class="icon-reorder"></i>Assessment Plan Summary</h3>
 										</div>
@@ -40,7 +42,7 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 											<div class="box-title">
 												<h3>
 													<cfoutput>
-													<i class="icon-reorder"></i>Learning Outcome #qcountOutcomes.currentrow# Details
+													<i class="icon-reorder"></i>Learning Outcome #qOutcomeDetail.currentrow# Details
 													</cfoutput>
 												</h3>
 											</div>
@@ -91,109 +93,42 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 																			<div class="box-content">
 																				<!--- <h4>Description and Methodology</h4> --->
 																				<p><strong>Outcome Description </strong><br>
-																				<cfoutput>#qcountOutcomes.outcomedescription#</cfoutput></p>
+																				<cfoutput>#qOutcomeDetail.outcomedescription#</cfoutput></p>
 
 																				<HR>
 
 																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
 																				
-																				    <div class="row-fluid sortable-box">
-																						<div class="span3">
+																				<div class="row-fluid sortable-box">
+																					
+																						<cfoutput query="qALCCategories" group="CategoryTitle" >
+																							<div class="span3">
 																							<!--- <strong><em>Content Knowledge</em></strong> --->
 																							    <br><br> 
 																							    
+																							    <!---
+																							    	Dynamic ALC Checkboxes
+
+																									1) Need to be able to check the boxes and save to DB
+																									2) Need to compare results in db and be "checked" where applicable
+																							    --->
+
 																							     <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
+																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">#qALCCategories.CategoryTitle#</label>
 																								</div>
 
-																								 <div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Declarative Knowledge</label>
-																								</div>
-
-																								
-																							    <div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
-																								</div>
-
-																								<div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
-																								</div>
+																								<cfoutput group="SubCategoryTitle">
+																									 <div class="check-line offset1">
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">#qALCCategories.SubCategoryTitle#</label>
+																									</div>																							
+																								</cfoutput>
 																								
 																						</div>
 
-																						<div class="span3">
-																							<!--- <strong><em>Communication</em></strong> --->
-																							    <br><br> 
-																							    
-																							    <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
-																								</div>
 
-																								
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Written Communication</label>
-																									</div>
-
-																								
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Oral Communication</label>
-																									</div>
-																								
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Multimedia/Graphic Communication</label>
-																									</div>
-																									
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Team/Collaborative Communication</label>
-																									</div>
-																					
-
-																						</div>
-
-																						<div class="span3">
-																							<!--- <strong><em>Critical Thinking</em></strong> --->
-																							    <br><br> 
-																							    
-																							     <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
-																								</div>
-
-																								<div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Analytical Skills</label>
-																								</div>
-
-																							    <div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																								</div>
-
-																								<div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																								</div>
-																								
-																								
-																						</div>
-																						<div class="span3">
-																							<!--- <strong><em>Critical Thinking</em></strong> --->
-																							    <br><br> 
-																							    
-																							     <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
-																								</div>
-
-																								<!---
-																							    <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																								</div>
-
-																								<div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																								</div>
-																								--->
-																								
-																								
-																						</div>
-																					</div>
-																				<br>
+																						</cfoutput>
+																				</div>
+																			
 
 																				<HR>
 
@@ -260,22 +195,22 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 																				<br>Goal 1, Objective 1: Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts
 
 																				<br>Goal 4, Objective 5: Engage students, faculty and staff in service activities that mutually benefit the University and the community<br><br>
-							<cfloop query="qcountOutcomes">
+							<cfloop query="qOutcomeDetail">
 								<cfoutput>
 
 																				<p><strong>Implementing Strategy :</strong></p>
-																				<p>#qcountOutcomes.outcomestrategy#</P>
+																				<p>#qOutcomeDetail.outcomestrategy#</P>
 
 
 																				<p><strong>Assessment Method :</strong></p>
-																				<p>#qcountOutcomes.outcomemethod#</p>
+																				<p>#qOutcomeDetail.outcomemethod#</p>
 
 																				<p>This method will ensure that we continue to abide by the commitments of our ALC, which require that all graduating students meet the department's standards for content knowledge. If we identify problems in meeting those goals, we will develop a departmental plan to strengthen the problem areas in courses.</p>
 
 
 
 																				<p><strong>Criterion for success </strong></p>
-																				<p>#qcountOutcomes.outcomecriterion#</p>
+																				<p>#qOutcomeDetail.outcomecriterion#</p>
 									</cfoutput>
 								</cfloop>		
 																				
