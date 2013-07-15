@@ -1,4 +1,12 @@
 
+<cfset variables.exception = request.event.getArg("exception") />
+<cfset variables.stError = variables.exception.getCaughtException()>
+
+
+<cfif variables.stError.type eq 'MachII.framework.EventHandlerNotDefined'>
+	<cfset request.do404(arguments.event.getName())>
+	<cfabort>
+</cfif>
 
 
 <h3>Exception</h3>
