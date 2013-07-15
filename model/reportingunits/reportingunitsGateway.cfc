@@ -96,11 +96,11 @@
  					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
  				  </cfif>
 
- 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID)>
+ 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID) AND arguments.quseraccessids.SuperDivisionID NEQ 999999>
  				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.quseraccessids.SuperDivisionID#" CFSQLType="cf_sql_integer" />
  				   </cfif>
 
- 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID)>
+ 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID) AND arguments.quseraccessids.DivisionID NEQ 999999>
  				   	 AND	DivisionID = <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_integer" />
  				   </cfif>
  				

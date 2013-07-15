@@ -50,19 +50,25 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 
 											<div class="nopadding">
 												<div class="tabs-container">
-													<ul class="tabs tabs-inline tabs-left">
-														<cfoutput query="qReportingUnits" group="DivisionName" >
-															<li>
-																<a href="###stringHelper.StripAllBut(DivisionName, "abcdefghijklmnopqrstuvwxyz",false)#" data-toggle='tab'>#DivisionName#</a>
-															</li>														
-														</cfoutput>														
+													<ul class="tabs tabs-inline tabs-left">	
+														<cfset ct =0>											
+														<cfoutput query="qReportingUnits" group="DivisionName" >															
+																<li <cfif ct eq 0>class="active"<cfelse>class=""</cfif> >
+																	<a href="###stringHelper.StripAllBut(DivisionName, "abcdefghijklmnopqrstuvwxyz",false)#" data-toggle='tab'>#DivisionName#</a>
+																</li>																			
+															<cfset ct = ct+1>
+														</cfoutput>															
 													</ul>
 												</div>
 												<div class="tab-content padding tab-content-inline" >
 													<!--- START --->
+													<cfset count =0>
 													<cfoutput query="qReportingUnits" group="DivisionName" >
 
-													<div class="tab-pane" id="#stringHelper.StripAllBut(DivisionName, "abcdefghijklmnopqrstuvwxyz",false)#">
+													<!---
+													<cfif count eq 0>class="tab-pane active"<cfelse>class="tab-pane"</cfif>
+													--->
+													<div <cfif count eq 0>class="tab-pane active"<cfelse>class="tab-pane"</cfif> id="#stringHelper.StripAllBut(DivisionName, "abcdefghijklmnopqrstuvwxyz",false)#">
 													
 															<div class="row-fluid">
 																<div class="span12 nopadding">
@@ -123,7 +129,7 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 															</div>
 														<!--- END --->
 													</div>
-
+													<cfset count = count + 1>
 													</cfoutput>
 													
 												
@@ -207,12 +213,3 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 			</div>
 		</div></div>
 
-
-<script type="text/javascript">
-	$(function() {                       //run when the DOM is ready
-	  //alert('whatup?');
-	  $("<li>").click(function() {  //use a class, since your ID gets mangled
-	    $(this).addClass("active");      //add the class to the clicked element
-	  });
-	});
-</script>
