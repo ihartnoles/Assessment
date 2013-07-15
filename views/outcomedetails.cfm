@@ -236,30 +236,18 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 																				</div>
 																				<div class="box-content">
 																					<p><strong>Data Summary </strong></p>
-																					<p>Ten final research papers from two courses (Archaeological Research Methods and Social/Cultural Research Methods) were evaluated according to the attached rubric for content knowledge. Papers were randomly selected from each course. Faculty reviewers met and discussed the evaluation process. One faculty member scored the ARM material. Two faculty members scored the SCRM material. For the SCRM results, scores provided by the two reviewers were averaged. Standard rounding was used for fractional scores. The overall results for Content Knowledge are below:</p>
-																					ARM
-																					<ul>																					
-																						<li>42.5% Excellent</li>
-																						<li>22.5% Above satisfactory</li>
-																						<li>35.0% Satisfactory</li>
-																					</ul>
-
-																					SCRM
-																					<ul>
-																						<li>45.0% Excellent</li>
-																						<li>22.5% Above satisfactory</li>
-																						<li>30.0% Satisfactory</li>
-																						<li>2.5% Needs work</li>
-																					</ul>
-
-																					<p>Content knowledge score satisfy the standards set by the department.</p>
-
+																					
+																					<cfloop query="qOutcomeDetail">
+																						<cfoutput>
+																						<p>#qOutcomeDetail.OutcomeResults#</p>																						
 																					<HR>
 
 																					<p><strong>Program Improvement</strong></p>
-																					<p>The detailed results for the SCRM course (attached) indicate that students could benefit from stronger guidance in linking their ethnographic research to a theoretical perspective. This will be stressed more in the course next spring.</p>
+																					
+																					<p>#HTMLEditFormat(qOutcomeDetail.OutcomePlanningImprovement)#</p>
 
-																					<p>The review process itself should be carried out on the biological research methods course as well next year</p>
+																					</cfoutput>
+																					</cfloop>
 
 																					<p><strong>Codes</strong></p>
 																					<div class="span3">
