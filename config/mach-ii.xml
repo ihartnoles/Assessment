@@ -136,6 +136,19 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+		<event-handler event="uploaddocument">
+			<!--
+			<filter name="ReceiverPositionFilter" />
+			<filter name="templateEventFilter" />
+			<event-arg name="successEvent" value="receiverPositions.editPosition"/>
+		     -->
+		     <!-- -->
+			<notify listener="AssessmentPlanSupportingDocumentsListener" method="uploaddocument" />
+			
+			<view-page name="upload" />
+		</event-handler>
+
+
 		<event-handler event="faq" access="public">
 			<view-page name="faq" contentArg="content" />
 			<view-page name="dash_layout" />
@@ -205,5 +218,6 @@
 		<page-view name="listUsers" page="/views/listUsers.cfm" />
 		<page-view name="mainMenu" page="/views/mainMenu.cfm" />
 		<page-view name="exception" page="/views/exception.cfm" />
+		<page-view name="upload" page="/views/upload.cfm" />
 	</page-views>
 </mach-ii>

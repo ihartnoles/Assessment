@@ -102,8 +102,10 @@
 	<script src="js/jquery.MetaData.js"></script>
 	<script src="js/jquery.rating.js"></script>
 
-	<!-- Theme framework -->
+	<!-- Theme framework
 	<script src="js/eakroko.min.js"></script>
+	 -->
+	 <script src="js/eakroko.js"></script>
 	<!-- Theme scripts -->
 	<script src="js/application.js"></script>
 	<!-- Just for demonstration -->

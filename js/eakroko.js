@@ -275,15 +275,16 @@ $(document).ready(function() {
 	}
 
 	// PlUpload
+	/*
 	if($('.plupload').length > 0){
 		$(".plupload").each(function(){
 			var $el = $(this);
 			$el.pluploadQueue({
 				runtimes : 'html5,gears,flash,silverlight,browserplus',
-				url : 'js/plupload/upload.php',
+				url : 'index.cfm?event=uploaddocument&outcomeID=',
 				max_file_size : '10mb',
 				chunk_size : '1mb',
-				unique_names : true,
+				unique_names : false,
 				resize : {width : 320, height : 240, quality : 90},
 				filters : [
 				{title : "Image files", extensions : "jpg,gif,png"},
@@ -323,7 +324,8 @@ $(document).ready(function() {
 				});
 			}
 		});
-}
+
+}*/
 
 	// Wizard
 	if($(".form-wizard").length > 0){
