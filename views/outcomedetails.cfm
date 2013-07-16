@@ -3,6 +3,7 @@ qPlanDetails		= request.event.getArg('qPlanDetails');
 qOutcomeDetail    	= request.event.getArg('qOutcomeDetail');
 qALCCategories		= request.event.getArg('qALCCategories');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
+qSupportingDocs		= request.event.getArg('qSupportingDocs');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -14,9 +15,9 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 				<cfdump var="#qPlanDetails#" />
 
 				<cfdump var="#qOutcomeDetail#" />
-				--->
-				<cfdump var="#qALCCategories#" />
 				
+				<cfdump var="#qSupportingDocs#" />
+				--->
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -336,11 +337,48 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 
 														<div class="tab-pane" id="docs2">
 															<div class="span12">
-																You will be able to upload/download/view documents here!
+																<div class="box">
+																	<div class="box-title">
+																		<h3><i class=" icon-paper-clip"></i> Supporting Documents</h3>
+																	</div>
+																	<div class="box-content nopadding">
+																			<table class="table table-hover table-nomargin table-condensed">
+																				<cfif qSupportingDocs.recordcount>
+																					<thead>
+																						<th>File Name</th>
+																						<th>Uploaded By</th>
+																						<th>Uploaded On</th>
+																						<th>Action</th>
+																					</thead>
+																					<tbody>																						
+																						<cfloop query="qSupportingDocs">
+																							<cfoutput>
+																							<tr>
+																								<td>#qSupportingDocs.FileNameUploaded#</td>
+																								<td>#qSupportingDocs.UserFname# #qSupportingDocs.UserLname#</td>
+																								<td>#DateFormat(qSupportingDocs.DateInserted,'mm/dd/yyy')# #TimeFormat(qSupportingDocs.DateInserted,'h:mm  tt')#</td>
+																								<td><i class="icon-download"></i> | <i class="icon-trash"></i></d>
+																							</tr>
+																							</cfoutput>
+																						</cfloop>
+																						
+																					
+
+																				<cfelse>
+																					<tr>
+																						<td colspan="4">
+																							No documents uploaded
+																						</td>
+																					</tr>
+																				</cfif>
+																				</tbody>
+																			</table>
+																	</div>
+																</div>
 
 																<div class="box">
 																	<div class="box-title">
-																		<h3><i class="icon-th"></i> Multi File upload</h3>
+																		<h3><i class="icon-upload"></i> Upload Supporting Documents</h3>
 																	</div>
 																	<div class="box-content nopadding">
 																		<div class="plupload"></div>

@@ -128,4 +128,20 @@
 			<ref bean="ALCCategoriesGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- assessment plan supporting documents -->
+	<bean id="assessmentPlanSupportingDocumentsDAO" class="Assessment.model.assessmentPlanSupportingDocuments.assessmentPlanSupportingDocumentsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanSupportingDocumentsGateway" class="Assessment.model.assessmentPlanSupportingDocuments.assessmentPlanSupportingDocumentsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanSupportingDocumentsService" class="Assessment.model.assessmentPlanSupportingDocuments.assessmentPlanSupportingDocumentsService">
+		<constructor-arg name="assessmentPlanSupportingDocumentsDAO">
+			<ref bean="assessmentPlanSupportingDocumentsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="assessmentPlanSupportingDocumentsGateway">
+			<ref bean="assessmentPlanSupportingDocumentsGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

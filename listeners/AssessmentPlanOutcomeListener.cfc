@@ -1,5 +1,5 @@
 <!---
-	COMPONENT: AssessmentePlanListener
+	COMPONENT: AssessmentPlanOutcomeListener
 --->
 
 <cfcomponent name="AssessmentPlanOutcomeListener" displayname="AssessmentPlanOutcomeListener" output="false" 
