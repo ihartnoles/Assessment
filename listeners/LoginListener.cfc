@@ -50,8 +50,8 @@
 						type="exlusive"
 						timeout="10"
 						{
-							session.userID = local.userexists.userID;
-							session.username = local.userexists.username;
+							session.user.userID = local.userexists.userID;
+							session.user.username = local.userexists.username;
 						}
 					
 				} else {
@@ -62,7 +62,7 @@
 						type="exlusive"
 						timeout="10"
 						{
-							session.userID = 0;
+							session.user.userID = 0;
 						}
 				}
 
@@ -90,6 +90,16 @@
 					
 					//announceEvent("ShowReportingUnits");
 					//redirectEvent("showUserDashboard");
+					//set the session.UserID
+					lock
+						scope="session"
+						type="exlusive"
+						timeout="10"
+						{
+							session.user.userRoleID = local.hasDefaultRole.roleID;
+							session.user.userRoleDescription = local.hasDefaultRole.AssessmentRoleDescription;
+						}
+
 					announceEvent("showUserDashboard");
 				}
 

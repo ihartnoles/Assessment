@@ -1,5 +1,5 @@
 <cfscript>
-title 		 = "BA Anthropology";
+title 		 =  request.event.getArg('programname');
 qPlanPeriods =  request.event.getArg('planperiods');
 </cfscript>
 

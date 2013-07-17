@@ -1,6 +1,13 @@
 <cfscript>
-title = "My Account Settings";
+title 			= "My Account Settings";
+qUserDetails 	= request.event.getArg('qUserDetails');
+qUserRoles	= request.event.getArg('qUserRoles');
 </cfscript>
+
+<!------>
+<cfdump var="#session#"/>
+
+<!--- <cfdump var="#qUserRoles#"/> --->
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
@@ -28,7 +35,10 @@ title = "My Account Settings";
 							</ul>
 							<div class="tab-content padding tab-content-inline tab-content-bottom">
 								<div class="tab-pane active" id="profile">
-									<form action="#" class="form-horizontal">
+
+									<form action="##" class="form-horizontal">
+									<cfloop query="qUserDetails">
+									<cfoutput>
 										<div class="row-fluid">
 											<div class="span2">
 												
@@ -37,32 +47,32 @@ title = "My Account Settings";
 												<div class="control-group">
 													<label for="name" class="control-label right">Name:</label>
 													<div class="controls">
-														<input type="text" name="name" class='input-xlarge' value="John Doe">
+														<input type="text" name="name" class='input-xlarge' value="#qUserDetails.UserFname# #qUserDetails.UserLname#">
 													</div>
 												</div>												
 												
 												<div class="control-group">
 													<label for="name" class="control-label right">Address:</label>
 													<div class="controls">
-														<div class="span12"><input type="text" name="textfield" id="textfield" class="tagsinput" value="777 Glades Road"></div>
+														<div class="span12"><input type="text" name="textfield" id="textfield" class="tagsinput" value="#qUserDetails.UserAddress#"></div>
 													</div>
 												</div>
 												<div class="control-group">
 													<label for="name" class="control-label right">Campus:</label>
 													<div class="controls">
-														<div class="span12"><input type="text" name="campus" id="textfield" class="tagsinput" value="Boca Raton"></div>
+														<div class="span12"><input type="text" name="campus" id="textfield" class="tagsinput" value="#qUserDetails.campusdescription#"></div>
 													</div>
 												</div>
 												<div class="control-group">
 													<label for="name" class="control-label right">Phone:</label>
 													<div class="controls">
-														<div class="span12"><input type="text" name="phone" id="textfield" class="tagsinput" value="(561)297-1111"></div>
+														<div class="span12"><input type="text" name="phone" id="textfield" class="tagsinput" value="#qUserDetails.UserPhoneACode# #qUserDetails.UserPhoneNumber#"></div>
 													</div>
 												</div>
 												<div class="control-group">
 													<label for="email" class="control-label right">Email:</label>
 													<div class="controls">
-														<input type="text" name="email" class='input-xlarge' value="jdoe@fau.edu">
+														<input type="text" name="email" class='input-xlarge' value="#qUserDetails.UserEmail#">
 														<!---
 														<div class="form-button">
 															<a href="#" class="btn btn-grey-4 change-input">Change</a>
@@ -77,18 +87,26 @@ title = "My Account Settings";
 												</div>
 											</div>
 										</div>
+									</cfoutput>
+									</cfloop>
 									</form>
 								</div>
 								<div class="tab-pane" id="notifications">
 									
-									<form action="#" class="form-horizontal">
+									<form action="index.cfm?event=updateUserRole" method="post" class="form-horizontal">
 										<div class="control-group">
 											<label for="asdf" class="control-label">Roles</label>
 											<div class="controls">
-												<label class="radio"><input type="radio" name="role" id="Administrator" value="1"/>Administrator</label>
-												<label class="radio"><input type="radio" name="role" id="Reporter" value="2"/>Reporter</label>
-												<label class="radio"><input type="radio" name="role" id="Reviewer" value="3"/>Reviewer</label>
-												<label class="checkbox"><input type="checkbox" name="UpdateDefaultCheckbox" id="Default"/>Make this my default role</label>
+												
+												
+												<cfoutput query="qUserRoles">
+													<label class="radio"><input type="radio" name="roleID" id="#qUserRoles.AssessmentRoleDescription#" value="#qUserRoles.RecordID#@#qUserRoles.RoleID#" <cfif session.user.userroleid EQ qUserRoles.roleID>
+														checked
+													</cfif>/>#qUserRoles.AssessmentRoleDescription# <cfif qUserRoles.defaultrole > [default] </cfif></label>
+												</cfoutput>												
+												<!---
+												<label class="checkbox"><input type="checkbox" name="defaultrole" id="Default" selected/>Make this my default role</label>
+												--->
 											</div>
 										</div>
 										<div class="form-actions">

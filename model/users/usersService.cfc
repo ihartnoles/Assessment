@@ -81,7 +81,7 @@
 		<cfargument name="UserID" type="string" required="false" />
 		<cfargument name="RoleID" type="numeric" required="true" />
 
-		<cfreturn  variables.usersDAO.setUserRole(userid=session.userid,roleid=arguments.roleid) />
+		<cfreturn  variables.usersDAO.setUserRole(userid=session.user.userid,roleid=arguments.roleid) />
 	</cffunction>
 
 	<cffunction name="userHasDefaultRole" access="public" output="false" returntype="query">

@@ -71,6 +71,27 @@
 		<cfreturn qList.RecordID />
 	</cffunction>
 
+	<cffunction name="getUserRoleLevels" access="public" output="false" returntype="query">
+		
+		<cfargument name="UserID" type="numeric" required="false" />
+		
+		
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">			 
+			 SELECT ur.*, AssessmentRoleDescription  
+ 			 FROM UserRoles ur, Roles r  
+
+			 WHERE	0=0			
+		<cfif structKeyExists(session.user,"UserID") and len(session.user.UserID)>
+			AND	UserID = <cfqueryparam value="#session.user.UserID#" CFSQLType="cf_sql_integer" />
+		</cfif>
+
+		 	 AND ur.RoleID=r.AssessmentRoleID		
+		</cfquery>
+		
+		<cfreturn qList />
+	</cffunction>
+
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
 		<cfargument name="RecordID" type="numeric" required="false" />
 		<cfargument name="UserID" type="numeric" required="false" />

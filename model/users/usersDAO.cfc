@@ -205,7 +205,7 @@
 			<cfquery name="local.qSetDefaultRole" datasource="#variables.dsn#">
 				UPDATE	UserRoles
 					SET     DefaultRole = 1
-				WHERE	UserID = <cfqueryparam value="#session.UserID#" CFSQLType="cf_sql_integer" />
+				WHERE	UserID = <cfqueryparam value="#session.user.UserID#" CFSQLType="cf_sql_integer" />
 					AND     RoleID = <cfqueryparam value="#arguments.RoleID#" CFSQLType="cf_sql_integer" />
 			</cfquery>
 
@@ -225,7 +225,7 @@
 			<cfquery name="local.qZeroDefaultRoles" datasource="#variables.dsn#">
 				UPDATE	UserRoles
 					SET     DefaultRole = 0
-				WHERE	UserID = <cfqueryparam value="#session.UserID#" CFSQLType="cf_sql_integer" />				
+				WHERE	UserID = <cfqueryparam value="#session.user.UserID#" CFSQLType="cf_sql_integer" />				
 			</cfquery>
 			<cfcatch type="database">
 				<cfreturn false />

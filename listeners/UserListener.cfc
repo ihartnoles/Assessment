@@ -49,9 +49,14 @@
 		<cfdump var="#arguments#" abort="true" label="arguments@UserListener" />
          --->
 
-		<cfreturn variables.usersService.SetUserRole(userid=session.userid, roleid=request.event.getArg('role')) >
+		<cfreturn variables.usersService.SetUserRole(userid=session.user.userid, roleid=request.event.getArg('role')) >
 	</cffunction>
 
+	<cffunction name="getUserDetails" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.usersService.getUserDetails(userid=session.user.userid) >
+	</cffunction>
 	<!---
 	<cffunction name="showUserDashboard" access="public" output="false" 
 			returntype="query" >

@@ -93,6 +93,10 @@
 			<view-page name="userrole" contentArg="content" />
 			<view-page name="layout" />
 		</event-handler>
+
+		<event-handler event="updateUserRole" access="public">
+			<notify listener="UserRoleListener" method="updateUserRole" />			
+		</event-handler>
 		
 		<event-handler event="SetUserRoleForSession" access="public">
 			<event-arg name="userid" variable="session.userid" />
@@ -165,6 +169,8 @@
 		</event-handler>
 
 		<event-handler event="accountsettings" access="public">
+			<notify listener="UserListener" method="getUserDetails" resultArg="qUserDetails"  />
+			<notify listener="UserRoleListener" method="getUserRoleLevels" resultArg="qUserRoles"  />
 			<view-page name="accountsettings" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

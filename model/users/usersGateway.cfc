@@ -200,6 +200,26 @@
 		<cfreturn qList />
 	</cffunction>
 
+	<cffunction name="getUserDetails" access="public" output="false" returntype="query">
+		<cfargument name="UserID" type="numeric" required="false" />
+		
+
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			 SELECT u.*, campusdescription 
+ 			 FROM Users u, Campus c   
+			 WHERE	0=0
+			AND u.UserCampus=c.Campus
+			<cfif structKeyExists(session.user,"userID") and len(session.user.UserID)>
+				AND	UserID = <cfqueryparam value="#session.user.UserID#" CFSQLType="cf_sql_integer" />
+			</cfif>		
+		</cfquery>
+
+		<cfreturn qList />
+	</cffunction>
+
+
 	<cffunction name="queryRowToStruct" access="private" output="false" returntype="struct">
 		<cfargument name="qry" type="query" required="true">
 		

@@ -92,7 +92,7 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 																								<div class="span12 search-info">
 																									<p><h4>#DeptName#</h4></p>																							
 																									<cfoutput group="ProgramName">
-																										<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#" rel="tooltip" data-placement="right" title="View Assessment Plan" >#ProgramName#</a></p>
+																										<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#ProgramName#" rel="tooltip" data-placement="right" title="View Assessment Plan" >#ProgramName#</a></p>
 																										<!---
 																										<p><a href="##" rel="tooltip" data-placement="right" title="View Assement Plan">Lorem Ipsum</a></p>	
 																										--->

@@ -144,4 +144,20 @@
 			<ref bean="assessmentPlanSupportingDocumentsGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- campus -->
+	<bean id="campusDAO" class="Assessment.model.campus.campusDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="campusGateway" class="Assessment.model.campus.campusGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="campusService" class="Assessment.model.campus.campusService">
+		<constructor-arg name="campusDAO">
+			<ref bean="campusDAO"/>
+		</constructor-arg>
+		<constructor-arg name="campusGateway">
+			<ref bean="campusGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>
