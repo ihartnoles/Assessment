@@ -9,6 +9,17 @@ qUserRoles	= request.event.getArg('qUserRoles');
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				<div class="row-fluid">
 				<div class="span12">
+
+					<cfif structKeyExists(session,"notification") and len(session.notification)>
+					<div class="alert">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						<cfoutput>
+								<strong>#session.notification#</strong> 
+						</cfoutput>
+
+					</div>
+					</cfif>
+
 					<div class="box box-color box-bordered">
 						<div class="box-title">
 							<h3>
@@ -114,11 +125,11 @@ qUserRoles	= request.event.getArg('qUserRoles');
 										
 								</div>
 								<div class="tab-pane" id="security">
-									<form action="#" class="form-horizontal">
+									<form action="index.cfm?event=updatepassword" method="post" class="form-horizontal">
 										<div class="control-group">
 											<label for="password" class="control-label">Enter new password:</label>
 											<div class="controls">
-														<input type="password" name="pw" class='input-xlarge' value="********">
+														<input type="password" name="UserPassword_1" class='input-xlarge'>
 														<!---
 														<div class="form-button">
 															<a href="#" class="btn btn-grey-4 change-input">Change</a>
@@ -130,7 +141,7 @@ qUserRoles	= request.event.getArg('qUserRoles');
 										<div class="control-group">
 											<label for="password_conf" class="control-label">Re-enter new password:</label>
 											<div class="controls">
-														<input type="password" name="pw" class='input-xlarge' value="********">
+														<input type="password" name="UserPassword_2" class='input-xlarge' value="">
 														<!---
 														<div class="form-button">
 															<a href="#" class="btn btn-grey-4 change-input">Change</a>

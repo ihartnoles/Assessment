@@ -236,6 +236,26 @@
 			
 	</cffunction>
 
+	<cffunction name="updatepassword" access="public" output="false" returntype="boolean">
+		<cfargument name="UserPassword_1" type="string" required="true" />
+		
+		<!--- <cfdump var="#arguments#" abort="true" label="@@usersDAO" /> --->
+
+		<cfset var qUpdate = "" />
+		<cftry>
+			<cfquery name="qUpdate" datasource="#variables.dsn#">
+				UPDATE	Users
+				SET					
+					UserPassword = <cfqueryparam value="#arguments.UserPassword_1#" CFSQLType="cf_sql_varchar" null="#not len(arguments.UserPassword_1)#" />
+				WHERE	UserID = <cfqueryparam value="#session.user.userID#" CFSQLType="cf_sql_integer" />
+			</cfquery>
+			<cfcatch type="database">
+				<cfreturn false />
+			</cfcatch>
+		</cftry>
+		<cfreturn true />
+	</cffunction>
+
 
 
 	<cffunction name="save" access="public" output="false" returntype="boolean">

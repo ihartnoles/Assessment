@@ -143,6 +143,7 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+
 		<event-handler event="uploaddocument">
 			<!--
 			<filter name="ReceiverPositionFilter" />
@@ -155,6 +156,10 @@
 			<view-page name="upload" />
 		</event-handler>
 
+		<event-handler event="updatepassword" access="public">
+			<notify listener="UserListener" method="updatepassword" />	
+			<redirect event="accountsettings#security" args="notification" />
+		</event-handler>
 
 		<event-handler event="faq" access="public">
 			<view-page name="faq" contentArg="content" />

@@ -57,6 +57,19 @@
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		<cfreturn variables.usersService.getUserDetails(userid=session.user.userid) >
 	</cffunction>
+	
+	<cffunction name="updatepassword" access="public" output="false" 
+			returntype="boolean" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<!--- <cfdump var="#arguments.event.getArgs()#" abort="true" label="@@UserListener" /> --->
+
+		<cfset session.notification = 'Password Updated!' />
+
+		<cfreturn variables.usersService.updatepassword(UserPassword_1 = arguments.event.getArg('UserPassword_1'),
+													    UserPassword_2 = arguments.event.getArg('UserPassword_2')) >
+	</cffunction>
+
 	<!---
 	<cffunction name="showUserDashboard" access="public" output="false" 
 			returntype="query" >
