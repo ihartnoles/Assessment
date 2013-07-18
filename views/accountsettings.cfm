@@ -64,9 +64,12 @@ qUserRoles	= request.event.getArg('qUserRoles');
 													</div>
 												</div>
 												<div class="control-group">
-													<label for="name" class="control-label right">Phone:</label>
+													<label for="phone" class="control-label right">Phone:</label>
 													<div class="controls">
-														<div class="span12"><input type="text" name="phone" id="textfield" class="tagsinput" value="#qUserDetails.UserPhoneACode# #qUserDetails.UserPhoneNumber#"></div>
+														<div class="span12">
+															<input type="text" name="phone" id="phone" class="input-xlarge mask_phone">
+															<span class="help-block">Format: (999) 999-9999</span>
+														</div>
 													</div>
 												</div>
 												<div class="control-group">
@@ -110,8 +113,7 @@ qUserRoles	= request.event.getArg('qUserRoles');
 											</div>
 										</div>
 										<div class="form-actions">
-											<input type="submit" class='btn btn-primary' value="Save">
-											<input type="reset" class='btn' value="Discard changes">
+											<input type="submit" class='btn btn-primary' value="Save">										
 										</div>
 									</form>
 										

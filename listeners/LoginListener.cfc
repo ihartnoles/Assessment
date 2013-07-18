@@ -112,6 +112,20 @@
 		</cfscript>
 	</cffunction>
 
+	<cffunction name="logout" access="public" returntype="void" output="false">		
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<!--- clear the session --->
+		<cfset StructClear(session) />
+		
+		<!--- set the message --->
+		<cfset session.message ="You have been logged out.">
+
+		<!--- redirect to login page --->
+		<cfset announceEvent("showLogin",arguments.event.getArgs())>
+	</cffunction>
+
+
 	<cffunction name="hitDB" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />

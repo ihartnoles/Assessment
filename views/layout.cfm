@@ -24,6 +24,8 @@
 	<!-- rating CSS -->
 	<link rel="stylesheet" href="css/jquery.rating.css">
 
+	<!-- Tagsinput -->
+	<link rel="stylesheet" href="css/plugins/tagsinput/jquery.tagsinput.css">
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

@@ -11,9 +11,9 @@
 							<div class="block">
 								<div class="section">
 									<!--- <a href="index.cfm" id="small_logo" width="144" height="80"><span>FAU</span></a> --->
-									<cfif len(trim(#request.event.getArg("message")#)) >
+									<cfif len(trim(session.message)) >
 										<div class="alert dismissible alert_light">
-										#request.event.getArg("message")#
+										#session.message#
 										</div>
 									</cfif>
 

@@ -289,7 +289,7 @@
 							<a href="index.cfm?event=accountsettings">Account settings</a>
 						</li>
 						<li>
-							<a href="index.cfm?event=showLogin">Sign out</a>
+							<a href="index.cfm?event=logout">Sign out</a>
 						</li>
 					</ul>
 				</div>

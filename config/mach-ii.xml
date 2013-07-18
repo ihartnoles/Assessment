@@ -81,6 +81,9 @@
 			<notify listener="loginListener" method="validateLogin" />
 		</event-handler>
 		
+		<event-handler event="logout" access="public">
+			<notify listener="loginListener" method="logout" />
+		</event-handler>
 
 		<event-handler event="forgot" access="public">
 			<view-page name="forgot" contentArg="content" />
