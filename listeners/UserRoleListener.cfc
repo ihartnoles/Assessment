@@ -14,7 +14,8 @@
 		 <cfset var sf = getProperty("ServiceFactory")>
 		
 
-		 <cfset variables.userRolesService 	= sf.getBean('userRolesService') /> 
+		 <cfset variables.userRolesService 	= sf.getBean('userRolesService') />
+		 <cfset variables.rolesService 		= sf.getBean('rolesService') />  
 	</cffunction>
 
 	
@@ -77,15 +78,17 @@
 			<cfset saveUserRoleBean = variables.userRolesService.saveuserroles(local.userrolebean) />
 		</cfloop>
 
-		<!---
-		<cfdump var="#arguments.event.getArgs()#" abort="true" label="@@UserRoleListener_1" />	
-		--->
 
 		<!--- <cfdump var="#userrolebean#" abort="true" label="@@UserRoleListener_2" /> --->
-
+		<cfset session.user.userRoleDescription =  variables.userRolesService.getDefaultUserRoleDescription(userid=session.user.userid) />
 		
-		<cfset announceEvent("accountsettings") />
+		<!--- 
+		<cfdump var="#session#" abort="true" label="@@UserRoleListener_1" />
+		--->
+
+		<cfset redirectEvent("accountsettings") />
 	</cffunction>
+	
 	<!---
 	<cffunction name="showUserDashboard" access="public" output="false" 
 			returntype="query" >

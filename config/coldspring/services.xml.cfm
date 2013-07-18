@@ -160,4 +160,20 @@
 			<ref bean="campusGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- roles -->
+	<bean id="rolesDAO" class="Assessment.model.roles.rolesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="rolesGateway" class="Assessment.model.roles.rolesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="rolesService" class="Assessment.model.roles.rolesService">
+		<constructor-arg name="rolesDAO">
+			<ref bean="rolesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="rolesGateway">
+			<ref bean="rolesGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

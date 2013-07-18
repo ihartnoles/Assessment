@@ -4,11 +4,6 @@ qUserDetails 	= request.event.getArg('qUserDetails');
 qUserRoles	= request.event.getArg('qUserRoles');
 </cfscript>
 
-<!------>
-<cfdump var="#session#"/>
-
-<!--- <cfdump var="#qUserRoles#"/> --->
-
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 				<cfinclude template="/Assessment/views/page_header.cfm">

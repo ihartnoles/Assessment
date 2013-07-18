@@ -283,7 +283,7 @@
 				</ul>
 				<div class="dropdown">
 					<a href="#" class='dropdown-toggle' data-toggle="dropdown">
-						<cfoutput>#session.user.username#</cfoutput> - <i>Administrator</i></a>
+						<cfoutput>#session.user.username#- <i>#session.user.userRoleDescription#</i></a></cfoutput> 
 					<ul class="dropdown-menu pull-right">
 						<li>
 							<a href="index.cfm?event=accountsettings">Account settings</a>
