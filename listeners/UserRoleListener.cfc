@@ -85,6 +85,7 @@
 		<!--- 
 		<cfdump var="#session#" abort="true" label="@@UserRoleListener_1" />
 		--->
+		<cfset session.notification = 'Success! User role has been changed!' />
 
 		<cfset redirectEvent("accountsettings") />
 	</cffunction>

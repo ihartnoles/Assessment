@@ -100,6 +100,21 @@
 													 UserPassword_2 = arguments.UserPassword_2) />
 	</cffunction>
 
+	<cffunction name="updateContactInfo" access="public" output="false" returntype="boolean">
+		<cfargument name="UserAddress" type="string" required="false" />
+		<cfargument name="UserCampus" type="string" required="false" />
+		<cfargument name="UserPhoneAcode" type="string" required="false" />
+		<cfargument name="UserPhoneNumber" type="string" required="false" />
+
+		<!--- <cfdump var="#arguments#" abort="true" label="@@UserListener" /> --->
+
+		<cfreturn  variables.usersDAO.updatecontactinfo(UserAddress 	= arguments.UserAddress,
+													    UserCampus		= arguments.UserCampus,
+													    UserPhoneAcode 	= arguments.UserPhoneAcode,
+													    UserPhoneNumber = arguments.UserPhoneNumber
+													    ) />
+	</cffunction>
+
 	<!---
 	<cffunction name="showUserDashboard" access="public" output="false" returntype="query">
 		<cfargument name="userid" type="string" required="false" />				

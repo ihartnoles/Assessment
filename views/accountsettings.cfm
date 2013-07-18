@@ -1,7 +1,8 @@
 <cfscript>
 title 			= "My Account Settings";
 qUserDetails 	= request.event.getArg('qUserDetails');
-qUserRoles	= request.event.getArg('qUserRoles');
+qUserRoles		= request.event.getArg('qUserRoles');
+qCampuses		= request.event.getArg('qCampuses');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -42,7 +43,7 @@ qUserRoles	= request.event.getArg('qUserRoles');
 							<div class="tab-content padding tab-content-inline tab-content-bottom">
 								<div class="tab-pane active" id="profile">
 
-									<form action="##" class="form-horizontal">
+									<form action="index.cfm?event=updateContactInfo" method="post" class="form-horizontal">
 									<cfloop query="qUserDetails">
 									<cfoutput>
 										<div class="row-fluid">
@@ -53,35 +54,51 @@ qUserRoles	= request.event.getArg('qUserRoles');
 												<div class="control-group">
 													<label for="name" class="control-label right">Name:</label>
 													<div class="controls">
-														<input type="text" name="name" class='input-xlarge' value="#qUserDetails.UserFname# #qUserDetails.UserLname#">
+														<input type="text" name="name" class='input-xlarge' value="#qUserDetails.UserFname# #qUserDetails.UserLname#" readonly>
 													</div>
 												</div>												
 												
 												<div class="control-group">
-													<label for="name" class="control-label right">Address:</label>
+													<label for="UserAddress" class="control-label right">Address:</label>
 													<div class="controls">
-														<div class="span12"><input type="text" name="textfield" id="textfield" class="tagsinput" value="#qUserDetails.UserAddress#"></div>
+														<div class="span12"><input type="text" name="UserAddress" id="textfield" class="tagsinput" value="#qUserDetails.UserAddress#"></div>
 													</div>
 												</div>
+												<!--- campus needs to be changed to a drop-down --->
 												<div class="control-group">
-													<label for="name" class="control-label right">Campus:</label>
+													<label for="UserCampus" class="control-label right">Campus:</label>
 													<div class="controls">
-														<div class="span12"><input type="text" name="campus" id="textfield" class="tagsinput" value="#qUserDetails.campusdescription#"></div>
+														<!---
+														<div class="span12"><input type="text" name="UserCampus" id="textfield" class="tagsinput" value="#qUserDetails.campusdescription#"></div>
+														--->
+
+														
+															<select name="UserCampus" id="s2" class='select2-me input-xlarge'>
+																<cfloop query="qCampuses">
+																	<cfoutput>
+																		<option value="#qCampuses.Campus#" <cfif qUserDetails.UserCampus EQ qCampuses.Campus>selected</cfif>>#qCampuses.CampusDescription#</option>
+																	</cfoutput>																
+																</cfloop>														
+															</select>
+														
 													</div>
 												</div>
 												<div class="control-group">
 													<label for="phone" class="control-label right">Phone:</label>
 													<div class="controls">
 														<div class="span12">
-															<input type="text" name="phone" id="phone" class="input-xlarge mask_phone">
-															<span class="help-block">Format: (999) 999-9999</span>
+															
+																<input type="text" name="UserPhoneAcode" id="phone" class="input-small" value="#qUserDetails.UserPhoneAcode#" length="3" maxlength="3">
+														
+																<input type="text" name="UserPhoneNumber" id="phone" class="input-medium" value="#qUserDetails.UserPhoneNumber#" length="7" maxlength="7">
+															
 														</div>
 													</div>
 												</div>
 												<div class="control-group">
 													<label for="email" class="control-label right">Email:</label>
 													<div class="controls">
-														<input type="text" name="email" class='input-xlarge' value="#qUserDetails.UserEmail#">
+														<input type="text" name="email" class='input-xlarge' value="#qUserDetails.UserEmail#" readonly>
 														<!---
 														<div class="form-button">
 															<a href="#" class="btn btn-grey-4 change-input">Change</a>

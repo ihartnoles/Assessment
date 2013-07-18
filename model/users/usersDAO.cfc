@@ -258,6 +258,37 @@
 
 
 
+	<cffunction name="updatecontactinfo" access="public" output="false" returntype="boolean">
+		<cfargument name="UserAddress" type="string" required="false" />
+		<cfargument name="UserCampus" type="string" required="false" />
+		<cfargument name="UserPhoneAcode" type="string" required="false" />
+		<cfargument name="UserPhoneNumber" type="string" required="false" />
+		
+		<!--- <cfdump var="#arguments#" abort="true" label="@@usersDAO" /> --->
+
+		<cfset var qUpdate = "" />
+		<cftry>
+			<cfquery name="qUpdate" datasource="#variables.dsn#">
+				UPDATE	Users
+				SET					
+					
+					UserAddress = <cfqueryparam value="#arguments.UserAddress#" CFSQLType="cf_sql_varchar" null="#not len(arguments.UserAddress)#" />,
+					UserCampus = <cfqueryparam value="#arguments.UserCampus#" CFSQLType="cf_sql_char" null="#not len(arguments.UserCampus)#" />,
+					UserPhoneAcode = <cfqueryparam value="#arguments.UserPhoneAcode#" CFSQLType="cf_sql_char" null="#not len(arguments.UserPhoneAcode)#" />,
+					UserPhoneNumber = <cfqueryparam value="#arguments.UserPhoneNumber#" CFSQLType="cf_sql_char" null="#not len(arguments.UserPhoneNumber)#" />
+					
+					
+				WHERE	UserID = <cfqueryparam value="#session.user.userID#" CFSQLType="cf_sql_integer" />
+			</cfquery>
+			<cfcatch type="database">
+				<cfreturn false />
+			</cfcatch>
+		</cftry>
+		<cfreturn true />
+	</cffunction>
+
+
+
 	<cffunction name="save" access="public" output="false" returntype="boolean">
 		<cfargument name="users" type="users" required="true" />
 		

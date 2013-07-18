@@ -19,13 +19,12 @@
 		<property name="coldspringProperty" type="coldspring.machii.ColdspringProperty">
 			<parameters>
 				<parameter name="beanFactoryPropertyName" 		 value="serviceFactory"/>
-				<parameter name="configFile" 			  		 value="config\coldspring\services.xml.cfm" />
+				<parameter name="configFile" 			  		 value="config/coldspring/services.xml.cfm" />
 				<parameter name="resolveMachIIDependencies"      value="true"/>
 				<parameter name="placeFactoryInApplicationScope" value="true" /> 
 				<!-- Whether path is relative (mapped) or absolute - Default: FALSE 
 				<parameter name="configFilePathIsRelative" value="true"/>-->
-				<parameter name="resolveMachIIDependencies" 	 value="true"/>
-				<parameter name="placeFactoryInApplicationScope" value="true" /> 
+				<parameter name="resolveMachIIDependencies" 	 value="true"/>				
 			</parameters>
 		</property>
 		<property name="dsn" value="Assessment" />
@@ -56,7 +55,8 @@
 		<listener name="UserRoleAccessListener" type="Assessment.listeners.UserRoleAccessListener" />
         <listener name="AssessmentPlanOutcomeListener" type="Assessment.listeners.AssessmentPlanOutcomeListener" />	
         <listener name="ALCCategoriesListener" type="Assessment.listeners.ALCCategoriesListener" />		
-        <listener name="AssessmentPlanSupportingDocumentsListener" type="Assessment.listeners.AssessmentPlanSupportingDocumentsListener" />		
+        <listener name="AssessmentPlanSupportingDocumentsListener" type="Assessment.listeners.AssessmentPlanSupportingDocumentsListener" />
+      	<listener name="CampusListener" type="Assessment.listeners.CampusListener" />
 	</listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -145,12 +145,6 @@
 
 
 		<event-handler event="uploaddocument">
-			<!--
-			<filter name="ReceiverPositionFilter" />
-			<filter name="templateEventFilter" />
-			<event-arg name="successEvent" value="receiverPositions.editPosition"/>
-		     -->
-		     <!-- -->
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="uploaddocument" />
 			
 			<view-page name="upload" />
@@ -158,6 +152,11 @@
 
 		<event-handler event="updatepassword" access="public">
 			<notify listener="UserListener" method="updatepassword" />	
+			<redirect event="accountsettings#security" args="notification" />
+		</event-handler>
+
+		<event-handler event="updateContactInfo" access="public">
+			<notify listener="UserListener" method="updateContactInfo" />	
 			<redirect event="accountsettings#security" args="notification" />
 		</event-handler>
 
@@ -179,6 +178,7 @@
 		<event-handler event="accountsettings" access="public">
 			<notify listener="UserListener" method="getUserDetails" resultArg="qUserDetails"  />
 			<notify listener="UserRoleListener" method="getUserRoleLevels" resultArg="qUserRoles"  />
+			<notify listener="campusListener" method="getAllCampuses" resultArg="qCampuses"  />
 			<view-page name="accountsettings" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

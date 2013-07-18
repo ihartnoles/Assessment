@@ -70,12 +70,19 @@
 													    UserPassword_2 = arguments.event.getArg('UserPassword_2')) >
 	</cffunction>
 
-	<!---
-	<cffunction name="showUserDashboard" access="public" output="false" 
-			returntype="query" >
+	<cffunction name="updateContactInfo" access="public" output="false" 
+			returntype="boolean" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
-		<cfreturn variables.usersService.showUserDashboard(argumentCollection=arguments) >
+
+		<!--- <cfdump var="#arguments.event.getArgs()#" abort="true" label="@@UserListener" /> --->
+
+		<cfset session.notification = 'Profile contact information updated!' />
+
+		<cfreturn variables.usersService.updatecontactinfo(UserAddress = arguments.event.getArg('UserAddress'),
+													       UserCampus		= arguments.event.getArg('UserCampus'),
+													       UserPhoneAcode = arguments.event.getArg('UserPhoneAcode'),
+													       UserPhoneNumber = arguments.event.getArg('UserPhoneNumber')
+													    ) >
 	</cffunction>
-    --->
-    
+	    
 </cfcomponent>

@@ -6,13 +6,26 @@
 		<cfreturn this />
 	</cffunction>
 	
+	<cffunction name="getAllCampuses" access="public" output="false" returntype="query">
+		<cfset local.qList = "" />		
+		<cfquery name="local.qList" datasource="#variables.dsn#">
+			SELECT
+				Campus,
+				CampusDescription
+			FROM	Campus			
+		</cfquery>
+		
+		<cfreturn local.qList />
+	</cffunction>
+
+
 	<cffunction name="getByAttributesQuery" access="public" output="false" returntype="query">
 		<cfargument name="Campus" type="string" required="false" />
 		<cfargument name="CampusDescription" type="string" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		
-		<cfset var qList = "" />		
-		<cfquery name="qList" datasource="#variables.dsn#">
+		<cfset local.qList = "" />		
+		<cfquery name="local.qList" datasource="#variables.dsn#">
 			SELECT
 				Campus,
 				CampusDescription
@@ -30,7 +43,7 @@
 		</cfif>
 		</cfquery>
 		
-		<cfreturn qList />
+		<cfreturn local.qList />
 	</cffunction>
 
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
@@ -38,7 +51,7 @@
 		<cfargument name="CampusDescription" type="string" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		
-		<cfset var qList = getByAttributesQuery(argumentCollection=arguments) />		
+		<cfset local.qList = getByAttributesQuery(argumentCollection=arguments) />		
 		<cfset var arrObjects = arrayNew(1) />
 		<cfset var tmpObj = "" />
 		<cfset var i = 0 />

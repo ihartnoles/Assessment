@@ -146,13 +146,13 @@
 	</bean>
 
 	<!-- campus -->
-	<bean id="campusDAO" class="Assessment.model.campus.campusDAO">
+	<bean id="campusDAO" class="Assessment.model.campuses.campusDAO">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
 	</bean>
-	<bean id="campusGateway" class="Assessment.model.campus.campusGateway">
+	<bean id="campusGateway" class="Assessment.model.campuses.campusGateway">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
-	</bean>
-	<bean id="campusService" class="Assessment.model.campus.campusService">
+	</bean>	
+	<bean id="campusService" class="Assessment.model.campuses.campusService">
 		<constructor-arg name="campusDAO">
 			<ref bean="campusDAO"/>
 		</constructor-arg>
@@ -160,7 +160,7 @@
 			<ref bean="campusGateway"/>
 		</constructor-arg>
 	</bean>
-
+	
 	<!-- roles -->
 	<bean id="rolesDAO" class="Assessment.model.roles.rolesDAO">
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
