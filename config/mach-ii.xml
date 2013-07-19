@@ -57,7 +57,10 @@
         <listener name="ALCCategoriesListener" type="Assessment.listeners.ALCCategoriesListener" />		
         <listener name="AssessmentPlanSupportingDocumentsListener" type="Assessment.listeners.AssessmentPlanSupportingDocumentsListener" />
       	<listener name="CampusListener" type="Assessment.listeners.CampusListener" />
-	</listeners>
+        <listener name="organizationSuperDivisionListener" type="Assessment.listeners.OrganizationSuperDivisionListener" />
+        <listener name="organizationDivisionListener" type="Assessment.listeners.OrganizationDivisionListener" />
+        <listener name="OrganizationDeptListener" type="Assessment.listeners.OrganizationDeptListener" />
+     </listeners>
 	
 	<!-- EVENT-HANDLERS -->
 	<event-handlers>
@@ -184,15 +187,33 @@
 		</event-handler>
 
 		<event-handler event="reports" access="public">
+			<notify listener="OrganizationSuperDivisionListener" method="getSuperDivisions" resultArg="qSuperDivisions"  />
 			<view-page name="reports" contentArg="content" />
 			<view-page name="dash_layout" />
+		</event-handler>
+
+		<event-handler event="getDivisionjson" access="public">
+			<!-- query for divisions by superDivisionID -->
+			<notify listener="OrganizationDivisionListener" method="getDivisions" resultArg="qDivisionResults"  />
+			
+			<view-page name="json"/>			
+		</event-handler>
+
+		<event-handler event="getDeptjson" access="public">
+			<!-- query for divisions by superDivisionID -->
+			<notify listener="OrganizationDeptListener" method="getDepartments" resultArg="qDepartmentResults"  />
+			
+			<view-page name="json"/>			
+		</event-handler>
+
+		<event-handler event="getPlanGrid" access="public">
+			<notify listener="AssessmentPlanListener" method="getPlanGrid" resultArg="qPlanGrid"  />
+			<view-page name="grid"/>			
 		</event-handler>
 
 		<event-handler event="json" access="public">
 			<view-page name="json"/>			
 		</event-handler>
-
-
 
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
@@ -237,5 +258,7 @@
 		<page-view name="exception" page="/views/exception.cfm" />
 		<page-view name="upload" page="/views/upload.cfm" />
 		<page-view name="json" page="/views/json.cfm" />
+		<page-view name="grid" page="/views/grid.cfm" />
 	</page-views>
+
 </mach-ii>

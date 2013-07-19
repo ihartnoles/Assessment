@@ -134,6 +134,51 @@
 		<cfreturn qList />
 	</cffunction>
 
+	
+
+	<cffunction name="getPlanGrid" access="public" output="false" returntype="query">
+		<cfargument name="SuperDivisionID" type="string" required="false" />
+		<cfargument name="DivisionID" type="string" required="false" />
+		<cfargument name="departmentID" type="string" required="false" />
+
+		<!---
+		<cfdump var="#arguments#" abort="true" label="@@assPlanGateway" />
+		--->
+
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT p.*, SuperDivisionName, DivisionName, DeptName, ProgramName, apw.WorkFlowStepDescription, ru.OrganizationID, ru.SuperDivisionID, ru.DivisionID, ru.DeptID, ru.ProgramID, ProgramDegreeLevel, PlanTypeDescription      
+
+			FROM AssessmentPlan p, AssessmentPlanWorkflow apw, ReportingUnit ru, OrganizationSuperDivision osd, OrganizationDivision od, OrganizationDept odt, OrganizationProgram op, AssessmentPlanType apt      
+
+			WHERE 0=0
+
+			AND p.ReportingUnitID=ru.ReportingUnitID AND ru.SuperDivisionID=osd.SuperDivisionID 
+			AND ru.DivisionID=od.DivisionID 
+			AND ru.DeptID=odt.DeptID 
+			AND p.PlanType=apw.PlanType 
+			AND p.PlanType=apt.PlanType 
+			AND p.PlanStatus=apw.WorkFlowStep AND ru.ProgramID=op.ProgramID 
+
+			 <cfif structKeyExists(arguments,"SuperDivisionID") and len(arguments.SuperDivisionID)>
+				AND	ru.SuperDivisionID = <cfqueryparam value="#arguments.SuperDivisionID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+ 			 <cfif structKeyExists(arguments,"DivisionID") and len(arguments.DivisionID)>
+				AND	ru.DivisionID = <cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+ 			  <cfif structKeyExists(arguments,"departmentID") and len(arguments.departmentID)>
+				AND	ru.DeptID = <cfqueryparam value="#arguments.departmentID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+
+		</cfquery>
+		
+		 <!--- <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> --->
+
+		<cfreturn qList />
+	</cffunction>
+
+
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
 		<cfargument name="PlanID" type="numeric" required="false" />
 		<cfargument name="ReportingUnitID" type="numeric" required="false" />

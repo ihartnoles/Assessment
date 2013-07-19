@@ -30,6 +30,14 @@
 	</cffunction>
 
 
+	<cffunction name="getPlanGrid" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getPlanGrid(SuperDivisionID=arguments.event.getArg("SuperDivisionID"),
+															   DivisionID=arguments.event.getArg("DivisionID"),
+															   departmentID = arguments.event.getArg("departmentID")) >
+	</cffunction>
+
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >

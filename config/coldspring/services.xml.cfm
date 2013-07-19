@@ -176,4 +176,51 @@
 			<ref bean="rolesGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- organization super divisions -->
+	<bean id="organizationSuperDivisionDAO" class="Assessment.model.organizationSuperDivision.organizationSuperDivisionDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="organizationSuperDivisionGateway" class="Assessment.model.organizationSuperDivision.organizationSuperDivisionGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="organizationSuperDivisionService" class="Assessment.model.organizationSuperDivision.organizationSuperDivisionService">
+		<constructor-arg name="organizationSuperDivisionDAO">
+			<ref bean="organizationSuperDivisionDAO"/>
+		</constructor-arg>
+		<constructor-arg name="organizationSuperDivisionGateway">
+			<ref bean="organizationSuperDivisionGateway"/>
+		</constructor-arg>
+	</bean>
+
+	<!-- organization divisions -->
+	<bean id="organizationDivisionDAO" class="Assessment.model.organizationDivision.organizationDivisionDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="organizationDivisionGateway" class="Assessment.model.organizationDivision.organizationDivisionGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="organizationDivisionService" class="Assessment.model.organizationDivision.organizationDivisionService">
+		<constructor-arg name="organizationDivisionDAO">
+			<ref bean="organizationDivisionDAO"/>
+		</constructor-arg>
+		<constructor-arg name="organizationDivisionGateway">
+			<ref bean="organizationDivisionGateway"/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="organizationDeptDAO" class="Assessment.model.organizationDept.organizationDeptDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="organizationDeptGateway" class="Assessment.model.organizationDept.organizationDeptGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="organizationDeptService" class="Assessment.model.organizationDept.organizationDeptService">
+		<constructor-arg name="organizationDeptDAO">
+			<ref bean="organizationDeptDAO"/>
+		</constructor-arg>
+		<constructor-arg name="organizationDeptGateway">
+			<ref bean="organizationDeptGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

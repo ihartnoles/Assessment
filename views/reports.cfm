@@ -1,30 +1,59 @@
 <cfscript>
-title = "Reporting/Statistics";
+title 			= "Reporting/Statistics";
+qSuperDivisions = request.event.getArg('qSuperDivisions');
+superdivisionID = 0;
+divisionID 		= 0;
+departmentID	= 0;
 </cfscript>
+
+<!---
+<cfdump var="#qSuperDivisions#" />
+--->
 <div id="main" style="margin-left: 0px;">
 				<div class="container-fluid">
 					<cfinclude template="/Assessment/views/page_header.cfm">		
 
 				<div class="row-fluid">
-					mark
-					<select id="mark" name="mark">
-					  <option value="">--</option>
-					  <option value="bmw">BMW</option>
-					  <option value="audi">Audi</option>
-					</select>
-					series
-					<select id="series" name="series">
-					  <option value="">--</option>
-					</select>
-					model
-					<select id="model" name="model">
-					  <option value="">--</option>   
-					</select>
-					engine
-					<select id="engine" name="engine">
-					  <option value="">--</option>   
-					</select>
+					<form action="##" method="post">
+						Super-Division
+						<!---
+						<select id="mark" name="mark">
+						  <option value="">--</option>
+						  <option value="bmw">BMW</option>
+						  <option value="audi">Audi</option>
+						</select>
+						--->
+						<select id="superdivisionID" name="superdivisionID">
+							<option value="0" <cfif superdivisionid eq false>selected</cfif>>-- Choose One --</option>
+							<cfloop query="qSuperDivisions">
+								<cfoutput>
+									<option value="#qSuperDivisions.SuperDivisionID#">#qSuperDivisions.SuperDivisionName#</option>
+								</cfoutput>
+							</cfloop>
+						</select>
+
+						Division
+						<select id="divisionID" name="divisionID">
+						  <option value="0"  <cfif divisionid eq false>selected</cfif>>--</option>
+						</select>
+						Department
+						<select id="departmentID" name="departmentID">
+						  <option value="0" <cfif departmentid eq false>selected</cfif>>--</option>   
+						</select>
+					
+					<br>
+
+						<input type="submit" id="assBut" value="List Assessment Plans" class="btn btn-primary">
+					</form>
 				</div>
+
+				<div class="row-fluid">
+					<div id="grid" class="row-fluid">
+						
+					</div>
+				</div>
+
+				<hr>
 
 				<div class="row-fluid">
 					<div class="box box-color box-bordered">
@@ -136,9 +165,45 @@ title = "Reporting/Statistics";
 <script type="text/javascript">
 	$(function() {
 
-		$("#series").remoteChained("#mark", "index.cfm?event=json");
-		$("#model").remoteChained("#series", "index.cfm?event=json");
-		$("#engine").remoteChained("#series, #model", "index.cfm?event=json");
+		$("#divisionID").remoteChained("#superdivisionID", "index.cfm?event=getDivisionjson" );
+		$("#departmentID").remoteChained("#superdivisionID ,#divisionID", "index.cfm?event=getDeptjson");
+		//$("#engine").remoteChained("#series, #model", "index.cfm?event=json");
+
+		
+		$("#assBut").click(function(e) {
+			e.preventDefault();
+			//alert('MAMBO JAMBO!');
+			//alert( $("#superdivisionID").val() );
+			//alert( $("#divisionID").val() );
+			//alert( $("#departmentID").val() );
+
+			var superdivID   = $('#superdivisionID').val();
+			var divisionID   = $('#divisionID').val();
+			var departmentID = $("#departmentID").val()
+
+			var postString = "index.cfm?event=getPlanGrid&";
+
+			//alert( postString );
+
+			jQuery.post(
+				postString,
+				{
+					superdivisionID: $('#superdivisionID').val(),
+					divisionID: $('#divisionID').val(),
+					departmentID:$('#departmentID').val()
+				},
+				//callback function
+				function(data){
+					//$('#grid').removeClass('hidden');
+					//alert(data);
+					//var content = $(data).find('#content');
+					$('#grid').empty().append(data);
+				}
+			)
+
+
+			});//end of button click
+		
 
 	});
 </script>
