@@ -188,6 +188,9 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+		<event-handler event="json" access="public">
+			<view-page name="json"/>			
+		</event-handler>
 
 
 
@@ -233,5 +236,6 @@
 		<page-view name="mainMenu" page="/views/mainMenu.cfm" />
 		<page-view name="exception" page="/views/exception.cfm" />
 		<page-view name="upload" page="/views/upload.cfm" />
+		<page-view name="json" page="/views/json.cfm" />
 	</page-views>
 </mach-ii>

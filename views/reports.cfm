@@ -6,6 +6,27 @@ title = "Reporting/Statistics";
 					<cfinclude template="/Assessment/views/page_header.cfm">		
 
 				<div class="row-fluid">
+					mark
+					<select id="mark" name="mark">
+					  <option value="">--</option>
+					  <option value="bmw">BMW</option>
+					  <option value="audi">Audi</option>
+					</select>
+					series
+					<select id="series" name="series">
+					  <option value="">--</option>
+					</select>
+					model
+					<select id="model" name="model">
+					  <option value="">--</option>   
+					</select>
+					engine
+					<select id="engine" name="engine">
+					  <option value="">--</option>   
+					</select>
+				</div>
+
+				<div class="row-fluid">
 					<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
@@ -111,3 +132,13 @@ title = "Reporting/Statistics";
 					
 				</div>
 			</div></div>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#series").remoteChained("#mark", "index.cfm?event=json");
+		$("#model").remoteChained("#series", "index.cfm?event=json");
+		$("#engine").remoteChained("#series, #model", "index.cfm?event=json");
+
+	});
+</script>

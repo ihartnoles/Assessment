@@ -98,6 +98,9 @@
 	<!-- icheck -->
 	<script src="js/plugins/icheck/jquery.icheck.min.js"></script>
 
+	<!-- jquery chained -->
+	<script src="js/plugins/jquery-chained/jquery.chained.remote.js"></script>
+
 
 	<script src="js/jquery.MetaData.js"></script>
 	<script src="js/jquery.rating.js"></script>
