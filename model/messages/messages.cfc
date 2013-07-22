@@ -1,7 +1,7 @@
 
 <cfcomponent displayname="messages" output="false">
 		<cfproperty name="MessageID" type="numeric" default="" />
-		<cfproperty name="SenderUserID" type="numeric" default="" />
+		<cfproperty name="SendToUserID" type="numeric" default="" />
 		<cfproperty name="MessageTypeID" type="numeric" default="" />
 		<cfproperty name="Subject" type="string" default="" />
 		<cfproperty name="Message" type="string" default="" />
@@ -19,7 +19,7 @@
 	--->
 	<cffunction name="init" access="public" returntype="messages" output="false">
 		<cfargument name="MessageID" type="string" required="false" default="" />
-		<cfargument name="SenderUserID" type="string" required="false" default="" />
+		<cfargument name="SendToUserID" type="string" required="false" default="" />
 		<cfargument name="MessageTypeID" type="string" required="false" default="" />
 		<cfargument name="Subject" type="string" required="false" default="" />
 		<cfargument name="Message" type="string" required="false" default="" />
@@ -29,7 +29,7 @@
 		
 		<!--- run setters --->
 		<cfset setMessageID(arguments.MessageID) />
-		<cfset setSenderUserID(arguments.SenderUserID) />
+		<cfset setSendToUserID(arguments.SendToUserID) />
 		<cfset setMessageTypeID(arguments.MessageTypeID) />
 		<cfset setSubject(arguments.Subject) />
 		<cfset setMessage(arguments.Message) />
@@ -64,11 +64,11 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<!--- SenderUserID --->
-		<cfif (len(trim(getSenderUserID())) AND NOT isNumeric(trim(getSenderUserID())))>
-			<cfset thisError.field = "SenderUserID" />
+		<!--- SendToUserID --->
+		<cfif (len(trim(getSendToUserID())) AND NOT isNumeric(trim(getSendToUserID())))>
+			<cfset thisError.field = "SendToUserID" />
 			<cfset thisError.type = "invalidType" />
-			<cfset thisError.message = "SenderUserID is not numeric" />
+			<cfset thisError.message = "SendToUserID is not numeric" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
@@ -146,12 +146,12 @@
 		<cfreturn variables.instance.MessageID />
 	</cffunction>
 
-	<cffunction name="setSenderUserID" access="public" returntype="void" output="false">
-		<cfargument name="SenderUserID" type="string" required="true" />
-		<cfset variables.instance.SenderUserID = arguments.SenderUserID />
+	<cffunction name="setSendToUserID" access="public" returntype="void" output="false">
+		<cfargument name="SendToUserID" type="string" required="true" />
+		<cfset variables.instance.SendToUserID = arguments.SendToUserID />
 	</cffunction>
-	<cffunction name="getSenderUserID" access="public" returntype="string" output="false">
-		<cfreturn variables.instance.SenderUserID />
+	<cffunction name="getSendToUserID" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.SendToUserID />
 	</cffunction>
 
 	<cffunction name="setMessageTypeID" access="public" returntype="void" output="false">

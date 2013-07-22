@@ -8,7 +8,7 @@
 	
 	<cffunction name="getByAttributesQuery" access="public" output="false" returntype="query">
 		<cfargument name="MessageID" type="numeric" required="false" />
-		<cfargument name="SenderUserID" type="numeric" required="false" />
+		<cfargument name="SendToUserID" type="numeric" required="false" />
 		<cfargument name="MessageTypeID" type="numeric" required="false" />
 		<cfargument name="Subject" type="string" required="false" />
 		<cfargument name="Message" type="string" required="false" />
@@ -21,7 +21,7 @@
 		<cfquery name="qList" datasource="#variables.dsn#">
 			SELECT
 				MessageID,
-				SenderUserID,
+				SendToUserID,
 				MessageTypeID,
 				Subject,
 				Message,
@@ -34,8 +34,8 @@
 		<cfif structKeyExists(arguments,"MessageID") and len(arguments.MessageID)>
 			AND	MessageID = <cfqueryparam value="#arguments.MessageID#" CFSQLType="cf_sql_integer" />
 		</cfif>
-		<cfif structKeyExists(arguments,"SenderUserID") and len(arguments.SenderUserID)>
-			AND	SenderUserID = <cfqueryparam value="#arguments.SenderUserID#" CFSQLType="cf_sql_integer" />
+		<cfif structKeyExists(arguments,"SendToUserID") and len(arguments.SendToUserID)>
+			AND	SendToUserID = <cfqueryparam value="#arguments.SendToUserID#" CFSQLType="cf_sql_integer" />
 		</cfif>
 		<cfif structKeyExists(arguments,"MessageTypeID") and len(arguments.MessageTypeID)>
 			AND	MessageTypeID = <cfqueryparam value="#arguments.MessageTypeID#" CFSQLType="cf_sql_integer" />
@@ -65,7 +65,7 @@
 
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
 		<cfargument name="MessageID" type="numeric" required="false" />
-		<cfargument name="SenderUserID" type="numeric" required="false" />
+		<cfargument name="SendToUserID" type="numeric" required="false" />
 		<cfargument name="MessageTypeID" type="numeric" required="false" />
 		<cfargument name="Subject" type="string" required="false" />
 		<cfargument name="Message" type="string" required="false" />

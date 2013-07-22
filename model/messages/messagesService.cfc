@@ -13,7 +13,7 @@
 
 	<cffunction name="createmessages" access="public" output="false" returntype="messages">
 		<cfargument name="MessageID" type="numeric" required="true" />
-		<cfargument name="SenderUserID" type="numeric" required="false" />
+		<cfargument name="SendToUserID" type="numeric" required="false" />
 		<cfargument name="MessageTypeID" type="numeric" required="false" />
 		<cfargument name="Subject" type="string" required="false" />
 		<cfargument name="Message" type="string" required="false" />
@@ -36,7 +36,7 @@
 
 	<cffunction name="getmessagess" access="public" output="false" returntype="array">
 		<cfargument name="MessageID" type="numeric" required="false" />
-		<cfargument name="SenderUserID" type="numeric" required="false" />
+		<cfargument name="SendToUserID" type="numeric" required="false" />
 		<cfargument name="MessageTypeID" type="numeric" required="false" />
 		<cfargument name="Subject" type="string" required="false" />
 		<cfargument name="Message" type="string" required="false" />

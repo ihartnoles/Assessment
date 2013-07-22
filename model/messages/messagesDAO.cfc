@@ -15,7 +15,7 @@
 			<cfquery name="qCreate" datasource="#variables.dsn#">
 				INSERT INTO Messages
 					(
-					SenderUserID,
+					SendToUserID,
 					MessageTypeID,
 					Subject,
 					Message,
@@ -25,7 +25,7 @@
 					)
 				VALUES
 					(
-					<cfqueryparam value="#arguments.messages.getSenderUserID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.messages.getSenderUserID())#" />,
+					<cfqueryparam value="#arguments.messages.getSendToUserID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.messages.getSendToUserID())#" />,
 					<cfqueryparam value="#arguments.messages.getMessageTypeID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.messages.getMessageTypeID())#" />,
 					<cfqueryparam value="#arguments.messages.getSubject()#" CFSQLType="cf_sql_varchar" null="#not len(arguments.messages.getSubject())#" />,
 					<cfqueryparam value="#arguments.messages.getMessage()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.messages.getMessage())#" />,
@@ -50,7 +50,7 @@
 			<cfquery name="qRead" datasource="#variables.dsn#">
 				SELECT
 					MessageID,
-					SenderUserID,
+					SendToUserID,
 					MessageTypeID,
 					Subject,
 					Message,
@@ -79,7 +79,7 @@
 			<cfquery name="qUpdate" datasource="#variables.dsn#">
 				UPDATE	Messages
 				SET
-					SenderUserID = <cfqueryparam value="#arguments.messages.getSenderUserID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.messages.getSenderUserID())#" />,
+					SendToUserID = <cfqueryparam value="#arguments.messages.getSendToUserID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.messages.getSendToUserID())#" />,
 					MessageTypeID = <cfqueryparam value="#arguments.messages.getMessageTypeID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.messages.getMessageTypeID())#" />,
 					Subject = <cfqueryparam value="#arguments.messages.getSubject()#" CFSQLType="cf_sql_varchar" null="#not len(arguments.messages.getSubject())#" />,
 					Message = <cfqueryparam value="#arguments.messages.getMessage()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.messages.getMessage())#" />,

@@ -13,14 +13,23 @@ title = "Write Message";
 										Write Message
 									</h3>
 								</div>
-								<div class="box-content nopadding">
-								
-									<div class="box-content nopadding">
-										<form action="#" method="POST" class='form-wysiwyg'>
-											<textarea name="ck" class='ckeditor span12' rows="5"></textarea>
-										</form>
-									</div>
+								<div class="box-content padding">
+									<form action="#" method="POST" class='form-wysiwyg'>
+										<div class="box-content nopadding">
+											<label>Send To:</label>
+											<div class="controls">
+												<input type="text" name="sendToUserID" class="input-xlarge">
+											</div>
+											<label>Subject:</label>
+											<div class="controls">
+												<input type="text" name="subject" class="input-xlarge">
+											</div>
 
+										</div>
+										<div class="box-content nopadding">
+												<textarea name="ck" class='ckeditor span12' rows="5"></textarea>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
