@@ -14,7 +14,7 @@ departmentID	= 0;
 					<cfinclude template="/Assessment/views/page_header.cfm">		
 
 				<div class="row-fluid">
-					<form action="##" method="post">
+					<form action="##" method="post" class="form">
 						Super-Division
 						<!---
 						<select id="mark" name="mark">
@@ -43,7 +43,7 @@ departmentID	= 0;
 					
 					<br>
 
-						<input type="submit" id="assBut" value="List Assessment Plans" class="btn btn-primary">
+						<input type="submit" id="assBut" value="List Assessment Plans" class="btn btn-orange">
 					</form>
 				</div>
 
