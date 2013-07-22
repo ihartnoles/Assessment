@@ -170,12 +170,32 @@
 		</event-handler>
 
 		<event-handler event="messagecenter" access="public">
+			<notify listener="messageListener" method="getInboxMessages" resultArg="qInboxMessages" />
+			<notify listener="messageListener" method="getSentMessages"  resultArg="qSentMessages" />
+			<notify listener="messageListener" method="getDeletedMessages"  resultArg="qDeletedMessages" />
 			<view-page name="messagecenter" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
 
 		<event-handler event="writemessage" access="public">
+			<notify listener="UserListener" method="getUserList" resultArg="qUsers"  />
 			<view-page name="writemessage" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
+
+		<event-handler event="sendmessage" access="public">
+			<notify listener="messageListener" method="sendMessage"  />
+			<redirect event="messagecenter" args="layout_message" />
+		</event-handler>
+
+		<event-handler event="deletemessage" access="public">
+			<notify listener="messageListener" method="deletemessage"  />
+			<redirect event="messagecenter" args="layout_message" />
+		</event-handler>
+
+		<event-handler event="viewmessage" access="public">
+			<notify listener="messageListener" method="viewmessage" resultArg="qViewMessage"  />
+			<view-page name="viewmessage" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
 
@@ -243,6 +263,7 @@
 		<page-view name="faq" page="/views/faq.cfm"/>
 		<page-view name="messagecenter" page="/views/messagecenter.cfm"/>
 		<page-view name="writemessage" page="/views/writemessage.cfm"/>
+		<page-view name="viewmessage" page="/views/viewmessage.cfm"/>
 		<page-view name="accountsettings" page="/views/accountsettings.cfm"/>
 		<page-view name="hello" page="/views/hello.cfm" />
 		<page-view name="loginForm" page="/views/loginForm.cfm" />

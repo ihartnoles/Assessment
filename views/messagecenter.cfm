@@ -1,11 +1,27 @@
 <cfscript>
-title = "Message Center";
+title 				= "Message Center";
+layout_message 		= len(trim(request.event.getArg('layout_message'))) ? request.event.getArg('layout_message') : "";
+qSentMessages		= request.event.getArg('qSentMessages');
+qInboxMessages		= request.event.getArg('qInboxMessages');
+qDeletedMessages	= request.event.getArg('qDeletedMessages');
 </cfscript>
+
+<!--- 
+<cfdump var="#request.event.getArgs()#" />
+--->
+
 <div id="main" style="margin-left: 0px;">
 				<div class="container-fluid">
 					<cfinclude template="/Assessment/views/page_header.cfm">
 					<div class="row-fluid">
 						<div class="span12">
+
+							<cfif len(trim(layout_message)) >
+								<div class="alert alert-info text-center">
+									<cfoutput>#layout_message#</cfoutput>
+								</div>
+							</cfif>
+
 							<div class="box box-bordered box-color">
 								<div class="box-title">
 									<h3>
@@ -19,7 +35,7 @@ title = "Message Center";
 										<a href="index.cfm?event=writemessage">Write message</a>
 									</li>
 									<li class='active'>
-										<a href="#inbox" data-toggle="tab"><i class="icon-inbox"></i> Inbox <strong>(3)</strong></a>
+										<a href="#inbox" data-toggle="tab"><i class="icon-inbox"></i> Inbox <strong><cfoutput>(#qInboxMessages.recordcount#)</cfoutput></strong></a>
 									</li>
 									<li>
 										<a href="#sent" data-toggle="tab"><i class="icon-share-alt"></i> Sent items</a>
@@ -33,508 +49,196 @@ title = "Message Center";
 										<div class="highlight-toolbar">
 											<div class="pull-left">
 												<div class="btn-toolbar">
+													<h4>Inbox</h4>
 													<div class="btn-group visible-480">
 														<a href="" class="btn btn-danger">New</a>
 													</div>
 													
-													<div class="btn-group">														
+													<!---
+													<cfif qInboxMessages.recordcount>
+														<div class="btn-group">														
+															<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Delete"><i class="icon-trash"></i></a>
+														</div>
+													</cfif>
+													---->
+												</div></div>
+												<div class="pull-right">
+													<cfif qInboxMessages.recordcount>
+														<div class="btn-toolbar">
+															<!---
+															<div class="btn-group text hidden-768">
+																<span><strong>1-25</strong> of <strong>348</strong></span>
+															</div>
+															<div class="btn-group">
+																<a href="#" class="btn"><i class="icon-angle-left"></i></a>
+																<a href="#" class="btn"><i class="icon-angle-right"></i></a>
+															</div>
+															---->
+															
+														</div>
+													</cfif>
+												</div>
+											</div>
+											<cfif qInboxMessages.recordcount>
+												<table class="table table-striped table-nomargin table-mail">
+													<thead>													
+															<tr>
+																<!---
+																<th class='table-checkbox hidden-480'>
+																	<input type="checkbox" class='sel-all'>
+																</th>
+																--->
+																<th class='table-icon hidden-480'></th>
+																<th>Sender</th>
+																<th>Subject</th>
+																
+																<th>Date</th>
+																<th></th>
+															</tr>
+													</thead>
+													<tbody>
+														
+															<cfloop query="qInboxMessages">
+																<cfoutput>
+																	<tr>
+																		<!---
+																		<td class='table-checkbox hidden-480'>
+																			<input type="checkbox" class='selectable'>
+																		</td>
+																		--->
+																		<td class='table-icon hidden-480'>
+																			<a href="##" class="sel-star active"><i class="icon-star"></i></a>
+																		</td>
+																		<td class='table-fixed-medium'>
+																			#qInboxMessages.UserFName# #qInboxMessages.UserLName# 
+																		</td>
+																		<td>
+																			#qInboxMessages.Subject#
+																		</td>
+																		
+																		<td>
+																			#DateFormat(qInboxMessages.CreatedOn,'mm/dd/yyyy')#
+																		</td>
+																		<td>
+																			<a href="index.cfm?event=deleteMessage&messageID=#val(qInboxMessages.messageID)#"><i class="icon-trash"></i>Delete</a> | 
+																			<a href="index.cfm?event=viewMessage&messageID=#val(qInboxMessages.messageID)#"><i class="icon-search"></i>View</a>
+																		</td>
+																	</tr>
+																</cfoutput>
+															</cfloop>	
+														</tbody>
+												</table>
+											<cfelse>
+												<div class="row-fluid">
+													<div class="span12">
+														<div class="alert alert-info text-center" style="height:200px;">
+															<b>No messages in your inbox</b>
+														</div>
+													</div>
+												</div>
+											</cfif>
+										</div>
+										<div class="tab-pane" id="sent">
+											<div class="highlight-toolbar">
+												<div class="pull-left"><div class="btn-toolbar">													
+													<h4>Sent Items</h4>
+													<!---
+													<div class="btn-group">													
 														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Delete"><i class="icon-trash"></i></a>
 													</div>
+													---->
 													
 												</div></div>
 												<div class="pull-right">
 													<div class="btn-toolbar">
+														<!---
 														<div class="btn-group text hidden-768">
 															<span><strong>1-25</strong> of <strong>348</strong></span>
 														</div>
 														<div class="btn-group">
-															<a href="#" class="btn"><i class="icon-angle-left"></i></a>
-															<a href="#" class="btn"><i class="icon-angle-right"></i></a>
+															<a href="#" class="btn" data-toggle="dropdown"><i class="icon-angle-left"></i></a>
+															<a href="#" class="btn" data-toggle="dropdown"><i class="icon-angle-right"></i></a>
 														</div>
+														--->
 														
 													</div>
 												</div>
 											</div>
-											<table class="table table-striped table-nomargin table-mail">
-												<thead>
-													<tr>
-														<th class='table-checkbox hidden-480'>
-															<input type="checkbox" class='sel-all'>
-														</th>
-														<th class='table-icon hidden-480'></th>
-														<th>Sender</th>
-														<th>Subject</th>
-														<th class='table-icon hidden-480'></th>
-														<th class='table-date hidden-480'>Date</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star active"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Johny Doesy
-														</td>
-														<td>
-															Lorem ipsum sint laborum.
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															12. Feb
-														</td>
-													</tr>
-													<tr class='unread'>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Lorem ipsum												
-														</td>
-														<td>
-															Lorem ipsum veniam esse nisi in ut aliquip do laboris sed pariatur. 
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															11. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Officia In									
-														</td>
-														<td>
-															Lorem ipsum dolore do ullamco id ullamco occaecat sed dolore adipisicing officia in cillum ut.  
-														</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															10. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Occaecat Tempor										
-														</td>
-														<td>
-															Lorem ipsum ut in in eiusmod ut occaecat tempor.  
-														</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															9. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Sed Elit									
-														</td>
-														<td>
-															Lorem ipsum sed sed elit nisi adipisicing mollit eu adipisicing. 
-														</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															8. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star active"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Johny Doesy
-														</td>
-														<td>
-															Lorem ipsum sint laborum.
-														</td>
-														<td class='table-icon hidden-480'>
+											<cfif qSentMessages.recordcount>
+												<table class="table table-striped table-nomargin table-mail">
+													<thead>
+															<tr>
+																	<!---
+																	<th class='table-checkbox hidden-480'>
+																		<input type="checkbox" class='sel-all'>
+																	</th>
+																	--->
+																	<th class='table-icon hidden-480'></th>
+																	<th>Sender</th>
+																	<th>Subject</th>
+																	
+																	<th>Date</th>
+																	<th></th>
+																</tr>
+													</thead>
+													<tbody>
 
-														</td>
-														<td class='table-date hidden-480'>
-															12. Feb
-														</td>
-													</tr>
-													<tr class='unread'>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Lorem ipsum												
-														</td>
-														<td>
-															Lorem ipsum veniam esse nisi in ut aliquip do laboris sed pariatur. 
-														</td>
-														<td class='table-icon hidden-480'>
+														<cfloop query="qSentMessages">
+															<cfoutput>
+																<tr>
+																	<!---
+																	<td class='table-checkbox hidden-480'>
+																		<input type="checkbox" class='selectable'>
+																	</td>
+																	--->
+																	<td class='table-icon hidden-480'>
+																		<a href="##" class="sel-star active"><i class="icon-star"></i></a>
+																	</td>
+																	<td>
+																		#qSentMessages.UserFName# #qSentMessages.UserLName# 
+																	</td>
+																	<td>
+																		#qSentMessages.Subject#
+																	</td>
+																	
+																	<td>
+																		#DateFormat(qSentMessages.CreatedOn,'mm/dd/yyyy')#
+																	</td>
+																	<td>
+																		<!---
+																		<a href="index.cfm?event=deleteMessage&messageID=#qSentMessages.messageID#"><i class="icon-trash"></i>Delete</a> | 
+																		--->
+																		<a href="index.cfm?event=viewMessage&MessageID=#qSentMessages.messageID#"><i class="icon-search"></i>View</a>
+																	</td>
+																</tr>
+															</cfoutput>
+														</cfloop>
 
-														</td>
-														<td class='table-date hidden-480'>
-															11. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Officia In									
-														</td>
-														<td>
-															Lorem ipsum dolore do ullamco id ullamco occaecat sed dolore adipisicing officia in cillum ut.  
-														</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															10. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Occaecat Tempor										
-														</td>
-														<td>
-															Lorem ipsum ut in in eiusmod ut occaecat tempor.  
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															9. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Sed Elit									
-														</td>
-														<td>
-															Lorem ipsum sed sed elit nisi adipisicing mollit eu adipisicing. 
-														</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															8. Feb
-														</td>
-													</tr>
-
-												</tbody>
-											</table>
-										</div>
-										<div class="tab-pane" id="sent">
-											<div class="highlight-toolbar">
-												<div class="pull-left"><div class="btn-toolbar">
-													<div class="btn-group">
-														<div class="dropdown hidden-768">
-															<a href="#" class="btn" data-toggle="dropdown" rel="tooltip" data-placement="bottom" title="Mark elements"><i class="icon-check-empty"></i><span class="caret"></span></a>
-															<ul class="dropdown-menu">
-																<li><a href="#" class='sel-all'>All</a></li>
-																<li><a href="#" class='sel-unread'>Unread</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="btn-group">
-														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Archive"><i class="icon-inbox"></i></a>
-														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Mark as spam"><i class="icon-exclamation-sign"></i></a>
-														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Delete"><i class="icon-trash"></i></a>
-													</div>
-													<div class="btn-group hidden-768">
-														<div class="dropdown">
-															<a href="#" class="btn" data-toggle="dropdown" rel="tooltip" data-placement="bottom" title="Move to folder"><i class="icon-folder-close"></i><span class="caret"></span></a>
-															<ul class="dropdown-menu">
-																<li><a href="#">Some folder</a></li>
-																<li><a href="#">Another folder</a></li>
-															</ul>
-														</div>
-													</div>
-												</div></div>
-												<div class="pull-right">
-													<div class="btn-toolbar">
-														<div class="btn-group text hidden-768">
-															<span><strong>1-25</strong> of <strong>348</strong></span>
-														</div>
-														<div class="btn-group">
-															<a href="#" class="btn" data-toggle="dropdown"><i class="icon-angle-left"></i></a>
-															<a href="#" class="btn" data-toggle="dropdown"><i class="icon-angle-right"></i></a>
-														</div>
-														<div class="btn-group hidden-768">
-															<div class="dropdown">
-																<a href="#" class="btn" data-toggle="dropdown"><i class="icon-cog"></i><span class="caret"></span></a>
-																<ul class="dropdown-menu pull-right">
-																	<li><a href="#">Settings</a></li>
-																	<li><a href="#">Account settings</a></li>
-																	<li><a href="#">Email settings</a></li>
-																	<li><a href="#">Themes</a></li>
-																	<li><a href="#">Help &amp; FAQ</a></li>
-																</ul>
-															</div>
+													</tbody>
+												</table>
+											<cfelse>
+												<div class="row-fluid">
+													<div class="span12">
+														<div class="alert alert-info text-center" style="height:200px;">
+															<b>You have not receieved any messages</b>
 														</div>
 													</div>
 												</div>
-											</div>
-											<table class="table table-striped table-nomargin table-mail">
-												<thead>
-													<tr>
-														<th class='table-checkbox hidden-480'>
-															<input type="checkbox" class='sel-all'>
-														</th>
-														<th class='table-icon hidden-480'></th>
-														<th>Sender</th>
-														<th>Subject</th>
-														<th class='table-icon hidden-480'></th>
-														<th class='table-date hidden-480'>Date</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star active"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Johny Doesy
-														</td>
-														<td>
-															Lorem ipsum sint laborum.
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															12. Feb
-														</td>
-													</tr>
-													<tr class='unread'>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															proident										
-														</td>
-														<td>Lorem ipsum Incididunt consectetur Duis proident laboris nulla cillum dolore elit esse enim tempor veniam.</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															11. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															reprehenderit								
-														</td>
-														<td>Lorem ipsum Laborum consequat dolor amet reprehenderit dolor dolor amet.</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															10. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															eiusmod									
-														</td>
-														<td>
-															Lorem ipsum ut in in eiusmod ut occaecat tempor.  
-														</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															9. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															occaecat									
-														</td>
-														<td>Lorem ipsum Consequat Duis adipisicing dolor occaecat cillum aliquip adipisicing in cupidatat irure id in.</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															8. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star active"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															nisi
-														</td>
-														<td>Lorem ipsum Culpa magna aliqua Duis cillum dolor officia proident.</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															12. Feb
-														</td>
-													</tr>
-													<tr class='unread'>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															esse												
-														</td>
-														<td>
-															Lorem ipsum veniam esse nisi in ut aliquip do laboris sed pariatur. 
-														</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															11. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															ipsum									
-														</td>
-														<td>Lorem ipsum Sed sit enim cillum reprehenderit Excepteur pariatur.</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															10. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															eiusmod										
-														</td>
-														<td>
-															Lorem ipsum ut in in eiusmod ut occaecat tempor.  
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															9. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															elit								
-														</td>
-														<td>
-															Lorem ipsum sed sed elit nisi adipisicing mollit eu adipisicing. 
-														</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															8. Feb
-														</td>
-													</tr>
-
-												</tbody>
-											</table>
+											</cfif>
 										</div>
 										<div class="tab-pane" id="trash">
 											<div class="highlight-toolbar">
 												<div class="pull-left"><div class="btn-toolbar">
+													<h4>Trash</h4>
+													<!---
 													<div class="btn-group">
 														<a href="#" class='btn' rel="tooltip" data-placement="bottom" title="Undo"><i class="icon-arrow-left"></i></a>
 													</div>
+													--->
 												</div></div>
 												<div class="pull-right">
 													<div class="btn-toolbar">
+														<!---
 														<div class="btn-group text hidden-768">
 															<span><strong>1-25</strong> of <strong>348</strong></span>
 														</div>
@@ -554,215 +258,71 @@ title = "Message Center";
 																</ul>
 															</div>
 														</div>
+														--->
 													</div>
 												</div>
 											</div>
-											<table class="table table-striped table-nomargin table-mail">
-												<thead>
-													<tr>
-														<th class='table-checkbox hidden-480'>
-															<input type="checkbox" class='sel-all'>
-														</th>
-														<th class='table-icon hidden-480'></th>
-														<th>Sender</th>
-														<th>Subject</th>
-														<th class='table-icon hidden-480'></th>
-														<th class='table-date hidden-480'>Date</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star active"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															veniam
-														</td>
-														<td>
-															Lorem ipsum sint laborum.
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															12. Feb
-														</td>
-													</tr>
-													<tr class='unread'>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Lorem ipsum												
-														</td>
-														<td>
-															Lorem ipsum veniam esse nisi in ut aliquip do laboris sed pariatur. 
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															11. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															commodo									
-														</td>
-														<td>Lorem ipsum In id magna commodo esse do ad esse labore elit.</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															10. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															tempor								
-														</td>
-														<td>
-															Lorem ipsum ut in in eiusmod ut occaecat tempor.  
-														</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															9. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															mollit								
-														</td>
-														<td>
-															Lorem ipsum sed sed elit nisi adipisicing mollit eu adipisicing. 
-														</td>
-														<td class='table-icon hidden-480'>
-														</td>
-														<td class='table-date hidden-480'>
-															8. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star active"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															adipisicing
-														</td>
-														<td>Lorem ipsum Magna sunt mollit adipisicing est elit veniam nostrud.</td>
-														<td class='table-icon hidden-480'>
+											<cfif qDeletedMessages.recordcount>
+												<table class="table table-striped table-nomargin table-mail">
+													<thead>
+															<tr>
+																	<!---
+																	<th class='table-checkbox hidden-480'>
+																		<input type="checkbox" class='sel-all'>
+																	</th>
+																	--->
+																	<th class='table-icon hidden-480'></th>
+																	<th>Sender</th>
+																	<th>Subject</th>
+																	
+																	<th>Date</th>
+																	<th></th>
+																</tr>
+													</thead>
+													<tbody>
 
-														</td>
-														<td class='table-date hidden-480'>
-															12. Feb
-														</td>
-													</tr>
-													<tr class='unread'>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															cillum ut											
-														</td>
-														<td>Lorem ipsum Sunt qui quis laboris aliquip officia sed et.</td>
-														<td class='table-icon hidden-480'>
+														<cfloop query="qDeletedMessages">
+															<cfoutput>
+																<tr>
+																	<!---
+																	<td class='table-checkbox hidden-480'>
+																		<input type="checkbox" class='selectable'>
+																	</td>
+																	--->
+																	<td class='table-icon hidden-480'>
+																		<a href="##" class="sel-star active"><i class="icon-star"></i></a>
+																	</td>
+																	<td>
+																		#qDeletedMessages.UserFName# #qDeletedMessages.UserLName# 
+																	</td>
+																	<td>
+																		#qDeletedMessages.Subject#
+																	</td>
+																	
+																	<td>
+																		#DateFormat(qDeletedMessages.CreatedOn,'mm/dd/yyyy')#
+																	</td>
+																	<td>
+																		<!---
+																		<a href="index.cfm?event=deleteMessage&messageID=#qSentMessages.messageID#"><i class="icon-trash"></i>Delete</a> | 
+																		--->
+																		<a href="index.cfm?event=viewMessage&MessageID=#qDeletedMessages.messageID#"><i class="icon-search"></i>View</a>
+																	</td>
+																</tr>
+															</cfoutput>
+														</cfloop>
 
-														</td>
-														<td class='table-date hidden-480'>
-															11. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															veniam incididunt									
-														</td>
-														<td>
-															Lorem ipsum dolore do ullamco id ullamco occaecat sed dolore adipisicing officia in cillum ut.  
-														</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															10. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Sed Laborum								
-														</td>
-														<td>
-															Lorem ipsum ut in in eiusmod ut occaecat tempor.  
-														</td>
-														<td class='table-icon hidden-480'>
-															<i class="icon-paper-clip"></i>
-														</td>
-														<td class='table-date hidden-480'>
-															9. Feb
-														</td>
-													</tr>
-													<tr>
-														<td class='table-checkbox hidden-480'>
-															<input type="checkbox" class='selectable'>
-														</td>
-														<td class='table-icon hidden-480'>
-															<a href="#" class="sel-star"><i class="icon-star"></i></a>
-														</td>
-														<td class='table-fixed-medium'>
-															Duis amet									
-														</td>
-														<td>Lorem ipsum Duis amet sed laborum veniam incididunt occaecat.</td>
-														<td class='table-icon hidden-480'>
-
-														</td>
-														<td class='table-date hidden-480'>
-															8. Feb
-														</td>
-													</tr>
-
-												</tbody>
-											</table>
+													</tbody>
+												</table>
+											<cfelse>
+												<div class="row-fluid">
+													<div class="span12">
+														<div class="alert alert-info text-center" style="height:200px;">
+															<b>You have not deleted any messages</b>
+														</div>
+													</div>
+												</div>
+											</cfif>
 										</div>
 									</div>
 								</div>

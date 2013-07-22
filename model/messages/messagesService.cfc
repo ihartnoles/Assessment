@@ -60,6 +60,55 @@
 		<cfreturn variables.messagesDAO.delete(messages) />
 	</cffunction>
 
+	
+	<cffunction name="sendMessage" access="public" output="false" returntype="boolean">
+		<!--- <cfargument name="MessageID" type="numeric" required="true" /> --->
+		<cfargument name="SendToUserID" type="numeric" required="false" />
+		<cfargument name="Subject" type="string" required="false" />
+		<cfargument name="Message" type="string" required="false" />
+		
+			
+		<cfset local.message = createObject("component","messages").init(argumentCollection=arguments) />
+		
+		<cfset local.message.setMessageID(0) />
+		<cfset local.message.setCreatedBy(session.user.userID) />
+		<cfset local.message.setImportant(0) />
+		
+		<cfif session.user.userID EQ arguments.SendToUserID>
+			<!--- set the message type to 1 if sending to self --->
+			<cfset local.message.setMessageTypeID(1) />
+		<cfelse>
+			<!--- message type 2 = sending to another individual (NOT SELF)--->
+			<cfset local.message.setMessageTypeID(2) />
+		</cfif>
+		<cfset local.message.setCreatedOn(now()) />
+
+		<cfset local.saveMessageBean = saveMessages(local.message) />
+		
+		<!---
+		<cfdump var="#local.messages#" abort="true" label="@@messageService" />
+		--->
+
+		<!--- change return type ? --->
+		<cfreturn local.saveMessageBean />
+	</cffunction>
+
+	<cffunction name="deleteMessage" access="public" output="false" returntype="boolean">
+		<!--- <cfargument name="MessageID" type="numeric" required="true" /> --->
+		<cfargument name="MessageID" type="any" required="true" />
+		<cfargument name="MessageTypeID" type="numeric" required="true" />
+		
+		<cfset local.message = getmessages(messageID=arguments.messageID.messageID) />
+
+		<cfset local.message.setMessageTypeID(arguments.MessageTypeID) />
+
+		<cfset local.saveMessageBean = saveMessages(local.message) />
+				
+		<!--- change return type ? --->
+		<cfreturn local.saveMessageBean />
+	</cffunction>
+
+
 	<cffunction name="onMissingMethod" access="public" output="false" >
 		<cfargument name="missingMethodName" type="string" hint="Name of missing method" />
 		<cfargument name="missingMethodArguments" type="any" hint="Arguments passed to the missing method, maybe a named arg set or a numerically indexed set" />

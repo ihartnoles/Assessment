@@ -219,7 +219,6 @@
 		<cfreturn qList />
 	</cffunction>
 
-
 	<cffunction name="queryRowToStruct" access="private" output="false" returntype="struct">
 		<cfargument name="qry" type="query" required="true">
 		

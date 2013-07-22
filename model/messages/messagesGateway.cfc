@@ -5,6 +5,101 @@
 		<cfset variables.dsn = arguments.dsn />
 		<cfreturn this />
 	</cffunction>
+
+	<cffunction name="getSentMessages" access="public" output="false" returntype="query">
+		<cfargument name="CreatedBy" type="numeric" required="true" />
+		<cfargument name="MessageTypeID" type="numeric" required="true" />
+
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT	Messages.*, Users.UserLname, Users.UserFname
+			FROM    Messages LEFT OUTER JOIN
+			        Users ON Messages.SendToUserID = Users.UserID
+			WHERE 0=0
+			
+			<cfif structKeyExists(arguments,"MessageTypeID") and len(arguments.MessageTypeID)>
+				AND	MessageTypeID = <cfqueryparam value="#arguments.MessageTypeID#" CFSQLType="cf_sql_integer" />
+			</cfif>
+			
+			<cfif structKeyExists(arguments,"CreatedBy") and len(arguments.CreatedBy)>
+				AND	CreatedBy = <cfqueryparam value="#arguments.CreatedBy#" CFSQLType="cf_sql_integer" />
+			</cfif>		
+		</cfquery>		
+
+		<cfreturn qList />
+	</cffunction>
+
+
+	<cffunction name="getInboxMessages" access="public" output="false" returntype="query">
+		<cfargument name="MessageTypeID" type="numeric" required="true" />
+		<cfargument name="SendToUserID" type="numeric" required="true" />
+
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT	Messages.*, Users.UserLname, Users.UserFname
+			FROM    Messages LEFT OUTER JOIN
+			        Users ON Messages.SendToUserID = Users.UserID
+			WHERE 0=0		
+		
+			<cfif structKeyExists(arguments,"MessageTypeID") and len(arguments.MessageTypeID)>
+				AND	MessageTypeID = <cfqueryparam value="#arguments.MessageTypeID#" CFSQLType="cf_sql_integer" />
+			</cfif>
+			
+			<cfif structKeyExists(arguments,"SendToUserID") and len(arguments.SendToUserID)>
+				AND	SendToUserID = <cfqueryparam value="#arguments.SendToUserID#" CFSQLType="cf_sql_integer" />
+			</cfif>	
+		</cfquery>		
+
+		<cfreturn qList />
+	</cffunction>
+
+	<cffunction name="getDeletedMessages" access="public" output="false" returntype="query">
+		<cfargument name="MessageTypeID" type="numeric" required="true" />
+		<cfargument name="SendToUserID" type="numeric" required="true" />
+
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT	Messages.*, Users.UserLname, Users.UserFname
+			FROM    Messages LEFT OUTER JOIN
+			        Users ON Messages.SendToUserID = Users.UserID
+			WHERE 0=0		
+		
+			<cfif structKeyExists(arguments,"MessageTypeID") and len(arguments.MessageTypeID)>
+				AND	MessageTypeID = <cfqueryparam value="#arguments.MessageTypeID#" CFSQLType="cf_sql_integer" />
+			</cfif>
+			
+			<cfif structKeyExists(arguments,"SendToUserID") and len(arguments.SendToUserID)>
+				AND	SendToUserID = <cfqueryparam value="#arguments.SendToUserID#" CFSQLType="cf_sql_integer" />
+			</cfif>	
+
+
+		</cfquery>		
+
+		<cfreturn qList />
+	</cffunction>
+
+
+	<cffunction name="viewmessage" access="public" output="false" returntype="query">
+		<cfargument name="messageID" type="any" required="true" />
+		
+		<!---
+		<cfdump var="#arguments.messageID.messageID#" abort="true" />
+		--->
+
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT	Messages.*, Users.UserLname, Users.UserFname
+			FROM    Messages LEFT OUTER JOIN
+			        Users ON Messages.SendToUserID = Users.UserID
+			WHERE 0=0		
+		
+			<cfif structKeyExists(arguments.messageID,"messageID") and len(arguments.messageID.messageID)>
+				AND	messageID = <cfqueryparam value="#val(arguments.messageID.messageID)#" CFSQLType="cf_sql_integer" />
+			</cfif>		
+		</cfquery>		
+
+		<cfreturn qList />
+	</cffunction>
 	
 	<cffunction name="getByAttributesQuery" access="public" output="false" returntype="query">
 		<cfargument name="MessageID" type="numeric" required="false" />
