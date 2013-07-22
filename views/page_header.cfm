@@ -1,7 +1,44 @@
 <div class="page-header">
 					<div class="pull-left">
 						<h1><cfoutput>#title#</cfoutput></h1>
+						
+						<cfif cgi.QUERY_STRING contains "showAssessmentPlanList">
+							<div class="row-fluid">
+								<div class="span12">
+									<!---
+									<ul class="stats">
+										<a href="index.cfm?event=addPlan">
+											<li class="blue">
+												<i class="icon-pencil"></i>						
+													<span>Add Assessment Plan</span>
+												</li>
+										</a>
+										<a href="index.cfm?event=ALC">
+											<li class="blue">
+												<i class="icon-book"></i>						
+												<span>Academic Learning Compact</span>	
+											</li>
+										</a>
+									</ul>
+									--->
+									<cfoutput>
+										<a href="index.cfm?event=addPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#">
+											<i class="icon-pencil"></i>									
+											<span>Add Assessment Plan</span>
+										</a>
+										|
+										<a href="index.cfm?event=addPlan">
+											<i class="icon-book"></i>									
+											<span>Academic Learning Compact</span>
+										</a>
+									</cfoutput>
+
+
+								</div>
+							</div>
+						</cfif>
 					</div>
+
 					<div class="pull-right">
 						<!--- 
 						<ul class="minitiles">

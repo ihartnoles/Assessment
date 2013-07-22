@@ -239,4 +239,20 @@
 			<ref bean="messagesGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- assessment plan types -->
+	<bean id="assessmentPlanTypesDAO" class="Assessment.model.assessmentPlanTypes.assessmentPlanTypesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanTypesGateway" class="Assessment.model.assessmentPlanTypes.assessmentPlanTypesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanTypesService" class="Assessment.model.assessmentPlanTypes.assessmentPlanTypesService">
+		<constructor-arg name="assessmentPlanTypesDAO">
+			<ref bean="assessmentPlanTypesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="assessmentPlanTypesGateway">
+			<ref bean="assessmentPlanTypesGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

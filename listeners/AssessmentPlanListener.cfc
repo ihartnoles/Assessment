@@ -14,6 +14,7 @@
 		
 
 		 <cfset variables.assessmentplansService 	= sf.getBean('assessmentplansService') /> 
+		 <cfset variables.assessmentPlanTypesService 	= sf.getBean('assessmentPlanTypesService') /> 
 	</cffunction>
 
 	<cffunction name="getAssessmentPlanPeriodsQuery" access="public" output="false" 
@@ -38,6 +39,12 @@
 															   departmentID = arguments.event.getArg("departmentID")) >
 	</cffunction>
 
+
+	<cffunction name="getPlanTypes" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentPlanTypesService.getPlanTypes()>
+	</cffunction>
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >

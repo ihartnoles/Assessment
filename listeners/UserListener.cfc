@@ -84,5 +84,18 @@
 													       UserPhoneNumber = arguments.event.getArg('UserPhoneNumber')
 													    ) >
 	</cffunction>
-	    
+	
+	
+
+	<cffunction name="getPrimaryAuthors" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.usersService.getPrimaryAuthors( reportingUnitID	=request.event.getArg('reportingUnitID'),
+															programID		=request.event.getArg('programID'),
+															DeptID			=request.event.getArg('DeptID'),
+															DivisionID		=request.event.getArg('DivisionID')
+														   ) >
+	</cffunction>
+
+
 </cfcomponent>

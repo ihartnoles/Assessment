@@ -105,6 +105,17 @@
 	<script src="js/jquery.MetaData.js"></script>
 	<script src="js/jquery.rating.js"></script>
 
+
+	<!-- Wizard -->
+	<script src="js/plugins/wizard/jquery.form.wizard.min.js"></script>
+	<script src="js/plugins/mockjax/jquery.mockjax.js"></script>
+	
+
+	<!-- Validation -->
+	<script src="js/plugins/validation/jquery.validate.min.js"></script>
+	<script src="js/plugins/validation/additional-methods.min.js"></script>
+
+
 	<!-- Theme framework
 	<script src="js/eakroko.min.js"></script>
 	 -->

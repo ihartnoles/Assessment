@@ -219,6 +219,51 @@
 		<cfreturn qList />
 	</cffunction>
 
+	<cffunction name="getPrimaryAuthors" access="public" output="false" returntype="query">
+		<cfargument name="reportingUnitID" type="numeric" required="false" />
+		<cfargument name="programID" type="numeric" required="false" />
+		<cfargument name="DeptID" type="numeric" required="false" />
+		<cfargument name="DivisionID" type="numeric" required="false" />
+
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			 SELECT #arguments.reportingUnitID# as ReportingUnitID, op.programname, ur.userid, ur.roleid, ur.defaultrole, userlname, userfname, useremail, assessmentroledescription
+			
+			FROM vwReportingUnit ru, userroleaccess ura, organization o, organizationsuperdivision osd, organizationdivision odv, organizationdept odp, organizationprogram op, userroles ur, users u, roles r,   
+
+			 (SELECT us.UserID, last_logindate         
+			 FROM Users us LEFT JOIN  (SELECT userid, MAX(userlogindate) as last_logindate FROM userlog group by userid) lo 	            ON us.UserID=lo.UserID) l 
+			
+			 WHERE ura.RecordID IN (	 
+				 SELECT RecordID FROM UserRoleAccess WHERE  
+				 (ProgramID=999999 OR ProgramID=<cfqueryparam value="#arguments.programID#" CFSQLType="cf_sql_integer" />)  
+					 AND (DeptID=999999 OR DeptID=<cfqueryparam value="#arguments.DeptID#" CFSQLType="cf_sql_integer" />)  
+					 AND (DivisionID=999999 OR DivisionID=<cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />)  
+					 AND (SuperDivisionID=999999 OR SuperDivisionID=1) 
+					 AND (OrganizationID=999999 OR OrganizationID=1) 	 
+				 ) 
+			
+			<cfif structKeyExists(arguments,"reportingUnitID") and len(arguments.reportingUnitID)>
+				AND	 ru.reportingUnitID = <cfqueryparam value="#arguments.reportingUnitID#" CFSQLType="cf_sql_integer" />
+			</cfif>		
+
+
+			 AND ura.userrolerecordid=ur.recordid 
+			 AND ur.roleid = r.assessmentroleid 
+			 AND ur.userid = u.userid 
+			 AND u.userid = l.userid  
+			 AND ura.organizationid=o.organizationid 
+			 AND ura.superdivisionid=osd.superdivisionid 
+			 AND ura.divisionid=odv.divisionid AND ura.deptid=odp.deptid AND ura.programid=op.programid
+			 AND ur.roleID = 2
+
+		</cfquery>
+
+		<cfreturn qList />
+	</cffunction>
+
+
 	<cffunction name="queryRowToStruct" access="private" output="false" returntype="struct">
 		<cfargument name="qry" type="query" required="true">
 		
