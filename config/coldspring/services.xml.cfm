@@ -223,4 +223,20 @@
 			<ref bean="organizationDeptGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- messages -->
+	<bean id="messagesDAO" class="Assessment.model.messages.messagesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="messagesGateway" class="Assessment.model.messages.messagesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="messagesService" class="Assessment.model.messages.messagesService">
+		<constructor-arg name="messagesDAO">
+			<ref bean="messagesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="messagesGateway">
+			<ref bean="messagesGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>
