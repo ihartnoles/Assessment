@@ -22,12 +22,12 @@
 									</ul>
 									--->
 									<cfoutput>
-										<a href="index.cfm?event=addPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#">
+										<a href="index.cfm?event=addPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#" class="btn btn-red">
 											<i class="icon-pencil"></i>									
 											<span>Add Assessment Plan</span>
 										</a>
-										|
-										<a href="index.cfm?event=addPlan">
+										
+										<a href="index.cfm?event=addPlan" class="btn btn-red">
 											<i class="icon-book"></i>									
 											<span>Academic Learning Compact</span>
 										</a>

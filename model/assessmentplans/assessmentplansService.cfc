@@ -60,6 +60,38 @@
 		<cfreturn variables.assessmentplansDAO.delete(assessmentplans) />
 	</cffunction>
 
+	<cffunction name="createPlan" access="public" output="false" returntype="boolean">
+		<cfargument name="PlanID" type="numeric" required="false"/>
+		<cfargument name="ReportingUnitID" type="numeric" required="false" />
+		<cfargument name="PlanPeriod" type="string" required="false" />
+		<cfargument name="PlanType" type="numeric" required="false" />
+		<cfargument name="PlanStatus" type="numeric" required="false" />
+		<cfargument name="PlanInitialReporter" type="string" required="false" />
+		<cfargument name="PlanLastChangeDate" type="date" required="false" />
+		<cfargument name="PlanLockDate" type="date" required="false" />
+		
+			
+		<cfset local.assessmentplanBean = createObject("component","assessmentplans").init(argumentCollection=arguments) />
+
+		<cfset local.assessmentplanBean.setPlanID(0) />
+		<cfset local.assessmentplanBean.setPlanStatus(10) />
+		<cfset local.assessmentplanBean.setPlanLastChangeDate(now()) />
+
+		<!---
+		<cfdump var="#local.assessmentplanBean#" abort="true" label="@@assessmentplansService" />
+		--->
+
+		<cfset local.tmp = variables.assessmentplansDAO.save(local.assessmentplanBean) />
+
+		<cfif local.tmp>
+			
+		<cfelse>
+
+		</cfif>
+
+		<cfreturn  />
+	</cffunction>
+
 	<cffunction name="onMissingMethod" access="public" output="false" >
 		<cfargument name="missingMethodName" type="string" hint="Name of missing method" />
 		<cfargument name="missingMethodArguments" type="any" hint="Arguments passed to the missing method, maybe a named arg set or a numerically indexed set" />

@@ -30,7 +30,7 @@
 					<cfqueryparam value="#arguments.assessmentplans.getPlanType()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentplans.getPlanType())#" />,
 					<cfqueryparam value="#arguments.assessmentplans.getPlanStatus()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentplans.getPlanStatus())#" />,
 					<cfqueryparam value="#arguments.assessmentplans.getPlanInitialReporter()#" CFSQLType="cf_sql_varchar" null="#not len(arguments.assessmentplans.getPlanInitialReporter())#" />,
-					<cfqueryparam value="#arguments.assessmentplans.getPlanLastChangeDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentplans.getPlanLastChangeDate())#" />,
+					<cfqueryparam value="#now()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentplans.getPlanLastChangeDate())#" />,
 					<cfqueryparam value="#arguments.assessmentplans.getPlanLockDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentplans.getPlanLockDate())#" />
 					)
 			</cfquery>

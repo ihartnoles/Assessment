@@ -6,6 +6,8 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 </cfscript>
 
 
+<cfdump var="#qPlanDetails#" />
+
  <script type="text/javascript">
         $(function () {
            
@@ -49,6 +51,16 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 							
 								<div class="row-fluid margin-top">
 									<div class="span12">
+
+										<div class="text-left">
+											<cfoutput>
+											<a href="index.cfm?event=addOutcome&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#" class="btn btn-red">
+											<i class="icon-pencil"></i>									
+											<span>Add New Outcome</span>
+											</cfoutput>
+										</a>
+										</div>
+
 										<div class="box box-bordered ">
 											<div class="box-title">
 												<h3><i class="icon-reorder"></i>Assessment Plan Details</h3>

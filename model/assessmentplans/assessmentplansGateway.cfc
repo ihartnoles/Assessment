@@ -96,6 +96,23 @@
 		<cfreturn qList />
 	</cffunction>
 
+	
+
+	<cffunction name="getPlanPeriods" access="public" output="false" returntype="query">
+		
+				
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			upPeriodGet
+		</cfquery>
+		
+		<!--- <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> --->
+
+		<cfreturn qList />
+	</cffunction>
+
+
 
 	
 	<cffunction name="getAssessmentPlanDetails" access="public" output="false" returntype="query">

@@ -242,10 +242,24 @@
 			<!-- query plan authors -->
 			<notify listener="UserListener" method="getPrimaryAuthors" resultArg="qPrimaryAuthors"  />
 			
+			<notify listener="AssessmentPlanListener" method="getPlanPeriods" resultArg="qPlanPeriods"  />
+
 			<view-page name="addPlanWizard" contentArg="content"/>
 			<view-page name="dash_layout" />
 		</event-handler>
 		
+		<!-- add a plan -->
+		<event-handler event="createPlan" access="public">
+		
+			<notify listener="AssessmentPlanListener" method="createPlan"  />
+			<!--
+			TO DO: Copy previous years outcomes over to new plan
+			-->
+			<view-page name="editPlan" contentArg="content"/>
+			<view-page name="dash_layout" />
+			
+		</event-handler>
+
 
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
@@ -293,6 +307,7 @@
 		<page-view name="json" page="/views/json.cfm" />
 		<page-view name="grid" page="/views/grid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
+		<page-view name="editPlan" page="/views/editPlan.cfm" />
 	</page-views>
 
 </mach-ii>

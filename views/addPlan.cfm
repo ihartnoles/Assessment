@@ -2,9 +2,12 @@
 title 		 	=  "Add a plan";
 qPlanTypes 		=  request.event.getArg('qPlanTypes');
 qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
+qPlanPeriods	=  request.event.getArg('qPlanPeriods');
 </cfscript>
 
+<!---
 <cfdump var="#qPrimaryAuthors#" />
+--->
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
@@ -17,11 +20,21 @@ qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
 							<div class="box-title">
 								<h3>
 									<i class="icon-magic"></i>
-									Wizard with validation
+									Add a new Assessment Plan 
 								</h3>
 							</div>
 							<div class="box-content nopadding">
-								<form action="post.php" method="POST" class='form-horizontal form-wizard' id="ss">
+								<form action="index.cfm?event=createPlan" method="POST" class='form-horizontal form-wizard' id="ss">
+
+									<cfoutput>
+										<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
+										<input type="hidden" name="programID" value="#request.event.getArg('programID')#" />
+										<input type="hidden" name="deptID" value="#request.event.getArg('deptID')#" />
+										<input type="hidden" name="divisionID" value="#request.event.getArg('divisionID')#" />
+									</cfoutput>
+									
+
+
 									<div class="step" id="firstStep">
 										<ul class="wizard-steps steps-4">
 											<li class='active'>
@@ -43,7 +56,7 @@ qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
 													<span class="circle">
 													</span>
 													<span class="description">
-														Please select the Plan Type.
+														Please select the Plan Period and Plan Type.
 													</span>
 												</div>
 											</li>
@@ -93,13 +106,13 @@ qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
 													</div>
 													--->
 													<div class="control-group">
-														<label for="planAuthor" class="control-label">Plan Author</label>
+														<label for="PlanInitialReporter" class="control-label">Plan Author</label>
 														<div class="controls">
 															<cfoutput>
-															<select name="planAuthor" id="planAuthor" size="#qPrimaryAuthors.recordcount#" data-rule-required="true">
+															<select name="PlanInitialReporter" id="PlanInitialReporter" size="#qPrimaryAuthors.recordcount#" data-rule-required="true">
 																<cfloop query="qPrimaryAuthors">
 																	<cfoutput>
-																		<option value="#qPrimaryAuthors.userid#">#qPrimaryAuthors.UserFName# #qPrimaryAuthors.UserLName#</option>
+																		<option value="#qPrimaryAuthors.UserFName# #qPrimaryAuthors.UserLName#">#qPrimaryAuthors.UserFName# #qPrimaryAuthors.UserLName#</option>
 																	</cfoutput>
 																</cfloop>																
 															</select>
@@ -154,7 +167,7 @@ qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
 														<span class="active"></span>
 													</span>
 													<span class="description">
-														Plan Type
+														Please select the Plan Period and Plan Type.
 													</span>
 												</div>
 											</li>
@@ -184,6 +197,20 @@ qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
 											--->
 										</ul>
 										<div class="control-group">
+											<label for="text" class="control-label">Plan Period</label>
+											<div class="controls">
+												<select name="planPeriod" id="planPeriod" data-rule-required="true">
+													<option value="">-- Chose one --</option>
+													<cfloop query="qPlanPeriods">
+														<cfoutput>
+															<option value="#qPlanPeriods.PlanPeriod#">#qPlanPeriods.PlanPeriod#</option>
+														</cfoutput>
+													</cfloop>											
+												</select>
+											</div>
+										</div>			
+
+										<div class="control-group">
 											<label for="text" class="control-label">Plan Type</label>
 											<div class="controls">
 												<select name="planType" id="planType" data-rule-required="true">
@@ -195,7 +222,7 @@ qPrimaryAuthors	=  request.event.getArg('qPrimaryAuthors');
 													</cfloop>											
 												</select>
 											</div>
-										</div>										
+										</div>											
 									</div>
 									<!---
 									<div class="step" id="thirdStep">

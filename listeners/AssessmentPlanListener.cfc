@@ -45,6 +45,34 @@
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		<cfreturn variables.assessmentPlanTypesService.getPlanTypes()>
 	</cffunction>
+
+	
+
+	<cffunction name="getPlanPeriods" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getPlanPeriods()>
+	</cffunction>
+
+	
+	
+	<cffunction name="createPlan" access="public" output="false" 
+			returntype="void" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<cfset local.result = variables.assessmentplansService.createPlan( ReportingUnitID		=arguments.event.getArg("ReportingUnitID"),
+																		   PlanPeriod 			=arguments.event.getArg("PlanPeriod"),
+																		   PlanType 			=arguments.event.getArg("PlanType"),
+																		   PlanInitialReporter 	=arguments.event.getArg("PlanInitialReporter")) />
+
+		<cfif local.result>
+			<cfset announceEvent("showPlan",arguments.event.getArgs()) />
+		<cfelse>
+			<cfset announceEvent("addPlan",arguments.event.getArgs()) />
+		</cfif>
+		
+	</cffunction>
+
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >
