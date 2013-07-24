@@ -125,6 +125,22 @@ title 					= "Add a new outcome" ;
 																</div>
 															</div>
 
+															<div class="control-group">
+																<label for="textarea" class="control-label">Data Summary: Analysis & Evaluation</label>
+																<div class="controls">
+																	<textarea name="outcomeresults" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																</div>
+															</div>
+
+															
+															<div class="control-group">
+																<label for="textarea" class="control-label">Program Improvement</label>
+																<div class="controls">
+																	<textarea name="outcomeplanningimprovement" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																</div>
+															</div>
+
+
 															<div class="form-actions">
 																<button type="submit" class="btn btn-primary">Save changes</button>
 																<button type="button" class="btn">Cancel</button>
