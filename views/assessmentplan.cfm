@@ -1,10 +1,16 @@
 <cfscript>
+<<<<<<< HEAD
 
 qPlanDetails			= request.event.getArg('qPlanDetails');
 qcountOutcomes    		= request.event.getArg('qcountOutcomes');
 qALCCategories			= request.event.getArg('qALCCategories');
 //qALCCategoriesSelected	= request.event.getArg('qALCCategoriesSelected');
 title 					= "Plan Period: " &  #qPlanDetails.planperiod#;
+=======
+qPlanDetails		= request.event.getArg('qPlanDetails');
+qcountOutcomes    	= request.event.getArg('qcountOutcomes');
+title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
+>>>>>>> origin/Academic-Learning-Compact
 </cfscript>
 
 

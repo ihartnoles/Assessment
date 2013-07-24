@@ -255,4 +255,20 @@
 			<ref bean="assessmentPlanTypesGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- ALC documents-->
+	<bean id="ALCDocumentsDAO" class="Assessment.model.ALCDocuments.ALCDocumentsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ALCDocumentsGateway" class="Assessment.model.ALCDocuments.ALCDocumentsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ALCDocumentsService" class="Assessment.model.ALCDocuments.ALCDocumentsService">
+		<constructor-arg name="ALCDocumentsDAO">
+			<ref bean="ALCDocumentsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="ALCDocumentsGateway">
+			<ref bean="ALCDocumentsGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

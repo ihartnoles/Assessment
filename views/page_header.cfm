@@ -27,7 +27,7 @@
 											<span>Add Assessment Plan</span>
 										</a>
 										
-										<a href="index.cfm?event=addPlan" class="btn btn-red">
+										<a href="index.cfm?event=viewALC&reportingUnitID=#request.event.getArg('reportingUnitID')#" class="btn btn-red">
 											<i class="icon-book"></i>									
 											<span>Academic Learning Compact</span>
 										</a>
