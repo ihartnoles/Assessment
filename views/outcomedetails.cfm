@@ -11,6 +11,8 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
+				<cfdump var="#qALCCategories#" />
+
 				<!---
 				<cfdump var="#qPlanDetails#" />
 
@@ -101,7 +103,6 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
 																				
 																				<div class="row-fluid sortable-box">
-																					
 																						<cfoutput query="qALCCategories" group="CategoryTitle" >
 																							<div class="span3">
 																							<!--- <strong><em>Content Knowledge</em></strong> --->
@@ -124,9 +125,7 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																									</div>																							
 																								</cfoutput>
 																								
-																						</div>
-
-
+																							</div>
 																						</cfoutput>
 																				</div>
 																			

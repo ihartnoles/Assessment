@@ -131,7 +131,9 @@
 		</event-handler>
 
 		<event-handler event="ShowPlan" access="public">
+			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
+			<!-- <notify listener="ALCCategoriesListener" method="getALCCategoriesSelected" resultArg="qALCCategoriesSelected"  /> -->
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
 			<view-page name="assessmentplan" contentArg="content" />
 			<view-page name="dash_layout" />

@@ -23,6 +23,13 @@
 		<cfreturn variables.ALCCategoriesService.getALCCheckboxes() />
 	</cffunction>
 
+	
+	<cffunction name="getALCCategoriesSelected" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		
+		<cfreturn variables.ALCCategoriesService.getALCCategoriesSelected(outcomeID = request.event.getArg('outcomeID')) />
+	</cffunction>
 
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 

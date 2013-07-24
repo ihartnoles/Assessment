@@ -46,17 +46,46 @@
 	<cffunction name="getALCCheckboxes" access="public" output="false" returntype="query">				
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			SELECT        ALCCategories.CategoryID, 
-			              ALCCategories.CategoryTitle, 
-			              ALCSubcategories.SubCategoryID,
-						  ALCSubcategories.SubCategoryTitle, 
-						  ALCSubcategories.SubCategoryActive
-			FROM          ALCCategories INNER JOIN
-			              ALCSubcategories ON ALCCategories.CategoryID = ALCSubcategories.CategoryID
-			
-			WHERE ALCSubcategories.SubCategoryID NOT IN (10011,10012,10013,10014)
+			SELECT 
+				ALCCategories.CategoryID, 
+				ALCCategories.CategoryTitle, 
+				ALCSubcategories.SubCategoryID, 
+				CASE 
+					WHEN ALCSubcategories.SubCategoryID = 10011 THEN 'Content Knowledge'
+					WHEN ALCSubcategories.SubCategoryID = 10012 THEN 'Communication'
+					WHEN ALCSubcategories.SubCategoryID = 10013 THEN 'Critical Thinking'
+					ELSE ALCSubcategories.SubCategoryTitle
+				END as SubCategoryTitle, 
+				ALCSubcategories.SubCategoryActive 
+
+			FROM ALCCategories 
+				INNER JOIN ALCSubcategories ON ALCCategories.CategoryID = ALCSubcategories.CategoryID 
+
+			WHERE 0=0
+
+			AND ALCSubcategories.SubCategoryID NOT IN (10014) 
 
 			ORDER BY ALCCategories.CategoryID, ALCSubcategories.SubCategoryID
+		</cfquery>		
+		<cfreturn qList />
+	</cffunction>
+
+	<cffunction name="getALCCategoriesSelected" access="public" output="false" returntype="query">				
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT 
+				recordId,
+				outcomeID,
+				SubCategoryID
+			FROM 
+				AssessmentALCOutcomeCategories
+
+			WHERE 0=0
+
+			<cfif structKeyExists(arguments,"outcomeID") and len(arguments.outcomeID)>
+				AND	outcomeID = <cfqueryparam value="#arguments.outcomeID#" CFSQLType="cf_sql_integer" />
+			</cfif>
+
 		</cfquery>		
 		<cfreturn qList />
 	</cffunction>

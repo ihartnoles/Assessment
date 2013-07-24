@@ -1,12 +1,15 @@
 <cfscript>
 
-qPlanDetails		= request.event.getArg('qPlanDetails');
-qcountOutcomes    	= request.event.getArg('qcountOutcomes');
-title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
+qPlanDetails			= request.event.getArg('qPlanDetails');
+qcountOutcomes    		= request.event.getArg('qcountOutcomes');
+qALCCategories			= request.event.getArg('qALCCategories');
+//qALCCategoriesSelected	= request.event.getArg('qALCCategoriesSelected');
+title 					= "Plan Period: " &  #qPlanDetails.planperiod#;
 </cfscript>
 
 
-<cfdump var="#qPlanDetails#" />
+
+
 
  <script type="text/javascript">
         $(function () {
@@ -22,11 +25,14 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-				
 				<!---
 				<cfdump var="#qPlanDetails#" />
 
 				<cfdump var="#qcountOutcomes#" />
+
+				<cfdump var="#qALCCategories#" />
+
+				
 				
 				<cfdump var="#arguments#" />
 				--->
@@ -106,15 +112,22 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 														</div>
 														</div>
 														<div class="tab-pane active" id="second22">
+															TEST
+															
+
+															<cfdump var="#qALCCategories#" label="qALCCategories"/>
+
 															<cfloop query="qcountOutcomes">
-															<cfoutput>
+															
+														
+															
 															<div class="row-fluid sortable-box">
 																<div class="span12">
 																	<div class="box box-color box-bordered blue">
 																			<div class="box-title">
 																				<h3>
 																					<i class="icon-file"></i>
-																					Outcome #qcountOutcomes.currentrow#
+																					Outcome <cfoutput>#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#)</cfoutput>
 																				</h3>
 																				<div class="actions">
 																					<a href="##" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
@@ -123,109 +136,58 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 																			<div class="box-content">
 																				<h4>Description and Methodology</h4>
 																				<p><strong>Outcome Description </strong><br>
-																				#qcountOutcomes.outcomedescription#
+																				<cfoutput>#qcountOutcomes.outcomedescription#</cfoutput>
 																				</p>
 
 																				<HR>
 
 																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
 																				
+																					<!--- let's play HACKY SACK! --->	
+																				    <cfquery name="getSelectedALCCategories" datasource="Assessment">
+																				    		SELECT 
+																								SubCategoryID
+																							FROM 
+																								AssessmentALCOutcomeCategories
+
+																							WHERE outcomeID IN (#qCountOutcomes.outcomeID#)
+																				      </cfquery>
+
+																				      <!---
+																				      <cfdump var="#getSelectedALCCategories#">
+																					  --->
+
+																				      <cfoutput>#ValueList(getSelectedALCCategories.subcategoryID)#</cfoutput>
+
 																				    <div class="row-fluid sortable-box">
-																					<div class="span3">
+																						<cfoutput query="qALCCategories" group="CategoryID" >
+																							<div class="span3">
 																							<!--- <strong><em>Content Knowledge</em></strong> --->
 																							    <br><br> 
 																							    
-																							     <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Content Knowledge</label>
-																								</div>
+																							    <!---
+																							    	Dynamic ALC Checkboxes
 
-																								 <div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Declarative Knowledge</label>
-																								</div>
-
-																								
-																							    <div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Procedural Knowledge (Research skills)</label>
-																								</div>
-
-																								<div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Procedural Knowledge (Technical Skills)</label>
-																								</div>
-																								
-																						</div>
-
-																					<div class="span3">
-																							<!--- <strong><em>Communication</em></strong> --->
-																							    <br><br> 
-																							    
+																									1) Need to be able to check the boxes and save to DB
+																									2) Need to compare results in db and be "checked" where applicable
+																							    --->																							
+																   
 																							    <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Communication </label>
-																								</div>
-
+																							    		<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.subcategoryID >checked</cfif>> 
+																							    		 <label class='inline' for="c6">#qALCCategories.CategoryTitle# (#qALCCategories.subcategoryID#)</label>																		
+																								</div>											
+																							
+																								<cfoutput group="SubCategoryTitle">
+																									 <div class="check-line offset1">
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif>> 
+																										 <label class='inline' for="c6">#qALCCategories.SubCategoryTitle# (#qALCCategories.SubCategoryID#)</label>
+																									</div>																							
+																								</cfoutput>
 																								
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Written Communication</label>
-																									</div>
-
-																								
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Oral Communication</label>
-																									</div>
-																								
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Multimedia/Graphic Communication</label>
-																									</div>
-																									
-																									<div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Team/Collaborative Communication</label>
-																									</div>
-																					
-
-																						</div>
-
-																					<div class="span3">
-																							<!--- <strong><em>Critical Thinking</em></strong> --->
-																							    <br><br> 
-																							    
-																							     <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Critical Thinking</label>
-																								</div>
-
-																								<div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Analytical Skills</label>
-																								</div>
-
-																							    <div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																								</div>
-
-																								<div class="check-line offset1">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																								</div>
-																								
-																								
-																						</div>
-																					<div class="span3">
-																							<!--- <strong><em>Critical Thinking</em></strong> --->
-																							    <br><br> 
-																							    
-																							     <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">Does Not Apply</label>
-																								</div>
-
-																								<!---
-																							    <div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Creative Skills</label>
-																								</div>
-
-																								<div class="check-line">
-																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">Practical Skils</label>
-																								</div>
-																								--->
-																								
-																								
-																						</div>
-																				</div>
+																							</div>
+																						</cfoutput>
+																					</div>
+																			
 
 																				<HR>
 
@@ -289,7 +251,9 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 																					<div class="span3">
 																						<br><br><br><br>
 																						<div align="right">
-																							<a href="index.cfm?event=outcomedetails&outcomeID=#qcountOutcomes.outcomeID#&reportingUnitID=#arguments.event.getArg('reportingUnitID')#&planID=#arguments.event.getArg('planID')#">See More ...</a>
+																							<cfoutput>
+																								<a href="index.cfm?event=outcomedetails&outcomeID=#qcountOutcomes.outcomeID#&reportingUnitID=#arguments.event.getArg('reportingUnitID')#&planID=#arguments.event.getArg('planID')#">See More ...</a>
+																							</cfoutput>																							
 																						</div>
 																					</div>
 																				</div>
@@ -360,9 +324,9 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 																		</div>
 																		--->
 																	</div>
-																</div>
-															 	</cfoutput>
+																</div>														
 															</cfloop>
+														
 
 														</div>
 														<div class="tab-pane" id="checklist">
