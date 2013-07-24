@@ -262,6 +262,22 @@
 			
 		</event-handler>
 
+		<!-- add an outcome -->
+		<event-handler event="addOutcome" access="public">
+			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
+			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
+			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
+			<!--
+			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qOutcomeDetail"  />
+			<notify listener="AssessmentPlanSupportingDocumentsListener" method="getOutcomeSupportingDocs" resultArg="qSupportingDocs"  />
+			
+			<view-page name="outcomedetails" contentArg="content" />
+			-->
+
+			<view-page name="addOutcome" contentArg="content"/>
+			<view-page name="dash_layout" />
+		</event-handler>
+
 
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
@@ -310,6 +326,7 @@
 		<page-view name="grid" page="/views/grid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
 		<page-view name="editPlan" page="/views/editPlan.cfm" />
+		<page-view name="addOutcome" page="/views/addOutcome.cfm" />
 	</page-views>
 
 </mach-ii>
