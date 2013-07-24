@@ -262,7 +262,6 @@
 			
 		</event-handler>
 
-<<<<<<< HEAD
 		<!-- add an outcome -->
 		<event-handler event="addOutcome" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
@@ -279,13 +278,13 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
-=======
+
 		<event-handler event="viewALC" access="public">			
 			<notify listener="ALCDocumentsListener" method="getALCDocs" resultArg="qALCdocs"  />
 			<view-page name="viewALC" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
->>>>>>> origin/Academic-Learning-Compact
+				
 
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
@@ -333,11 +332,11 @@
 		<page-view name="grid" page="/views/grid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
 		<page-view name="editPlan" page="/views/editPlan.cfm" />
-<<<<<<< HEAD
+
 		<page-view name="addOutcome" page="/views/addOutcome.cfm" />
-=======
+
 		<page-view name="viewALC" page="/views/viewALC.cfm" />
->>>>>>> origin/Academic-Learning-Compact
+
 	</page-views>
 
 </mach-ii>
