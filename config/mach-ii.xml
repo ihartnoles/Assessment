@@ -55,6 +55,7 @@
 		<listener name="UserRoleAccessListener" type="Assessment.listeners.UserRoleAccessListener" />
         <listener name="AssessmentPlanOutcomeListener" type="Assessment.listeners.AssessmentPlanOutcomeListener" />	
         <listener name="ALCCategoriesListener" type="Assessment.listeners.ALCCategoriesListener" />		
+        <listener name="ALCDocumentsListener" type="Assessment.listeners.ALCDocumentsListener" />	
         <listener name="AssessmentPlanSupportingDocumentsListener" type="Assessment.listeners.AssessmentPlanSupportingDocumentsListener" />
       	<listener name="CampusListener" type="Assessment.listeners.CampusListener" />
         <listener name="organizationSuperDivisionListener" type="Assessment.listeners.OrganizationSuperDivisionListener" />
@@ -146,7 +147,6 @@
 			<view-page name="outcomedetails" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
-
 
 		<event-handler event="uploaddocument">
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="uploaddocument" />
@@ -260,12 +260,16 @@
 			
 		</event-handler>
 
+		<event-handler event="viewALC" access="public">			
+			<notify listener="ALCDocumentsListener" method="getALCDocs" resultArg="qALCdocs"  />
+			<view-page name="viewALC" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
 
 		<event-handler event="showInputForm" access="public">
 			<view-page name="inputForm" />
 		</event-handler>
-		
-		
+				
 		<event-handler event="loginSucceeded" access="private">
 			<view-page name="mainMenu" />
 		</event-handler>
@@ -308,6 +312,7 @@
 		<page-view name="grid" page="/views/grid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
 		<page-view name="editPlan" page="/views/editPlan.cfm" />
+		<page-view name="viewALC" page="/views/viewALC.cfm" />
 	</page-views>
 
 </mach-ii>

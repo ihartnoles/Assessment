@@ -1,5 +1,4 @@
 <cfscript>
-
 qPlanDetails		= request.event.getArg('qPlanDetails');
 qcountOutcomes    	= request.event.getArg('qcountOutcomes');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
