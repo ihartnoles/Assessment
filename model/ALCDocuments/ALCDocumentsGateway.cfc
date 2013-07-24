@@ -12,20 +12,19 @@
 		
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			SELECT
-				DocumentID,
-				ReportingUnitID,
-				DocumentName,
-				UploadedDocumentName,
-				UploadUserID,
-				UploadDate
-			FROM	ALCDocuments
+			SELECT  a.*, 
+					u.UserFname + ' ' + u.UserLname  as UserName 
+			FROM 	ALCDocuments a, Users u  
 			WHERE	0=0		
 		
 		<cfif structKeyExists(arguments,"ReportingUnitID") and len(arguments.ReportingUnitID)>
-			AND	ReportingUnitID = <cfqueryparam value="#arguments.ReportingUnitID#" CFSQLType="cf_sql_integer" />
+			AND	a.ReportingUnitID = <cfqueryparam value="#arguments.ReportingUnitID#" CFSQLType="cf_sql_integer" />
 		</cfif>
-		
+
+			AND a.UploadUserID = u.UserID
+
+			ORDER BY UploadDate DESC
+
 		</cfquery>
 		
 		<cfreturn qList />

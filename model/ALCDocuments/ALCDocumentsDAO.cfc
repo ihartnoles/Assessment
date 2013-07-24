@@ -7,12 +7,12 @@
 		<cfreturn this>
 	</cffunction>
 	
-	<cffunction name="create" access="public" output="false" returntype="boolean">
+	<cffunction name="create" access="public" output="false" returntype="numeric">
 		<cfargument name="ALCDocuments" type="ALCDocuments" required="true" />
 
 		<cfset var qCreate = "" />
 		<cftry>
-			<cfquery name="qCreate" datasource="#variables.dsn#">
+			<cfquery name="qCreate" datasource="#variables.dsn#" result="res">
 				INSERT INTO ALCDocuments
 					(
 					ReportingUnitID,
@@ -31,10 +31,10 @@
 					)
 			</cfquery>
 			<cfcatch type="database">
-				<cfreturn false />
+				<cfreturn 0 />
 			</cfcatch>
 		</cftry>
-		<cfreturn true />
+		<cfreturn res.identitycol />
 	</cffunction>
 
 	<cffunction name="read" access="public" output="false" returntype="void">
@@ -65,12 +65,12 @@
 		</cfif>
 	</cffunction>
 
-	<cffunction name="update" access="public" output="false" returntype="boolean">
+	<cffunction name="update" access="public" output="false" returntype="numeric">
 		<cfargument name="ALCDocuments" type="ALCDocuments" required="true" />
 
 		<cfset var qUpdate = "" />
 		<cftry>
-			<cfquery name="qUpdate" datasource="#variables.dsn#">
+			<cfquery name="qUpdate" datasource="#variables.dsn#" result="res">
 				UPDATE	ALCDocuments
 				SET
 					ReportingUnitID = <cfqueryparam value="#arguments.ALCDocuments.getReportingUnitID()#" CFSQLType="cf_sql_integer" />,
@@ -81,10 +81,10 @@
 				WHERE	DocumentID = <cfqueryparam value="#arguments.ALCDocuments.getDocumentID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
 			<cfcatch type="database">
-				<cfreturn false />
+				<cfreturn 0 />
 			</cfcatch>
 		</cftry>
-		<cfreturn true />
+		<cfreturn res.identitycol />
 	</cffunction>
 
 	<cffunction name="delete" access="public" output="false" returntype="boolean">

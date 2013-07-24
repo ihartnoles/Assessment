@@ -156,6 +156,11 @@
 			<view-page name="upload" />
 		</event-handler>
 
+		<event-handler event="uploadALCdocument">
+			<notify listener="ALCDocumentsListener" method="uploadALCdocument" />
+			<redirect event="viewALC" args="reportingUnitID" />
+		</event-handler>
+
 		<event-handler event="updatepassword" access="public">
 			<notify listener="UserListener" method="updatepassword" />	
 			<redirect event="accountsettings#security" args="notification" />

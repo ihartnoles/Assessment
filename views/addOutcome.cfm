@@ -50,83 +50,83 @@ title 					= "Add a new outcome" ;
 														<form action="#" method="POST" class='form-vertical form-bordered'>
 															<!---
 															<div class="control-group">
-																<label for="textfield" class="control-label">Text input</label>
+																<label for="textfield" class="control-label">Text input</strong></label>
 																<div class="controls">
 																	<input type="text" name="textfield" id="textfield" placeholder="Text input" class="input-xlarge">
 																</div>
 															</div>
 															<div class="control-group">
-																<label for="password" class="control-label">Password</label>
+																<label for="password" class="control-label">Password</strong></label>
 																<div class="controls">
 																	<input type="password" name="password" id="password" placeholder="Password input" class="input-xlarge">
 																</div>
 															</div>
 															<div class="control-group">
-																<label class="control-label">Checkboxes<small>More information here</small></label>
+																<label class="control-label">Checkboxes<small>More information here</small></strong></label>
 																<div class="controls">
 																	<label class='checkbox'>
 																		<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
-																	</label>
+																	</strong></label>
 																	<label class='checkbox'>
 																		<input type="checkbox" name="checkbox"> ipsum eiusmod
-																	</label>
+																	</strong></label>
 																</div>
 															</div>
 															--->
 															<div class="control-group">
-																<label for="textarea" class="control-label">Outcome Description</label>
+																<label for="textarea" class="control-label"><strong>Outcome Description</strong></label>
 																<div class="controls">
 																	<textarea name="outcomeDescription" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
 																</div>
 															</div>
 
 															<div class="control-group">
-																<label class="control-label">Academic Learning Compact</label>
+																<label class="control-label"><strong>Academic Learning Compact</strong></label>
 																<div class="controls">
 																	<label class='checkbox'>
 																		<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
-																	</label>
+																	</strong></label>
 																	<label class='checkbox'>
 																		<input type="checkbox" name="checkbox"> ipsum eiusmod
-																	</label>
+																	</strong></label>
 																</div>
 															</div>
 
 															<div class="control-group">
-																<label class="control-label">Strategic Plan Goals</label>
+																<label class="control-label"><strong>Strategic Plan Goals</strong></label>
 																<div class="controls">
 																	<label class='checkbox'>
 																		<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
-																	</label>
+																	</strong></label>
 																	<label class='checkbox'>
 																		<input type="checkbox" name="checkbox"> ipsum eiusmod
-																	</label>
+																	</strong></label>
 																</div>
 															</div>
 
 															<div class="control-group">
-																<label for="textarea" class="control-label">Implementing Strategy</label>
+																<label for="textarea" class="control-label"><strong>Implementing Strategy</strong></label>
 																<div class="controls">
 																	<textarea name="outcomeStrategy" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
 																</div>
 															</div>
 
 															<div class="control-group">
-																<label for="textarea" class="control-label">Assessment Method</label>
+																<label for="textarea" class="control-label"><strong>Assessment Method</strong></label>
 																<div class="controls">
 																	<textarea name="outcomeMethod" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
 																</div>
 															</div>
 
 															<div class="control-group">
-																<label for="textarea" class="control-label">Criterion for Success</label>
+																<label for="textarea" class="control-label"><strong>Criterion for Success</strong></label>
 																<div class="controls">
 																	<textarea name="outcomeCriterion" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
 																</div>
 															</div>
 
 															<div class="control-group">
-																<label for="textarea" class="control-label">Data Summary: Analysis & Evaluation</label>
+																<label for="textarea" class="control-label"><strong>Data Summary: Analysis & Evaluation</strong></label>
 																<div class="controls">
 																	<textarea name="outcomeresults" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
 																</div>
@@ -134,7 +134,7 @@ title 					= "Add a new outcome" ;
 
 															
 															<div class="control-group">
-																<label for="textarea" class="control-label">Program Improvement</label>
+																<label for="textarea" class="control-label"><strong>Program Improvement</strong></label>
 																<div class="controls">
 																	<textarea name="outcomeplanningimprovement" id="textarea" rows="5" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
 																</div>
@@ -142,7 +142,7 @@ title 					= "Add a new outcome" ;
 
 
 															<div class="form-actions">
-																<button type="submit" class="btn btn-primary">Save changes</button>
+																<button type="submit" class="btn btn-red">Save changes</button>
 																<button type="button" class="btn">Cancel</button>
 															</div>
 														</form>

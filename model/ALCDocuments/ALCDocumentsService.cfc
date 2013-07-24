@@ -43,7 +43,21 @@
 		<cfreturn variables.ALCDocumentsGateway.getByAttributes(argumentCollection=arguments) />
 	</cffunction>
 
-	<cffunction name="saveALCDocuments" access="public" output="false" returntype="boolean">
+	
+	<cffunction name="uploadALCdocument" access="public" output="false" returntype="any">
+		<cfargument name="ReportingUnitID" type="numeric" required="false" />
+		<cfargument name="UploadedDocumentName" type="string" required="false" />
+		<cfargument name="UploadUserID" type="numeric" required="false" />
+		<cfargument name="UploadDate" type="date" required="false" />
+		
+		<cfdump var="#arguments#" abort="false" label="@@ALCDocumentsService_1" />
+		<cfdump var="#request.event.getArgs()#" abort="true" label="@@ALCDocumentsService_2" />
+
+		<cfreturn variables.ALCDocumentsGateway.getByAttributes(argumentCollection=arguments) />
+	</cffunction>
+
+
+	<cffunction name="saveALCDocuments" access="public" output="false" returntype="numeric">
 		<cfargument name="ALCDocuments" type="ALCDocuments" required="true" />
 
 		<cfreturn variables.ALCDocumentsDAO.save(ALCDocuments) />
