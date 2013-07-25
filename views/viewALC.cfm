@@ -45,7 +45,7 @@ qALCdocs		=  request.event.getArg('qALCdocs');
 														<td class='hidden-350'>#qALCDocs.uploadedDocumentName#</td>
 														<td class='hidden-1024'>#qALCDocs.UserName#</td>
 														<td class='hidden-480'>#DateFormat(qALCDocs.uploadDate,'mm/dd/yyyy')#  #TimeFormat(qALCDocs.uploadDate,'hh:mm tt')#</td>
-														<td><a href="index.cfm?event=downloadALCDocument&documentID=#qALCDocs.DocumentID#"><i class="icon-download"></i></a> | <i class="icon-trash"></i></d>
+														<td><a href="index.cfm?event=downloadALCDocument&documentID=#qALCDocs.DocumentID#&reportingUnitID=#request.event.getArg('reportingUnitID')#"><i class="icon-download"></i></a> | <a href="index.cfm?event=deleteALCDocument&documentID=#qALCDocs.DocumentID#&reportingUnitID=#request.event.getArg('reportingUnitID')#"><i class="icon-trash"></i></a></d>
 													</tr>
 											</cfoutput>
 										</cfloop>										

@@ -50,8 +50,10 @@
 		<cfargument name="UploadUserID" type="numeric" required="false" />
 		<cfargument name="UploadDate" type="date" required="false" />
 		
+		<!---
 		<cfdump var="#arguments#" abort="false" label="@@ALCDocumentsService_1" />
 		<cfdump var="#request.event.getArgs()#" abort="true" label="@@ALCDocumentsService_2" />
+		--->
 
 		<cfreturn variables.ALCDocumentsGateway.getByAttributes(argumentCollection=arguments) />
 	</cffunction>
@@ -66,8 +68,20 @@
 	<cffunction name="deleteALCDocuments" access="public" output="false" returntype="boolean">
 		<cfargument name="DocumentID" type="numeric" required="true" />
 		
-		<cfset var ALCDocuments = createALCDocuments(argumentCollection=arguments) />
-		<cfreturn variables.ALCDocumentsDAO.delete(ALCDocuments) />
+		<!--- creeate the bean --->
+		<cfset local.ALCDocuments = createALCDocuments(argumentCollection=arguments) />
+
+		<cfset local.ALCdoc = ALCExists(documentID = arguments.documentID) />
+		<cfset local.destination = "C:\IEAHome\ALC\" />
+		<cfset local.FileToRead  = local.destination & local.ALCDoc.documentname />
+		
+		<!--- delete physical file --->
+		<cffile action	= "delete"
+				file	= "#local.FileToRead#" >
+
+		<!--- delete record from DB --->
+		<cfreturn variables.ALCDocumentsDAO.delete(local.ALCDocuments) />
+
 	</cffunction>
 
 	<cffunction name="downloadALCDocument" access="public" output="false" returntype="any">

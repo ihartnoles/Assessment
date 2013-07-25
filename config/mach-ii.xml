@@ -165,6 +165,10 @@
 			<notify listener="ALCDocumentsListener" method="downloadALCdocument" />			
 		</event-handler>
 
+		<event-handler event="deleteALCdocument">
+			<notify listener="ALCDocumentsListener" method="deleteALCDocument" />			
+		</event-handler>
+
 		<event-handler event="updatepassword" access="public">
 			<notify listener="UserListener" method="updatepassword" />	
 			<redirect event="accountsettings#security" args="notification" />

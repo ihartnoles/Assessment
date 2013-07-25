@@ -86,6 +86,7 @@
 		<cfscript>
 			local.success 					= false;
 			local.documentID				= arguments.event.getArg('documentID');
+			local.reportingUnitID           = arguments.event.getArg('reportingUnitID');
 		
 			//writeDump(var=#local#, abort="true", label="@@ALCDocumentsListener" );
 
@@ -97,7 +98,34 @@
 			
 			if(local.attachmentExists.recordcount eq 0 || local.success eq false){
 				session.layout_message = "We couldn't find a record of this document";
-				redirectEvent( arguments.event.getArg('successEvent','viewALC'),{documentID = local.documentID});
+				redirectEvent( arguments.event.getArg('successEvent','viewALC'),{documentID = local.documentID, reportingUnitID = local.reportingUnitID });
+			}
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="deleteALCdocument" access="public" output="false" returntype="void">
+		<cfargument name="event" type="MachII.framework.Event" required="yes" displayname="Event" hint="I am the current event" />
+		<cfscript>
+			local.success 					= false;
+			local.documentID				= arguments.event.getArg('documentID');
+			local.reportingUnitID           = arguments.event.getArg('reportingUnitID');
+		
+			//writeDump(var=#request.event.getArgs()#, abort="true", label="@@ALCDocumentsListener" );
+
+			local.attachmentExists 			= variables.ALCDocumentsService.getByAttributesQuery(documentID = local.documentID);
+			
+			if(local.attachmentExists.recordcount gt 0){
+				local.success = variables.ALCDocumentsService.deleteALCDocuments(documentID = local.documentID);
+
+				if (local.success) {
+					redirectEvent( arguments.event.getArg('successEvent','viewALC'),{documentID = local.documentID , reportingUnitID = local.reportingUnitID });
+				}
+
+			}
+			
+			if(local.attachmentExists.recordcount eq 0 || local.success eq false){
+				session.layout_message = "We couldn't find a record of this document";
+				redirectEvent( arguments.event.getArg('successEvent','viewALC'),{documentID = local.documentID , reportingUnitID = local.reportingUnitID });
 			}
 		</cfscript>
 	</cffunction>
