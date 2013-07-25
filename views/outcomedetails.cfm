@@ -17,9 +17,9 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 				<cfdump var="#qPlanDetails#" />
 
 				<cfdump var="#qOutcomeDetail#" />
-				
-				<cfdump var="#qSupportingDocs#" />
 				--->
+				<cfdump var="#qSupportingDocs#" />
+				
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -356,7 +356,7 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																								<td>#qSupportingDocs.FileNameUploaded#</td>
 																								<td>#qSupportingDocs.UserFname# #qSupportingDocs.UserLname#</td>
 																								<td>#DateFormat(qSupportingDocs.DateInserted,'mm/dd/yyy')# #TimeFormat(qSupportingDocs.DateInserted,'h:mm  tt')#</td>
-																								<td><i class="icon-download"></i> | <i class="icon-trash"></i></d>
+																								<td><a href="index.cfm?event=downloadDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#"><i class="icon-download"></i></a> | <a href="index.cfm?event=deleteDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#"><i class="icon-trash"></i></a></d>
 																							</tr>
 																							</cfoutput>
 																						</cfloop>
@@ -503,10 +503,10 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 
 </div></div>
 
-<cfoutput>
+
 <script type="text/javascript">
 // Convert divs to queue widgets when the DOM is ready
-
+<cfoutput>
 $(function() {
 	if($('.plupload').length > 0){
 		$(".plupload").each(function(){
@@ -519,8 +519,7 @@ $(function() {
 				unique_names : false,
 				resize : {width : 320, height : 240, quality : 90},
 				filters : [
-				{title : "Image files", extensions : "jpg,gif,png"},
-				{title : "Zip files", extensions : "zip"}
+					{title : "Document files", extensions : "txt,pdf,doc,docx"}
 				],
 				flash_swf_url : 'js/plupload/plupload.flash.swf',
 				silverlight_xap_url : 'js/plupload/plupload.silverlight.xap'
@@ -559,21 +558,20 @@ $(function() {
 
 	}
 
+	
 	$(".pl_start").click(function() {
             //alert('Item selected');
             setTimeout( function () {         
             	//location.reload(true);
-            	window.location.replace("index.cfm?event=outcomedetails&outcomeID=#request.event.getArg("outcomeID")#&reportingUnitID=#request.event.getArg("reportingUnitID")#&planID=#request.event.getArg("planID")###docs2");
+            	window.location.replace("index.cfm?event=outcomedetails&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#");
 	          	}, 2000);
        });
-
-   
-
-
+	
 });
+</cfoutput>
 </script>
 
-</cfoutput>
+
 
 <cfscript>
 /**

@@ -152,8 +152,19 @@
 
 		<event-handler event="uploaddocument">
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="uploaddocument" />
-			
-			<view-page name="upload" />
+			<redirect event="outcomeDetails" args="reportingUnitID,outcomeID,planID" />
+			<!-- 
+			<view-page name="upload" /> 
+			-->
+		</event-handler>
+
+		<event-handler event="downloadDocument">
+			<notify listener="AssessmentPlanSupportingDocumentsListener" method="downloadDocument" />			
+		</event-handler>
+
+		<event-handler event="deleteDocument">
+			<event-arg name="successEvent" value="outcomedetails"/>
+			<notify listener="AssessmentPlanSupportingDocumentsListener" method="deleteDocument" />			
 		</event-handler>
 
 		<event-handler event="uploadALCdocument">
@@ -161,11 +172,13 @@
 			<redirect event="viewALC" args="reportingUnitID" />
 		</event-handler>
 
+
 		<event-handler event="downloadALCdocument">
 			<notify listener="ALCDocumentsListener" method="downloadALCdocument" />			
 		</event-handler>
 
 		<event-handler event="deleteALCdocument">
+			<event-arg name="successEvent" value="viewALC"/>
 			<notify listener="ALCDocumentsListener" method="deleteALCDocument" />			
 		</event-handler>
 
