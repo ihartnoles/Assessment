@@ -7,26 +7,22 @@ title 					= "Plan Period: " &  #qPlanDetails.planperiod#;
 qPlanDetails		= request.event.getArg('qPlanDetails');
 qcountOutcomes    	= request.event.getArg('qcountOutcomes');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
+qCheckListTypes		= request.event.getArg('qCheckListTypes');
 </cfscript>
 
 
 
 
 
- <script type="text/javascript">
-        $(function () {
-           
-                $('#example-b,#example-c,#example-d,#example-e,#example-f,#example-g,#example-h,#example-i,#example-j,#example-k,#example-l,#example-m').barrating();
-
-          
-        });
-    </script>
 
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
+				
+				<cfdump var="#qCheckListTypes#" />
+
 				<!---
 				<cfdump var="#qPlanDetails#" />
 
@@ -360,350 +356,61 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 
 															<hr>
 															--->
-															<form id="form1">
+															
+																<cfoutput query="qCheckListTypes" group="category">
+																	<form action="index.cfm?event=saveCheckList" method="post" id="#qCheckListTypes.category#">
 
-																	<div class="row-fluid">
-																		<div class="span6">
+																		<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
 
-																				<h4>I. Student Learning Outcomes</h4>
-																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
+																		<div class="row-fluid">
+																			<div class="span6">
+																					
+																						<h4>#qCheckListTypes.category#</h4>
 
-																				<div class="input select rating-b">
-																		           
-																		            <select id="example-c" name="rating">
-																		                <option value="Not Evident">Not Evident</option>
-																		                <option value="Developing">Developing</option>
-																		                <option value="Operational">Operational</option>
-																		                <option value="Exemplary">Exemplary</option>
-																		            </select>
-																		        </div>
-																				<!---
-																				<div class="Clear">
-																				    <h4>I. Student Learning Outcomes</h4>
-																				    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
-																				    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
-																				    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
-																				    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
-																				    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
-																			   </div>
-																			   --->
-																		</div>
+																						<cfoutput group="subcategory">
+																							<p><strong>#qCheckListTypes.subcategory#</strong></p>
+
+																							<div class="input select rating-b">								           
+																					            <select id="example-#checklisttypeid#" name="rating">
+																					                <option value="Not Evident">Not Evident</option>
+																					                <option value="Developing">Developing</option>
+																					                <option value="Operational">Operational</option>
+																					                <option value="Exemplary">Exemplary</option>
+																					            </select>
+																					        </div>
+																				        </cfoutput>
+																			      
+																					<!---
+																					<div class="Clear">
+																					    <h4>I. Student Learning Outcomes</h4>
+																					    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
+																					    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
+																					    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
+																					    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
+																					    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
+																				   </div>
+																				   --->
+																			</div>
 																		
-																		<div class="span4">
-																			<div class="control-group">
-																				<label for="textarea" class="control-label">Comments:</label>
-																				<div class="controls">
-																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																			<div class="span4">
+																				<div class="control-group">
+																					<label for="textarea" class="control-label">Comments:</label>
+																					<div class="controls">
+																						<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																					</div>
 																				</div>
-																			</div>
-																			<div class="form-actions">
-																				<button type="submit" class="btn btn-primary">Save changes</button>
-																				<button type="button" class="btn">Cancel</button>
-																			</div>
-																		</div>
-																	</div>
-																   <br>
-																   <HR>
-																   <div class="row-fluid">
-																  		<div class="span6">
-																  			<h4>II. Assessment Method</h4>
-																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
-
-																  			<div class="input select rating-b">
-																		           
-																		            <select id="example-d" name="rating">
-																		                <option value="Not Evident">Not Evident</option>
-																		                <option value="Developing">Developing</option>
-																		                <option value="Operational">Operational</option>
-																		                <option value="Exemplary">Exemplary</option>
-																		            </select>
-																		        </div>
-																  		   <!---
-																		   <div class="Clear">
-																			    <h4>II. Assessment Method</h4>
-																			    <p><strong>A. The plan assesses improvements that were made based on an analysis of previous results</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-2" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-2" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-2" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-2" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		   <br>
-																		    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
-																		    	<div class="input select rating-b">
-																		             <select id="example-e" name="rating">
-																		                <option value="Not Evident">Not Evident</option>
-																		                <option value="Developing">Developing</option>
-																		                <option value="Operational">Operational</option>
-																		                <option value="Exemplary">Exemplary</option>
-																		            </select>
-																		        </div>																  
-																		    <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>B.  Methods are appropriate to assess the specific outcomes</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-3" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-3" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-3" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-3" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		   <br>
-																		     <p><strong>C. Types of Measures</strong></p>
-																		     	<div class="input select rating-b">
-																		             <select id="example-f" name="rating">
-																		                <option value="Not Evident">Not Evident</option>
-																		                <option value="Developing">Developing</option>
-																		                <option value="Operational">Operational</option>
-																		                <option value="Exemplary">Exemplary</option>
-																		            </select>
-																		        </div>		
-																		    <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>C. Types of Measures</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-4" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-4" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-4" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-4" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		   <br>
-																		   		<p><strong>D.  Specification of desired results for outcomes</strong></p>
-																		   			<div class="input select rating-b">
-																			             <select id="example-g" name="rating">
-																			                <option value="Not Evident">Not Evident</option>
-																			                <option value="Developing">Developing</option>
-																			                <option value="Operational">Operational</option>
-																			                <option value="Exemplary">Exemplary</option>
-																			            </select>
-																		        	</div>		
-																		    <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>D.  Specification of desired results for outcomes
-		</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-5" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-5" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-5" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-5" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		    <br>
-																		    <p><strong>E.   Data collection & reliability</strong></p>
-																		    		<div class="input select rating-b">
-																			             <select id="example-h" name="rating">
-																			                <option value="Not Evident">Not Evident</option>
-																			                <option value="Developing">Developing</option>
-																			                <option value="Operational">Operational</option>
-																			                <option value="Exemplary">Exemplary</option>
-																			            </select>
-																		        	</div>		
-																		    <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>E.   Data collection & reliability
-		</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-6" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-6" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-6" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-6" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		</div>
-																		<!---
-																		<div class="span3">
-																				<div class="Clear">
-																				    <!---
-																				    <h4>Average Score:</h4>
-																				    <p>&nbsp;</p>
-																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Not Evident" title="Not Evident"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Developing" title="Developing"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Operational" title="Operational"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-2" value="Exemplary" title="Exemplary"/>
-																				    --->
-																			   </div>
-																		</div>
-																		--->
-																   		<div class="span4">
-																			<div class="control-group">
-																				<label for="textarea" class="control-label">Comments:</label>
-																				<div class="controls">
-																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
+																				<div class="form-actions">
+																					<button type="submit" class="btn btn-primary">Save changes</button>
+																					<button type="button" class="btn">Cancel</button>
 																				</div>
-																			</div>
-																			<div class="form-actions">
-																				<button type="submit" class="btn btn-primary">Save changes</button>
-																				<button type="button" class="btn">Cancel</button>
-																			</div>
-																		</div>
+																			</div>														 
+
 																	</div>
-																   <br>
-																   <HR>
-																    <div class="row-fluid">
-																    	<div class="span6">
-																    		 <h4>IV. Results of program assessment</h4>
-																			  <p><strong>A. Presentation of results</strong></p>
+																</form>
+																<hr>
+																</cfoutput>
+															
 
-																			  <div class="input select rating-b">
-																	             <select id="example-i" name="rating">
-																	                <option value="Not Evident">Not Evident</option>
-																	                <option value="Developing">Developing</option>
-																	                <option value="Operational">Operational</option>
-																	                <option value="Exemplary">Exemplary</option>
-																	            </select>
-																		       </div>
-																			  <!---
-																			   <div class="Clear">
-																				    <h4>IV. Results of program assessment</h4>
-																				    <p><strong>A. Presentation of results</strong></p>
-																				    <input class="star" type="radio" name="test-1-rating-7" value="Not Evident" title="Not Evident"/>
-																				    <input class="star" type="radio" name="test-1-rating-7" value="Developing" title="Developing"/>
-																				    <input class="star" type="radio" name="test-1-rating-7" value="Operational" title="Operational"/>
-																				    <input class="star" type="radio" name="test-1-rating-7" value="Exemplary" title="Exemplary"/>
-																			   </div>
-																			   --->
-																		    <br>
-																		    	 <p><strong>B. History of results</strong></p>
-
-																		   		 <div class="input select rating-b">
-																			             <select id="example-j" name="rating">
-																			                <option value="Not Evident">Not Evident</option>
-																			                <option value="Developing">Developing</option>
-																			                <option value="Operational">Operational</option>
-																			                <option value="Exemplary">Exemplary</option>
-																			            </select>
-																		        	</div>
-
-																		    <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>B. History of results</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-8" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-8" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-8" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-8" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		   <br>
-																		   <p><strong>C. Interpreation of Results</strong></p>
-
-																		   <div class="input select rating-b">
-																             <select id="example-k" name="rating">
-																                <option value="Not Evident">Not Evident</option>
-																                <option value="Developing">Developing</option>
-																                <option value="Operational">Operational</option>
-																                <option value="Exemplary">Exemplary</option>
-																            </select>
-															        	</div>
-
-																		   <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>C. Interpreation of Results</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-9" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-9" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-9" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-9" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		   <br>
-																		   <p><strong>D. Communication of Results with faculty/stakeholders</strong></p>
-																		   <div class="input select rating-b">
-																			             <select id="example-l" name="rating">
-																			                <option value="Not Evident">Not Evident</option>
-																			                <option value="Developing">Developing</option>
-																			                <option value="Operational">Operational</option>
-																			                <option value="Exemplary">Exemplary</option>
-																			            </select>
-																		        	</div>
-																		   <!---
-																		    <div class="Clear">																	   
-																			    <p><strong>D. Communication of Results with faculty/stakeholders
-		</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-10" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-10" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-10"value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-10" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		</div>
-																		<!---
-																		<div class="span3">
-																				<div class="Clear">
-																				    <!---
-																				    <h4>Average Score:</h4>
-																				    <p>&nbsp;</p>
-																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Not Evident" title="Not Evident"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Developing" title="Developing"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Operational" title="Operational"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-3" value="Exemplary" title="Exemplary"/>
-																				    --->
-																			   </div>
-																		</div>
-																		--->
-																   		<div class="span4">
-																			<div class="control-group">
-																				<label for="textarea" class="control-label">Comments:</label>
-																				<div class="controls">
-																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-																				</div>
-																			</div>
-																			<div class="form-actions">
-																				<button type="submit" class="btn btn-primary">Save changes</button>
-																				<button type="button" class="btn">Cancel</button>
-																			</div>
-																		</div>
-																	</div>
-																    <br>
-																    <HR>
-																    <div class="row-fluid">
-																    	<div class="span6">
-																    		 <h4>V. Use of results for improvement</h4>
-																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
-
-																			 <div class="input select rating-b">
-																			             <select id="example-m" name="rating">
-																			                <option value="Not Evident">Not Evident</option>
-																			                <option value="Developing">Developing</option>
-																			                <option value="Operational">Operational</option>
-																			                <option value="Exemplary">Exemplary</option>
-																			            </select>
-																		        	</div>
-																		   <!---
-																		    <div class="Clear">
-																			    <h4>V. Use of results for improvement</h4>
-																			    <p><strong>A. Improvement of programs regarding student learning and development</strong></p>
-																			    <input class="star" type="radio" name="test-1-rating-11" value="Not Evident" title="Not Evident"/>
-																			    <input class="star" type="radio" name="test-1-rating-11" value="Developing" title="Developing"/>
-																			    <input class="star" type="radio" name="test-1-rating-11" value="Operational" title="Operational"/>
-																			    <input class="star" type="radio" name="test-1-rating-11" value="Exemplary" title="Exemplary"/>
-																		   </div>
-																		   --->
-																		</div>
-																		<!---
-																		<div class="span3">
-																				<div class="Clear">
-																				   <!---
-																				    <h4>Average Score:</h4>
-																				    <p>&nbsp;</p>
-																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Not Evident" title="Not Evident"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Developing" title="Developing"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Operational" title="Operational"/>
-																				    <input class="star" type="radio" name="test-1-avgrating-4" value="Exemplary" title="Exemplary"/>
-																				    --->
-																			   </div>
-																		</div>
-																		--->
-																	   <div class="span4">
-																			<div class="control-group">
-																				<label for="textarea" class="control-label">Comments:</label>
-																				<div class="controls">
-																					<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-																				</div>
-																			</div>
-																			<div class="form-actions">
-																				<button type="submit" class="btn btn-primary">Save changes</button>
-																				<button type="button" class="btn">Cancel</button>
-																			</div>
-																		</div>
-																	</div>
-																   
-															</form>
 														</div>
 														
 													</div>
@@ -713,145 +420,6 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 									</div>
 								</div>
 								
-
-
-								<!---
-								<div class="row-fluid margin-top">
-									<div class="span12">
-										<h4>Related outfits</h4>
-										<ul class="shop-items">
-											<li class="span3">
-												<a href="more-shop-product.html">
-													<img src="img/demo/shop/1.jpg" alt="">
-													<div class="details">
-														<div class="name">
-															Simple jeans
-														</div>
-														<div class="price">
-															$25.00
-														</div>
-													</div>
-												</a>
-												<div class="extended">
-													<div class="pull-left">
-														<ul class="colors small">
-															<li class="red">
-																<a href="#"></a>
-															</li>
-															<li class="pink">
-																<a href="#"></a>
-															</li>
-															<li class="lightgrey">
-																<a href="#"></a>
-															</li>
-														</ul>
-													</div>
-													<div class="pull-right">
-														<a href="#" rel='tooltip' title="Add to cart"><i class="icon-shopping-cart"></i></a>
-														<a href="#" rel='tooltip' title="Add to whishlist"><i class="icon-cloud"></i></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<a href="more-shop-product.html">
-													<img src="img/demo/shop/4.jpg" alt="">
-													<div class="details">
-														<div class="name">
-															Simple jeans
-														</div>
-														<div class="price">
-															$25.00
-														</div>
-													</div>
-												</a>
-												<div class="extended">
-													<div class="pull-left">
-														<ul class="colors small">
-															<li class="red">
-																<a href="#"></a>
-															</li>
-															<li class="pink">
-																<a href="#"></a>
-															</li>
-															<li class="lightgrey">
-																<a href="#"></a>
-															</li>
-														</ul>
-													</div>
-													<div class="pull-right">
-														<a href="#" rel='tooltip' title="Add to cart"><i class="icon-shopping-cart"></i></a>
-														<a href="#" rel='tooltip' title="Add to whishlist"><i class="icon-cloud"></i></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<a href="more-shop-product.html">
-													<img src="img/demo/shop/4.jpg" alt="">
-													<div class="details">
-														<div class="name">
-															Simple jeans
-														</div>
-														<div class="price">
-															$25.00
-														</div>
-													</div>
-												</a>
-												<div class="extended">
-													<div class="pull-left">
-														<ul class="colors small">
-															<li class="red">
-																<a href="#"></a>
-															</li>
-															<li class="pink">
-																<a href="#"></a>
-															</li>
-															<li class="lightgrey">
-																<a href="#"></a>
-															</li>
-														</ul>
-													</div>
-													<div class="pull-right">
-														<a href="#" rel='tooltip' title="Add to cart"><i class="icon-shopping-cart"></i></a>
-														<a href="#" rel='tooltip' title="Add to whishlist"><i class="icon-cloud"></i></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<a href="more-shop-product.html">
-													<img src="img/demo/shop/6.jpg" alt="">
-													<div class="details">
-														<div class="name">
-															Simple jeans
-														</div>
-														<div class="price">
-															$25.00
-														</div>
-													</div>
-												</a>
-												<div class="extended">
-													<div class="pull-left">
-														<ul class="colors small">
-															<li class="red">
-																<a href="#"></a>
-															</li>
-															<li class="pink">
-																<a href="#"></a>
-															</li>
-															<li class="lightgrey">
-																<a href="#"></a>
-															</li>
-														</ul>
-													</div>
-													<div class="pull-right">
-														<a href="#" rel='tooltip' title="Add to cart"><i class="icon-shopping-cart"></i></a>
-														<a href="#" rel='tooltip' title="Add to whishlist"><i class="icon-cloud"></i></a>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								--->
 							</div>
 						</div>
 					</div>
@@ -859,6 +427,16 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 
 
 </div></div>
+
+
+ <script type="text/javascript">
+        $(function () {
+           
+                $('#example-1,#example-2,#example-3,#example-4,#example-5,#example-6,#example-7,#example-8,#example-9,#example-10,#example-11').barrating();
+
+          
+        });
+    </script>
 
 <cfscript>
 /**

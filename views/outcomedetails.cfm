@@ -4,6 +4,7 @@ qOutcomeDetail    	= request.event.getArg('qOutcomeDetail');
 qALCCategories		= request.event.getArg('qALCCategories');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 qSupportingDocs		= request.event.getArg('qSupportingDocs');
+
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -11,9 +12,12 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
+				
+
+				<!---
 				<cfdump var="#qALCCategories#" />
 				<cfdump var="#qOutcomeDetail#" />
-				<!---
+				
 				<cfdump var="#qPlanDetails#" />
 			
 				<cfdump var="#qSupportingDocs#" />

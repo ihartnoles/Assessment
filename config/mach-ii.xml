@@ -62,6 +62,7 @@
         <listener name="organizationDivisionListener" type="Assessment.listeners.OrganizationDivisionListener" />
         <listener name="OrganizationDeptListener" type="Assessment.listeners.OrganizationDeptListener" />
         <listener name="MessageListener" type="Assessment.listeners.MessageListener" />
+        <listener name="AssessmentPlanChecklistTypeListener" type="Assessment.listeners.AssessmentPlanChecklistTypeListener" />
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -134,7 +135,7 @@
 		<event-handler event="ShowPlan" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
-			<!-- <notify listener="ALCCategoriesListener" method="getALCCategoriesSelected" resultArg="qALCCategoriesSelected"  /> -->
+			<notify listener="AssessmentPlanChecklistTypeListener" method="getChecklistTypes" resultArg="qCheckListTypes"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
 			<view-page name="assessmentplan" contentArg="content" />
 			<view-page name="dash_layout" />
@@ -180,6 +181,10 @@
 		<event-handler event="deleteALCdocument">
 			<event-arg name="successEvent" value="viewALC"/>
 			<notify listener="ALCDocumentsListener" method="deleteALCDocument" />			
+		</event-handler>
+
+		<event-handler event="saveCheckList">
+				<view-page name="upload" />
 		</event-handler>
 
 		<event-handler event="updatepassword" access="public">
