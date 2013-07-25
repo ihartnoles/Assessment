@@ -41,7 +41,7 @@
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeCriterion()#" CFSQLType="cf_sql_varchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeCriterion())#" />,
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResults()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeResults())#" />,
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement())#" />,
-					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResources()#" CFSQLType="cf_sql_longvarchar" null="not len(arguments.assessmentPlanOutcomes.getOutcomeResources())#" />, 
+					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResources()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeResources())#" />, 
 					CURRENT_TIMESTAMP,
 					CURRENT_TIMESTAMP
 					)

@@ -272,4 +272,20 @@
 			<ref bean="ALCDocumentsGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- Assessment Plan Checklist Types -->
+	<bean id="AssessmentPlanChecklistTypeDAO" class="Assessment.model.AssessmentPlanChecklistTypes.AssessmentPlanChecklistTypeDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="AssessmentPlanChecklistTypeGateway" class="Assessment.model.AssessmentPlanChecklistTypes.AssessmentPlanChecklistTypeGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="AssessmentPlanChecklistTypeService" class="Assessment.model.AssessmentPlanChecklistTypes.AssessmentPlanChecklistTypeService">
+		<constructor-arg name="AssessmentPlanChecklistTypeDAO">
+			<ref bean="AssessmentPlanChecklistTypeDAO"/>
+		</constructor-arg>
+		<constructor-arg name="AssessmentPlanChecklistTypeGateway">
+			<ref bean="AssessmentPlanChecklistTypeGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

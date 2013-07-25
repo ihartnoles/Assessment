@@ -12,14 +12,12 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
 				<cfdump var="#qALCCategories#" />
-
+				<cfdump var="#qOutcomeDetail#" />
 				<!---
 				<cfdump var="#qPlanDetails#" />
-
-				<cfdump var="#qOutcomeDetail#" />
-				--->
+			
 				<cfdump var="#qSupportingDocs#" />
-				
+				--->
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -45,7 +43,7 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 											<div class="box-title">
 												<h3>
 													<cfoutput>
-													<i class="icon-reorder"></i>Learning Outcome #qOutcomeDetail.currentrow# Details
+													<i class="icon-reorder"></i>Learning Outcome #qOutcomeDetail.outcomeorder# Details
 													</cfoutput>
 												</h3>
 											</div>

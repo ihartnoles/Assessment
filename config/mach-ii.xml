@@ -61,7 +61,7 @@
         <listener name="organizationSuperDivisionListener" type="Assessment.listeners.OrganizationSuperDivisionListener" />
         <listener name="organizationDivisionListener" type="Assessment.listeners.OrganizationDivisionListener" />
         <listener name="OrganizationDeptListener" type="Assessment.listeners.OrganizationDeptListener" />
-         <listener name="MessageListener" type="Assessment.listeners.MessageListener" />
+        <listener name="MessageListener" type="Assessment.listeners.MessageListener" />
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
