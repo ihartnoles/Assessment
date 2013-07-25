@@ -9,6 +9,9 @@
 			<cfcase value="doc,docx,dot">
 				<cfset mimetype="application/msword">
 			</cfcase>
+			<cfcase value="pdf">
+				<cfset mimetype = "application/pdf">
+			</cfcase>
 			<cfcase value="xls,xlsx">
 				<cfset mimetype="application/vnd.ms-excel">
 			</cfcase>

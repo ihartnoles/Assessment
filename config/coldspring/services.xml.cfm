@@ -15,6 +15,7 @@
 
 	<!-- helpers -->
 	<bean id="stringHelper" class="Assessment.utility.model.dataHelpers.stringHelper" />
+	<bean id="fileHelper"   class="Assessment.utility.model.dataHelpers.fileHelper" />
 
     <!-- users -->
 	<bean id="usersDAO" class="Assessment.model.users.usersDAO">
