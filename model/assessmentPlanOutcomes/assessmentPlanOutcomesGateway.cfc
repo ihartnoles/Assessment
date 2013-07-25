@@ -116,6 +116,26 @@
 		<cfreturn qList />
 	</cffunction>
 
+	<cffunction name="getMAXOutcomeOrder" access="public" output="false" returntype="numeric">
+		<cfargument name="PlanID" type="numeric" required="false" />
+		
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT
+				max(outcomeorder) + 1 AS CT
+			FROM	AssessmentPlanOutcomes
+			WHERE	0=0
+		
+		
+		<cfif structKeyExists(arguments,"PlanID") and len(arguments.PlanID)>
+			AND	PlanID = <cfqueryparam value="#arguments.PlanID#" CFSQLType="cf_sql_integer" />
+		</cfif>
+	
+		</cfquery>
+		
+		<cfreturn qList.CT />
+	</cffunction>
+
 	<cffunction name="getOutcomeDetail" access="public" output="false" returntype="query">
 		<cfargument name="OutcomeID" type="numeric" required="false" />
 		

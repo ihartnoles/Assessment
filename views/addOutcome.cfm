@@ -47,7 +47,11 @@ title 					= "Add a new outcome" ;
 												<h3><i class="icon-reorder"></i>New Outcome Details</h3>
 											</div>
 													<div class="box-content">
-														<form action="#" method="POST" class='form-vertical form-bordered'>
+														<cfoutput>
+														<form action="index.cfm?event=saveOutcome" method="POST" class='form-vertical form-bordered'>
+															
+															<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
+															<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
 															<!---
 															<div class="control-group">
 																<label for="textfield" class="control-label">Text input</strong></label>
@@ -146,6 +150,7 @@ title 					= "Add a new outcome" ;
 																<button type="button" class="btn">Cancel</button>
 															</div>
 														</form>
+														</cfoutput>
 													</div><!--- end box-content --->
 											</div>
 										</div>

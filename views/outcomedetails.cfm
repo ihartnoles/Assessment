@@ -205,10 +205,6 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																				<p><strong>Assessment Method :</strong></p>
 																				<p>#qOutcomeDetail.outcomemethod#</p>
 
-																				<p>This method will ensure that we continue to abide by the commitments of our ALC, which require that all graduating students meet the department's standards for content knowledge. If we identify problems in meeting those goals, we will develop a departmental plan to strengthen the problem areas in courses.</p>
-
-
-
 																				<p><strong>Criterion for success </strong></p>
 																				<p>#qOutcomeDetail.outcomecriterion#</p>
 									</cfoutput>

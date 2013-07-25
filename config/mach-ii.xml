@@ -304,6 +304,11 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+		<event-handler event="saveOutcome" access="public">
+			<notify listener="AssessmentPlanOutcomeListener" method="saveOutcome" />
+			<redirect event="showplan" args="reportingUnitID,PlanID" />
+		</event-handler>
+
 
 		<event-handler event="viewALC" access="public">			
 			<notify listener="ALCDocumentsListener" method="getALCDocs" resultArg="qALCdocs"  />

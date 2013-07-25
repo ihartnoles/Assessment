@@ -10,8 +10,12 @@
 	<cffunction name="create" access="public" output="false" returntype="boolean">
 		<cfargument name="assessmentPlanOutcomes" type="assessmentPlanOutcomes" required="true" />
 
+		<!--- 
+		<cfdump var="#arguments#" abort="true" label="@@assPlanOutcomesDAO"/>
+		--->
+
 		<cfset var qCreate = "" />
-		<cftry>
+		<!--- <cftry> --->
 			<cfquery name="qCreate" datasource="#variables.dsn#">
 				INSERT INTO AssessmentPlanOutcomes
 					(
@@ -38,14 +42,15 @@
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResults()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeResults())#" />,
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement())#" />,
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResources()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeResources())#" />,
-					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeCreateDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeCreateDate())#" />,
-					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanLastChangeDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanLastChangeDate())#" />
+					CURRENT_TIMESTAMP
 					)
 			</cfquery>
+		<!---
 			<cfcatch type="database">
 				<cfreturn false />
 			</cfcatch>
 		</cftry>
+		--->
 		<cfreturn true />
 	</cffunction>
 
