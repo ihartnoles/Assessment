@@ -288,4 +288,21 @@
 			<ref bean="AssessmentPlanChecklistTypeGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- Assessment Plan Checklist Ratings -->
+	<bean id="AssessmentPlanChecklistRatingsDAO" class="Assessment.model.AssessmentPlanChecklistRatings.AssessmentPlanChecklistRatingsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="AssessmentPlanChecklistRatingsGateway" class="Assessment.model.AssessmentPlanChecklistRatings.AssessmentPlanChecklistRatingsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="AssessmentPlanChecklistRatingsService" class="Assessment.model.AssessmentPlanChecklistRatings.AssessmentPlanChecklistRatingsService">
+		<constructor-arg name="AssessmentPlanChecklistRatingsDAO">
+			<ref bean="AssessmentPlanChecklistRatingsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="AssessmentPlanChecklistRatingsGateway">
+			<ref bean="AssessmentPlanChecklistRatingsGateway"/>
+		</constructor-arg>
+	</bean>
+
 </beans>
