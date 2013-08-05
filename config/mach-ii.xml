@@ -64,6 +64,7 @@
         <listener name="MessageListener" type="Assessment.listeners.MessageListener" />
         <listener name="AssessmentPlanChecklistTypeListener" type="Assessment.listeners.AssessmentPlanChecklistTypeListener" />
         <listener name="AssessmentPlanChecklistRatingsListener" type="Assessment.listeners.AssessmentPlanChecklistRatingsListener" />
+        <listener name="departmentalPerformanceReviewListener" type="Assessment.listeners.departmentalPerformanceReviewListener" />
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -140,6 +141,19 @@
 			<notify listener="AssessmentPlanChecklistRatingsListener" method="getRatings" resultArg="qRatings"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
 			<view-page name="assessmentplan" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
+
+		<event-handler event="showDepartmentPlanList" access="public">
+			<notify listener="AssessmentPlanListener" method="getAssessmentPlanPeriodsQuery" resultArg="planperiods"  />
+			<notify listener="departmentalPerformanceReviewListener" method="getReviewPeriods" resultArg="reviewPeriods"  />
+			<view-page name="departmentplanlist" contentArg="content" />
+			<view-page name="dash_layout" />
+		</event-handler>
+
+		<event-handler event="showDeptReview" access="public">
+			<notify listener="departmentalPerformanceReviewListener" method="getDeptReviewDetails" resultArg="qReviewDetails"  />
+			<view-page name="departmentReview" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
 
@@ -360,6 +374,8 @@
 		<page-view name="userrole" page="/views/userrole.cfm" />
 		<page-view name="reportingunits" page="/views/reportingunits.cfm" />
 		<page-view name="assessmentplanlist" page="/views/assessmentplanlist.cfm" />
+		<page-view name="departmentplanlist" page="/views/departmentplanlist.cfm" />
+		<page-view name="departmentReview" page="/views/departmentreview.cfm" />
 		<page-view name="assessmentplansummary" page="/views/assessmentplansummary.cfm" />
 		<page-view name="assessmentplan" page="/views/assessmentplan.cfm" />
 		<page-view name="outcomedetails" page="/views/outcomedetails.cfm" />
@@ -372,11 +388,8 @@
 		<page-view name="grid" page="/views/grid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
 		<page-view name="editPlan" page="/views/editPlan.cfm" />
-
 		<page-view name="addOutcome" page="/views/addOutcome.cfm" />
-
 		<page-view name="viewALC" page="/views/viewALC.cfm" />
-
 	</page-views>
 
 </mach-ii>

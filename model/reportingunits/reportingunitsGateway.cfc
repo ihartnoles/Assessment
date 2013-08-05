@@ -109,9 +109,10 @@
 			 And a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
 			 And a.SuperDivisionID = s.SuperDivisionID 
 			 And a.OrganizationID = o.OrganizationID  
-			 And a.programID <> -1
+			 AND a.ReportingUnitActive = 1
+			 <!--- And a.programID <> -1 --->
 
- 			ORDER BY OrganizationName, SuperDivisionName, DivisionName, DeptName, ProgramName 
+ 			ORDER BY SuperDivisionName, DivisionName, DeptName, ReportingUnitID DESC
 		</cfquery>
 
 		<!---

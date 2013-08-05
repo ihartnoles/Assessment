@@ -89,15 +89,33 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 																							--->
 
 																							<!--- <cfoutput group="DeptName">												 ---->
-																								<div class="span12 search-info">
-																									<p><h4>#DeptName#</h4></p>																							
-																									<cfoutput group="ProgramName">
-																										<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#ProgramName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="right" title="View Assessment Plan" >#ProgramName#</a></p>
-																										<!---
-																										<p><a href="##" rel="tooltip" data-placement="right" title="View Assement Plan">Lorem Ipsum</a></p>	
-																										--->
-																									</cfoutput>									
+																								<div class="span12 search-info pull-left">				
+																										
+																										<cfoutput group="ProgramName">
+																										
+
+																										<cfif programID EQ -1>
+																											<p>
+																											<h4>
+																											
+																											#DeptName# <div class="pull-right"><a href="index.cfm?event=showDepartmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#DeptName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="top" title="#DeptName# Department Reporting">[Department Reporting]</a></div>
+
+																											</h4>
+																											</p>
+																										</cfif>																										
+			
+																										
+																										<cfif programID NEQ -1>							
+																											<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#ProgramName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="right" title="View #ProgramName# Assessment Plan" >#ProgramName#</a></p>
+																										</cfif>
+
+	
+																									</cfoutput>			
+																													
 																								</div>
+
+																								
+																								
 																							<!--- </cfoutput> --->
 																							
 																						</li>

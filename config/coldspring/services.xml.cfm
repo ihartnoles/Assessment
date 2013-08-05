@@ -305,4 +305,20 @@
 		</constructor-arg>
 	</bean>
 
+	<!-- dept. performance review -->
+	<bean id="departmentalPerformanceReviewDAO" class="Assessment.model.departmentalPerformanceReview.departmentalPerformanceReviewDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="departmentalPerformanceReviewGateway" class="Assessment.model.departmentalPerformanceReview.departmentalPerformanceReviewGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="departmentalPerformanceReviewService" class="Assessment.model.departmentalPerformanceReview.departmentalPerformanceReviewService">
+		<constructor-arg name="departmentalPerformanceReviewDAO">
+			<ref bean="departmentalPerformanceReviewDAO"/>
+		</constructor-arg>
+		<constructor-arg name="departmentalPerformanceReviewGateway">
+			<ref bean="departmentalPerformanceReviewGateway"/>
+		</constructor-arg>
+	</bean>
+
 </beans>
