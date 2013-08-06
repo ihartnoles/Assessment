@@ -157,6 +157,16 @@
 			<view-page name="dash_layout" />
 		</event-handler>
 
+
+		<event-handler event="saveDeptReview" access="public">
+			
+			<notify listener="departmentalPerformanceReviewListener" method="saveDeptReviewDetails"  />
+			<!--
+			<view-page name="departmentReview" contentArg="content" />
+			<view-page name="dash_layout" />
+			-->
+		</event-handler>
+
 		<event-handler event="outcomedetails" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />

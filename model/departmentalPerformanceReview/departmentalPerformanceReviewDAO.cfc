@@ -141,7 +141,7 @@
 		<cfargument name="departmentalPerformanceReview" type="departmentalPerformanceReview" required="true" />
 
 		<cfset var qUpdate = "" />
-		<cftry>
+		<!--- <cftry>--->
 			<cfquery name="qUpdate" datasource="#variables.dsn#">
 				UPDATE	DepartmentalPerformanceReview
 				SET
@@ -176,10 +176,11 @@
 					ActivityDate = <cfqueryparam value="#arguments.departmentalPerformanceReview.getActivityDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.departmentalPerformanceReview.getActivityDate())#" />
 				WHERE	ReviewID = <cfqueryparam value="#arguments.departmentalPerformanceReview.getReviewID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
+			<!--- 
 			<cfcatch type="database">
 				<cfreturn false />
 			</cfcatch>
-		</cftry>
+		</cftry>--->
 		<cfreturn true />
 	</cffunction>
 
