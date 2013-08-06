@@ -37,6 +37,61 @@
 								</div>
 							</div>
 						</cfif>
+
+						<cfif cgi.QUERY_STRING contains "showDepartmentPlanList">
+								
+								<!--- set the layoutmessage --->
+								<cfset layout_message = len(trim(session.layout_message)) ? session.layout_message : "" />
+
+								<div class="span12">
+									<!---
+									<ul class="stats">
+										<a href="index.cfm?event=addPlan">
+											<li class="blue">
+												<i class="icon-pencil"></i>						
+													<span>Add Assessment Plan</span>
+												</li>
+										</a>
+										<a href="index.cfm?event=ALC">
+											<li class="blue">
+												<i class="icon-book"></i>						
+												<span>Academic Learning Compact</span>	
+											</li>
+										</a>
+									</ul>
+									--->
+
+									<div class="row-fluid">
+										<cfoutput>
+											<form action="index.cfm?event=addNewReviewPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#" method="post" name="addReviewPlanForm">
+											
+												<div class="span2">
+													<select name="reviewPeriod" class="input-medium">
+														<cfloop query="qReviewPlanPeriods">
+															<option value="#qReviewPlanPeriods.reviewPeriod#">#qReviewPlanPeriods.reviewPeriod#</option>
+														</cfloop>
+													</select>
+												</div>
+
+												<div class="span10 pull-left">
+													<!---
+													<a href="index.cfm?event=addReviewPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#" class="btn btn-red">
+														<i class="icon-pencil"></i>									
+														<span>Add Dept. Performance Review Plan</span>
+													</a>			
+													--->
+													<button type="submit" class="btn btn-red">Add Dept. Performance Review Plan</button>
+												</div>										
+											</form>
+										</cfoutput>
+									</div>
+
+									
+
+							</div>
+						</cfif>
+
+
 					</div>
 
 					<div class="pull-right">

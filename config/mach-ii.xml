@@ -147,6 +147,7 @@
 		<event-handler event="showDepartmentPlanList" access="public">
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanPeriodsQuery" resultArg="planperiods"  />
 			<notify listener="departmentalPerformanceReviewListener" method="getReviewPeriods" resultArg="reviewPeriods"  />
+			<notify listener="departmentalPerformanceReviewListener" method="getReviewPlanPeriods" resultArg="reviewPlanPeriods"  />
 			<view-page name="departmentplanlist" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -159,13 +160,13 @@
 
 
 		<event-handler event="saveDeptReview" access="public">
-			
 			<notify listener="departmentalPerformanceReviewListener" method="saveDeptReviewDetails"  />
-			<!--
-			<view-page name="departmentReview" contentArg="content" />
-			<view-page name="dash_layout" />
-			-->
 		</event-handler>
+
+		<event-handler event="addNewReviewPlan" access="public">
+			<notify listener="departmentalPerformanceReviewListener" method="addNewReviewPlan"  />
+		</event-handler>
+
 
 		<event-handler event="outcomedetails" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />

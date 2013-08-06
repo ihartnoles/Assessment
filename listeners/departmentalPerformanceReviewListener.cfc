@@ -23,6 +23,14 @@
 		<cfreturn variables.departmentalPerformanceReviewService.getReviewPeriods(ReportingUnitID=arguments.event.getArg("ReportingUnitID")) >
 	</cffunction>
 
+	<cffunction name="getreviewPlanPeriods" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<cfreturn variables.departmentalPerformanceReviewService.getreviewPlanPeriods() >
+	</cffunction>
+
+
 	<cffunction name="getDeptReviewDetails" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
@@ -68,5 +76,52 @@
 		</cfif>	
 	</cffunction>
 
-    
+    <cffunction name="addNewReviewPlan" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<cfset local.successEvent 		  = "showDepartmentPlanList" />
+
+		<!--- 
+		<cfdump var="#request.event.getArgs()#" abort="false" label="@@deptPerfReviewListener" />
+		--->
+		
+		<!--- check if a review for this reportingunit & period already exists --->
+		<cfset local.reviewExists = variables.departmentalPerformanceReviewService.getByAttributesQuery(reportingUnitID = request.event.getArg('reportingUnitID'),
+																								reviewPeriod 	 = request.event.getArg('reviewPeriod')) />
+
+		<!---
+		<cfdump var="#local.reviewExists#" abort="true" label="@@deptPerfReviewListener" />
+		--->
+
+		<cfif local.reviewExists.recordCount gt 0>
+			<!--- review already exists! Cannot create it! --->
+			<cfset session.layout_message = "Sorry! You cannot create a review period that already exists!" />
+
+		<cfelse>
+			<!--- review does not exist; go ahead and create it --->
+			<!--- create the bean --->
+			<cfset local.ReviewBean = variables.departmentalPerformanceReviewService.createdepartmentalPerformanceReview(ReviewID 	 = 0,
+																													 ReportingUnitID = request.event.getArg('reportingUnitID'),
+																													 reviewPeriod 	 = request.event.getArg('reviewPeriod'),
+																													 ReviewStatus    = 'In Progress') />
+
+			<!--- save the bean --->
+			<cfset local.saveBean = variables.departmentalPerformanceReviewService.savedepartmentalPerformanceReview(local.ReviewBean) />
+
+			<!--- display success message --->
+			<cfset session.layout_message = "Booyah!" />
+		</cfif>
+
+		<cfset redirectEvent( arguments.event.getArg('successEvent','showDepartmentPlanList'),{reportingUnitID = request.event.getArg('reportingUnitID') }) />
+
+		
+
+		<!--- 		
+		<cfdump var="#local.ReviewBean#" abort="true" label="@@deptPerfReviewListener_2" />
+		--->
+
+		
+	</cffunction>
+
 </cfcomponent>

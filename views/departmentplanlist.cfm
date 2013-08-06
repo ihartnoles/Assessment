@@ -1,18 +1,31 @@
 <cfscript>
-title 		 =  request.event.getArg('programname');
-qPlanPeriods =  request.event.getArg('reviewPeriods');
+title 		 		=  request.event.getArg('programname');
+qPlanPeriods 		=  request.event.getArg('reviewPeriods');
+qReviewPlanPeriods 	=  request.event.getArg('reviewPlanPeriods');
 </cfscript>
 
-<!--- 
-<cfdump var="#qPlanPeriods#" abort="true"/>
---->
+<!---
+<cfdump var="#qPlanPeriods#" abort="false"/>
+ --->
 
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-	
+				
+				<cfif len(trim(layout_message))>
+					<div class="row-fluid">
+						<div class="text-center">
+							<cfoutput>
+								<div class="alert alert-error">
+									<button class="close" data-dismiss="alert" type="button"> x </button>
+									#layout_message#
+								</div>
+							</cfoutput>	
+						</div>
+					</div>
+				</cfif>
 
 				<div class="row-fluid">
 					<div class="span12">

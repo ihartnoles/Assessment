@@ -32,6 +32,21 @@
 	</cffunction>
 
 
+	<cffunction name="getReviewPlanPeriods" access="public" output="false" returntype="query">
+		
+		<cfargument name="ReportingUnitID" type="numeric" required="false" />
+		
+		
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT ReviewPeriod
+			FROM DepartmentalPerformanceReviewPeriods
+			ORDER BY ReviewPeriod DESC
+		</cfquery>
+		
+		<cfreturn qList />
+	</cffunction>
+
 	<cffunction name="getDeptReviewDetails" access="public" output="false" returntype="query">
 		<cfargument name="ReviewID" type="any" required="false" />
 		
