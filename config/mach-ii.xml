@@ -271,6 +271,10 @@
 
 		<event-handler event="reports" access="public">
 			<notify listener="OrganizationSuperDivisionListener" method="getSuperDivisions" resultArg="qSuperDivisions"  />
+			<notify listener="AssessmentPlanListener" method="getPlanPeriods" resultArg="qPlanPeriods"  />
+			<notify listener="AssessmentPlanListener" method="getPlanTypes" resultArg="qPlanTypes"  />
+			<!-- get organizationprograms -->
+			
 			<view-page name="reports" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

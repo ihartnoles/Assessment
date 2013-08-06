@@ -110,7 +110,7 @@
 			<cfset local.saveBean = variables.departmentalPerformanceReviewService.savedepartmentalPerformanceReview(local.ReviewBean) />
 
 			<!--- display success message --->
-			<cfset session.layout_message = "Booyah!" />
+			<cfset session.layout_message = "Success! The new review period has been added!" />
 		</cfif>
 
 		<cfset redirectEvent( arguments.event.getArg('successEvent','showDepartmentPlanList'),{reportingUnitID = request.event.getArg('reportingUnitID') }) />

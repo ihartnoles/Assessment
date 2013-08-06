@@ -157,8 +157,11 @@
 		<cfargument name="SuperDivisionID" type="string" required="false" />
 		<cfargument name="DivisionID" type="string" required="false" />
 		<cfargument name="departmentID" type="string" required="false" />
+		<cfargument name="planperiod" type="string" required="false" />
+		<cfargument name="plantype" type="string" required="false" />
+		<cfargument name="programdegreelevel" type="string" required="false" />
 
-		<!---
+		<!--- 
 		<cfdump var="#arguments#" abort="true" label="@@assPlanGateway" />
 		--->
 
@@ -187,11 +190,21 @@
  			  <cfif structKeyExists(arguments,"departmentID") and len(arguments.departmentID)>
 				AND	ru.DeptID = <cfqueryparam value="#arguments.departmentID#" CFSQLType="cf_sql_integer" />
  			 </cfif>
+ 			  <cfif structKeyExists(arguments,"planperiod") and len(arguments.planperiod)>
+				AND	p.planperiod = <cfqueryparam value="#arguments.planperiod#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+ 			 <cfif structKeyExists(arguments,"plantype") and len(arguments.plantype)>
+				AND	p.plantype = <cfqueryparam value="#arguments.plantype#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+ 			  <cfif structKeyExists(arguments,"programdegreelevel") and len(arguments.programdegreelevel)>
+				AND	op.programdegreelevel = <cfqueryparam value="#arguments.programdegreelevel#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+
 
 		</cfquery>
-		
-		 <!--- <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> --->
-
+		<!--- 
+		  <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> 
+		--->
 		<cfreturn qList />
 	</cffunction>
 

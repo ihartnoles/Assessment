@@ -18,9 +18,17 @@ qReviewPlanPeriods 	=  request.event.getArg('reviewPlanPeriods');
 					<div class="row-fluid">
 						<div class="text-center">
 							<cfoutput>
-								<div class="alert alert-error">
-									<button class="close" data-dismiss="alert" type="button"> x </button>
+
+								<cfif session.layout_message contains "Sorry">
+									<div class="alert alert-error">
+								<cfelse>
+									<div class="alert alert-info">
+								</cfif>
+								
+									
+									<button class="close" data-dismiss="alert" type="button" id="closemessage"> x </button>
 									#layout_message#
+
 								</div>
 							</cfoutput>	
 						</div>

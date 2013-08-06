@@ -1,58 +1,104 @@
 <cfscript>
 title 			= "Reporting/Statistics";
 qSuperDivisions = request.event.getArg('qSuperDivisions');
+qPlanPeriods	= request.event.getArg('qPlanPeriods');
+qPlanTypes		= request.event.getArg('qPlanTypes');
 superdivisionID = 0;
 divisionID 		= 0;
 departmentID	= 0;
 </cfscript>
 
-<!---
-<cfdump var="#qSuperDivisions#" />
+<!--- 
+<cfdump var="#qPlanTypes#" abort="true" />
 --->
+
 <div id="main" style="margin-left: 0px;">
 				<div class="container-fluid">
 					<cfinclude template="/Assessment/views/page_header.cfm">		
 
 				<div class="row-fluid">
-					<form action="##" method="post" class="form">
-						Super-Division
-						<!---
-						<select id="mark" name="mark">
-						  <option value="">--</option>
-						  <option value="bmw">BMW</option>
-						  <option value="audi">Audi</option>
-						</select>
-						--->
-						<select id="superdivisionID" name="superdivisionID">
-							<option value="0" <cfif superdivisionid eq false>selected</cfif>>-- Choose One --</option>
-							<cfloop query="qSuperDivisions">
-								<cfoutput>
-									<option value="#qSuperDivisions.SuperDivisionID#">#qSuperDivisions.SuperDivisionName#</option>
-								</cfoutput>
-							</cfloop>
-						</select>
+					<div class="box box-color">
+						<div class="box-title">
+							<h3>Assessment Plan Search</h3>
+						</div>
 
-						Division
-						<select id="divisionID" name="divisionID">
-						  <option value="0"  <cfif divisionid eq false>selected</cfif>>--</option>
-						</select>
-						Department
-						<select id="departmentID" name="departmentID">
-						  <option value="0" <cfif departmentid eq false>selected</cfif>>--</option>   
-						</select>
+						<div class="box-content">
+					<form action="##" method="post" class="form">
+						<div class="row-fluid">
+						Super-Division:						
+							<select id="superdivisionID" name="superdivisionID">
+								<option value="0" <cfif superdivisionid eq false>selected</cfif>>-- Choose One --</option>
+								<cfloop query="qSuperDivisions">
+									<cfoutput>
+										<option value="#qSuperDivisions.SuperDivisionID#">#qSuperDivisions.SuperDivisionName#</option>
+									</cfoutput>
+								</cfloop>
+							</select>
+
+							Division:
+							<select id="divisionID" name="divisionID">
+							  <option value="0"  <cfif divisionid eq false>selected</cfif>>--</option>
+							</select>
+							Department:
+							<select id="departmentID" name="departmentID">
+							  <option value="0" <cfif departmentid eq false>selected</cfif>>--</option>   
+							</select>
+						</div>
 					
+						<div class="row-fluid">
+							Plan Period:
+
+							<select id="planperiod" name="planperiod">
+								<option value="">-- Choose One --</option>
+								<cfloop query="qPlanPeriods">
+									<cfoutput>
+										<option value="#qPlanPeriods.planperiod#">#qPlanPeriods.planperiod#</option>
+									</cfoutput>
+								</cfloop>
+							</select>
+
+							Plan Type:
+
+							<select id="plantype" name="plantype">
+								<option value="">-- Choose One --</option>
+								<cfloop query="qPlanTypes">
+									<cfoutput>
+										<option value="#qPlanTypes.plantype#">#qPlanTypes.planTypeDescription#</option>
+									</cfoutput>
+								</cfloop>
+							</select>
+
+							Degree Level:
+
+							<select id="programdegreelevel" name="programdegreelevel">
+								<option value="">-- Choose One --</option>
+								<cfloop list="Bachelors,Masters,Specialist,Doctoral,Certificate,N/A" index="idx">
+									<cfoutput>
+										<option value="#left(idx,1)#">#idx#</option>
+									</cfoutput>
+								</cfloop>
+								<!--- <option value="999999">All levels</option> --->
+							</select>
+						</div>
 					<br>
 
 						<input type="submit" id="assBut" value="List Assessment Plans" class="btn btn-orange">
 					</form>
-				</div>
+			
+					<div class="row-fluid">
+						<div id="grid" class="no box">
+							
+						</div>
+					</div>
 
-				<div class="row-fluid">
-					<div id="grid" class="row-fluid">
-						
+				</div>
 					</div>
 				</div>
 
+				
+
+				<hr>
+<!---
 				<hr>
 
 				<div class="row-fluid">
@@ -160,7 +206,10 @@ departmentID	= 0;
 
 					
 				</div>
-			</div></div>
+			</div>
+
+			</div>
+--->
 
 <script type="text/javascript">
 	$(function() {
@@ -179,7 +228,10 @@ departmentID	= 0;
 
 			var superdivID   = $('#superdivisionID').val();
 			var divisionID   = $('#divisionID').val();
-			var departmentID = $("#departmentID").val()
+			var departmentID = $("#departmentID").val();
+			var planperiod   = $("#planperiod").val();
+			var plantype     = $("#plantype").val();
+			var programdegreelevel = $("#programdegreelevel").val();
 
 			var postString = "index.cfm?event=getPlanGrid&";
 
@@ -190,7 +242,10 @@ departmentID	= 0;
 				{
 					superdivisionID: $('#superdivisionID').val(),
 					divisionID: $('#divisionID').val(),
-					departmentID:$('#departmentID').val()
+					departmentID:$('#departmentID').val(),
+					planperiod:$('#planperiod').val(),
+					plantype:$('#plantype').val(),
+					programdegreelevel:$("#programdegreelevel").val()
 				},
 				//callback function
 				function(data){
@@ -204,6 +259,8 @@ departmentID	= 0;
 
 			});//end of button click
 		
+
+
 
 	});
 </script>
