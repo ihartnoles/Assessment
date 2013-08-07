@@ -4,7 +4,7 @@ qOutcomeDetail    	= request.event.getArg('qOutcomeDetail');
 qALCCategories		= request.event.getArg('qALCCategories');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 qSupportingDocs		= request.event.getArg('qSupportingDocs');
-
+qCodesList			= request.event.getArg('qCodesList');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -12,10 +12,10 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-				
+				<cfdump var="#qCodesList#" />
 
 				<!---
-				<cfdump var="#qALCCategories#" />
+				
 				<cfdump var="#qOutcomeDetail#" />
 				
 				<cfdump var="#qPlanDetails#" />
@@ -136,19 +136,32 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 
 																					 <div class="row-fluid">
 																						<div class="span3">
-																						<p><strong>QEP/URI Related</strong></p>
+																							<p><strong>QEP / URI Related</strong></p>
 
-																						<div class="check-line">
-																								<input type="radio"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																							<div class="check-line">
+																									<input type="radio"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
 
 
+																								</div>
+
+																							<div class="check-line">
+																								<input type="radio"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
 																							</div>
 
-																						<div class="check-line">
-																							<input type="radio"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
 																						</div>
-																					</div>
 
+																						<div class="span3">
+																							<p><strong>IFP Related</strong></p>
+
+																							<div class="check-line">
+																									<input type="radio"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																							</div>
+
+																							<div class="check-line">
+																								<input type="radio"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																							</div>
+
+																						</div>
 																					<div class="span3">
 																						<p><strong>Data collected from online coursework?</strong></p>
 
@@ -247,8 +260,43 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																					</cfoutput>
 																					</cfloop>
 
-																					<p><strong>Codes</strong></p>
-																					<div class="span3">
+																					<hr>
+
+																					<p><strong>Program Improvement Codes</strong></p>
+																					
+																					<cfloop query="qCodesList">
+																						<cfoutput>
+
+																							<cfif qCodesList.currentrow EQ 1 OR qCodesList.currentrow EQ 4 OR qCodesList.currentrow EQ 7 >
+																								<div class="span3">
+																							</cfif>
+																								 <div class="check-line">
+																										<input type="checkbox" id="c5" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline'>#qCodesList.item_number# #qCodesList.label#
+																										<a href="##modal-#qCodesList.currentrow#" role="button" class="btn btn-mini" data-toggle="modal">?</a></label>
+
+																										<!--- Modal to Explain Curricular Change --->
+																										<div id="modal-#qCodesList.currentrow#" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																											<div class="modal-header">																										
+																												<h3 id="myModalLabel">#qCodesList.label#</h3>
+																											</div>
+																											<div class="modal-body">
+																												<p>#qCodesList.description#</p>
+																											</div>
+																											<div class="modal-footer">
+																												<button class="btn btn-primary" data-dismiss="modal">Ok</button>
+																											</div>
+																										</div>
+																									</div>
+																							<cfif qCodesList.currentrow EQ 3 OR qCodesList.currentrow EQ 6 OR qCodesList.currentrow EQ 9 >
+																								</div>
+																							</cfif>
+
+																						</cfoutput>
+																					</cfloop>
+
+
+																					
+																					<!---
 																					    <div class="check-line">
 																							<input type="checkbox" id="c5" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline'>1. Curricular Change
 																							<!---
@@ -295,12 +343,26 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 
 																						<div class="check-line">
 																							<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">3. Pedagogy</label>
+																							<a href="#modal-pedagogy" role="button" class="btn btn-mini" data-toggle="modal">?</a>
+
+																								<div id="modal-pedagogy" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																									<div class="modal-header">																										
+																										<h3 id="myModalLabel">Pedagogy</h3>
+																									</div>
+																									<div class="modal-body">
+																											<p>Revise methodology of delivering course material (less lecture, more student)</p>
+																									</div>
+																									<div class="modal-footer">
+																										<button class="btn btn-primary" data-dismiss="modal">Ok</button>
+																									</div>
+																								</div>
 																						</div>
 																					</div>
 
+																					
 																					<div class="span3">
 																					    <div class="check-line">																
-																							<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">4. Personnel Change</label>
+																							<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">4. Instructional Assignment Change</label>
 																						</div>
 
 																						<div class="check-line">
@@ -308,7 +370,7 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																						</div>
 
 																						<div class="check-line">
-																							<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">6. Inform Budget/Resources</label>
+																							<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">6. Reallocation of Resources</label>
 																						</div>
 																					</div>
 
@@ -325,7 +387,7 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 																							<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">9. Other</label>
 																						</div>
 																					</div>
-
+																				--->
 																				</div>
 
 																</div>

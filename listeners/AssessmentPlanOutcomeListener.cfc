@@ -37,15 +37,15 @@
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
 		<!--- 	
-		<cfdump var="#request.event.getArgs()#" abort="true" label="@@AssPlanOutcomeListener" />
+		<cfdump var="#request.event.getArgs()#" abort="false" label="@@AssPlanOutcomeListener" />
 		--->
 
 		<cfscript>
 			local.args = {};
 
 			//default to 0 since this is a new outcome
-			local.args.outcomeID = 0;
-			local.args.OutcomeResources = "";
+			local.args.outcomeID = arguments.event.getArg('outcomeID',0);
+			local.args.OutcomeResources = "" ;
 
 
 			if (arguments.event.isArgDefined('planID') && len(trim( arguments.event.getArg('planID') )) ) {
@@ -76,11 +76,19 @@
  				local.args.outcomestrategy = request.event.getArg('outcomestrategy');
   			}
 
-  			//TO DO: Determine and set OutcomeOrder; The query grabs the MAX and increments by 1
-  			local.maxOutcomeOrder = variables.assessmentPlanOutcomesService.getMAXOutcomeOrder(planID = local.args.planID);
+  			if (local.args.outcomeID EQ 0) {
+				//TO DO: Determine and set OutcomeOrder; The query grabs the MAX and increments by 1
+	  			local.maxOutcomeOrder = variables.assessmentPlanOutcomesService.getMAXOutcomeOrder(planID = local.args.planID);
+	  			// set outcome order
+	  			local.args.OutcomeOrder = local.maxOutcomeOrder;
 
-  			// set outcome order
-  			local.args.OutcomeOrder = local.maxOutcomeOrder; 				
+  			} else {
+
+  				if (arguments.event.isArgDefined('OutcomeOrder') ) {
+ 					local.args.OutcomeOrder = request.event.getArg('OutcomeOrder');
+  				}
+  			}
+  			 				
   			
   			//create the outcomebean
   			local.outcomeBean = variables.assessmentPlanOutcomesService.createassessmentPlanOutcomes(argumentCollection = local.args);

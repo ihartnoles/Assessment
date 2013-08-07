@@ -66,6 +66,7 @@
         <listener name="AssessmentPlanChecklistRatingsListener" type="Assessment.listeners.AssessmentPlanChecklistRatingsListener" />
         <listener name="departmentalPerformanceReviewListener" type="Assessment.listeners.departmentalPerformanceReviewListener" />
         <listener name="AssessmentPlanWorkflowListener" type="Assessment.listeners.AssessmentPlanWorkflowListener" />        
+        <listener name="programImprovementCodesListener" type="Assessment.listeners.programImprovementCodesListener" />  
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -175,7 +176,7 @@
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qOutcomeDetail"  />
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="getOutcomeSupportingDocs" resultArg="qSupportingDocs"  />
-
+			<notify listener="programImprovementCodesListener" method="getCodesList" resultArg="qCodesList"  />
 			<view-page name="outcomedetails" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -337,16 +338,22 @@
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
-			<!--
-			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qOutcomeDetail"  />
-			<notify listener="AssessmentPlanSupportingDocumentsListener" method="getOutcomeSupportingDocs" resultArg="qSupportingDocs"  />
-			
-			<view-page name="outcomedetails" contentArg="content" />
-			-->
-
 			<view-page name="addOutcome" contentArg="content"/>
 			<view-page name="dash_layout" />
 		</event-handler>
+
+		<!-- edit an outcome -->
+		<event-handler event="editOutcome" access="public">
+			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
+			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
+			<!--
+			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
+			-->
+			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qcountOutcomes"  />
+			<view-page name="editOutcome" contentArg="content"/>
+			<view-page name="dash_layout" />
+		</event-handler>
+
 
 		<event-handler event="saveOutcome" access="public">
 			<notify listener="AssessmentPlanOutcomeListener" method="saveOutcome" />
@@ -411,6 +418,7 @@
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
 		<page-view name="editPlan" page="/views/editPlan.cfm" />
 		<page-view name="addOutcome" page="/views/addOutcome.cfm" />
+		<page-view name="editOutcome" page="/views/editOutcome.cfm" />
 		<page-view name="viewALC" page="/views/viewALC.cfm" />
 	</page-views>
 

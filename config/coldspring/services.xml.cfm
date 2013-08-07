@@ -336,4 +336,20 @@
 			<ref bean="assessmentPlanWorkflowGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- program improvement codes-->
+	<bean id="ProgramImprovementCodesDAO" class="Assessment.model.ProgramImprovementCodes.ProgramImprovementCodesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ProgramImprovementCodesGateway" class="Assessment.model.ProgramImprovementCodes.ProgramImprovementCodesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ProgramImprovementCodesService" class="Assessment.model.ProgramImprovementCodes.ProgramImprovementCodesService">
+		<constructor-arg name="ProgramImprovementCodesDAO">
+			<ref bean="ProgramImprovementCodesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="ProgramImprovementCodesGateway">
+			<ref bean="ProgramImprovementCodesGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

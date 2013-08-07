@@ -122,7 +122,10 @@ qRatings				= request.event.getArg('qRatings');
 																			<div class="box-title">
 																				<h3>
 																					<i class="icon-file"></i>
-																					Outcome <cfoutput>#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#)</cfoutput>
+																					Outcome 
+																					<cfoutput>
+																						#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#) - [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
+																				    </cfoutput>
 																				</h3>
 																				<div class="actions">
 																					<a href="##" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>

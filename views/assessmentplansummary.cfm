@@ -94,19 +94,19 @@
 									</div>
 
 									<!--- don't display this row on event=outcomedetails --->
-									<cfif cgi.QUERY_STRING does not contain "outcomedetails">
-									<div class="span12 alert alert-warning alert-nomargin">
-										<center>
-											<table class="alert alert-warning alert-nomargin">
-												<tr>
-													<td>This plan currently has #qcountOutcomes.recordcount# outcomes.</td>													
-												</tr>
-												<tr>
-													<td>#qPlanDetails.WorkflowStepInstructions#</td>
-												</tr>											
-											</table>										
-										</center>
-									</div>
+									<cfif cgi.QUERY_STRING does not contain "outcomedetails" AND cgi.QUERY_STRING does not contain "editoutcome" >
+										<div class="span12 alert alert-warning alert-nomargin">
+											<center>
+												<table class="alert alert-warning alert-nomargin">
+													<tr>
+														<td>This plan currently has #qcountOutcomes.recordcount# outcomes.</td>													
+													</tr>
+													<tr>
+														<td>#qPlanDetails.WorkflowStepInstructions#</td>
+													</tr>											
+												</table>										
+											</center>
+										</div>
 								   </cfif>
 
 								</form>
