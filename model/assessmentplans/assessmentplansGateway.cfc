@@ -160,6 +160,7 @@
 		<cfargument name="planperiod" type="string" required="false" />
 		<cfargument name="plantype" type="string" required="false" />
 		<cfargument name="programdegreelevel" type="string" required="false" />
+		<cfargument name="planstatus" type="string" required="false" />
 
 		<!--- 
 		<cfdump var="#arguments#" abort="true" label="@@assPlanGateway" />
@@ -198,6 +199,9 @@
  			 </cfif>
  			  <cfif structKeyExists(arguments,"programdegreelevel") and len(arguments.programdegreelevel)>
 				AND	op.programdegreelevel = <cfqueryparam value="#arguments.programdegreelevel#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+ 			   <cfif structKeyExists(arguments,"planstatus") and len(arguments.planstatus)>
+				AND	p.planstatus = <cfqueryparam value="#arguments.planstatus#" CFSQLType="cf_sql_integer" />
  			 </cfif>
 
 

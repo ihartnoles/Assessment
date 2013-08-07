@@ -39,7 +39,8 @@
 															   departmentID 	  =arguments.event.getArg("departmentID"),
 															   planperiod   	  =arguments.event.getArg("planperiod"),
 															   PlanType 		  =arguments.event.getArg("plantype"),
-															   programDegreeLevel = arguments.event.getArg("programdegreelevel")) >
+															   programDegreeLevel =arguments.event.getArg("programdegreelevel"),
+															   PlanStatus 		  =arguments.event.getArg("PlanStatus")) >
 	</cffunction>
 
 

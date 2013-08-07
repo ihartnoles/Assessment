@@ -3,6 +3,7 @@ title 			= "Reporting/Statistics";
 qSuperDivisions = request.event.getArg('qSuperDivisions');
 qPlanPeriods	= request.event.getArg('qPlanPeriods');
 qPlanTypes		= request.event.getArg('qPlanTypes');
+qPlanStatuses	= request.event.getArg('qPlanStatuses');
 superdivisionID = 0;
 divisionID 		= 0;
 departmentID	= 0;
@@ -79,6 +80,21 @@ departmentID	= 0;
 								</cfloop>
 								<!--- <option value="999999">All levels</option> --->
 							</select>
+						</div>
+
+						<div class="row-fluid">
+							Plan Status:
+
+							<select id="planstatus" name="planstatus">
+								<option value="">-- Choose One --</option>
+								<cfloop query="qPlanStatuses">
+									<cfoutput>
+										<option value="#qPlanStatuses.workflowstep#">#qPlanStatuses.workflowstepdescription#</option>
+									</cfoutput>
+								</cfloop>
+							</select>
+
+							
 						</div>
 					<br>
 
@@ -232,6 +248,7 @@ departmentID	= 0;
 			var planperiod   = $("#planperiod").val();
 			var plantype     = $("#plantype").val();
 			var programdegreelevel = $("#programdegreelevel").val();
+			var planstatus     = $("#planstatus").val();
 
 			var postString = "index.cfm?event=getPlanGrid&";
 
@@ -245,7 +262,8 @@ departmentID	= 0;
 					departmentID:$('#departmentID').val(),
 					planperiod:$('#planperiod').val(),
 					plantype:$('#plantype').val(),
-					programdegreelevel:$("#programdegreelevel").val()
+					programdegreelevel:$("#programdegreelevel").val(),
+					planstatus:$('#planstatus').val()
 				},
 				//callback function
 				function(data){

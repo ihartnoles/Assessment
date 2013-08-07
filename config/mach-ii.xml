@@ -65,6 +65,7 @@
         <listener name="AssessmentPlanChecklistTypeListener" type="Assessment.listeners.AssessmentPlanChecklistTypeListener" />
         <listener name="AssessmentPlanChecklistRatingsListener" type="Assessment.listeners.AssessmentPlanChecklistRatingsListener" />
         <listener name="departmentalPerformanceReviewListener" type="Assessment.listeners.departmentalPerformanceReviewListener" />
+        <listener name="AssessmentPlanWorkflowListener" type="Assessment.listeners.AssessmentPlanWorkflowListener" />        
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -273,8 +274,7 @@
 			<notify listener="OrganizationSuperDivisionListener" method="getSuperDivisions" resultArg="qSuperDivisions"  />
 			<notify listener="AssessmentPlanListener" method="getPlanPeriods" resultArg="qPlanPeriods"  />
 			<notify listener="AssessmentPlanListener" method="getPlanTypes" resultArg="qPlanTypes"  />
-			<!-- get organizationprograms -->
-			
+			<notify listener="AssessmentPlanWorkflowListener" method="getPlanStatuses" resultArg="qPlanStatuses"  />
 			<view-page name="reports" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

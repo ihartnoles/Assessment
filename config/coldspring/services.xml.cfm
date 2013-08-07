@@ -321,4 +321,19 @@
 		</constructor-arg>
 	</bean>
 
+	<!-- assessment plan  workflow -->
+	<bean id="assessmentPlanWorkflowDAO" class="Assessment.model.assessmentPlanWorkflow.assessmentPlanWorkflowDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanWorkflowGateway" class="Assessment.model.assessmentPlanWorkflow.assessmentPlanWorkflowGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="assessmentPlanWorkflowService" class="Assessment.model.assessmentPlanWorkflow.assessmentPlanWorkflowService">
+		<constructor-arg name="assessmentPlanWorkflowDAO">
+			<ref bean="assessmentPlanWorkflowDAO"/>
+		</constructor-arg>
+		<constructor-arg name="assessmentPlanWorkflowGateway">
+			<ref bean="assessmentPlanWorkflowGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>
