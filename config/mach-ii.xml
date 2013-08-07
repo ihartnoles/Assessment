@@ -298,6 +298,11 @@
 			<view-page name="grid"/>			
 		</event-handler>
 
+		<event-handler event="getReportGrid" access="public">
+			<notify listener="AssessmentPlanWorkflowListener" method="getReportGrid" resultArg="qReportGrid"  />
+			<view-page name="reportGrid"/>			
+		</event-handler>
+
 		<event-handler event="json" access="public">
 			<view-page name="json"/>			
 		</event-handler>
@@ -400,7 +405,8 @@
 		<page-view name="exception" page="/views/exception.cfm" />
 		<page-view name="upload" page="/views/upload.cfm" />
 		<page-view name="json" page="/views/json.cfm" />
-		<page-view name="grid" page="/views/grid.cfm" />
+		<page-view name="grid" page="/views/grid.cfm" />		
+		<page-view name="reportGrid" page="/views/reportGrid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />
 		<page-view name="editPlan" page="/views/editPlan.cfm" />
 		<page-view name="addOutcome" page="/views/addOutcome.cfm" />

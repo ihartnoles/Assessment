@@ -66,6 +66,74 @@
 		<cfreturn qList />
 	</cffunction>
 
+
+	<cffunction name="getReportGrid" access="public" output="false" returntype="query">
+		<cfargument name="SuperDivisionID" type="string" required="false" />
+		<cfargument name="DivisionID" type="string" required="false" />
+		<cfargument name="departmentID" type="string" required="false" />
+		<cfargument name="planperiod" type="string" required="false" />
+		<cfargument name="plantype" type="string" required="false" />
+		<cfargument name="programdegreelevel" type="string" required="false" />
+		<cfargument name="planstatus" type="string" required="false" />
+
+		<!--- 
+		<cfdump var="#arguments#" abort="true" label="@@assPlanGateway" />
+		--->
+
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			
+			SELECT d.PlanType, d.PlanTypeOrder, d.PlanTypeDescription, d.WorkflowStep, d.WorkflowStepDescription, ISNULL(cnt,0) as cnt  
+			FROM (  SELECT apw.*, PlanTypeOrder, PlanTypeDescription    FROM AssessmentPlanWorkflow apw, AssessmentPlanType apt    WHERE apw.PlanType= apt.PlanType ) d 
+				LEFT JOIN (  SELECT PlanType, PlanStatus, ISNULL(Count(*),0) as cnt FROM (   SELECT p.*, ru.OrganizationID, ru.SuperDivisionID, ru.DivisionID, ru.DeptID, ru.ProgramID, ProgramDegreeLevel  FROM AssessmentPlan p, ReportingUnit ru, OrganizationProgram op      
+
+			 WHERE p.ReportingUnitID=ru.ReportingUnitID AND ru.ProgramID=op.ProgramID  
+			 	
+			 <cfif structKeyExists(arguments,"planperiod") and len(arguments.planperiod)>
+				AND	planperiod = <cfqueryparam value="#arguments.planperiod#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+
+			 <cfif structKeyExists(arguments,"SuperDivisionID") and len(arguments.SuperDivisionID)>
+				AND	ru.SuperDivisionID = <cfqueryparam value="#arguments.SuperDivisionID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+
+ 			 <cfif structKeyExists(arguments,"DivisionID") and len(arguments.DivisionID)>
+				AND	ru.DivisionID = <cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+ 			 <cfif structKeyExists(arguments,"departmentID") and len(arguments.departmentID)>
+				AND	ru.DeptID = <cfqueryparam value="#arguments.departmentID#" CFSQLType="cf_sql_integer" />
+ 			 </cfif> 
+ 			 <cfif structKeyExists(arguments,"plantype") and len(arguments.plantype)>
+				AND	p.plantype = <cfqueryparam value="#arguments.plantype#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+ 			 
+ 			 <cfif structKeyExists(arguments,"programdegreelevel") and len(arguments.programdegreelevel)>
+				AND	programdegreelevel = <cfqueryparam value="#arguments.programdegreelevel#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+
+ 			 ) AS Plans GROUP BY PlanType, PlanStatus ) s 
+				
+				ON d.PlanType=s.PlanType 
+				AND d.WorkFlowStep=s.PlanStatus 
+
+			
+			<!--- 				
+ 			 <cfif structKeyExists(arguments,"programdegreelevel") and len(arguments.programdegreelevel)>
+				AND	op.programdegreelevel = <cfqueryparam value="#arguments.programdegreelevel#" CFSQLType="cf_sql_varchar" />
+ 			 </cfif>
+ 			   <cfif structKeyExists(arguments,"planstatus") and len(arguments.planstatus)>
+				AND	p.planstatus = <cfqueryparam value="#arguments.planstatus#" CFSQLType="cf_sql_integer" />
+ 			 </cfif>
+			--->
+
+		</cfquery>
+		<!--- 
+		  <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> 
+		--->
+		<cfreturn qList />
+	</cffunction>
+
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
 		<cfargument name="RecordID" type="numeric" required="false" />
 		<cfargument name="PlanType" type="numeric" required="false" />

@@ -43,6 +43,7 @@
 															   PlanStatus 		  =arguments.event.getArg("PlanStatus")) >
 	</cffunction>
 
+	
 
 	<cffunction name="getPlanTypes" access="public" output="false" 
 			returntype="query" >
