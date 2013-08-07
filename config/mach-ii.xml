@@ -125,6 +125,7 @@
 			<notify listener="UserRoleAccessListener" method="getUserRoleAccessIDs" resultArg="qUserAccessIDs"  />
 			<!-- Need to pass in DivisionID, SuperDivisionID,OrganizationID-->
 			<notify listener="ReportingUnitListener" method="getReportingUnitsQuery" resultArg="qreportingUnits"  />
+			<notify listener="ReportingUnitListener" method="getAdminReportingUnitsQuery" resultArg="qAdminReportingUnits"  />
 			<view-page name="reportingunits" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

@@ -22,6 +22,12 @@
 		<cfreturn variables.reportingUnitsService.getReportingUnitsQuery(qUserAccessIDs = request.event.getArg("qUserAccessIDs") ) >
 	</cffunction>
 
+	<cffunction name="getAdminReportingUnitsQuery" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.reportingUnitsService.getAdminReportingUnitsQuery(qUserAccessIDs = request.event.getArg("qUserAccessIDs") ) >
+	</cffunction>
+
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >
