@@ -352,4 +352,20 @@
 			<ref bean="ProgramImprovementCodesGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<bean id="AssessmentALCOutcomeCategoriesDAO" class="Assessment.model.AssessmentALCOutcomeCategories.AssessmentALCOutcomeCategoriesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="AssessmentALCOutcomeCategoriesGateway" class="Assessment.model.AssessmentALCOutcomeCategories.AssessmentALCOutcomeCategoriesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="AssessmentALCOutcomeCategoriesService" class="Assessment.model.AssessmentALCOutcomeCategories.AssessmentALCOutcomeCategoriesService">
+		<constructor-arg name="AssessmentALCOutcomeCategoriesDAO">
+			<ref bean="AssessmentALCOutcomeCategoriesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="AssessmentALCOutcomeCategoriesGateway">
+			<ref bean="AssessmentALCOutcomeCategoriesGateway"/>
+		</constructor-arg>
+	</bean>
+
 </beans>

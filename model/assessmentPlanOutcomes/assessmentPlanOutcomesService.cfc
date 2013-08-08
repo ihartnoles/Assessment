@@ -55,7 +55,7 @@
 		<cfreturn variables.assessmentPlanOutcomesGateway.getByAttributes(argumentCollection=arguments) />
 	</cffunction>
 
-	<cffunction name="saveassessmentPlanOutcomes" access="public" output="false" returntype="boolean">
+	<cffunction name="saveassessmentPlanOutcomes" access="public" output="false" returntype="numeric">
 		<cfargument name="assessmentPlanOutcomes" type="assessmentPlanOutcomes" required="true" />
 
 		<cfreturn variables.assessmentPlanOutcomesDAO.save(assessmentPlanOutcomes) />

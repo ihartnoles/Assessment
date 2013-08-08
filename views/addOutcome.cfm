@@ -2,7 +2,7 @@
 
 qPlanDetails			= request.event.getArg('qPlanDetails');
 qcountOutcomes    		= request.event.getArg('qcountOutcomes');
-//qALCCategoriesSelected	= request.event.getArg('qALCCategoriesSelected');
+qALCCategories			= request.event.getArg('qALCCategories');
 title 					= "Add a new outcome" ;
 </cfscript>
 
@@ -47,36 +47,13 @@ title 					= "Add a new outcome" ;
 												<h3><i class="icon-reorder"></i>New Outcome Details</h3>
 											</div>
 													<div class="box-content">
-														<cfoutput>
+														
 														<form action="index.cfm?event=saveOutcome" method="POST" class='form-vertical form-bordered'>
-															
-															<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
-															<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
-															<!---
-															<div class="control-group">
-																<label for="textfield" class="control-label">Text input</strong></label>
-																<div class="controls">
-																	<input type="text" name="textfield" id="textfield" placeholder="Text input" class="input-xlarge">
-																</div>
-															</div>
-															<div class="control-group">
-																<label for="password" class="control-label">Password</strong></label>
-																<div class="controls">
-																	<input type="password" name="password" id="password" placeholder="Password input" class="input-xlarge">
-																</div>
-															</div>
-															<div class="control-group">
-																<label class="control-label">Checkboxes<small>More information here</small></strong></label>
-																<div class="controls">
-																	<label class='checkbox'>
-																		<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
-																	</strong></label>
-																	<label class='checkbox'>
-																		<input type="checkbox" name="checkbox"> ipsum eiusmod
-																	</strong></label>
-																</div>
-															</div>
-															--->
+															<cfoutput>
+																<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
+																<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
+															</cfoutput>
+
 															<div class="control-group">
 																<label for="textarea" class="control-label"><strong>Outcome Description</strong></label>
 																<div class="controls">
@@ -84,6 +61,7 @@ title 					= "Add a new outcome" ;
 																</div>
 															</div>
 
+															<!---
 															<div class="control-group">
 																<label class="control-label"><strong>Academic Learning Compact</strong></label>
 																<div class="controls">
@@ -95,6 +73,32 @@ title 					= "Add a new outcome" ;
 																	</strong></label>
 																</div>
 															</div>
+															--->
+
+															<div class="control-group">
+																	<div class="row-fluid">
+																		<label class="control-label"><strong>Academic Learning Categories related to this outcome:</strong></label>
+																	</div>
+
+																	<div class="row-fluid">
+																		<cfoutput query="qALCCategories" group="CategoryID" >
+																			<div class="span3">																			
+																					<div class="controls">
+																						<cfoutput group="SubCategoryTitle">
+																							<cfif qALCCategories.SubCategoryID EQ 10011 OR qALCCategories.SubCategoryID EQ 10012 OR qALCCategories.SubCategoryID EQ 10013>
+																							   <div class="check-line">
+																							<cfelse>
+																							  <div class="check-line offset1">
+																							</cfif>
+																								<input type="checkbox" name="ALCSubCategory" value="#qALCCategories.SubCategoryID#"  class='icheck-me' data-skin="square" data-color="blue"> 
+																								<label class='inline' for="c6">#qALCCategories.SubCategoryTitle#</label>
+																							</div>																							
+																						</cfoutput>
+																					</div>
+																			</div>
+																		</cfoutput>
+																	</div>
+																</div>
 
 															<div class="control-group">
 																<label class="control-label"><strong>Strategic Plan Goals</strong></label>
@@ -150,7 +154,7 @@ title 					= "Add a new outcome" ;
 																<button type="button" class="btn">Cancel</button>
 															</div>
 														</form>
-														</cfoutput>
+														
 													</div><!--- end box-content --->
 											</div>
 										</div>

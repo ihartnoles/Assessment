@@ -32,12 +32,12 @@
 
 
 	<cffunction name="saveOutcome" access="public" output="false" 
-			returntype="boolean" >
+			returntype="numeric" >
 		
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
 		<!--- 	
-		<cfdump var="#request.event.getArgs()#" abort="false" label="@@AssPlanOutcomeListener" />
+		<cfdump var="#request.event.getArgs()#" abort="true" label="@@AssPlanOutcomeListener" />
 		--->
 
 		<cfscript>

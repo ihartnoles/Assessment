@@ -67,6 +67,7 @@
         <listener name="departmentalPerformanceReviewListener" type="Assessment.listeners.departmentalPerformanceReviewListener" />
         <listener name="AssessmentPlanWorkflowListener" type="Assessment.listeners.AssessmentPlanWorkflowListener" />        
         <listener name="programImprovementCodesListener" type="Assessment.listeners.programImprovementCodesListener" />  
+        <listener name="AssessmentALCOutcomeCategoriesListener" type="Assessment.listeners.AssessmentALCOutcomeCategoriesListener" />  
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -139,6 +140,7 @@
 
 		<event-handler event="ShowPlan" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
+			<!-- <notify listener="ALCCategoriesListener" method="getALCCategoriesSelected" resultArg="qSelectedALCCategories"  /> -->
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="AssessmentPlanChecklistTypeListener" method="getChecklistTypes" resultArg="qCheckListTypes"  />
 			<notify listener="AssessmentPlanChecklistRatingsListener" method="getRatings" resultArg="qRatings"  />
@@ -346,9 +348,7 @@
 		<event-handler event="editOutcome" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
-			<!--
-			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
-			-->
+			<notify listener="ALCCategoriesListener" method="getALCCategoriesSelected" resultArg="qSelectedALCCategories"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qcountOutcomes"  />
 			<view-page name="editOutcome" contentArg="content"/>
 			<view-page name="dash_layout" />
@@ -356,7 +356,8 @@
 
 
 		<event-handler event="saveOutcome" access="public">
-			<notify listener="AssessmentPlanOutcomeListener" method="saveOutcome" />
+			<notify listener="AssessmentPlanOutcomeListener" method="saveOutcome" resultArg="outcomeID"/>
+			<notify listener="AssessmentALCOutcomeCategoriesListener" method="saveALCCategoriesSelected" />
 			<redirect event="showplan" args="reportingUnitID,PlanID" />
 		</event-handler>
 

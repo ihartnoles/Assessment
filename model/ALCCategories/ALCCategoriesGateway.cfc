@@ -65,7 +65,7 @@
 
 			AND ALCSubcategories.SubCategoryID NOT IN (10014) 
 
-			ORDER BY ALCCategories.CategoryID, ALCSubcategories.SubCategoryID
+			ORDER BY ALCCategories.CategoryID, ALCSubcategories.SubCategoryID DESC
 		</cfquery>		
 		<cfreturn qList />
 	</cffunction>
@@ -85,6 +85,8 @@
 			<cfif structKeyExists(arguments,"outcomeID") and len(arguments.outcomeID)>
 				AND	outcomeID = <cfqueryparam value="#arguments.outcomeID#" CFSQLType="cf_sql_integer" />
 			</cfif>
+
+			ORDER BY SubCategoryID DESC
 
 		</cfquery>		
 		<cfreturn qList />

@@ -12,10 +12,10 @@ qCodesList			= request.event.getArg('qCodesList');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-				<cfdump var="#qCodesList#" />
 
 				<!---
-				
+				<cfdump var="#qCodesList#" />
+			
 				<cfdump var="#qOutcomeDetail#" />
 				
 				<cfdump var="#qPlanDetails#" />
@@ -47,7 +47,7 @@ qCodesList			= request.event.getArg('qCodesList');
 											<div class="box-title">
 												<h3>
 													<cfoutput>
-													<i class="icon-reorder"></i>Learning Outcome #qOutcomeDetail.outcomeorder# Details
+														<i class="icon-reorder"></i>Learning Outcome #qOutcomeDetail.outcomeorder# Details
 													</cfoutput>
 												</h3>
 											</div>
@@ -64,20 +64,7 @@ qCodesList			= request.event.getArg('qCodesList');
 														
 														<li>
 															<a href="#docs2" data-toggle='tab'><i class="icon-inbox"></i> Supporting Docs</a>
-														</li>
-													
-														<!---
-														<li>
-															<a href="#checklist" data-toggle='tab'><i class="icon-inbox"></i> Plan Checklist</a>
-														</li>
-														
-														<li>
-															<a href="#thirds3322" data-toggle='tab'><i class="icon-tag"></i> Lorem Ipsum</a>
-														</li>
-														<li>
-															<a href="#thirds33" data-toggle='tab'><i class="icon-trash"></i> Lorem Ipsum</a>
-														</li>
-														--->
+														</li>													
 													</ul>
 													<div class="tab-content padding tab-content-inline tab-content-bottom">
 														<div class="tab-pane active" id="descript1">
@@ -88,7 +75,9 @@ qCodesList			= request.event.getArg('qCodesList');
 																				
 																				<h3>
 																					<i class="icon-file"></i>
-																					Description and Methodology
+																					<cfoutput>
+																					Description and Methodology - [<a href="index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
+																					</cfoutput>
 																				</h3>
 																			
 																				<div class="actions">
@@ -98,14 +87,35 @@ qCodesList			= request.event.getArg('qCodesList');
 																			<div class="box-content">
 																				<!--- <h4>Description and Methodology</h4> --->
 																				<p><strong>Outcome Description </strong><br>
-																				<cfoutput>#qOutcomeDetail.outcomedescription#</cfoutput></p>
+																				<cfoutput>
+																					#qOutcomeDetail.outcomedescription# 
+																				</cfoutput></p>
 
 																				<HR>
 
-																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
+																				<p><strong>Academic Learning Categories related to this outcome:</strong></p>
 																				
+																				<!--- let's play HACKY SACK! query to find the selected ALC Category Checkboxes--->	
+																				 <cfquery name="getSelectedALCCategories" datasource="Assessment">
+																		    		SELECT 
+																							recordId,
+																							outcomeID,
+																							SubCategoryID
+																					FROM 
+																							AssessmentALCOutcomeCategories
+
+																					WHERE outcomeID = #request.event.getArg('outcomeID')# 																							
+																				 </cfquery>
+
+																				 <!---   
+																				 <cfdump var="#getSelectedALCCategories#" label="getSelectedALCCategories">
+																					
+
+																				 <cfoutput>#ValueList(getSelectedALCCategories.subcategoryID)#</cfoutput>
+																				 --->
+
 																				<div class="row-fluid sortable-box">
-																						<cfoutput query="qALCCategories" group="CategoryTitle" >
+																						<cfoutput query="qALCCategories" group="CategoryID" >
 																							<div class="span3">
 																							<!--- <strong><em>Content Knowledge</em></strong> --->
 																							    <br><br> 
@@ -116,14 +126,20 @@ qCodesList			= request.event.getArg('qCodesList');
 																									1) Need to be able to check the boxes and save to DB
 																									2) Need to compare results in db and be "checked" where applicable
 																							    --->
-
+																							    <!---
 																							     <div class="check-line">
 																									<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">#qALCCategories.CategoryTitle#</label>
 																								</div>
+																								--->
 
 																								<cfoutput group="SubCategoryTitle">
-																									 <div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" > <label class='inline' for="c6">#qALCCategories.SubCategoryTitle#</label>
+																									<cfif qALCCategories.SubCategoryID EQ 10011 OR qALCCategories.SubCategoryID EQ 10012 OR qALCCategories.SubCategoryID EQ 10013>
+																									   <div class="check-line">
+																									<cfelse>
+																									  <div class="check-line offset1">
+																									</cfif>
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif> disabled="disabled"> 
+																										<label class='inline' for="c6">#qALCCategories.SubCategoryTitle#</label>
 																									</div>																							
 																								</cfoutput>
 																								
@@ -160,8 +176,8 @@ qCodesList			= request.event.getArg('qCodesList');
 																							<div class="check-line">
 																								<input type="radio"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
 																							</div>
-
 																						</div>
+
 																					<div class="span3">
 																						<p><strong>Data collected from online coursework?</strong></p>
 

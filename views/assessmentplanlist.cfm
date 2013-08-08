@@ -3,9 +3,9 @@ title 		 =  request.event.getArg('programname');
 qPlanPeriods =  request.event.getArg('planperiods');
 </cfscript>
 
-<!--- --->
+<!--- 
 <cfdump var="#qPlanPeriods#" />
-
+--->
 
 
 <div id="main" style="margin-left: 0px;">

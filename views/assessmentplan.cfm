@@ -105,10 +105,10 @@ qRatings				= request.event.getArg('qRatings');
 														</div>
 														</div>
 														<div class="tab-pane active" id="second22">
-															TEST
 															
-
+															<!--- 
 															<cfdump var="#qALCCategories#" label="qALCCategories"/>
+															--->															
 
 															<cfloop query="qcountOutcomes">
 															
@@ -137,24 +137,24 @@ qRatings				= request.event.getArg('qRatings');
 
 																				<HR>
 
-																				<p><strong>Academic Learning Category related to this outcome:</strong></p>
+																				<p><strong>Academic Learning Categories related to this outcome:</strong></p>
 																				
 																					<!--- let's play HACKY SACK! --->	
 																				    <cfquery name="getSelectedALCCategories" datasource="Assessment">
 																				    		SELECT 
-																								SubCategoryID
+																									recordId,
+																									outcomeID,
+																									SubCategoryID
 																							FROM 
-																								AssessmentALCOutcomeCategories
+																									AssessmentALCOutcomeCategories
 
-																							WHERE outcomeID IN (#qCountOutcomes.outcomeID#)
+																							WHERE outcomeID IN (#qCountOutcomes.outcomeID#)																							
 																				      </cfquery>
 
-																				      <!---
-																				      <cfdump var="#getSelectedALCCategories#">
+																				      <!--- 
+																				      <cfdump var="#getSelectedALCCategories#" label="getSelectedALCCategories">
+																					  <cfoutput>#ValueList(getSelectedALCCategories.subcategoryID)#</cfoutput>
 																					  --->
-
-																				      <cfoutput>#ValueList(getSelectedALCCategories.subcategoryID)#</cfoutput>
-
 																				    <div class="row-fluid sortable-box">
 																						<cfoutput query="qALCCategories" group="CategoryID" >
 																							<div class="span3">
@@ -167,16 +167,24 @@ qRatings				= request.event.getArg('qRatings');
 																									1) Need to be able to check the boxes and save to DB
 																									2) Need to compare results in db and be "checked" where applicable
 																							    --->																							
-																   
+																   								
+																   								<!---
 																							    <div class="check-line">
 																							    		<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.subcategoryID >checked</cfif>> 
 																							    		 <label class='inline' for="c6">#qALCCategories.CategoryTitle# (#qALCCategories.subcategoryID#)</label>																		
-																								</div>											
+																								</div>
+																								--->											
 																							
 																								<cfoutput group="SubCategoryTitle">
-																									 <div class="check-line offset1">
-																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif>> 
-																										 <label class='inline' for="c6">#qALCCategories.SubCategoryTitle# (#qALCCategories.SubCategoryID#)</label>
+																									<!--- handle formatting of offset category --->
+																									<cfif qALCCategories.SubCategoryID EQ 10011 OR qALCCategories.SubCategoryID EQ 10012 OR qALCCategories.SubCategoryID EQ 10013>
+																									   <div class="check-line">
+																									<cfelse>
+																									  <div class="check-line offset1">
+																									</cfif>
+
+																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif> disabled="disabled"> 
+																										 <label class='inline' for="c6" >#qALCCategories.SubCategoryTitle# (#qALCCategories.SubCategoryID#)</label>
 																									</div>																							
 																								</cfoutput>
 																								
@@ -201,6 +209,19 @@ qRatings				= request.event.getArg('qRatings');
 																							<input type="radio" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
 																						</div>
 																					</div>
+
+																					<div class="span3">
+																							<p><strong>IFP Related</strong></p>
+
+																							<div class="check-line">
+																									<input type="radio"  class='icheck-me' data-skin="square" data-color="blue" checked> <label class='inline' for="c6">Yes</label>
+																							</div>
+
+																							<div class="check-line">
+																								<input type="radio"  class='icheck-me' data-skin="square" data-color="blue"> <label class='inline' for="c6">No</label>
+																							</div>
+
+																						</div>
 
 																					<div class="span3">
 																						<p><strong>Data collected from online coursework?</strong></p>
