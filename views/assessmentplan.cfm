@@ -22,11 +22,9 @@ qRatings				= request.event.getArg('qRatings');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-				<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
-				
-				<cfdump var="#qRatings#" label="qRatings"/>
-
 				<!---
+				<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
+				<cfdump var="#qRatings#" label="qRatings"/>
 				<cfdump var="#qPlanDetails#" />
 				<cfdump var="#qcountOutcomes#" />
 				<cfdump var="#qALCCategories#" />
@@ -355,6 +353,7 @@ qRatings				= request.event.getArg('qRatings');
 															--->
 
 															
+																<!---
 																		<cfoutput query="qCheckListTypes" group="category">
 																			
 																			<h4>#qCheckListTypes.category#</h4>
@@ -387,55 +386,59 @@ qRatings				= request.event.getArg('qRatings');
 																			</cfoutput>
 																			<hr>
 																		</cfoutput>
+																	--->
 
-
-														   		<!---
+														   		
 																			<form action="index.cfm?event=saveCheckList" method="post" id="#qCheckListTypes.checklisttypeid#">
-
-																				<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
-																				<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
+																				
+																				<cfoutput>
+																					<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
+																					<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
+																				</cfoutput>
+																				
 
 																				<div class="row-fluid">
-																					<div class="span6">
+																					<div class="span12">
 																							
-																								<h4>#qCheckListTypes.category#</h4>
-
-																								<cfoutput group="subcategory">
-																									
-																										
-																									
-																									<p><strong>#qCheckListTypes.subcategory#</strong></p>
+																							<cfoutput query="qCheckListTypes" group="category">
+																							<h4>#qCheckListTypes.category#</h4>
 																								
-																									<!---  --->
+																								<cfoutput group="subcategory">	
+																									<cfloop query="#qRatings#">
+																																															
+																													
+																										<cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID >
+																											<!--- #qratings.checklistratingID# YES --->
 
-																										<div class="input select rating-b">								           
-																								            <select id="tmp-#checklisttypeid#" name="rating-#checklisttypeid#">
-																								                <option value="">N/A</option>
-																								                <option value="Not Evident"<cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID AND qRatings.rating EQ "Not Evident">selected</cfif>>Not Evident</option>
-																								                <option value="Developing" <cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID AND qRatings.rating EQ "Developing">selected</cfif>>Developing</option>
-																								                <option value="Operational" <cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID AND qRatings.rating EQ "Operational">selected</cfif>>Operational</option>
-																								                <option value="Exemplary" <cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID AND qRatings.rating EQ "Exemplary">selected</cfif>>Exemplary</option>
-																								            </select>
-																								        </div>
+																											<p><strong>#qCheckListTypes.subcategory#</strong></p>
 
-																								        <br>
+																											  <div class="input select rating-b">								           
+																											            <select id="tmp-#checklisttypeid#" name="rating-#checklisttypeid#-#checklistRatingID#">
+																											                <option value="">N/A</option>
+																											                <option value="Not Evident"<cfif qRatings.rating EQ "Not Evident">selected</cfif>>Not Evident</option>
+																											                <option value="Developing" <cfif qRatings.rating EQ "Developing">selected</cfif>>Developing</option>
+																											                <option value="Operational" <cfif qRatings.rating EQ "Operational">selected</cfif>>Operational</option>
+																											                <option value="Exemplary" <cfif qRatings.rating EQ "Exemplary">selected</cfif>>Exemplary</option>
+																											            </select>
+																											 </div>
+																										</cfif>
+																										
 
-
-																							        <!--- </cfloop> --->
-																						        </cfoutput>
+																										
+																									</cfloop> 
+																								</cfoutput>
+																									<div class="form-actions">
+																										<button type="submit" class="btn btn-primary">Save "#listlast(qCheckListTypes.category,".")#" ratings</button>
+																										<!--- <button type="button" class="btn">Cancel</button> --->
+																									</div>
+																								<hr>
+																							</cfoutput>
 																					      
-																							<!---
-																							<div class="Clear">
-																							    <h4>I. Student Learning Outcomes</h4>
-																							    <p><strong>A. Student learning outcomes are clear, specific and oriented to the student</strong></p>
-																							    <input class="star" type="radio" name="test-1-rating-1" value="Not Evident" title="Not Evident"/>
-																							    <input class="star" type="radio" name="test-1-rating-1" value="Developing" title="Developing"/>
-																							    <input class="star" type="radio" name="test-1-rating-1" value="Operational" title="Operational"/>
-																							    <input class="star" type="radio" name="test-1-rating-1" value="Exemplary" title="Exemplary"/>
-																						   </div>
-																						   --->
+																						
+
 																					</div>
-																				
+																					
+																					<!---
 																					<div class="span4">
 																						<div class="control-group">
 																							<label for="textarea" class="control-label">Comments:</label>
@@ -447,14 +450,12 @@ qRatings				= request.event.getArg('qRatings');
 																							<button type="submit" class="btn btn-primary">Save changes</button>
 																							<button type="button" class="btn">Cancel</button>
 																						</div>
-																					</div>														 
+																					</div>		
+																					--->												 
 																				</div>
 																			
 																		</form>
-																		--->	
-														
-															
-
+																
 														</div>
 														
 													</div>

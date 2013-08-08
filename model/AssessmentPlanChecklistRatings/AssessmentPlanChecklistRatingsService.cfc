@@ -55,24 +55,33 @@
 	</cffunction>
 
 	<cffunction name="saveRatings" access="public" output="false" returntype="boolean">
-		<cfargument name="ChecklistRatingID" type="numeric" required="false" />
+		<cfargument name="ChecklistRatingID" type="string" required="false" />
 		<cfargument name="PlanID" type="numeric" required="false" />
 		<cfargument name="ReportingUnitID" type="numeric" required="false" />
 		<!--- <cfargument name="ChecklistTypeID" type="numeric" required="false" /> --->
 		<cfargument name="Rating" type="string" required="false" />
 
-		<!--- this will have to change to accomodate existing ratings --->
-		<cfset local.ChecklistRatingID = 0 />
+		<!--- this will have to change to accomodate existing ratings 
+		<cfset local.ChecklistRatingID = request.event.getArg('ChecklistRatingID') />--->
 		<cfset local.PlanID = request.event.getArg('planID') />
 		<cfset local.ReportingUnitID = request.event.getArg('ReportingUnitID') />
+
+		<!---
+		<cfdump var="#request.event.getArgs()#" abort="true" label="@@ChecklistRatingID" />
+		--->
 
 		<cfloop collection="#request.event.getArgs()#" item="idx">
 			
 			<!--- if you find a RATING input parse it out --->
 			<cfif idx CONTAINS 'RATING'>
 				
-				<cfset local.checklistTypeID = ListLast(idx,"-") />
+				<cfset local.checklistTypeID = listGetAt(idx, 2, "-") />
+				<cfset local.ChecklistRatingID = ListLast(idx,"-") />
 				<cfset local.rating = request.event.getArg(idx)/>
+
+				<!---
+				<cfdump var="#i#" abort="true" label="@@RatingsService_1" />
+				--->
 
 				<!---
 				<cfdump var="#local.checklistTypeID#" abort="false"  /><br>
@@ -80,26 +89,31 @@
 				<cfdump var="#idx#" abort="false"  />
 				<cfdump var="#request.event.getArg(idx)#" abort="false"  />
 				--->
+
 				<!--- create the bean --->
-				<cfset local.RatingsBean = createAssessmentPlanChecklistRatings( ChecklistRatingID  = local.checklistRatingID,
+				<cfset local.RatingsBean = createAssessmentPlanChecklistRatings( ChecklistRatingID  = local.ChecklistRatingID,
 																				 PlanID 		    = local.PlanID,
 																				 ReportingUnitID	= local.ReportingUnitID,
 																				 ChecklistTypeID 	= local.ChecklistTypeID,
 																				 rating 			= local.rating) />
 
-				<!---
+				<!--- 
 				<cfdump var="#local.RatingsBean#" abort="true" label="@@RatingsService" />
 				--->
 				
 				<!--- save the bean --->
 				<cfset local.saveRatingsBean = variables.AssessmentPlanChecklistRatingsDAO.save(local.RatingsBean) />
+				
 
+				
 			</cfif>
 		</cfloop>
 
-		<!---
-		<cfdump var="#request.event.getArgs()#" abort="true" label="@@RatingsService" />
+		<!--- 
+		<cfdump var="#request.event.getArgs()#" abort="false" label="@@RatingsService_2" />
+		<cfdump var="#local#" abort="true" label="@@RatingsService_3" />
 		--->
+		
 		<cfreturn local.saveRatingsBean />
 		
 	</cffunction>

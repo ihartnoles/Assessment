@@ -41,7 +41,7 @@
 						<cfif cgi.QUERY_STRING contains "showDepartmentPlanList">
 								
 								<!--- set the layoutmessage --->
-								<cfset layout_message = len(trim(session.layout_message)) ? session.layout_message : "" />
+								<cfset layout_message = structKeyExists(session, "layout_message") ? session.layout_message : "" />
 
 								<div class="span12">
 									<!---
