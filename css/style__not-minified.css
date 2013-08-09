@@ -4130,7 +4130,9 @@ label, input, button, select, textarea {
   padding-right: 69px;
   padding-left: 35px;
   padding-bottom: 2px;
-  background: url("../img/logo.png") no-repeat;
+  /*background: url("../img/logo.png") no-repeat;*/
+  background: url("../img/FAU-logo-13.png") no-repeat;
+
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   #navigation #brand {

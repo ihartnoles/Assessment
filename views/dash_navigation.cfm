@@ -12,50 +12,29 @@
 						<span>My Dashboard</span>
 					</a>
 				</li>
-			
-				<!---
+				
+				
 				<li>
 					<a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-						<span>Components</span>
+						<span>Navigate</span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="components-timeline.html">Timeline</a>
+							<a href="index.cfm?event=showreportingunits">Reporting Units</a>
 						</li>
 						<li>
-							<a href="components-pagestatistics.html">Page statistics</a>
+							<a href="index.cfm?event=reports">Reports</a>
 						</li>
 						<li>
-							<a href="components-sidebarwidgets.html">Sidebar widgets</a>
+							<a href="index.cfm?event=showUserDashboard#">My Calendar</a>
 						</li>
 						<li>
-							<a href="components-messages.html">Messages &amp; Chat</a>
-						</li>
-						<li>
-							<a href="components-gallery.html">Gallery &amp; Thumbs</a>
-						</li>
-						<li>
-							<a href="components-tiles.html">Tiles</a>
-						</li>
-						<li>
-							<a href="components-icons.html">Icons &amp; Buttons</a>
-						</li>
-						<li>
-							<a href="components-elements.html">UI elements</a>
-						</li>
-						<li>
-							<a href="components-typography.html">Typography</a>
-						</li>
-						<li>
-							<a href="components-bootstrap.html">Bootstrap elements</a>
-						</li>
-						<li>
-							<a href="components-grid.html">Grid</a>
-						</li>
+							<a href="index.cfm?event=messagecenter">My Messages</a>
+						</li>						
 					</ul>
 				</li>
-				--->
+				
 				<!---
 				<li>
 					<a href="#" data-toggle="dropdown" class='dropdown-toggle'>
@@ -103,7 +82,11 @@
 						<li>
 							<a href="index.cfm?event=accountsettings">Account Settings</a>
 						</li>
+						<li>
+
+						</li>
 						
+						<!---
 						<li class='dropdown-submenu'>
 							<a href="#" data-toggle="dropdown" class='dropdown-toggle'>Another submenu</a>
 							<ul class="dropdown-menu">
@@ -129,6 +112,7 @@
 								</li>
 							</ul>
 						</li>
+						--->
 						<!--- 
 						<li>
 							<a href="more-error.html">Error pages</a>
