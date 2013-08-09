@@ -41,7 +41,7 @@
 			AND	PlanPeriod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_char" />
 		</cfif>
 		<cfif structKeyExists(arguments,"PlanType") and len(arguments.PlanType)>
-			AND	PlanType = <cfqueryparam value="#arguments.PlanType#" CFSQLType="cf_sql_integer" />
+			AND	PlanType = 1
 		</cfif>
 		<cfif structKeyExists(arguments,"PlanStatus") and len(arguments.PlanStatus)>
 			AND	PlanStatus = <cfqueryparam value="#arguments.PlanStatus#" CFSQLType="cf_sql_integer" />
@@ -112,9 +112,318 @@
 		<cfreturn qList />
 	</cffunction>
 
+		
+	<cffunction name="getLOPlanTotals" access="public" output="false" returntype="query">
+		<cfargument name="PlanPeriod" type="string" required="true" />
+				
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			select top 1 planID,
+
+					(select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />) as total,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 10 ) as New,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 20 ) as Review,
+					
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 30 ) as RevisePlan,
 
 
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 40 ) as CollectData,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 50 ) as EnterResults,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 60 ) as ReportResults,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 70 ) as ReviseReportResults,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 1
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 80 ) as Approved
+
+				from assessmentplan
+		</cfquery>
+		
+		
+		<cfreturn qList />
+	</cffunction>
 	
+	<cffunction name="getResearchPlanTotals" access="public" output="false" returntype="query">
+		<cfargument name="PlanPeriod" type="string" required="true" />
+				
+		<cfset var qList = "" />		
+		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			select top 1 planID,
+
+					(select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />) as total,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 10 ) as New,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 20 ) as Review,
+					
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 30 ) as RevisePlan,
+
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 40 ) as CollectData,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 50 ) as EnterResults,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 60 ) as ReportResults,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 70 ) as ReviseReportResults,
+
+					( select count(*) 
+						from assessmentplan
+						where 0=0
+						AND planType = 2
+						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+						AND planStatus = 80 ) as Approved
+
+				from assessmentplan
+			</cfquery>
+			<cfreturn qList />
+		</cffunction>
+
+		<cffunction name="getAdminPlanTotals" access="public" output="false" returntype="query">
+			<cfargument name="PlanPeriod" type="string" required="true" />
+					
+			<cfset var qList = "" />		
+			
+			<cfquery name="qList" datasource="#variables.dsn#">
+				select top 1 planID,
+
+						(select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />) as total,
+						
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 10 ) as New,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 20 ) as Review,
+						
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 30 ) as RevisePlan,
+
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 40 ) as CollectData,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 50 ) as EnterResults,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 60 ) as ReportResults,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 70 ) as ReviseReportResults,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 3
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 80 ) as Approved
+
+					from assessmentplan
+			</cfquery>
+		
+		
+		<cfreturn qList />
+	</cffunction>
+
+	<cffunction name="getServicePlanTotals" access="public" output="false" returntype="query">
+			<cfargument name="PlanPeriod" type="string" required="true" />
+					
+			<cfset var qList = "" />		
+			
+			<cfquery name="qList" datasource="#variables.dsn#">
+				select top 1 planID,
+
+						(select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />) as total,
+						
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 10 ) as New,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 20 ) as Review,
+						
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 30 ) as RevisePlan,
+
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 40 ) as CollectData,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 50 ) as EnterResults,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 60 ) as ReportResults,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 70 ) as ReviseReportResults,
+
+						( select count(*) 
+							from assessmentplan
+							where 0=0
+							AND planType = 4
+							AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
+							AND planStatus = 80 ) as Approved
+
+					from assessmentplan
+			</cfquery>
+		
+		
+		<cfreturn qList />
+	</cffunction>
+
+
 	<cffunction name="getAssessmentPlanDetails" access="public" output="false" returntype="query">
 		<cfargument name="ReportingUnitID" type="numeric" required="true" />
 		<cfargument name="PlanID" type="numeric" required="true" />

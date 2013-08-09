@@ -17,6 +17,9 @@
 	<!-- jQuery UI -->
 	<link rel="stylesheet" href="css/plugins/jquery-ui/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
+	<!-- Easy pie  -->
+	<link rel="stylesheet" href="css/plugins/easy-pie-chart/jquery.easy-pie-chart.css">
+	
 	<!-- PageGuide -->
 	<link rel="stylesheet" href="css/plugins/pageguide/pageguide.css">
 	<!-- Fullcalendar -->
@@ -114,6 +117,12 @@
 	<!-- Validation -->
 	<script src="js/plugins/validation/jquery.validate.min.js"></script>
 	<script src="js/plugins/validation/additional-methods.min.js"></script>
+
+	<!-- Sparkline -->
+	<script src="js/plugins/sparklines/jquery.sparklines.min.js"></script>
+	
+	<!-- Easy pie -->
+	<script src="js/plugins/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
 
 
 	<!-- Theme framework

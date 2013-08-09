@@ -118,6 +118,10 @@
 		</event-handler>
 
 		<event-handler event="showUserDashboard" access="public">
+			<notify listener="AssessmentPlanListener" method="getLOPlanTotals" resultArg="qLearningOutcomes" />
+			<notify listener="AssessmentPlanListener" method="getResearchPlanTotals" resultArg="qResearchPlans" />
+			<notify listener="AssessmentPlanListener" method="getAdminPlanTotals" resultArg="qAdminPlans" />
+			<notify listener="AssessmentPlanListener" method="getServicePlanTotals" resultArg="qServicePlans" />
 			<view-page name="dash_main" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>

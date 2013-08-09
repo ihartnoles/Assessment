@@ -78,6 +78,30 @@
 		
 	</cffunction>
 
+	<cffunction name="getLOPlanTotals" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getLOPlanTotals( PlanPeriod ='2011-2012' )>
+	</cffunction>
+
+	<cffunction name="getResearchPlanTotals" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getResearchPlanTotals(PlanPeriod ='2011-2012' )>
+	</cffunction>
+
+	<cffunction name="getAdminPlanTotals" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getAdminPlanTotals(PlanPeriod ='2011-2012' )>
+	</cffunction>
+
+	<cffunction name="getServicePlanTotals" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.assessmentplansService.getServicePlanTotals(PlanPeriod ='2011-2012' )>
+	</cffunction>
+
 	<!---
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >
