@@ -13,8 +13,9 @@
 		<cfset var sf = getProperty("ServiceFactory")>
 		
 
-		 <cfset variables.assessmentplansService 	= sf.getBean('assessmentplansService') /> 
-		 <cfset variables.assessmentPlanTypesService 	= sf.getBean('assessmentPlanTypesService') /> 
+		 <cfset variables.assessmentplansService 					= sf.getBean('assessmentplansService') /> 
+		 <cfset variables.assessmentPlanTypesService 				= sf.getBean('assessmentPlanTypesService') /> 
+		 <cfset variables.assessmentPlanChecklistRatingsService 	= sf.getBean('assessmentPlanChecklistRatingsService') /> 
 	</cffunction>
 
 	<cffunction name="getAssessmentPlanPeriodsQuery" access="public" output="false" 
@@ -70,8 +71,25 @@
 																		   PlanType 			=arguments.event.getArg("PlanType"),
 																		   PlanInitialReporter 	=arguments.event.getArg("PlanInitialReporter")) />
 
-		<cfif local.result>
-			<cfset announceEvent("showPlan",arguments.event.getArgs()) />
+
+
+		<cfif isNumeric(local.result)>
+			
+			<cfset private.resultArgs = {layout_message="New logo uploaded"} />
+
+			<!--- populate plan checklist items for the new planID --->
+			<cfloop from="1" to="11" index="i">
+				<cfset local.checklistBean = variables.assessmentPlanChecklistRatingsService.createAssessmentPlanChecklistRatings(ChecklistRatingID = 0,
+																																  ReportingUnitID	= arguments.event.getArg("ReportingUnitID"),
+																																  ChecklistTypeID 	= i,
+																																  PlanID 			= local.result	) />
+
+				<!--- <cfdump var="#local.checklistBean#" abort="true" label="@@AssessmentPlanListener_82" /> --->
+
+				<cfset local.saveBean =  variables.assessmentPlanChecklistRatingsService.saveAssessmentPlanChecklistRatings(local.checklistBean) />
+			</cfloop>
+
+			<cfset redirectEvent("showPlan", {planID = local.result, ReportingUnitID = arguments.event.getArg("ReportingUnitID")  }) />
 		<cfelse>
 			<cfset announceEvent("addPlan",arguments.event.getArgs()) />
 		</cfif>

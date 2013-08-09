@@ -104,7 +104,9 @@
 		<cfset var qList = "" />		
 		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			upPeriodGet
+			SELECT distinct planperiod
+			FROM AssessmentPlanPeriod
+			ORDER BY PlanPeriod DESC
 		</cfquery>
 		
 		<!--- <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> --->

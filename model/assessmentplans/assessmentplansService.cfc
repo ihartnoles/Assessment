@@ -60,7 +60,7 @@
 		<cfreturn variables.assessmentplansDAO.delete(assessmentplans) />
 	</cffunction>
 
-	<cffunction name="createPlan" access="public" output="false" returntype="boolean">
+	<cffunction name="createPlan" access="public" output="false" returntype="numeric">
 		<cfargument name="PlanID" type="numeric" required="false"/>
 		<cfargument name="ReportingUnitID" type="numeric" required="false" />
 		<cfargument name="PlanPeriod" type="string" required="false" />
@@ -81,6 +81,7 @@
 		<cfdump var="#local.assessmentplanBean#" abort="true" label="@@assessmentplansService" />
 		--->
 
+		<!---
 		<cfset local.tmp = variables.assessmentplansDAO.save(local.assessmentplanBean) />
 
 		<cfif local.tmp>
@@ -88,8 +89,9 @@
 		<cfelse>
 
 		</cfif>
+		--->
 
-		<cfreturn  />
+		<cfreturn variables.assessmentplansDAO.save(local.assessmentplanBean) />
 	</cffunction>
 
 	<cffunction name="onMissingMethod" access="public" output="false" >
