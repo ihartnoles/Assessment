@@ -715,13 +715,16 @@ qServicePlans		= request.event.getArg('qServicePlans');
 				<div class="row-fluid">
 					<div class="span6">
 						<div class="box box-color box-bordered">
+							
 							<div class="box-title" id="calendar">
 								<h3><i class="icon-calendar"></i>My calendar</h3>
 
 							</div>
+							
 							<div class="box-content nopadding">
-								<div class="calendar"></div>
+								 <div class="calendar"></div> 
 							</div>
+							
 						</div>
 					</div>
 					<!---
@@ -975,7 +978,7 @@ qServicePlans		= request.event.getArg('qServicePlans');
 		</div></div>
 
 
-<script>
+ <script>
 	$("#calendar_button").click(function (){
             //$(this).animate(function(){
                 $('html, body').animate({

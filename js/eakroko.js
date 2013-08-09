@@ -110,12 +110,25 @@ $(document).ready(function() {
 			header: {
 				left: '',
 				center: 'prev,title,next',
-				right: 'month,agendaWeek,agendaDay,today'
+				right: ''
 			},
 			buttonText:{
 				today:'Today'
 			},
-			editable: true
+
+			editable: true,
+
+			eventClick: function(calEvent, jsEvent, view) {
+
+		        alert('Event: ' + calEvent.title);
+		        //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+		        //alert('View: ' + view.name);
+
+		        // change the border color just for fun
+		        //$(this).css('border-color', 'red');
+
+   			 }
+
 		});
 		$(".fc-button-effect").remove();
 		$(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
