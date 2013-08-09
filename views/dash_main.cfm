@@ -6,10 +6,6 @@ qAdminPlans			= request.event.getArg('qAdminPlans');
 qServicePlans		= request.event.getArg('qServicePlans');
 </cfscript>
 
-<cfdump var="#qLearningOutcomes#" />
-
-<cfdump var="#qResearchPlans#" />
-
 <div id="new-task" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
