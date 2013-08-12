@@ -13,7 +13,10 @@
 					</a>
 				</li>
 				
-				
+				<!---
+					<cfdump var="#session#" label="dash_navigation" abort="true"/>
+				--->
+
 				<li>
 					<a href="#" data-toggle="dropdown" class='dropdown-toggle'>
 						<span>Navigate</span>

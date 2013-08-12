@@ -108,7 +108,7 @@
 			<notify listener="UserRoleListener" method="getAllUserRoleLevels" resultArg="qAllUserRoles"  />
 			<view-page name="userrole" contentArg="content" />
 			<view-page name="layout" />
-		</event-handler>
+		</event-handler>e
 
 		<event-handler event="updateUserRole" access="public">
 			<notify listener="UserRoleListener" method="updateUserRole" />			

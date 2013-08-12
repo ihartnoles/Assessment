@@ -17,7 +17,7 @@
 		<!--- do nothing for now --->
 		<cfset var sf = getProperty("ServiceFactory")>
 		
-
+		 <cfset variables.userrolesService 	= sf.getBean('userrolesService') /> 
 		 <cfset variables.usersService 	= sf.getBean('usersService') /> 
 	</cffunction>
 
@@ -40,18 +40,31 @@
 	</cffunction>
 
 	<cffunction name="SetUserRole" access="public" output="false" 
-			returntype="boolean" >
+			returntype="void" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 
-		<!--- --->
+		<!--- 
 		<cfdump var="#request.event.getArgs()#" abort="false" label="getArgs@UserListener" />
 		<cfdump var="#session#" abort="false" label="session@UserListener" />
 		<cfdump var="#arguments#" abort="true" label="arguments@UserListener" />
-         
-         <!--- create role bean --->
-         <cfset local.role = variables.rolesService.createroles(AssessmentRoleID = request.event.getArg('role')) />
+         --->
 
-		<cfreturn variables.usersService.SetUserRole(userid=session.user.userid, roleid=) >
+         <!--- create role bean --->
+         <cfset local.roleBean = variables.userrolesService.createuserroles(RecordID =0,
+			         														UserID = session.user.userid,
+			         														RoleID = request.event.getArg('role'),
+			         														DefaultRole = 1,
+			         														DateInserted = now()) />
+
+         <!--- save the bean --->
+         <cfset local.saveBean = variables.userrolesService.saveuserroles(local.roleBean) />
+
+		 <cfset local.hasDefaultRole =  variables.usersService.userHasDefaultRole(userid=session.user.userid) />
+
+         <cfset session.user.userRoleDescription = local.hasDefaultRole.AssessmentRoleDescription />
+
+		<!--- redirect --->
+		<cfset redirectEvent("showUserDashboard",arguments.event.getArgs())>
 	</cffunction>
 
 	<cffunction name="getUserDetails" access="public" output="false" 

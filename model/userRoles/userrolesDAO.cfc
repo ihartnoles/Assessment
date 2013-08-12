@@ -11,7 +11,7 @@
 		<cfargument name="userroles" type="userroles" required="true" />
 
 		<cfset var qCreate = "" />
-		<cftry>
+		
 			<cfquery name="qCreate" datasource="#variables.dsn#">
 				INSERT INTO UserRoles
 					(
@@ -28,10 +28,8 @@
 					<cfqueryparam value="#arguments.userroles.getDateInserted()#" CFSQLType="cf_sql_timestamp" />
 					)
 			</cfquery>
-			<cfcatch type="database">
-				<cfreturn false />
-			</cfcatch>
-		</cftry>
+			
+		
 		<cfreturn true />
 	</cffunction>
 

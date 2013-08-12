@@ -5,7 +5,6 @@
 	qAllUserRoles		= request.event.getArg('qAllUserRoles');
 </cfscript>
 
-<cfdump var="#qAllUserRoles#" />
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
