@@ -122,7 +122,11 @@ qRatings				= request.event.getArg('qRatings');
 																					<i class="icon-file"></i>
 																					Outcome 
 																					<cfoutput>
-																						#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#) - [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
+																						#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#) 
+																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
+																						<!---
+																						- [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
+																						--->
 																				    </cfoutput>
 																				</h3>
 																				<div class="actions">
@@ -504,14 +508,24 @@ qRatings				= request.event.getArg('qRatings');
 
 
  <script type="text/javascript">
+       <cfoutput>
         $(function () {
            
-                $('#tmp-1,#tmp-2,#tmp-3,#tmp-4,#tmp-5,#tmp-6,#tmp-7,#tmp-8,#tmp-9,#tmp-10,#tmp-11').barrating('show', {
+                $('##tmp-1,##tmp-2,##tmp-3,##tmp-4,##tmp-5,##tmp-6,##tmp-7,##tmp-8,##tmp-9,##tmp-10,##tmp-11').barrating('show', {
                     showValues:false,
                     showSelectedRating:true
                 });
+
+
+                $(".editOutcome").click(function() {
+					//alert('oh YEAHHHH!!!');
+
+					window.location.href = "index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+				});
+
           
         });
+        </cfoutput>
     </script>
 
 <cfscript>

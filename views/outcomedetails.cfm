@@ -76,7 +76,11 @@ qCodesList			= request.event.getArg('qCodesList');
 																				<h3>
 																					<i class="icon-file"></i>
 																					<cfoutput>
-																					Description and Methodology - [<a href="index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
+																					Description and Methodology 
+																					<!---
+																					[<a href="index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
+																					--->
+																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
 																					</cfoutput>
 																				</h3>
 																			
@@ -264,6 +268,7 @@ qCodesList			= request.event.getArg('qCodesList');
 																					<h3>
 																						<i class="icon-file"></i>
 																						Results
+																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
 																					</h3>
 																					<div class="actions">
 																						<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
@@ -592,6 +597,14 @@ qCodesList			= request.event.getArg('qCodesList');
 // Convert divs to queue widgets when the DOM is ready
 <cfoutput>
 $(function() {
+
+	$(".editOutcome").click(function() {
+		//alert('oh YEAHHHH!!!');
+
+		window.location.href = "index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+	});
+
+
 	if($('.plupload').length > 0){
 		$(".plupload").each(function(){
 			var $el = $(this);
