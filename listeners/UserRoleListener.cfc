@@ -32,6 +32,11 @@
 		<cfreturn variables.userRolesService.getUserRoleLevels(userid=session.user.userid) >
 	</cffunction>
 	
+	<cffunction name="getAllUserRoleLevels" access="public" output="false" 
+			returntype="query" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		<cfreturn variables.rolesService.getByAttributesQuery() >
+	</cffunction>
 
 	<cffunction name="updateUserRole" access="public" output="false" 
 			returntype="void" >

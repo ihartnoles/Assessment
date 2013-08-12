@@ -104,6 +104,8 @@
 		<event-handler event="ChooseUserRoleForSession" access="public">
 			<notify listener="UserListener" method="getUserBean" resultArg="userBean"  />
 			<event-arg name="userid" variable="session.userid" />
+			<notify listener="UserRoleListener" method="getUserRoleLevels" resultArg="qUserRoles"  />
+			<notify listener="UserRoleListener" method="getAllUserRoleLevels" resultArg="qAllUserRoles"  />
 			<view-page name="userrole" contentArg="content" />
 			<view-page name="layout" />
 		</event-handler>

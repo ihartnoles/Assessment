@@ -30,7 +30,7 @@
 	<cffunction name="getUserBean" access="public" output="false" 
 			returntype="struct" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
-		<cfreturn variables.usersService.getusers(userid=session.userid) >
+		<cfreturn variables.usersService.getusers(userid=session.user.userid) >
 	</cffunction>
 	
 	<cffunction name="validateUser" access="public" output="false" 
@@ -43,13 +43,15 @@
 			returntype="boolean" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 
-		<!--- 
+		<!--- --->
 		<cfdump var="#request.event.getArgs()#" abort="false" label="getArgs@UserListener" />
 		<cfdump var="#session#" abort="false" label="session@UserListener" />
 		<cfdump var="#arguments#" abort="true" label="arguments@UserListener" />
-         --->
+         
+         <!--- create role bean --->
+         <cfset local.role = variables.rolesService.createroles(AssessmentRoleID = request.event.getArg('role')) />
 
-		<cfreturn variables.usersService.SetUserRole(userid=session.user.userid, roleid=request.event.getArg('role')) >
+		<cfreturn variables.usersService.SetUserRole(userid=session.user.userid, roleid=) >
 	</cffunction>
 
 	<cffunction name="getUserDetails" access="public" output="false" 
