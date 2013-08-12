@@ -155,7 +155,7 @@ qCodesList			= request.event.getArg('qCodesList');
 																							<p><strong>QEP / URI Related</strong></p>
 
 																							<div class="check-line">
-																								<input type="radio"  name="qep_uri_related" value="1" class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.qep_uri_related eq 1>checked</cfif> > <label class='inline' for="c6">Yes</label>
+																								<input type="radio"  name="qep_uri_related" value="1" class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.qep_uri_related eq 1>checked</cfif>  disabled='disabled' > <label class='inline' for="c6">Yes</label>
 
 
 																							</div>
@@ -163,7 +163,7 @@ qCodesList			= request.event.getArg('qCodesList');
 																						<div class="check-line">
 																							<input type="radio"   name="qep_uri_related" value="0" class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.qep_uri_related eq 0>
 																									checked
-																								</cfif>> <label class='inline' for="c6">No</label>
+																								</cfif>  disabled='disabled'> <label class='inline' for="c6">No</label>
 																						</div>
 
 																						</div>
@@ -174,13 +174,13 @@ qCodesList			= request.event.getArg('qCodesList');
 																							<div class="check-line">
 																									<input type="radio"  name="ifp_related" value="1" class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.ifp_related eq 1>
 																										checked
-																									</cfif>> <label class='inline' for="c6">Yes</label>
+																									</cfif>  disabled='disabled'> <label class='inline' for="c6">Yes</label>
 																							</div>
 
 																							<div class="check-line">
 																								<input type="radio"  name="ifp_related" value="0" class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.ifp_related eq 0>
 																										checked
-																									</cfif>> <label class='inline' for="c6">No</label>
+																									</cfif>  disabled='disabled'> <label class='inline' for="c6">No</label>
 																							</div>
 																						</div>
 
@@ -190,13 +190,13 @@ qCodesList			= request.event.getArg('qCodesList');
 																						<div class="check-line">
 																							<input type="radio" name="online" value="1"  class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.online eq 1>
 																								checked
-																							</cfif>> <label class='inline' for="c6">Yes</label>
+																							</cfif> disabled='disabled'> <label class='inline' for="c6">Yes</label>
 																						</div>
 
 																						<div class="check-line">
 																							<input type="radio"  name="online" value="0" class='icheck-me' data-skin="square" data-color="blue" <cfif qOutcomeDetail.online eq 0>
 																								checked
-																							</cfif>> <label class='inline' for="c6">No</label>
+																							</cfif> disabled='disabled'> <label class='inline' for="c6">No</label>
 																						</div>
 																					</div>
 
