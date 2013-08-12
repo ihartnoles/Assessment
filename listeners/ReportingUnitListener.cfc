@@ -19,6 +19,11 @@
 	<cffunction name="getReportingUnitsQuery" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		
+		<!---
+		<cfdump var="#request.event.getArgs()#" abort="true" label="@@ReportinUnitListener" />
+		--->
+		
 		<cfreturn variables.reportingUnitsService.getReportingUnitsQuery(qUserAccessIDs = request.event.getArg("qUserAccessIDs") ) >
 	</cffunction>
 

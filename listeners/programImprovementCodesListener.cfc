@@ -23,12 +23,11 @@
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 
-		<cfdump var="#request.event.getArgs()#" abort="false" label="@@UserRoleAccessListener_1" />
-	
+
+		<!---
+		<cfdump var="#request.event.getArgs()#" abort="true" label="@@UserRoleAccessListener_1" />
+		--->
 		
 		<cfreturn variables.programImprovementCodesService.getByAttributesQuery() >
 	</cffunction>
-
-	
-	
 </cfcomponent>

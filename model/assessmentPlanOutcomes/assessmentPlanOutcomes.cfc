@@ -12,6 +12,9 @@
 		<cfproperty name="OutcomeResources" type="string" default="" />
 		<cfproperty name="OutcomeCreateDate" type="date" default="" />
 		<cfproperty name="OutcomePlanLastChangeDate" type="date" default="" />
+		<cfproperty name="QEP_URI_related" type="numeric" default="" />
+		<cfproperty name="IFP_related" type="numeric" default="" />
+		<cfproperty name="Online" type="numeric" default="" />
 		
 	<!---
 	PROPERTIES
@@ -34,6 +37,9 @@
 		<cfargument name="OutcomeResources" type="string" required="false" default="" />
 		<cfargument name="OutcomeCreateDate" type="string" required="false" default="" />
 		<cfargument name="OutcomePlanLastChangeDate" type="string" required="false" default="" />
+		<cfargument name="QEP_URI_related" type="string" required="false" default="" />
+		<cfargument name="IFP_related" type="string" required="false" default="" />
+		<cfargument name="Online" type="string" required="false" default="" />
 		
 		<!--- run setters --->
 		<cfset setOutcomeID(arguments.OutcomeID) />
@@ -48,6 +54,9 @@
 		<cfset setOutcomeResources(arguments.OutcomeResources) />
 		<cfset setOutcomeCreateDate(arguments.OutcomeCreateDate) />
 		<cfset setOutcomePlanLastChangeDate(arguments.OutcomePlanLastChangeDate) />
+		<cfset setQEP_URI_related(arguments.QEP_URI_related) />
+		<cfset setIFP_related(arguments.IFP_related) />
+		<cfset setOnline(arguments.Online) />
 		
 		<cfreturn this />
  	</cffunction>
@@ -218,6 +227,30 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
+		<!--- QEP_URI_related --->
+		<cfif (len(trim(getQEP_URI_related())) AND NOT isNumeric(trim(getQEP_URI_related())))>
+			<cfset thisError.field = "QEP_URI_related" />
+			<cfset thisError.type = "invalidType" />
+			<cfset thisError.message = "QEP_URI_related is not numeric" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+		
+		<!--- IFP_related --->
+		<cfif (len(trim(getIFP_related())) AND NOT isNumeric(trim(getIFP_related())))>
+			<cfset thisError.field = "IFP_related" />
+			<cfset thisError.type = "invalidType" />
+			<cfset thisError.message = "IFP_related is not numeric" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+		
+		<!--- Online --->
+		<cfif (len(trim(getOnline())) AND NOT isNumeric(trim(getOnline())))>
+			<cfset thisError.field = "Online" />
+			<cfset thisError.type = "invalidType" />
+			<cfset thisError.message = "Online is not numeric" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+		
 		<cfreturn errors />
 	</cffunction>
 
@@ -318,6 +351,30 @@
 	</cffunction>
 	<cffunction name="getOutcomePlanLastChangeDate" access="public" returntype="string" output="false">
 		<cfreturn variables.instance.OutcomePlanLastChangeDate />
+	</cffunction>
+
+	<cffunction name="setQEP_URI_related" access="public" returntype="void" output="false">
+		<cfargument name="QEP_URI_related" type="string" required="true" />
+		<cfset variables.instance.QEP_URI_related = arguments.QEP_URI_related />
+	</cffunction>
+	<cffunction name="getQEP_URI_related" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.QEP_URI_related />
+	</cffunction>
+
+	<cffunction name="setIFP_related" access="public" returntype="void" output="false">
+		<cfargument name="IFP_related" type="string" required="true" />
+		<cfset variables.instance.IFP_related = arguments.IFP_related />
+	</cffunction>
+	<cffunction name="getIFP_related" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.IFP_related />
+	</cffunction>
+
+	<cffunction name="setOnline" access="public" returntype="void" output="false">
+		<cfargument name="Online" type="string" required="true" />
+		<cfset variables.instance.Online = arguments.Online />
+	</cffunction>
+	<cffunction name="getOnline" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.Online />
 	</cffunction>
 
 

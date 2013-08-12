@@ -24,6 +24,9 @@
 		<cfargument name="OutcomeResources" type="string" required="false" />
 		<cfargument name="OutcomeCreateDate" type="date" required="false" />
 		<cfargument name="OutcomePlanLastChangeDate" type="date" required="false" />
+		<cfargument name="QEP_URI_related" type="numeric" required="false" />
+		<cfargument name="IFP_related" type="numeric" required="false" />
+		<cfargument name="Online" type="numeric" required="false" />
 		
 			
 		<cfset var assessmentPlanOutcomes = createObject("component","assessmentPlanOutcomes").init(argumentCollection=arguments) />
@@ -51,11 +54,14 @@
 		<cfargument name="OutcomeResources" type="string" required="false" />
 		<cfargument name="OutcomeCreateDate" type="date" required="false" />
 		<cfargument name="OutcomePlanLastChangeDate" type="date" required="false" />
+		<cfargument name="QEP_URI_related" type="numeric" required="false" />
+		<cfargument name="IFP_related" type="numeric" required="false" />
+		<cfargument name="Online" type="numeric" required="false" />
 		
 		<cfreturn variables.assessmentPlanOutcomesGateway.getByAttributes(argumentCollection=arguments) />
 	</cffunction>
 
-	<cffunction name="saveassessmentPlanOutcomes" access="public" output="false" returntype="numeric">
+	<cffunction name="saveassessmentPlanOutcomes" access="public" output="false" returntype="boolean">
 		<cfargument name="assessmentPlanOutcomes" type="assessmentPlanOutcomes" required="true" />
 
 		<cfreturn variables.assessmentPlanOutcomesDAO.save(assessmentPlanOutcomes) />

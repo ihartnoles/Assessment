@@ -22,6 +22,7 @@
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
 		<!--- 	
+		<cfdump var="#arguments#" abort="false" label="arguments @@AssALCOutcomeCategoriesListener" />
 		<cfdump var="#request.event.getArgs()#" abort="true" label="@@AssALCOutcomeCategoriesListener" />
 		--->
 

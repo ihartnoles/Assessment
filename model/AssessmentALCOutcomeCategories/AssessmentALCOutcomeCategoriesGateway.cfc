@@ -70,7 +70,7 @@
 		<cfargument name="OutcomeID" type="numeric" required="true" />
 		<cfargument name="SubCategoryID" type="numeric" required="true" />
 
-		<!---
+		<!--- 
 		<cfdump var="#arguments#" abort="true" label="arguments in saveALCCategories Gateway" />
 		--->
 

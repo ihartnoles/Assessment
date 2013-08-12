@@ -35,7 +35,10 @@
 				OutcomePlanningImprovement,
 				OutcomeResources,
 				OutcomeCreateDate,
-				OutcomePlanLastChangeDate
+				OutcomePlanLastChangeDate,
+				QEP_URI_related,
+				IFP_related,
+				Online
 			FROM	AssessmentPlanOutcomes
 			WHERE	0=0
 		
@@ -100,7 +103,10 @@
 				OutcomePlanningImprovement,
 				OutcomeResources,
 				OutcomeCreateDate,
-				OutcomePlanLastChangeDate
+				OutcomePlanLastChangeDate,
+				QEP_URI_related,
+				IFP_related,
+				Online
 			FROM	AssessmentPlanOutcomes
 			WHERE	0=0
 		
@@ -157,7 +163,10 @@
 				OutcomePlanningImprovement,
 				OutcomeResources,
 				OutcomeCreateDate,
-				OutcomePlanLastChangeDate
+				OutcomePlanLastChangeDate,
+				QEP_URI_related,
+				IFP_related,
+				Online
 			FROM	AssessmentPlanOutcomes
 			WHERE	0=0
 		

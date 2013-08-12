@@ -16,13 +16,13 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-				
+				<cfdump var="#qcountOutcomes#" />
 				<!---
 				<cfdump var="#qSelectedALCCategories#" />
 				
 				<cfdump var="#qPlanDetails#" />
 
-				<cfdump var="#qcountOutcomes#" />
+				
 
 				<cfdump var="#qALCCategories#" />
 				
@@ -116,22 +116,76 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 																		</cfoutput>
 																	</div>
 																</div>
-															
-															<div class="row-fluid">
-																<div class="span12">
+																	
 																	<div class="control-group">
-																		<label class="control-label"><strong>Strategic Plan Goals</strong></label>
-																		<div class="controls">
-																			<label class='checkbox'>
-																				<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
-																			</strong></label>
-																			<label class='checkbox'>
-																				<input type="checkbox" name="checkbox"> ipsum eiusmod
-																			</strong></label>
+																		<div class="row-fluid">
+																			<div class="span3">
+																				<p><strong>QEP / URI Related</strong></p>
+
+																				<div class="check-line">
+																						<input type="radio"  name="qep_uri_related" value="1" class='icheck-me' data-skin="square" data-color="blue" <cfif qcountOutcomes.qep_uri_related eq 1>
+																							checked
+																						</cfif> > <label class='inline' for="c6">Yes</label>
+
+																				</div>
+
+																				<div class="check-line">
+																					<input type="radio"   name="qep_uri_related" value="0" class='icheck-me' data-skin="square" data-color="blue" <cfif qcountOutcomes.qep_uri_related eq 0>
+																							checked
+																						</cfif>> <label class='inline' for="c6">No</label>
+																				</div>
+
+																			</div>
+
+																			<div class="span3">
+																				<p><strong>IFP Related</strong></p>
+
+																				<div class="check-line">
+																						<input type="radio"  name="ifp_related" value="1" class='icheck-me' data-skin="square" data-color="blue" <cfif qcountOutcomes.ifp_related eq 1>
+																							checked
+																						</cfif>> <label class='inline' for="c6">Yes</label>
+																				</div>
+
+																				<div class="check-line">
+																					<input type="radio"  name="ifp_related" value="0" class='icheck-me' data-skin="square" data-color="blue" <cfif qcountOutcomes.ifp_related eq 0>
+																							checked
+																						</cfif>> <label class='inline' for="c6">No</label>
+																				</div>
+																			</div>
+
+																			<div class="span3">
+																				<p><strong>Data collected from online coursework?</strong></p>
+
+																				    <div class="check-line">
+																						<input type="radio" name="online" value="1"  class='icheck-me' data-skin="square" data-color="blue" <cfif qcountOutcomes.online eq 1>
+																							checked
+																						</cfif>> <label class='inline' for="c6">Yes</label>
+																					</div>
+
+																					<div class="check-line">
+																						<input type="radio"  name="online" value="0" class='icheck-me' data-skin="square" data-color="blue" <cfif qcountOutcomes.online eq 0>
+																							checked
+																						</cfif>> <label class='inline' for="c6">No</label>
+																					</div>
+																				</div>
+																			</div>
 																		</div>
-																	</div>
-																</div>
-															</div>
+														
+																		<div class="row-fluid">
+																			<div class="span12">
+																				<div class="control-group">
+																					<label class="control-label"><strong>Strategic Plan Goals</strong></label>
+																					<div class="controls">
+																						<label class='checkbox'>
+																							<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
+																						</strong></label>
+																						<label class='checkbox'>
+																							<input type="checkbox" name="checkbox"> ipsum eiusmod
+																						</strong></label>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
 
 															<cfoutput>
 

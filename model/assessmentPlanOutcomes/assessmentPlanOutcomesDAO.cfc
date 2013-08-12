@@ -10,9 +10,9 @@
 	<cffunction name="create" access="public" output="false" returntype="numeric">
 		<cfargument name="assessmentPlanOutcomes" type="assessmentPlanOutcomes" required="true" />
 
-		<!---
+		<!--- --->
 		<cfdump var="#arguments#" abort="true" label="@@assPlanOutcomesDAO"/>
-		 --->
+		
 
 		<cfset var qCreate = "" />
 		<!--- <cftry> --->
@@ -29,7 +29,10 @@
 					OutcomePlanningImprovement,
 					OutcomeResources,
 					OutcomeCreateDate,
-					OutcomePlanLastChangeDate
+					OutcomePlanLastChangeDate,
+					QEP_URI_related,
+					IFP_related,
+					Online
 					)
 				VALUES
 					(
@@ -43,7 +46,10 @@
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement())#" />,
 					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResources()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeResources())#" />, 
 					CURRENT_TIMESTAMP,
-					CURRENT_TIMESTAMP
+					CURRENT_TIMESTAMP,
+					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getQEP_URI_related()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentPlanOutcomes.getQEP_URI_related())#" />,
+					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getIFP_related()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentPlanOutcomes.getIFP_related())#" />,
+					<cfqueryparam value="#arguments.assessmentPlanOutcomes.getOnline()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentPlanOutcomes.getOnline())#" />
 					)
 			</cfquery>
 		<!---
@@ -74,7 +80,10 @@
 					OutcomePlanningImprovement,
 					OutcomeResources,
 					OutcomeCreateDate,
-					OutcomePlanLastChangeDate
+					OutcomePlanLastChangeDate,
+					QEP_URI_related,
+					IFP_related,
+					Online
 				FROM	AssessmentPlanOutcomes
 				WHERE	OutcomeID = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
@@ -89,11 +98,15 @@
 		</cfif>
 	</cffunction>
 
-	<cffunction name="update" access="public" output="false" returntype="boolean">
+	<cffunction name="update" access="public" output="false" returntype="numeric">
 		<cfargument name="assessmentPlanOutcomes" type="assessmentPlanOutcomes" required="true" />
 
+		<!---
+		<cfdump var="#arguments#" label="@@assessmentPlanOutcomesDAO" abort="true"/>
+		--->
+
 		<cfset var qUpdate = "" />
-		<cftry>
+		<!--- <cftry> --->
 			<cfquery name="qUpdate" datasource="#variables.dsn#">
 				UPDATE	AssessmentPlanOutcomes
 				SET
@@ -107,14 +120,19 @@
 					OutcomePlanningImprovement = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanningImprovement())#" />,
 					OutcomeResources = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeResources()#" CFSQLType="cf_sql_longvarchar" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeResources())#" />,
 					OutcomeCreateDate = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeCreateDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentPlanOutcomes.getOutcomeCreateDate())#" />,
-					OutcomePlanLastChangeDate = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanLastChangeDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanLastChangeDate())#" />
+					OutcomePlanLastChangeDate = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomePlanLastChangeDate()#" CFSQLType="cf_sql_timestamp" null="#not len(arguments.assessmentPlanOutcomes.getOutcomePlanLastChangeDate())#" />,
+					QEP_URI_related = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getQEP_URI_related()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentPlanOutcomes.getQEP_URI_related())#" />,
+					IFP_related = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getIFP_related()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentPlanOutcomes.getIFP_related())#" />,
+					Online = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOnline()#" CFSQLType="cf_sql_integer" null="#not len(arguments.assessmentPlanOutcomes.getOnline())#" />
 				WHERE	OutcomeID = <cfqueryparam value="#arguments.assessmentPlanOutcomes.getOutcomeID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
+		<!---
 			<cfcatch type="database">
 				<cfreturn false />
 			</cfcatch>
 		</cftry>
-		<cfreturn true />
+		--->
+		<cfreturn #arguments.assessmentPlanOutcomes.getOutcomeID()# />
 	</cffunction>
 
 	<cffunction name="delete" access="public" output="false" returntype="boolean">
