@@ -4,6 +4,7 @@ qLearningOutcomes 	= request.event.getArg('qLearningOutcomes');
 qResearchPlans		= request.event.getArg('qResearchPlans');
 qAdminPlans			= request.event.getArg('qAdminPlans');
 qServicePlans		= request.event.getArg('qServicePlans');
+session.user.inboxcount = request.event.getArg('qInboxMessages').recordcount;
 </cfscript>
 
 <div id="new-task" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -467,7 +468,10 @@ qServicePlans		= request.event.getArg('qServicePlans');
 										<a id="calendar_button" href="#" rel="tooltip" data-placement="bottom" title="View Calendar"><span><i class="icon-calendar"></i></span><span class='name'>My Calendar</span></a>
 									</li>
 									<li class="orange">
-										<span class="label label-inverse">4</span>
+										<cfif structkeyexists(session.user, "inboxcount")>
+											<span class="label label-inverse"><cfoutput>#session.user.inboxcount#</cfoutput></span>
+										</cfif>
+											
 										<a href="index.cfm?event=messagecenter" rel="tooltip" data-placement="bottom" title="View/Send Messages"><span><i class="icon-envelope"></i></span><span class='name'>My Messages</span></a>
 									</li>
 									<li class="satblue">
