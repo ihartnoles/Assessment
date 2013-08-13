@@ -123,7 +123,7 @@ qRatings				= request.event.getArg('qRatings');
 																					Outcome 
 																					<cfoutput>
 																						#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#) 
-																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
+																						<button class="btn editOutcome" data-outcome="#qCountOutcomes.outcomeID#"><i class="icon-edit"></i>Edit</button>
 																						<!---
 																						- [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
 																						--->
@@ -519,10 +519,10 @@ qRatings				= request.event.getArg('qRatings');
 
                 $(".editOutcome").click(function() {
 					//alert('oh YEAHHHH!!!');
-
-					window.location.href = "index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+					var outcome    = $(this).data("outcome");
+					//alert(outcome);
+					window.location.href = "index.cfm?event=editOutcome&outcomeID=" + outcome + "&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
 				});
-
           
         });
         </cfoutput>
