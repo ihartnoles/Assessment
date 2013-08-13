@@ -19,13 +19,12 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-				<cfdump var="#qcountOutcomes#" />
 				<!---
+				<cfdump var="#qcountOutcomes#" />
+				
 				<cfdump var="#qSelectedALCCategories#" />
 				
 				<cfdump var="#qPlanDetails#" />
-
-				
 
 				<cfdump var="#qALCCategories#" />
 				
@@ -275,7 +274,7 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 															<div class="row-fluid">
 																<div class="form-actions">
 																	<button type="submit" class="btn btn-red">Save changes</button>
-																	<button type="button" class="btn">Cancel</button>																
+																	<button type="button" class="btn" id="cancel" onclick="javascript:window.history.back(-1);return false;">Cancel</button>																
 																</div>
 															</div>
 														</form>

@@ -383,5 +383,20 @@
 			<ref bean="programImprovementCodesAssessmentOutcomesGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<bean id="tasksDAO" class="Assessment.model.tasks.tasksDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="tasksGateway" class="Assessment.model.tasks.tasksGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="tasksService" class="Assessment.model.tasks.tasksService">
+		<constructor-arg name="tasksDAO">
+			<ref bean="tasksDAO"/>
+		</constructor-arg>
+		<constructor-arg name="tasksGateway">
+			<ref bean="tasksGateway"/>
+		</constructor-arg>
+	</bean>
 	
 </beans>

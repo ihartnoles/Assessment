@@ -13,11 +13,13 @@ qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-<cfdump var="#qCodesList#" label="qCodesList"/>
 
-<cfdump var="#qSelectedProgImpCodes#" label="qSelectedProgImpCodes"/>
 
 				<!---
+				<cfdump var="#qCodesList#" label="qCodesList"/>
+
+				<cfdump var="#qSelectedProgImpCodes#" label="qSelectedProgImpCodes"/>
+
 				<cfdump var="#qOutcomeDetail#" />
 				
 				<cfdump var="#qPlanDetails#" />

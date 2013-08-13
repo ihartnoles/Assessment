@@ -68,6 +68,7 @@
         <listener name="AssessmentPlanWorkflowListener" type="Assessment.listeners.AssessmentPlanWorkflowListener" />        
         <listener name="programImprovementCodesListener" type="Assessment.listeners.programImprovementCodesListener" />  
         <listener name="AssessmentALCOutcomeCategoriesListener" type="Assessment.listeners.AssessmentALCOutcomeCategoriesListener" />  
+        <listener name="TaskListener" type="Assessment.listeners.taskListener" />  
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
