@@ -13,7 +13,8 @@
 		<cfset var sf = getProperty("ServiceFactory")>
 		
 
-		 <cfset variables.assessmentPlanOutcomesService 	= sf.getBean('assessmentPlanOutcomesService') /> 
+		 <cfset variables.assessmentPlanOutcomesService 			= sf.getBean('assessmentPlanOutcomesService') /> 
+		 <cfset variables.programImprovementCodesAssessmentOutcomesService   = sf.getBean('programImprovementCodesAssessmentOutcomesService') /> 
 	</cffunction>
 
 	<cffunction name="countOutcomes" access="public" output="false" 
@@ -119,13 +120,50 @@
 
 	</cffunction>
 
-<!---
-	<cffunction name="getAssessmentPlanDetails" access="public" output="false" 
+	<cffunction name="getSelectedProgImpCodes" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
-		<cfreturn variables.assessmentPlanOutcomesService.getAssessmentPlanDetails(ReportingUnitID=arguments.event.getArg("ReportingUnitID"),
-																			PlanID=arguments.event.getArg("PlanID")) >
+		
+		<!--- 	
+		<cfdump var="#request.event.getArgs()#" abort="true" label="@@AssPlanOutcomeListener_2" />
+		--->
+
+		<cfreturn variables.programImprovementCodesAssessmentOutcomesService.getSelectedProgImpCodes(outcomeID 				= arguments.event.getArg('outcomeID'),
+																									  reportingUnitID   		= arguments.event.getArg('reportingUnitID'),
+																									  planID    				= arguments.event.getArg('planID')	) >
 	</cffunction>
- --->
+
+
+	<cffunction name="saveProgImpCodes" access="public" output="false" 
+			returntype="void" >
+		
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		
+		<!--- 	
+		<cfdump var="#request.event.getArgs()#" abort="false" label="@@AssPlanOutcomeListener_1" />
+		--->
+
+		<!--- delete the existing improvementcodes --->
+		<cfset local.delete = variables.programImprovementCodesAssessmentOutcomesService.deleteImprovementCodes(outcomeID = request.event.getArg('outcomeID')) />
+
+
+		<cfloop list="#request.event.getArg('programimprovementcode')#" index="idx">
+			
+			<!--- create the outcomebean --->
+  			<cfset local.improvementCodeBean = variables.programImprovementCodesAssessmentOutcomesService.createprogramImprovementCodesAssessmentOutcomes(id = 0,
+  																																						  outcomeID 			   = arguments.event.getArg('outcomeID'),
+																									  													  reportingUnitID  		   = arguments.event.getArg('reportingUnitID'),
+																									  													  planID    			   = arguments.event.getArg('planID'),
+																									  													  programImprovementCodeID = idx) />
+  			<!--- 
+  			<cfdump var="#local.improvementCodeBean#" abort="true" label="@@AssPlanOutcomeListener_2" />
+			--->
+			
+  			<!--- save the bean --->
+			<cfset local.saveBean = variables.programImprovementCodesAssessmentOutcomesService.saveprogramImprovementCodesAssessmentOutcomes(local.improvementCodeBean) />
+
+		</cfloop>
+
+	</cffunction>
 
 </cfcomponent>

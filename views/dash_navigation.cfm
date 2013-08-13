@@ -162,7 +162,15 @@
 			<div class="user">
 				<ul class="icon-nav">
 					<li class='dropdown'>
-						<a href="index.cfm?event=messagecenter" class='dropdown-toggle' rel="tooltip" data-placement="bottom" title="View/Send Your Messages"><i class="icon-envelope-alt"></i><span class="label label-lightred">4</span></a>
+						<a href="index.cfm?event=messagecenter" class='dropdown-toggle' rel="tooltip" data-placement="bottom" title="View/Send Your Messages"><i class="icon-envelope-alt"></i>
+						<cfif structkeyexists(session.user, "inboxcount") AND session.user.inboxcount>
+							<span class="label label-lightred">
+								<cfoutput>
+									#session.user.inboxcount#
+								</cfoutput>
+							</span>
+						</cfif>
+						</a>
 						<ul class="dropdown-menu pull-right message-ul">
 							<li>
 								<a href="#">

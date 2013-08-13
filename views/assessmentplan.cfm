@@ -123,7 +123,7 @@ qRatings				= request.event.getArg('qRatings');
 																					Outcome 
 																					<cfoutput>
 																						#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#) 
-																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
+																						<button class="btn editOutcome" data-outcome="#qCountOutcomes.outcomeID#"><i class="icon-edit"></i>Edit</button>
 																						<!---
 																						- [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
 																						--->
@@ -286,72 +286,11 @@ qRatings				= request.event.getArg('qRatings');
 																						</div>
 																					</div>
 																				</div>
-																				<!---
-
-																				<p><strong>FAU Strategic Plan related goals & objectives:</strong></p>
-																				Goal 1(all objectives): Providing Increased Access to Higher Education
-
-																				<br>Goal 1, Objective 1: Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts
-
-																				<br>Goal 4, Objective 5: Engage students, faculty and staff in service activities that mutually benefit the University and the community<br><br>
-
-
-																				<p><strong>Implementing Strategy :</strong></p>
-																				<p>Ensure that all students accomplish at least six credits in each subfield of anthropology: biological, archaeology, and cultural. In the process they must demonstrate sufficient command of the material as judged by professors on the work produced. Additionally, students must take at least six credits of research methods courses: the methodology sections of their research papers should demonstrate that they can apply theories to particular problems/questions. </P>
-
-
-																				<p><strong>Assessment Method :</strong></p>
-																				<p>Assessment based on demonstration of satisfactory or better performance (on average) on for a sample of individual student work that is reviewed annually. The methodology sections of student papers in the methods courses will be reviewed to ensure that students' performance meets standards. The rubric used is attached. </p>
-
-																				<p>This method will ensure that we continue to abide by the commitments of our ALC, which require that all graduating students meet the department's standards for content knowledge. If we identify problems in meeting those goals, we will develop a departmental plan to strengthen the problem areas in courses.</p>
-
-
-
-																				<p><strong>Criterion for success </strong></p>
-																				<ul>
-																					<li>80% will meet expectations.</li>
-																					<li>10% excellent</li>
-																					<li>30% above satisfactory</li>
-																					<li>60% satisfactory</li>
-																				</ul>
-
-																				<p>As this is the first attempt at using this rubric, success criterion is experimental.</p>
-																				--->
-																				
+																																								
 
 																			</div>
 																		</div>
-																		<!---
-																		<div class="box box-color box-bordered red">
-																			<div class="box-title">
-																				<h3>
-																					<i class="icon-file"></i>
-																					Outcome #2
-																				</h3>
-																				<div class="actions">
-																					<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-up"></i></a>
-																				</div>
-																			</div>
-																			<div class="box-content"  style="display: none;">
-																				Lorem ipsum Ut laborum irure eu quis ex proident.
-																			</div>
-																		</div>
-																		<div class="box box-color box-bordered green">
-																			<div class="box-title">
-																				<h3>
-																					<i class="icon-file"></i>
-																					Outcome #3
-																				</h3>
-																				<div class="actions">
-																					<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-up"></i></a>
-																				</div>
-																				
-																			</div>
-																			<div class="box-content"  style="display: none;">
-																				Lorem ipsum Amet amet sit dolore fugiat ullamco do. 
-																			</div>
-																		</div>
-																		--->
+																		
 																	</div>
 																</div>														
 															</cfloop>
@@ -519,10 +458,10 @@ qRatings				= request.event.getArg('qRatings');
 
                 $(".editOutcome").click(function() {
 					//alert('oh YEAHHHH!!!');
-
-					window.location.href = "index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+					var outcome    = $(this).data("outcome");
+					//alert(outcome);
+					window.location.href = "index.cfm?event=editOutcome&outcomeID=" + outcome + "&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
 				});
-
           
         });
         </cfoutput>
