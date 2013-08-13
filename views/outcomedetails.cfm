@@ -5,6 +5,7 @@ qALCCategories		= request.event.getArg('qALCCategories');
 title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 qSupportingDocs		= request.event.getArg('qSupportingDocs');
 qCodesList			= request.event.getArg('qCodesList');
+qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -12,10 +13,11 @@ qCodesList			= request.event.getArg('qCodesList');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
+<cfdump var="#qCodesList#" label="qCodesList"/>
+
+<cfdump var="#qSelectedProgImpCodes#" label="qSelectedProgImpCodes"/>
 
 				<!---
-				<cfdump var="#qCodesList#" />
-			
 				<cfdump var="#qOutcomeDetail#" />
 				
 				<cfdump var="#qPlanDetails#" />
@@ -300,7 +302,9 @@ qCodesList			= request.event.getArg('qCodesList');
 																								<div class="span3">
 																							</cfif>
 																								 <div class="check-line">
-																										<input type="checkbox" id="c5" class='icheck-me' data-skin="square" data-color="blue"> <label class='inline'>#qCodesList.item_number# #qCodesList.label#
+																										<input type="checkbox" id="c5" name="programImprovmentCode" class='icheck-me' data-skin="square" data-color="blue" value="#qCodesList.programImprovementCodeID#" 
+																										<cfif ValueList(qSelectedProgImpCodes.programImprovementCodeID) CONTAINS qCodesList.programImprovementCodeID >checked</cfif>
+																										disabled="true"> <label class='inline'>#qCodesList.item_number# #qCodesList.label#
 																										<a href="##modal-#qCodesList.currentrow#" role="button" class="btn btn-mini" data-toggle="modal">?</a></label>
 
 																										<!--- Modal to Explain Curricular Change --->

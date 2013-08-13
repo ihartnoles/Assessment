@@ -4,6 +4,9 @@ qPlanDetails			= request.event.getArg('qPlanDetails');
 qcountOutcomes    		= request.event.getArg('qcountOutcomes');
 qALCCategories			= request.event.getArg('qALCCategories');
 qSelectedALCCategories	= request.event.getArg('qSelectedALCCategories');
+qCodesList				= request.event.getArg('qCodesList');
+qSelectedProgImpCodes 	= request.event.getArg('qSelectedProgImpCodes');
+
 if ( cgi.query_string CONTAINS "editOutcome"){
 	title = "Edit outcome" ;
 } else {
@@ -224,11 +227,56 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 																		<textarea name="outcomeplanningimprovement" id="textarea" rows="5" class="input-block-level">#trim(qcountOutcomes.outcomeplanningimprovement)#</textarea>
 																	</div>
 																</div>
-															</cfoutput>
 
-															<div class="form-actions">
-																<button type="submit" class="btn btn-red">Save changes</button>
-																<button type="button" class="btn">Cancel</button>
+																
+																			
+																				<div class="control-group">
+																					<div class="row-fluid">
+																						<label for="programImprovmentCode" class="control-label"><strong>Program Improvement Codes</strong></label>
+																						<div class="controls">
+																							<cfloop query="qCodesList">
+																											<cfoutput>
+
+																												<cfif qCodesList.currentrow EQ 1 OR qCodesList.currentrow EQ 4 OR qCodesList.currentrow EQ 7 >
+																													<div class="span3">
+																												</cfif>
+																													 <div class="check-line">
+																															<input type="checkbox" id="c5" name="programImprovementCode" class='icheck-me' data-skin="square" data-color="blue" value="#qCodesList.programImprovementCodeID#" 
+																															<cfif ValueList(qSelectedProgImpCodes.programImprovementCodeID) CONTAINS qCodesList.programImprovementCodeID >checked</cfif>
+																															> <label class='inline'>#qCodesList.item_number# #qCodesList.label#
+																															<a href="##modal-#qCodesList.currentrow#" role="button" class="btn btn-mini" data-toggle="modal">?</a></label>
+
+																															<!--- Modal to Explain Curricular Change --->
+																															<div id="modal-#qCodesList.currentrow#" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																																<div class="modal-header">																										
+																																	<h3 id="myModalLabel">#qCodesList.label#</h3>
+																																</div>
+																																<div class="modal-body">
+																																	<p>#qCodesList.description#</p>
+																																</div>
+																																<div class="modal-footer">
+																																	<button class="btn btn-primary" data-dismiss="modal">Ok</button>
+																																</div>
+																															</div>
+																														</div>
+																												<cfif qCodesList.currentrow EQ 3 OR qCodesList.currentrow EQ 6 OR qCodesList.currentrow EQ 9 >
+																													</div>
+																												</cfif>
+
+																											</cfoutput>
+																										</cfloop>
+																						</div>
+																					</div>
+																				</div>
+																			
+																	
+
+															</cfoutput>
+															<div class="row-fluid">
+																<div class="form-actions">
+																	<button type="submit" class="btn btn-red">Save changes</button>
+																	<button type="button" class="btn">Cancel</button>																
+																</div>
 															</div>
 														</form>
 														<!--- 

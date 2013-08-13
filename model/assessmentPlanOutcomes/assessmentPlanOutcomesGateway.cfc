@@ -180,7 +180,6 @@
 		<cfreturn qList />
 	</cffunction>
 
-
 	<cffunction name="getByAttributes" access="public" output="false" returntype="array">
 		<cfargument name="OutcomeID" type="numeric" required="false" />
 		<cfargument name="PlanID" type="numeric" required="false" />

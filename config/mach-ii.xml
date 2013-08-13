@@ -186,6 +186,7 @@
 			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qOutcomeDetail"  />
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="getOutcomeSupportingDocs" resultArg="qSupportingDocs"  />
 			<notify listener="programImprovementCodesListener" method="getCodesList" resultArg="qCodesList"  />
+			<notify listener="AssessmentPlanOutcomeListener" method="getSelectedProgImpCodes" resultArg="qSelectedProgImpCodes"  />
 			<view-page name="outcomedetails" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -357,6 +358,8 @@
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="ALCCategoriesListener" method="getALCCategoriesSelected" resultArg="qSelectedALCCategories"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qcountOutcomes"  />
+			<notify listener="programImprovementCodesListener" method="getCodesList" resultArg="qCodesList"  />
+			<notify listener="AssessmentPlanOutcomeListener" method="getSelectedProgImpCodes" resultArg="qSelectedProgImpCodes"  />
 			<view-page name="editOutcome" contentArg="content"/>
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -365,6 +368,7 @@
 		<event-handler event="saveOutcome" access="public">
 			<notify listener="AssessmentPlanOutcomeListener" method="saveOutcome" resultArg="outcomeID"/>
 			<notify listener="AssessmentALCOutcomeCategoriesListener" method="saveALCCategoriesSelected" />
+			<notify listener="AssessmentPlanOutcomeListener" method="saveProgImpCodes"/>
 			<redirect event="showplan" args="reportingUnitID,PlanID" />
 		</event-handler>
 

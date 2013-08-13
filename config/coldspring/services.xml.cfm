@@ -368,4 +368,20 @@
 		</constructor-arg>
 	</bean>
 
+
+	<bean id="programImprovementCodesAssessmentOutcomesDAO" class="Assessment.model.programImprovementCodesAssessmentOutcomes.programImprovementCodesAssessmentOutcomesDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="programImprovementCodesAssessmentOutcomesGateway" class="Assessment.model.programImprovementCodesAssessmentOutcomes.programImprovementCodesAssessmentOutcomesGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="programImprovementCodesAssessmentOutcomesService" class="Assessment.model.programImprovementCodesAssessmentOutcomes.programImprovementCodesAssessmentOutcomesService">
+		<constructor-arg name="programImprovementCodesAssessmentOutcomesDAO">
+			<ref bean="programImprovementCodesAssessmentOutcomesDAO"/>
+		</constructor-arg>
+		<constructor-arg name="programImprovementCodesAssessmentOutcomesGateway">
+			<ref bean="programImprovementCodesAssessmentOutcomesGateway"/>
+		</constructor-arg>
+	</bean>
+	
 </beans>
