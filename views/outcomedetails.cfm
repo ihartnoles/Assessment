@@ -6,14 +6,14 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 qSupportingDocs		= request.event.getArg('qSupportingDocs');
 qCodesList			= request.event.getArg('qCodesList');
 qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
+
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-				
-
+							
 
 				<!---
 				<cfdump var="#qCodesList#" label="qCodesList"/>

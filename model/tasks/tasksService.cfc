@@ -40,8 +40,60 @@
 		<cfreturn variables.tasksGateway.getByAttributes(argumentCollection=arguments) />
 	</cffunction>
 
-	<cffunction name="savetasks" access="public" output="false" returntype="boolean">
-		<cfargument name="tasks" type="tasks" required="true" />
+	<cffunction name="savetasks" access="public" output="false" returntype="numeric">
+		<cfargument name="task_text" type="string" required="true" />
+
+		<!---
+		<cfdump var="#arguments#" abort="false" label="@@taskService-55" output="C:\arguments.html"  format="html"/>
+		--->
+
+		<!--- create the bean --->
+		<cfset local.taskBean = createtasks(TaskID = 0,
+											userID = session.user.userID,
+											task_text = arguments.task_text,
+											done = 0,
+											bookmarked = 0) />
+
+		<!--- 
+		<cfdump var="#local.taskBean#" abort="true" label="@@taskService-55" output="C:\taskbean.html"  format="html"/>
+		--->
+		<cfreturn variables.tasksDAO.save(local.taskBean) />
+	</cffunction>
+
+	<cffunction name="updateTask" access="public" output="false" returntype="boolean">
+		<cfargument name="argumentCollection" type="any" required="true" />
+		
+		<!--- 
+		<cfdump var="#arguments#" abort="false" label="@@taskService-55" output="C:\arguments.html"  format="html"/>
+		--->
+
+		<!--- create the bean --->
+		<cfset local.taskBean = gettasks(TaskID = arguments.taskID) />
+
+		<cfset local.taskBean.setUserID(session.user.userID) />
+
+		<!--- set the properties --->
+		<cfif structkeyexists(arguments,"task_text") >
+			<cfset local.taskBean.settask_text(arguments.task_text) />
+		</cfif>
+
+		<cfif structkeyexists(arguments,"done")>
+			<cfset local.taskBean.setdone(arguments.done) />
+		</cfif>
+
+		<cfif structkeyexists(arguments,"bookmarked")>
+			<cfset local.taskBean.setbookmarked(arguments.bookmarked) />
+		</cfif>
+
+		<!--- 
+		<cfdump var="#local.taskBean#" abort="true" label="@@taskService-95" output="C:\taskbean.html"  format="html"/>
+		--->
+		<cfreturn variables.tasksDAO.save(local.taskBean) />
+	</cffunction>
+	
+
+	<cffunction name="addTask" access="public" output="false" returntype="boolean">
+		<cfargument name="task_text" type="tasks" required="true" />
 
 		<cfreturn variables.tasksDAO.save(tasks) />
 	</cffunction>

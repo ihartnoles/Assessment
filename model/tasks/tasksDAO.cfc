@@ -1,5 +1,5 @@
 
-<cfcomponent displayname="tasksDAO" hint="table ID column = ">
+<cfcomponent displayname="tasksDAO" hint="table ID column = taskID">
 
 	<cffunction name="init" access="public" output="false" returntype="tasksDAO">
 		<cfargument name="dsn" type="string" required="true">
@@ -7,15 +7,14 @@
 		<cfreturn this>
 	</cffunction>
 	
-	<cffunction name="create" access="public" output="false" returntype="boolean">
+	<cffunction name="create" access="public" output="false" returntype="numeric">
 		<cfargument name="tasks" type="tasks" required="true" />
 
 		<cfset var qCreate = "" />
-		<cftry>
-			<cfquery name="qCreate" datasource="#variables.dsn#">
+		
+			<cfquery name="qCreate" datasource="#variables.dsn#" result="res">
 				INSERT INTO Tasks
 					(
-					TaskID,
 					userID,
 					task_text,
 					done,
@@ -23,18 +22,14 @@
 					)
 				VALUES
 					(
-					<cfqueryparam value="#arguments.tasks.getTaskID()#" CFSQLType="cf_sql_integer" />,
-					<cfqueryparam value="#arguments.tasks.getuserID()#" CFSQLType="cf_sql_integer" />,
+					<cfqueryparam value="#arguments.tasks.getuserID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.tasks.getuserID())#" />,
 					<cfqueryparam value="#arguments.tasks.gettask_text()#" CFSQLType="cf_sql_varchar" null="#not len(arguments.tasks.gettask_text())#" />,
 					<cfqueryparam value="#arguments.tasks.getdone()#" CFSQLType="cf_sql_integer" null="#not len(arguments.tasks.getdone())#" />,
 					<cfqueryparam value="#arguments.tasks.getbookmarked()#" CFSQLType="cf_sql_integer" null="#not len(arguments.tasks.getbookmarked())#" />
 					)
 			</cfquery>
-			<cfcatch type="database">
-				<cfreturn false />
-			</cfcatch>
-		</cftry>
-		<cfreturn true />
+			
+		<cfreturn res.identitycol />
 	</cffunction>
 
 	<cffunction name="read" access="public" output="false" returntype="void">
@@ -45,13 +40,13 @@
 		<cftry>
 			<cfquery name="qRead" datasource="#variables.dsn#">
 				SELECT
-					TaskID,
+					taskID,
 					userID,
 					task_text,
 					done,
 					bookmarked
 				FROM	Tasks
-				WHERE	
+				WHERE	taskID = <cfqueryparam value="#arguments.tasks.gettaskID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
 			<cfcatch type="database">
 				<!--- leave the bean as is and set an empty query for the conditional logic below --->
@@ -68,21 +63,17 @@
 		<cfargument name="tasks" type="tasks" required="true" />
 
 		<cfset var qUpdate = "" />
-		<cftry>
+		
 			<cfquery name="qUpdate" datasource="#variables.dsn#">
 				UPDATE	Tasks
 				SET
-					TaskID = <cfqueryparam value="#arguments.tasks.getTaskID()#" CFSQLType="cf_sql_integer" />,
-					userID = <cfqueryparam value="#arguments.tasks.getuserID()#" CFSQLType="cf_sql_integer" />,
+					userID = <cfqueryparam value="#arguments.tasks.getuserID()#" CFSQLType="cf_sql_integer" null="#not len(arguments.tasks.getuserID())#" />,
 					task_text = <cfqueryparam value="#arguments.tasks.gettask_text()#" CFSQLType="cf_sql_varchar" null="#not len(arguments.tasks.gettask_text())#" />,
 					done = <cfqueryparam value="#arguments.tasks.getdone()#" CFSQLType="cf_sql_integer" null="#not len(arguments.tasks.getdone())#" />,
 					bookmarked = <cfqueryparam value="#arguments.tasks.getbookmarked()#" CFSQLType="cf_sql_integer" null="#not len(arguments.tasks.getbookmarked())#" />
-				WHERE	
+				WHERE	taskID = <cfqueryparam value="#arguments.tasks.gettaskID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
-			<cfcatch type="database">
-				<cfreturn false />
-			</cfcatch>
-		</cftry>
+			
 		<cfreturn true />
 	</cffunction>
 
@@ -90,15 +81,13 @@
 		<cfargument name="tasks" type="tasks" required="true" />
 
 		<cfset var qDelete = "">
-		<cftry>
+		
 			<cfquery name="qDelete" datasource="#variables.dsn#">
 				DELETE FROM	Tasks 
-				WHERE	
+				WHERE	taskID = <cfqueryparam value="#arguments.tasks.gettaskID()#" CFSQLType="cf_sql_integer" />
 			</cfquery>
-			<cfcatch type="database">
-				<cfreturn false />
-			</cfcatch>
-		</cftry>
+			
+		
 		<cfreturn true />
 	</cffunction>
 
@@ -109,7 +98,7 @@
 		<cfquery name="qExists" datasource="#variables.dsn#" maxrows="1">
 			SELECT count(1) as idexists
 			FROM	Tasks
-			WHERE	
+			WHERE	taskID = <cfqueryparam value="#arguments.tasks.gettaskID()#" CFSQLType="cf_sql_integer" />
 		</cfquery>
 
 		<cfif qExists.idexists>

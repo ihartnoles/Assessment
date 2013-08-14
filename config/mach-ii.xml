@@ -126,8 +126,22 @@
 			<notify listener="AssessmentPlanListener" method="getAdminPlanTotals" resultArg="qAdminPlans" />
 			<notify listener="AssessmentPlanListener" method="getServicePlanTotals" resultArg="qServicePlans" />
 			<notify listener="messageListener" method="getInboxMessages" resultArg="qInboxMessages" />
+			<notify listener="taskListener" method="getTasks" resultArg="qTasks" />
 			<view-page name="dash_main" contentArg="content" />
 			<view-page name="dash_layout" />
+		</event-handler>
+
+		<event-handler event="addTask" access="public">
+			<notify listener="taskListener" method="addTask" resultArg="forJSON" />
+			<view-page name="toJSON"/>
+		</event-handler>
+
+		<event-handler event="updateTask" access="public">
+			<notify listener="taskListener" method="updateTask" />			
+		</event-handler>
+
+		<event-handler event="deleteTask" access="public">
+			<notify listener="taskListener" method="deleteTask" />			
 		</event-handler>
 
 		<event-handler event="ShowReportingUnits" access="public">
@@ -426,6 +440,8 @@
 		<page-view name="exception" page="/views/exception.cfm" />
 		<page-view name="upload" page="/views/upload.cfm" />
 		<page-view name="json" page="/views/json.cfm" />
+		<page-view name="taskjson" page="/views/taskjson.cfm" />
+		<page-view name="toJSON" page="/views/toJSON.cfm" />
 		<page-view name="grid" page="/views/grid.cfm" />		
 		<page-view name="reportGrid" page="/views/reportGrid.cfm" />
 		<page-view name="addPlanWizard" page="/views/addPlan.cfm" />

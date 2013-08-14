@@ -554,6 +554,21 @@ $(".tasklist").on('click', '.task-delete', function(e){
     e.stopPropagation();
     var $el = $(this);
     $el.parents("li").fadeOut();
+
+    $taskid  = $(this).data("taskid");
+        alert('taskid ' + $taskid);
+
+        jQuery.post(
+                    "index.cfm?event=deleteTask&",
+                    {
+                        taskid: $taskid
+                    }
+
+                    //,callback function
+                    //function(data){
+                    //  alert('kool');
+                    //}
+        )
 });
 
 $(".tasklist").sortable({
@@ -614,39 +629,58 @@ if($(".scrollable").length > 0){
     });
 }
 
+/*
 $(".new-task-form").submit(function(e){
     e.preventDefault();
     $("#new-task").modal("hide");
     var $form = $(this),
     $tasklist = $(".tasklist");
     var $icon = $form.find("select[name=icons]"),
-    $name = $form.find("input[name=task-name]"),
+    $name = $("#task-name").val();,
     $bookmark = $form.find("input[name=task-bookmarked]");
     if($name.val() != ""){
         var elementToAdd = "";
-        ($bookmark.is(":checked")) ? elementToAdd += "<li class='bookmarked'>" : elementToAdd += "<li>";
 
-        elementToAdd += '<div class="check"><input type="checkbox" class="icheck-me" data-skin="square" data-color="blue"></div><span class="task"><i class="' + $icon.select2("val") + '"></i><span>' + $name.val() + '</span></span><span class="task-actions"><a href="#" class="task-delete" rel="tooltip" title="Delete that task"><i class="icon-remove"></i></a><a href="#" class="task-bookmark" rel="tooltip" title="Mark as important"><i class="icon-bookmark-empty"></i></a></span></li>';
+        var postString = "index.cfm?event=addTask&";
 
-        if($tasklist.find(".bookmarked").length > 0){
-            if($bookmark.is(":checked")){
-                $tasklist.find(".bookmarked").first().before(elementToAdd);
-            } else {
-                $tasklist.find(".bookmarked").last().after(elementToAdd);
-            }
-        } else {
-            $tasklist.prepend(elementToAdd);
-        }  
+        alert($name);
 
-        icheck();
-        $tasklist.find("[rel=tooltip]").tooltip();
+        jQuery.post(
+                    "index.cfm?event=addTask&",
+                    {
+                        task_text: $name
+                       
+                    },
+                    //callback function
+                    function(data){
 
-        $icon.select2("val", 'icon-adjust');
-        $name.val("");
-        $bookmark.prop("checked", false);
+                         alert('inside');
+
+                        ($bookmark.is(":checked")) ? elementToAdd += "<li class='bookmarked'>" : elementToAdd += "<li>";
+
+                        elementToAdd += '<div class="check"><input type="checkbox" class="icheck-me" data-skin="square" data-color="blue"></div><span class="task"><i class="' + $icon.select2("val") + '"></i><span>' + $name.val() + '</span></span><span class="task-actions"><a href="#" class="task-delete" rel="tooltip" title="Delete that task"><i class="icon-remove"></i></a><a href="#" class="task-bookmark" rel="tooltip" title="Mark as important"><i class="icon-bookmark-empty"></i></a></span></li>';
+
+                        if($tasklist.find(".bookmarked").length > 0){
+                            if($bookmark.is(":checked")){
+                                $tasklist.find(".bookmarked").first().before(elementToAdd);
+                            } else {
+                                $tasklist.find(".bookmarked").last().after(elementToAdd);
+                            }
+                        } else {
+                            $tasklist.prepend(elementToAdd);
+                        }  
+
+                        icheck();
+                        $tasklist.find("[rel=tooltip]").tooltip();
+
+                        $icon.select2("val", 'icon-adjust');
+                        $name.val("");
+                        $bookmark.prop("checked", false);
+                    }
+                )
     }
 });
-
+*/
 $("#message-form .text input").on("focus", function (e) {
     var $el = $(this);
     $el.parents(".messages").find(".typing").addClass("active").find(".name").html("John Doe");
