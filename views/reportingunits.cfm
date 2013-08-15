@@ -6,9 +6,9 @@ variables.beanFactory	  	  = variables.propertyManager.getProperty("serviceFacto
 stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 </cfscript>
 
-<!---
+<!--- 
 <cfdump var="#qReportingUnits#">
- --->
+--->
 
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
@@ -90,12 +90,26 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 																							--->
 
 																							<!--- <cfoutput group="DeptName">												 ---->
+																							<div class="row-fluid">
+																								<div class="span3">
+																								<h4>#DeptName#</h4> 
+																								</div>
+
+																								<cfif programID EQ -1>
+																									<div class="span9">
+																										<div class="pull-right"><a href="index.cfm?event=showDepartmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#DeptName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="top" title="#DeptName# Department Reporting">[Department Reporting]</a></div>
+																									</div>
+																								</cfif>
+																							</div>
+
+
 																								<div class="span12 search-info pull-left">				
 																										
 																										<cfoutput group="ProgramName">
 																										
 
 																										<cfif programID EQ -1>
+																											<!---
 																											<p>
 																											<h4>
 																											
@@ -103,14 +117,19 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 
 																											</h4>
 																											</p>
+																											--->
+																											
+																										<cfelse>
+																																	
+																											<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#ProgramName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="right" title="View #ProgramName# Assessment Plan" >#ProgramName#</a></p>
 																										</cfif>																										
 			
-																										
-																										<cfif programID NEQ -1>							
+																										<!---
+																										<cfif programID NEQ -1>	
+																											#DeptName#<br>						
 																											<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#ProgramName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="right" title="View #ProgramName# Assessment Plan" >#ProgramName#</a></p>
 																										</cfif>
-
-	
+																										--->
 																									</cfoutput>			
 																													
 																								</div>
@@ -260,13 +279,28 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 																							</div>
 																							--->
 
-																							<!--- <cfoutput group="DeptName">												 ---->
+																							<!--- <cfoutput group="DeptName"> ---->
+
+																							<div class="row-fluid">
+																								<div class="span3">
+																								<h4>#DeptName#</h4> 
+																								</div>
+
+																								<cfif programID EQ -1>
+																									<div class="span9">
+																										<div class="pull-right"><a href="index.cfm?event=showDepartmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#DeptName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="top" title="#DeptName# Department Reporting">[Department Reporting]</a></div>
+																									</div>
+																								</cfif>
+																							</div>
+
+
 																								<div class="span12 search-info pull-left">				
 																										
 																										<cfoutput group="ProgramName">
 																										
 
 																										<cfif programID EQ -1>
+																											<!---
 																											<p>
 																											<h4>
 																											
@@ -274,10 +308,8 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 
 																											</h4>
 																											</p>
-																										</cfif>																										
-			
-																										
-																										<cfif programID NEQ -1>							
+																											--->
+																										<cfelse>						
 																											<p><a href="index.cfm?event=showAssessmentPlanList&ReportingUnitID=#reportingunitid#&ProgramName=#ProgramName#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionID#" rel="tooltip" data-placement="right" title="View #ProgramName# Assessment Plan" >#ProgramName#</a></p>
 																										</cfif>
 

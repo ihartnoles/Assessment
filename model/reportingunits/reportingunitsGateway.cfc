@@ -113,7 +113,7 @@
 			 AND a.SuperDivisionID = 1
 			 <!--- And a.programID <> -1 --->
 
- 			ORDER BY SuperDivisionName, DivisionName, DeptName, ReportingUnitID DESC
+ 			ORDER BY SuperDivisionName, DivisionName, DeptName, ProgramID, ReportingUnitID DESC
 		</cfquery>
 
 		<!---
