@@ -388,7 +388,7 @@
 		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
 	</bean>
 	<bean id="tasksGateway" class="Assessment.model.tasks.tasksGateway">
-		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>o
 	</bean>
 	<bean id="tasksService" class="Assessment.model.tasks.tasksService">
 		<constructor-arg name="tasksDAO">
@@ -399,4 +399,33 @@
 		</constructor-arg>
 	</bean>
 	
+	<bean id="strategicPlanGoalsDAO" class="Assessment.model.strategicPlanGoals.strategicPlanGoalsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="strategicPlanGoalsGateway" class="Assessment.model.strategicPlanGoals.strategicPlanGoalsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="strategicPlanGoalsService" class="Assessment.model.strategicPlanGoals.strategicPlanGoalsService">
+		<constructor-arg name="strategicPlanGoalsDAO">
+			<ref bean="strategicPlanGoalsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="strategicPlanGoalsGateway">
+			<ref bean="strategicPlanGoalsGateway"/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="outcomeStrategicPlanGoalsDAO" class="Assessment.model.outcomeStrategicPlanGoals.outcomeStrategicPlanGoalsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="outcomeStrategicPlanGoalsGateway" class="Assessment.model.outcomeStrategicPlanGoals.outcomeStrategicPlanGoalsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="outcomeStrategicPlanGoalsService" class="Assessment.model.outcomeStrategicPlanGoals.outcomeStrategicPlanGoalsService">
+		<constructor-arg name="outcomeStrategicPlanGoalsDAO">
+			<ref bean="outcomeStrategicPlanGoalsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="outcomeStrategicPlanGoalsGateway">
+			<ref bean="outcomeStrategicPlanGoalsGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

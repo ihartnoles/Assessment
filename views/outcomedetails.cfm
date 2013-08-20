@@ -6,7 +6,7 @@ title 				= "Plan Period: " &  #qPlanDetails.planperiod#;
 qSupportingDocs		= request.event.getArg('qSupportingDocs');
 qCodesList			= request.event.getArg('qCodesList');
 qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
-
+qSelectedGoals		= request.event.getArg('qSelectedGoals');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -208,6 +208,8 @@ qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
 																						</div>
 																					</div>
 
+
+																					<!---
 																					<div class="span3">
 																						<p><strong>Relates to FAU Strategic Plan Goals & Objectives</strong></p>
 
@@ -227,9 +229,9 @@ qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
 																								</select></div>
 																							</div>
 																						</div>
-
+																						
 																					</div>
-
+																					--->
 																					</div>
 
 																				<br>
@@ -237,11 +239,19 @@ qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
 																				<HR>
 
 																				<p><strong>FAU Strategic Plan related goals & objectives:</strong></p>
-																				Goal 1(all objectives): Providing Increased Access to Higher Education
+																				
+																				<cfif qSelectedGoals.recordcount>
+																							<cfoutput query="qSelectedGoals" group="goal" >
+																								<strong>#qSelectedGoals.goal#</strong><br>
+																									<cfoutput group="objective">
+																										#qSelectedGoals.objective#<br>
+																									</cfoutput>
+																								<br>
+																							</cfoutput>
+																				<cfelse>
+																							N/A
+																				</cfif>
 
-																				<br>Goal 1, Objective 1: Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts
-
-																				<br>Goal 4, Objective 5: Engage students, faculty and staff in service activities that mutually benefit the University and the community<br><br>
 							<cfloop query="qOutcomeDetail">
 								<cfoutput>
 

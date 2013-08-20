@@ -69,6 +69,8 @@
         <listener name="programImprovementCodesListener" type="Assessment.listeners.programImprovementCodesListener" />  
         <listener name="AssessmentALCOutcomeCategoriesListener" type="Assessment.listeners.AssessmentALCOutcomeCategoriesListener" />  
         <listener name="TaskListener" type="Assessment.listeners.taskListener" />  
+        <listener name="strategicPlanGoalsListener" type="Assessment.listeners.strategicPlanGoalsListener" />         
+        <listener name="outcomeStrategicPlanGoalsListener" type="Assessment.listeners.outcomeStrategicPlanGoalsListener" />
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -162,11 +164,14 @@
 
 		<event-handler event="ShowPlan" access="public">
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
-			<!-- <notify listener="ALCCategoriesListener" method="getALCCategoriesSelected" resultArg="qSelectedALCCategories"  /> -->
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="AssessmentPlanChecklistTypeListener" method="getChecklistTypes" resultArg="qCheckListTypes"  />
 			<notify listener="AssessmentPlanChecklistRatingsListener" method="getRatings" resultArg="qRatings"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
+			<!-- 
+			<notify listener="strategicPlanGoalsListener" method="getGoalList" resultArg="qGoalList"  />
+			<notify listener="outcomeStrategicPlanGoalsListener" method="getSelectedGoals" resultArg="qSelectedGoals" />
+			-->
 			<view-page name="assessmentplan" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -202,6 +207,11 @@
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="getOutcomeSupportingDocs" resultArg="qSupportingDocs"  />
 			<notify listener="programImprovementCodesListener" method="getCodesList" resultArg="qCodesList"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="getSelectedProgImpCodes" resultArg="qSelectedProgImpCodes"  />
+			<!-- 
+			<notify listener="strategicPlanGoalsListener" method="getGoalList" resultArg="qGoalList"  />
+			-->
+			<notify listener="outcomeStrategicPlanGoalsListener" method="getSelectedGoals" resultArg="qSelectedGoals" />
+			
 			<view-page name="outcomedetails" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -375,6 +385,8 @@
 			<notify listener="AssessmentPlanOutcomeListener" method="getOutcomeDetail" resultArg="qcountOutcomes"  />
 			<notify listener="programImprovementCodesListener" method="getCodesList" resultArg="qCodesList"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="getSelectedProgImpCodes" resultArg="qSelectedProgImpCodes"  />
+			<notify listener="strategicPlanGoalsListener" method="getGoalList" resultArg="qGoalList"  />
+			<notify listener="outcomeStrategicPlanGoalsListener" method="getSelectedGoals" resultArg="qSelectedGoals" />
 			<view-page name="editOutcome" contentArg="content"/>
 			<view-page name="dash_layout" />
 		</event-handler>
@@ -383,6 +395,7 @@
 		<event-handler event="saveOutcome" access="public">
 			<notify listener="AssessmentPlanOutcomeListener" method="saveOutcome" resultArg="outcomeID"/>
 			<notify listener="AssessmentALCOutcomeCategoriesListener" method="saveALCCategoriesSelected" />
+			<notify listener="strategicPlanGoalsListener" method="saveGoals" />
 			<notify listener="AssessmentPlanOutcomeListener" method="saveProgImpCodes"/>
 			<redirect event="showplan" args="reportingUnitID,PlanID" />
 		</event-handler>

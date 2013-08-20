@@ -248,36 +248,45 @@ qRatings				= request.event.getArg('qRatings');
 																							</cfif>  disabled='disabled'> <label class='inline' for="c6">No</label>
 																						</div>
 																					</div>
+																				</div>
+																				
+																				<HR>
 
-																					<div class="span3">
-																						<p><strong>Relates to FAU Strategic Plan Goals & Objectives</strong></p>
+																				<div class="row-fluid">
+																					<div class="span12">
 
-																						<div class="control-group">
-																							
-																							<div class="controls">
-																								<div class="input-xlarge"><select name="select" id="select" class='chosen-select'>
-																									<optgroup label="Goal 1: Providing Increased Access to Higher Education">
-																										<option value="1">Assure student achievement in baccalaureate degree programs by developing and implementing Academic Learning Compacts</option>
-																										<option value="2">Foster institutional commitment to student satisfaction and success
-</option>
-																										<option value="3">Promote the academic success and improve the retention rate of first-time-in-college (FTIC) students</option>
-																										<option value="4">Promote timely completion of degrees and increase the graduation rate of FTIC students</option>
-																										<option value="5">Promote the timely completion of degrees and increase the graduation rate of Associate in Arts transfer students</option>
-																										<option value="6">Adopt strategies that assure racial and ethnic diversity within the student body</option>
-																										<option value="7">Adopt strategies that assure that degree completions reflect the racial and ethnic composition of the student body</option>
-																										<option value="8">Attain passage rates on certification exams for nursing equal to those approved by the Board of Trustees for the Board of Governors Accountability Targets</option>
-																										<option value="9">Increase graduate enrollments in degree areas targeted by the Board of Governors</option>
-																									</optgroup>
-																									
-																								</select></div>
-																							</div>
-																						</div>
+																						<p><strong>Relates to FAU Strategic Plan goals & objectives</strong></p>
 
+																						<!--- let's play HACKY SACK! --->
+																					    <cfquery name="qSelectedGoals" datasource="Assessment">
+																					    		SELECT StrategicPlanGoalList.ID, StrategicPlanGoalList.objective, StrategicPlanGoalList.goal
+																								FROM     OutcomeStrategicPlanGoals INNER JOIN
+																								                  StrategicPlanGoalList ON OutcomeStrategicPlanGoals.goalID = StrategicPlanGoalList.ID
+																								WHERE OutcomeStrategicPlanGoals.outcomeID = #qCountOutcomes.outcomeID#
+																					     </cfquery>
+																						
+																						<!--- <cfdump var="#qSelectedGoals#" label="qSelectedGoals" /> --->
+
+																						<cfif qSelectedGoals.recordcount>
+																							<cfoutput query="qSelectedGoals" group="goal" >
+																								<strong>#qSelectedGoals.goal#</strong><br>
+																									<cfoutput group="objective">
+																										#qSelectedGoals.objective#<br>
+																									</cfoutput>
+																								<br>
+																							</cfoutput>
+																						<cfelse>
+																							N/A
+																						</cfif>
+																						
 																					</div>
+																				</div>
 
 
+																					
 
-																					<div class="span3">
+																				<div class="row-fluid">
+																					<div class="span12">
 																						<br><br><br><br>
 																						<div align="right">
 																							<cfoutput>

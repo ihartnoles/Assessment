@@ -6,6 +6,8 @@ qALCCategories			= request.event.getArg('qALCCategories');
 qSelectedALCCategories	= request.event.getArg('qSelectedALCCategories');
 qCodesList				= request.event.getArg('qCodesList');
 qSelectedProgImpCodes 	= request.event.getArg('qSelectedProgImpCodes');
+qGoalList				= request.event.getArg('qGoalList');
+qSelectedGoals			= request.event.getArg('qSelectedGoals');
 
 if ( cgi.query_string CONTAINS "editOutcome"){
 	title = "Edit outcome" ;
@@ -20,14 +22,12 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				<!---
+				<cfdump var="#qGoalList#" label="qGoalList" />
+				<cfdump var="#qSelectedGoals#" label="qSelectedGoals" />
 				<cfdump var="#qcountOutcomes#" />
-				
 				<cfdump var="#qSelectedALCCategories#" />
-				
 				<cfdump var="#qPlanDetails#" />
-
-				<cfdump var="#qALCCategories#" />
-				
+     			<cfdump var="#qALCCategories#" />
 				<cfdump var="#arguments#" />
 				--->
 
@@ -173,19 +173,28 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 																			</div>
 																		</div>
 														
+
+														
+
 																		<div class="row-fluid">
 																			<div class="span12">
 																				<div class="control-group">
 																					<label class="control-label"><strong>Strategic Plan Goals</strong></label>
 																					<div class="controls">
-																						<label class='checkbox'>
-																							<input type="checkbox" name="checkbox"> Lorem ipsum eiusmod
-																						</strong></label>
-																						<label class='checkbox'>
-																							<input type="checkbox" name="checkbox"> ipsum eiusmod
-																						</strong></label>
+
+																						<select name="goalID" size="27" multiple style="width: 650px;">
+																						<cfoutput query="qGoalList" group="goal">
+																							<optgroup label="#qGoalList.goal#">
+																								<cfoutput group="objective">
+																									<option value="#qGoalList.id#"  <cfif ValueList(qSelectedGoals.goalID) CONTAINS qGoalList.ID >selected</cfif>>#qGoalList.objective#</option>
+																								</cfoutput>
+																							</optgroup>
+																						</cfoutput>
+																						</select>
 																					</div>
 																				</div>
+
+																				
 																			</div>
 																		</div>
 
