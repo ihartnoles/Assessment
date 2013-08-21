@@ -47,7 +47,7 @@
 					//set the session.UserID
 					lock
 						scope="session"
-						type="exlusive"
+						type="exclusive"
 						timeout="10"
 						{
 							session.user.userID = local.userexists.userID;
@@ -59,7 +59,7 @@
 					
 					lock
 						scope="session"
-						type="exlusive"
+						type="exclusive"
 						timeout="10"
 						{
 							session.user.userID = 0;
@@ -93,7 +93,7 @@
 					//set the session.UserID
 					lock
 						scope="session"
-						type="exlusive"
+						type="exclusive"
 						timeout="10"
 						{
 							session.user.userRoleID = local.hasDefaultRole.roleID;

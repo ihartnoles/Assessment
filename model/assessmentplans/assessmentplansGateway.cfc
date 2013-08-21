@@ -186,7 +186,10 @@
 						AND planperiod = <cfqueryparam value="#arguments.PlanPeriod#" CFSQLType="cf_sql_varchar" />
 						AND planStatus = 80 ) as Approved
 
+				
+
 				from assessmentplan
+
 		</cfquery>
 		
 		
@@ -265,6 +268,7 @@
 						AND planStatus = 80 ) as Approved
 
 				from assessmentplan
+
 			</cfquery>
 			<cfreturn qList />
 		</cffunction>
@@ -341,6 +345,8 @@
 							AND planStatus = 80 ) as Approved
 
 					from assessmentplan
+
+					
 			</cfquery>
 		
 		
@@ -353,7 +359,7 @@
 			<cfset var qList = "" />		
 			
 			<cfquery name="qList" datasource="#variables.dsn#">
-				select top 1 planID,
+				select  top 1 planID,
 
 						(select count(*) 
 							from assessmentplan
@@ -419,6 +425,8 @@
 							AND planStatus = 80 ) as Approved
 
 					from assessmentplan
+
+
 			</cfquery>
 		
 		

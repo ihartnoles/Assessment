@@ -19,6 +19,16 @@
 
 <cfset application.devEmails = 'ihartstein@fau.edu' />
 
+<cfset application.defaultProperties.dsn = "Assessment">
+<cfset application.devEmail = "ihartstein@fau.edu">
+<cfset application.serviceDefinitionLocation = expandPath('../') & "Assessment\config\coldspring\services.xml.cfm" />
+<cfset application.serviceFactory = createObject('component','coldspring.beans.DefaultXmlBeanFactory').init(structnew(),application.defaultProperties) />
+<cfset application.serviceFactory.loadBeansFromXmlFile(application.serviceDefinitionLocation) />
+
+<!---
+<cfdump var="#application#" abort="true" />
+--->
+
 <cfif StructKeyExists(url, "reinit")>
 			<cfsetting requesttimeout="120"/>
 			<cfset MACHII_CONFIG_MODE = 1 />
