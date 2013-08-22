@@ -1,23 +1,25 @@
 <form action="#" method="POST" class='form-horizontal form-column form-bordered'>
+								 <!---
 								 <cfloop query="qPlanDetails">
 								 	<cfoutput>
+								 --->
 									<div class="span6">
 										<div class="control-group">
 											<label for="textfield" class="control-label">College/Division</label>
 											<div class="controls">
-												#qPlanDetails.DivisionName#
+												<cfoutput>#qPlanDetails.DivisionName#</cfoutput>
 											</div>
 										</div>
 										<div class="control-group">
 											<label for="password" class="control-label">Department</label>
 											<div class="controls">
-												#qPlanDetails.DeptName#
+												<cfoutput>#qPlanDetails.DeptName#</cfoutput>
 											</div>
 										</div>
 										<div class="control-group">
 											<label class="control-label">Program<small>More information here</small></label>
 											<div class="controls">
-												#qPlanDetails.programname#
+												<cfoutput>#qPlanDetails.programname#</cfoutput>
 											</div>
 										</div>
 										<!---
@@ -33,13 +35,13 @@
 										<div class="control-group">
 											<label for="textfield" class="control-label">Plan Type</label>
 											<div class="controls">
-												 #qPlanDetails.PlanTypeDescription#
+												 <cfoutput>#qPlanDetails.PlanTypeDescription#</cfoutput>
 											</div>
 										</div>
 										<div class="control-group">
 											<label for="password" class="control-label">Plan Status</label>
 											<div class="controls">
-												#qPlanDetails.WorkFlowStepDescription#
+												<cfoutput>#qPlanDetails.WorkFlowStepDescription#</cfoutput>
 											</div>
 										</div>
 										<div class="control-group">
@@ -47,7 +49,7 @@
 											<div class="controls">
 												
 												<cfif len(trim(qPlanDetails.PlanLastChangeDate))>
-													#DateFormat(qPlanDetails.PlanLastChangeDate,'mm/dd/yyyy')#
+													<cfoutput>#DateFormat(qPlanDetails.PlanLastChangeDate,'mm/dd/yyyy')#</cfoutput>
 												<cfelse>
 													N/A
 												</cfif>				
@@ -79,7 +81,7 @@
 													<td>Plan developed by:</td>
 													<td>
 														<cfif len(trim(qPlanDetails.PlanInitialReporter))>
-															#qPlanDetails.PlanInitialReporter#
+															<cfoutput>#qPlanDetails.PlanInitialReporter#</cfoutput>
 														<cfelse>
 															N/A
 														</cfif>
@@ -87,7 +89,11 @@
 												</tr>
 												<tr>
 													<td>Contact Person(s):</td>
-													<td>???</td>
+													<td>
+														<cfoutput query="qPrimaryAuthors">
+															#userfname# #userlname#
+														</cfoutput>
+													</td>
 												</tr>
 											</table>										
 										</center>
@@ -99,10 +105,10 @@
 											<center>
 												<table class="alert alert-warning alert-nomargin">
 													<tr>
-														<td>This plan currently has #qcountOutcomes.recordcount# outcomes.</td>													
+														<td>This plan currently has <cfoutput>#qcountOutcomes.recordcount#</cfoutput> outcomes.</td>													
 													</tr>
 													<tr>
-														<td>#qPlanDetails.WorkflowStepInstructions#</td>
+														<td><cfoutput>#qPlanDetails.WorkflowStepInstructions#</cfoutput></td>
 													</tr>											
 												</table>										
 											</center>
@@ -110,5 +116,7 @@
 								   </cfif>
 
 								</form>
+							<!---
 								</cfoutput>
 							</cfloop>
+							--->

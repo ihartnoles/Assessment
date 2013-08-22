@@ -42,7 +42,7 @@ qPlanPeriods =  request.event.getArg('planperiods');
 													</div>
 													--->
 													<div class="span12 search-info">
-														<a href="index.cfm?event=showplan&reportingUnitID=#reportingUnitID#&PlanID=#planID#" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #qPlanPeriods.PlanPeriod#</a>
+														<a href="index.cfm?event=showplan&reportingUnitID=#reportingUnitID#&PlanID=#planID#&ProgramID=#programID#&DeptID=#deptID#&DivisionID=#divisionid#" rel="tooltip" data-placement="right" title="View/Modify Plan">Plan Period: #qPlanPeriods.PlanPeriod#</a>
 														<!--- <p class="url">www.loremasdasdd.com/</p> --->
 														<br>Plan Reporter: 
 														

@@ -228,7 +228,7 @@
 		<cfset var qList = "" />		
 		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			 SELECT #arguments.reportingUnitID# as ReportingUnitID, op.programname, ur.userid, ur.roleid, ur.defaultrole, userlname, userfname, useremail, assessmentroledescription
+			 SELECT DISTINCT #arguments.reportingUnitID# as ReportingUnitID, op.programname, ur.userid, ur.roleid, ur.defaultrole, userlname, userfname, useremail, assessmentroledescription
 			
 			FROM vwReportingUnit ru, userroleaccess ura, organization o, organizationsuperdivision osd, organizationdivision odv, organizationdept odp, organizationprogram op, userroles ur, users u, roles r,   
 

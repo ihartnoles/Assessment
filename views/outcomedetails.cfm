@@ -7,6 +7,7 @@ qSupportingDocs		= request.event.getArg('qSupportingDocs');
 qCodesList			= request.event.getArg('qCodesList');
 qSelectedProgImpCodes = request.event.getArg('qSelectedProgImpCodes');
 qSelectedGoals		= request.event.getArg('qSelectedGoals');
+qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">

@@ -170,6 +170,7 @@
 			<notify listener="AssessmentPlanChecklistTypeListener" method="getChecklistTypes" resultArg="qCheckListTypes"  />
 			<notify listener="AssessmentPlanChecklistRatingsListener" method="getRatings" resultArg="qRatings"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
+			<notify listener="UserListener" method="getPrimaryAuthors" resultArg="qPrimaryAuthors"  />
 			<!-- 
 			<notify listener="strategicPlanGoalsListener" method="getGoalList" resultArg="qGoalList"  />
 			<notify listener="outcomeStrategicPlanGoalsListener" method="getSelectedGoals" resultArg="qSelectedGoals" />
@@ -213,6 +214,7 @@
 			<notify listener="strategicPlanGoalsListener" method="getGoalList" resultArg="qGoalList"  />
 			-->
 			<notify listener="outcomeStrategicPlanGoalsListener" method="getSelectedGoals" resultArg="qSelectedGoals" />
+			<notify listener="UserListener" method="getPrimaryAuthors" resultArg="qPrimaryAuthors"  />
 			
 			<view-page name="outcomedetails" contentArg="content" />
 			<view-page name="dash_layout" />

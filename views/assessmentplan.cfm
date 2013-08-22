@@ -9,6 +9,7 @@ qcountOutcomes    		= request.event.getArg('qcountOutcomes');
 title 					= "Plan Period: " &  #qPlanDetails.planperiod#;
 qCheckListTypes			= request.event.getArg('qCheckListTypes');
 qRatings				= request.event.getArg('qRatings');
+qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 </cfscript>
 
 
@@ -22,6 +23,8 @@ qRatings				= request.event.getArg('qRatings');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
+				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
+
 				<!---
 				<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
 				<cfdump var="#qRatings#" label="qRatings"/>
@@ -290,7 +293,7 @@ qRatings				= request.event.getArg('qRatings');
 																						<br><br><br><br>
 																						<div align="right">
 																							<cfoutput>
-																								<a href="index.cfm?event=outcomedetails&outcomeID=#qcountOutcomes.outcomeID#&reportingUnitID=#arguments.event.getArg('reportingUnitID')#&planID=#arguments.event.getArg('planID')#">See More ...</a>
+																								<a href="index.cfm?event=outcomedetails&outcomeID=#qcountOutcomes.outcomeID#&reportingUnitID=#arguments.event.getArg('reportingUnitID')#&planID=#arguments.event.getArg('planID')#&ProgramID=#arguments.event.getArg('ProgramID')#&DeptID=#arguments.event.getArg('DeptID')#&DivisionID=#arguments.event.getArg('divisionID')#">See More ...</a>
 																							</cfoutput>																							
 																						</div>
 																					</div>
