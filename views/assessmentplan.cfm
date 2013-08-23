@@ -23,10 +23,9 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
-
 				<!---
-				<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
+				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
+     			<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
 				<cfdump var="#qRatings#" label="qRatings"/>
 				<cfdump var="#qPlanDetails#" />
 				<cfdump var="#qcountOutcomes#" />
@@ -125,7 +124,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																					<i class="icon-file"></i>
 																					Outcome 
 																					<cfoutput>
-																						#qcountOutcomes.currentrow# (#qCountOutcomes.outcomeID#) 
+																						#qcountOutcomes.currentrow#
 																						<button class="btn editOutcome" data-outcome="#qCountOutcomes.outcomeID#"><i class="icon-edit"></i>Edit</button>
 																						<!---
 																						- [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
@@ -191,7 +190,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																									</cfif>
 
 																										<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif> disabled="disabled"> 
-																										 <label class='inline' for="c6" >#qALCCategories.SubCategoryTitle# (#qALCCategories.SubCategoryID#)</label>
+																										 <label class='inline' for="c6" >#qALCCategories.SubCategoryTitle#</label>
 																									</div>																							
 																								</cfoutput>
 																								
