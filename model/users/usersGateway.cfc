@@ -192,9 +192,9 @@
 		<cfif structKeyExists(arguments,"UserTrained") and len(arguments.UserTrained)>
 			AND	UserTrained = <cfqueryparam value="#arguments.UserTrained#" CFSQLType="cf_sql_integer" />
 		</cfif>
-		<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
-			ORDER BY #arguments.orderby#
-		</cfif>
+		
+			ORDER BY UserLname
+		
 		</cfquery>
 
 		<cfreturn qList />
