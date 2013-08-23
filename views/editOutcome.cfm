@@ -15,6 +15,7 @@ if ( cgi.query_string CONTAINS "editOutcome"){
 	title = "Add a new outcome" ;
 }
 
+qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">

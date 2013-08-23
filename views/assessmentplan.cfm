@@ -471,7 +471,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 					//alert('oh YEAHHHH!!!');
 					var outcome    = $(this).data("outcome");
 					//alert(outcome);
-					window.location.href = "index.cfm?event=editOutcome&outcomeID=" + outcome + "&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+					window.location.href = "index.cfm?event=editOutcome&outcomeID=" + outcome + "&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&programID=#request.event.getArg('programID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#";
 				});
           
         });

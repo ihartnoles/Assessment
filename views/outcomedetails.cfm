@@ -618,7 +618,9 @@ $(function() {
 	$(".editOutcome").click(function() {
 		//alert('oh YEAHHHH!!!');
 
-		window.location.href = "index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+		//window.location.href = "index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#";
+
+		window.location.href = "index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&programID=#request.event.getArg('programID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#";
 	});
 
 
