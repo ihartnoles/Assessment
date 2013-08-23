@@ -14,32 +14,51 @@
 		
 
 		 <cfset variables.messagesService 	= sf.getBean('messagesService') /> 
+		 <cfset variables.usersService 		= sf.getBean('usersService') /> 
 	</cffunction>
 
 
 	<cffunction name="sendMessage" access="public" output="false" 
-			returntype="boolean" >
+			returntype="numeric" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
-		<!---
-		<cfdump var="#arguments.event.getArgs()#" abort="true" label="@@messageListener" />
-		--->
 		<!--- save the message here --->
-		<cfset MessageSaved = variables.messagesService.sendMessage(sendToUserID = request.event.getArg('sendToUserID'),
-														Subject		 = request.event.getArg('Subject'),
-														Message 	 = request.event.getArg('CK')) />
+		<cfset local.MessageID = variables.messagesService.sendMessage(sendToUserID = request.event.getArg('sendToUserID'),
+																	Subject		 = request.event.getArg('Subject'),
+																	Message 	 = request.event.getArg('CK')) />
 
-		<!--- to do: mail out the message --->
+		<!--- look up sendToUserID email and the createdBy email --->
+		<cfset local.getMessage = variables.messagesService.getmessages(local.MessageID) />
+		
+		<!--- get recipient email--->
+		<cfset local.recipientEmail = variables.usersService.getusers(local.getMessage.getSendToUserID()).getUserEmail() />
+
+		<!--- get sender email --->
+		<cfset local.senderEmail = variables.usersService.getusers(local.getMessage.getCreatedBy()).getUserEmail() />
+
+		<!---
+		<cfdump var="#local#" abort="true" label="@@messageListener" />
+		--->
+
+		<!--- physically mail out the message --->
+		<cfmail to="#local.recipientEmail#"
+				from="#local.senderEmail#"
+				subject="#request.event.getArg('Subject')#"
+				type="text/html">
+					<cfoutput>
+						#htmlEditFormat(request.event.getArg('CK'))#
+					</cfoutput>
+				</cfmail>
 
 		<!--- If the message was successfully saved AND sent let's return a message --->
-		<cfif MessageSaved>
+		<cfif isNumeric(MessageID)>
 			<cfset request.event.setArg('layout_message','Message Sent!') />
 		<cfelse>
 			<cfset request.event.setArg('layout_message','Sorry there was a problem sending your message') />
 		</cfif>
 		
 
-		<cfreturn MessageSaved />
+		<cfreturn MessageID />
 	</cffunction>
 
 	<cffunction name="getInboxMessages" access="public" output="false" 

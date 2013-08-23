@@ -7,12 +7,12 @@
 		<cfreturn this>
 	</cffunction>
 	
-	<cffunction name="create" access="public" output="false" returntype="boolean">
+	<cffunction name="create" access="public" output="false" returntype="numeric">
 		<cfargument name="messages" type="messages" required="true" />
 
 		<cfset var qCreate = "" />
 		<cftry>
-			<cfquery name="qCreate" datasource="#variables.dsn#">
+			<cfquery name="qCreate" datasource="#variables.dsn#" result="res">
 				INSERT INTO Messages
 					(
 					SendToUserID,
@@ -38,7 +38,7 @@
 				<cfreturn false />
 			</cfcatch>
 		</cftry>
-		<cfreturn true />
+		<cfreturn res.identitycol />
 	</cffunction>
 
 	<cffunction name="read" access="public" output="false" returntype="void">

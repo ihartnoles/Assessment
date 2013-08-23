@@ -47,7 +47,7 @@
 		<cfreturn variables.messagesGateway.getByAttributes(argumentCollection=arguments) />
 	</cffunction>
 
-	<cffunction name="savemessages" access="public" output="false" returntype="boolean">
+	<cffunction name="savemessages" access="public" output="false" returntype="numeric">
 		<cfargument name="messages" type="messages" required="true" />
 
 		<cfreturn variables.messagesDAO.save(messages) />

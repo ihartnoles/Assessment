@@ -585,7 +585,7 @@ qTasks					= request.event.getArg('qTasks');
                     //callback function
                     function(data){
 
-                        alert("Data Loaded: " + data);
+                        //alert("Data Loaded: " + data);
 
                         var taskidVal = data;
 
