@@ -23,6 +23,11 @@
 	<cffunction name="getDefaultUserRole" access="public" output="false" 
 			returntype="numeric" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<!---
+		<cfdump var="#session#" abort="true" label="@@UserRoleListener" />
+		--->
+		
 		<cfreturn variables.userRolesService.getDefaultUserRole(userid=session.user.userid) >
 	</cffunction>
 	

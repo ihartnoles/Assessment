@@ -66,7 +66,7 @@
 						}
 				}
 
-				//writeDump(var=session, abort="false", label="@LoginListener");
+				//writeDump(var=session, abort="true", label="@LoginListener");
 				//writeDump(var=local, abort="true", label="@LoginListener");
 					
 			}

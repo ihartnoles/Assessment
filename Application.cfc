@@ -2,10 +2,16 @@
 
 	<cfscript>		
 		this.Name = "Assessment";
-		this.ApplicationTimeout = CreateTimeSpan( 0, 0, 40, 0);
-		this.SessionManagement = true;
-		this.SetClientCookies  = false;
+		this.ApplicationTimeout = CreateTimeSpan( 1, 0, 0, 0);
+		//this.SessionManagement = true;
+		//this.SetClientCookies  = false;
 
+		this.loginStorage 		= "session";
+		this.sessionManagement 	= true;
+		this.clientManagement   = true;
+		this.setClientCookies 	= true;
+		//this.setDomainCookies 	= false;
+		this.applicationTimeOut = CreateTimeSpan(1,0,0,0);
 
 		MACHII_CONFIG_PATH 	= ExpandPath("./config/mach-ii.xml");
 		MACHII_CONFIG_MODE 	= 1;
@@ -18,12 +24,12 @@
 	<cffunction
 		name="OnApplicationStart"
 		access="public"
-		returntype="boolean"
+		returntype="void"
 		output="false"
 		hint="Fires when the application is first created.">
- 
-		<!--- Return out. --->
-		<cfreturn true />
+ 		
+ 		<!--- Return out. 
+		<cfreturn true />--->
 	</cffunction>
  
  
@@ -33,8 +39,12 @@
 		returntype="void"
 		output="false"
 		hint="Fires when the session is first created.">
- 
-		<!--- Return out. --->
+ 		
+ 		<!---
+ 		<cfcookie name="JSESSIONID" value="#session.sessionid#" httponly="true">
+
+		 Return out. 
+		--->
 		<cfreturn />
 	</cffunction>
  
@@ -53,6 +63,9 @@
 			required="true"
 			/>
 
+		<!--- Request Scope Variable Defaults --->
+		<cfset request.self = "index.cfm">
+
 		<cfif StructKeyExists(url, "reinit")>
 			<cfsetting requesttimeout="120"/>
 			<cfset MACHII_CONFIG_MODE = 1 />
@@ -64,7 +77,7 @@
 		<cfreturn true />
 	</cffunction>
  
- 
+ <!---
 	<cffunction
 		name="OnRequest"
 		access="public"
@@ -97,7 +110,7 @@
 		<!--- Return out. --->
 		<cfreturn />
 	</cffunction>
- 
+ --->
  
 	<cffunction
 		name="OnSessionEnd"
@@ -112,7 +125,8 @@
 			type="struct"
 			required="true"
 			/>
- 
+ 	
+ 		<!---
 		<cfargument
 			name="ApplicationScope"
 			type="struct"
@@ -120,8 +134,8 @@
 			default="#StructNew()#"
 			/>
  
-		<!--- Return out. --->
-		<cfreturn />
+		 Return out.
+		<cfreturn /> --->
 	</cffunction>
  
  
