@@ -5,28 +5,15 @@
 						<cfif cgi.QUERY_STRING contains "showAssessmentPlanList">
 							<div class="row-fluid">
 								<div class="span12">
-									<!---
-									<ul class="stats">
-										<a href="index.cfm?event=addPlan">
-											<li class="blue">
-												<i class="icon-pencil"></i>						
-													<span>Add Assessment Plan</span>
-												</li>
-										</a>
-										<a href="index.cfm?event=ALC">
-											<li class="blue">
-												<i class="icon-book"></i>						
-												<span>Academic Learning Compact</span>	
-											</li>
-										</a>
-									</ul>
-									--->
+									
 									<cfoutput>
-										<a href="index.cfm?event=addPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#" class="btn btn-red">
-											<i class="icon-pencil"></i>									
-											<span>Add Assessment Plan</span>
-										</a>
-										
+										<cfif session.user.userroleid neq 4>
+											<a href="index.cfm?event=addPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#" class="btn btn-red">
+												<i class="icon-pencil"></i>									
+												<span>Add Assessment Plan</span>
+											</a>
+										</cfif>
+											
 										<a href="index.cfm?event=viewALC&reportingUnitID=#request.event.getArg('reportingUnitID')#" class="btn btn-red">
 											<i class="icon-book"></i>									
 											<span>Academic Learning Compact</span>
@@ -44,22 +31,7 @@
 								<cfset layout_message = structKeyExists(session, "layout_message") ? session.layout_message : "" />
 
 								<div class="span12">
-									<!---
-									<ul class="stats">
-										<a href="index.cfm?event=addPlan">
-											<li class="blue">
-												<i class="icon-pencil"></i>						
-													<span>Add Assessment Plan</span>
-												</li>
-										</a>
-										<a href="index.cfm?event=ALC">
-											<li class="blue">
-												<i class="icon-book"></i>						
-												<span>Academic Learning Compact</span>	
-											</li>
-										</a>
-									</ul>
-									--->
+									
 
 									<div class="row-fluid">
 										<cfoutput>

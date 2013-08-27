@@ -23,6 +23,8 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
+				<cfdump var="#session.user#" />
+
 				<!---
 				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
      			<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
@@ -53,14 +55,16 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 								<div class="row-fluid margin-top">
 									<div class="span12">
 
-										<div class="text-left">
-											<cfoutput>
-											<a href="index.cfm?event=addOutcome&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#" class="btn btn-red">
-											<i class="icon-pencil"></i>									
-											<span>Add New Outcome</span>
-											</cfoutput>
-										</a>
-										</div>
+											<cfif session.user.userroleid neq 4>
+												<div class="text-left">
+													<cfoutput>
+													<a href="index.cfm?event=addOutcome&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#" class="btn btn-red">
+													<i class="icon-pencil"></i>									
+													<span>Add New Outcome</span>
+													</cfoutput>
+												</a>
+												</div>
+											</cfif>
 
 										<div class="box box-bordered ">
 											<div class="box-title">
@@ -125,7 +129,10 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																					Outcome 
 																					<cfoutput>
 																						#qcountOutcomes.currentrow#
-																						<button class="btn editOutcome" data-outcome="#qCountOutcomes.outcomeID#"><i class="icon-edit"></i>Edit</button>
+
+																						<cfif session.user.userroleid neq 4>																			
+																							<button class="btn editOutcome" data-outcome="#qCountOutcomes.outcomeID#"><i class="icon-edit"></i>Edit</button>
+																						</cfif>
 																						<!---
 																						- [<a href="index.cfm?event=editOutcome&outcomeID=#qCountOutcomes.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
 																						--->
@@ -411,7 +418,9 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																									</cfloop> 
 																								</cfoutput>
 																									<div class="form-actions">
-																										<button type="submit" class="btn btn-primary">Save "#listlast(qCheckListTypes.category,".")#" ratings</button>
+																										<cfif session.user.userroleid neq 4>
+																											<button type="submit" class="btn btn-primary">Save "#listlast(qCheckListTypes.category,".")#" ratings</button>
+																										</cfif>
 																										<!--- <button type="button" class="btn">Cancel</button> --->
 																									</div>
 																								<hr>

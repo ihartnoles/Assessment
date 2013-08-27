@@ -85,7 +85,10 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																					<!---
 																					[<a href="index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
 																					--->
+																					<cfif session.user.userroleid neq 4>	
 																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
+																					</cfif>
+
 																					</cfoutput>
 																				</h3>
 																			
@@ -283,7 +286,10 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																					<h3>
 																						<i class="icon-file"></i>
 																						Results
-																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
+
+																							<cfif session.user.userroleid neq 4>
+																								<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
+																							</cfif>
 																					</h3>
 																					<div class="actions">
 																						<a href="#" class="btn btn-mini this-content-slideUp"><i class="icon-angle-down"></i></a>
@@ -480,15 +486,17 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																			</table>
 																	</div>
 																</div>
-
-																<div class="box">
-																	<div class="box-title">
-																		<h3><i class="icon-upload"></i> Upload Supporting Documents</h3>
+																
+																<cfif session.user.userroleid neq 4>
+																	<div class="box">
+																		<div class="box-title">
+																			<h3><i class="icon-upload"></i> Upload Supporting Documents</h3>
+																		</div>
+																		<div class="box-content nopadding">
+																			<div class="plupload"></div>
+																		</div>
 																	</div>
-																	<div class="box-content nopadding">
-																		<div class="plupload"></div>
-																	</div>
-																</div>
+																</cfif>
 
 															</div>
 														</div>

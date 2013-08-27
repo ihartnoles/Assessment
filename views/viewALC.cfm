@@ -98,14 +98,16 @@ qALCdocs		=  request.event.getArg('qALCdocs');
 						</div>
 						--->
 
-							<div class="box">
-								<div class="box-title">
-									<h3><i class="icon-upload"></i> Upload Academic Learning Compact</h3>
+							<cfif session.user.userroleid neq 4>
+								<div class="box">
+									<div class="box-title">
+										<h3><i class="icon-upload"></i> Upload Academic Learning Compact</h3>
+									</div>
+									<div class="box-content nopadding">
+										<div class="plupload"></div>
+									</div>
 								</div>
-								<div class="box-content nopadding">
-									<div class="plupload"></div>
-								</div>
-							</div>
+							</cfif>
 
 						</div>
 							
