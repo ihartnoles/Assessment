@@ -67,53 +67,74 @@
         --->
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			 SELECT  a.*, 
-			         ProgramName, 
-			         ProgramDegreeLevel, 
-			         ProgramDegree, 
-			         ProgramCIP,    
-			         DeptName, 
-			         SamasDeptID,      
-			         DivisionName, 
-			         DivisionAbv, 
-			         SamasDivisionID,        
-			         SuperDivisionName, 
-			         OrganizationName  
- 
- 			FROM ReportingUnit a, 
- 				 OrganizationProgram p, 
- 				 OrganizationDept d, 
- 				 OrganizationDivision di,    
- 				 OrganizationSuperDivision s, 
- 				 Organization o 
- 
- 			WHERE ReportingUnitID IN ( 
+			
+ 			<cfif session.user.userroleID EQ 2>
+ 				<!--- reporters --->
+ 				SELECT ura.*, ur.RoleID, organizationname, superdivisionname, divisionname, deptname, programname, assessmentroledescription, ru.reportingUnitID 
+				FROM UserRoleAccess ura, UserRoles ur, organization o, organizationsuperdivision osd, organizationdivision odv, organizationdept odp, organizationprogram op, roles r, reportingUnit ru
+				 WHERE ura.UserRoleRecordID=ur.RecordID AND UserRoleRecordID IN (SELECT RecordID FROM UserRoles WHERE UserID=<cfqueryparam value="#session.user.userID#" CFSQLType="cf_sql_integer" />) 
+				 AND    ura.organizationid=o.organizationid 
+				 AND ura.superdivisionid=osd.superdivisionid 
+				 AND ura.divisionid=odv.divisionid 
+				 AND ura.deptid=odp.deptid 
+				 AND ura.programid=op.programid 
+				 AND ur.roleid = r.assessmentroleid 
+				 AND ura.ProgramID = ru.programID
+ 				 AND ura.deptID = ru.DeptID
+ 				 ORDER BY SuperDivisionName, DivisionName, DeptName, ProgramID, ReportingUnitID DESC
+ 			<cfelse>
+ 				<!--- admins userroleID=1, reviewers userroleID=3, view only userroleID=4--->
+ 				SELECT  a.*, 
+						         ProgramName, 
+						         ProgramDegreeLevel, 
+						         ProgramDegree, 
+						         ProgramCIP,    
+						         DeptName, 
+						         SamasDeptID,      
+						         DivisionName, 
+						         DivisionAbv, 
+						         SamasDivisionID,        
+						         SuperDivisionName, 
+						         OrganizationName  
+			 
+			 			FROM ReportingUnit a, 
+			 				 OrganizationProgram p, 
+			 				 OrganizationDept d, 
+			 				 OrganizationDivision di,    
+			 				 OrganizationSuperDivision s, 
+			 				 Organization o 
+			 
+			 			WHERE ReportingUnitID IN ( 
 
- 				SELECT ReportingUnitID FROM ReportingUnit WHERE ( 
+			 				SELECT ReportingUnitID FROM ReportingUnit WHERE ( 
 
- 				
- 				  <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
- 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
- 				  </cfif>
+			 				
+			 				  <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
+			 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
+			 				  </cfif>
 
- 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID) AND arguments.quseraccessids.SuperDivisionID NEQ 999999>
- 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.quseraccessids.SuperDivisionID#" CFSQLType="cf_sql_integer" />
- 				   </cfif>
+			 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID) AND arguments.quseraccessids.SuperDivisionID NEQ 999999>
+			 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.quseraccessids.SuperDivisionID#" CFSQLType="cf_sql_integer" />
+			 				   </cfif>
 
- 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID) AND arguments.quseraccessids.DivisionID NEQ 999999>
- 				   	 AND	DivisionID = <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_integer" />
- 				   </cfif>
- 				
- 			) )
-			 AND a.ProgramID = p.ProgramID 
-			 And a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
-			 And a.SuperDivisionID = s.SuperDivisionID 
-			 And a.OrganizationID = o.OrganizationID  
-			 AND a.ReportingUnitActive = 1
-			 AND a.SuperDivisionID = 1
-			 <!--- And a.programID <> -1 --->
+			 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID) AND arguments.quseraccessids.DivisionID NEQ 999999>
+			 				   	 AND	DivisionID = <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_integer" />
+			 				   </cfif>
+			 				
+			 			) )
+						 AND a.ProgramID = p.ProgramID 
+						 And a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
+						 And a.SuperDivisionID = s.SuperDivisionID 
+						 And a.OrganizationID = o.OrganizationID  
+						 AND a.ReportingUnitActive = 1
+						 AND a.SuperDivisionID = 1
+						 <!--- And a.programID <> -1 --->
 
- 			ORDER BY SuperDivisionName, DivisionName, DeptName, ProgramID, ReportingUnitID DESC
+						 AND 
+
+			 			ORDER BY SuperDivisionName, DivisionName, DeptName, ProgramID, ReportingUnitID DESC
+
+ 			</cfif>
 		</cfquery>
 
 		<!---

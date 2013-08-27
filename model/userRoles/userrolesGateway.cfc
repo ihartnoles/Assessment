@@ -67,8 +67,36 @@
 		</cfif>
 		
 		</cfquery>
+
+		<!---handle when a default role is not assigned --->
+		<cfif qList.recordcount>
+			<cfset local.returnVal = qList.RecordID />
+		<cfelse>
+			<cfset local.returnVal = 0 />
+		</cfif>
 		
-		<cfreturn qList.RecordID />
+		<cfreturn local.returnVal/>
+	</cffunction>
+
+	<cffunction name="getNONDefaultUserRole" access="public" output="false" returntype="numeric">
+		<cfargument name="UserID" type="numeric" required="false" />
+		
+		
+		<cfset var qRole = "" />		
+		<cfquery name="qRole" datasource="#variables.dsn#">
+			 
+			SELECT ur.*, 
+				   AssessmentRoleDescription  
+		    FROM UserRoles ur, Roles r 
+			
+			WHERE 0=0 
+		<cfif structKeyExists(arguments,"UserID") and len(arguments.UserID)>
+			AND	UserID = <cfqueryparam value="#arguments.UserID#" CFSQLType="cf_sql_integer" />
+		</cfif>
+		
+		</cfquery>
+
+		<cfreturn qRole.recordID/>
 	</cffunction>
 
 	<cffunction name="getDefaultUserRoleDescription" access="public" output="false" returntype="string">

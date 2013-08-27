@@ -35,7 +35,8 @@
 									</div>
 								</div>
 								<div class="form-actions">
-									<input type="submit" class='btn btn-primary' value="Save">										
+									<input type="submit" class='btn btn-primary' value="Save">			
+									<input type="submit" id="skipBut" value="Skip for now" class="btn btn-orange">								
 								</div>
 							</form>
 						</div>
@@ -45,3 +46,15 @@
 			</div><!--- end of container-fluid --->
 </div><!--- end of main --->
 
+<script type="text/javascript">
+	$(function() {
+
+		$("#skipBut").click(function(e) {
+				e.preventDefault();
+				//alert('SKIP-BO!');
+				window.location.replace("index.cfm?event=showUserDashboard");
+		});
+
+	});
+
+</script>
