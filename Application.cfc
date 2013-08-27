@@ -69,19 +69,19 @@
 
 		<!--- Request Scope Variable Defaults --->
 		<cfset request.self = "index.cfm">
-
+		
 		<cfif StructKeyExists(url, "reinit")>
 			<cfsetting requesttimeout="120"/>
 			<cfset MACHII_CONFIG_MODE = 1 />
 		</cfif>
-
+		
 		<cfset request.do404 = do404>
  
 		<!--- Return out. --->
 		<cfreturn true />
 	</cffunction>
  
- <!---
+
 	<cffunction
 		name="OnRequest"
 		access="public"
@@ -95,7 +95,13 @@
 			type="string"
 			required="true"
 			/>
- 
+ 		
+ 		<cfif StructKeyExists(url, "reinit")>
+			<cfsetting requesttimeout="120"/>
+			<cfset MACHII_CONFIG_MODE = 1 />
+		</cfif>
+
+
 		<!--- Include the requested page. --->
 		<cfinclude template="#ARGUMENTS.TargetPage#" />
  
@@ -114,7 +120,8 @@
 		<!--- Return out. --->
 		<cfreturn />
 	</cffunction>
- --->
+  <!---
+--->
  
 	<cffunction
 		name="OnSessionEnd"
