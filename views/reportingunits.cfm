@@ -7,9 +7,9 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 </cfscript>
 
 <!--- 
-<cfdump var="#qReportingUnits#">
+<cfdump var="#qReportingUnits#"  label="reportingunits">
+<cfdump var="#qAdminReportingUnits#" label="adminreportingunits" />
 --->
-
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 				<cfinclude template="/Assessment/views/page_header.cfm">
@@ -24,13 +24,23 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 									</h3>
 
 									<ul class="tabs">
-										<li class="active">
-											<a href="#t1" data-toggle="tab">Academic Units</a>
-										</li>
-										<li>
-											<a href="#t2" data-toggle="tab">Administrative/Support Units</a>
-										</li>
-										
+
+										<cfif qReportingUnits.recordcount>		
+											<li class="active">
+												<a href="#t1" data-toggle="tab">Academic Units</a>
+											</li>
+										</cfif>
+
+										<cfif qAdminReportingUnits.recordcount>																				
+											<cfif qReportingUnits.recordcount EQ 0>
+												<li class="active">
+											<cfelse>
+												<li>
+											</cfif>
+											
+												<a href="#t2" data-toggle="tab">Administrative/Support Units</a>
+											</li>
+										</cfif>
 									</ul>
 
 								</div>
@@ -176,7 +186,13 @@ stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 									</div><!--- end of #t1 --->									
 								</div>
 
-									<div class="tab-pane" id="t2"><!--- begin #t2 --->
+									<!--- begin #t2 --->
+									<cfif qReportingUnits.recordcount EQ 0>
+										<div class="tab-pane active" id="t2">
+									<cfelse>
+										<div class="tab-pane" id="t2">
+									</cfif>
+																		
 										<!---
 										<div class="box">
 											<div class="nopadding">

@@ -20,6 +20,10 @@
 		MACHII_VALIDATE_XML = false;
 	</cfscript>
 
+	<cfsetting
+		showdebugoutput="true"
+		enablecfoutputonly="false"
+		/>
 
 	<cffunction
 		name="OnApplicationStart"

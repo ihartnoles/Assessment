@@ -1,5 +1,7 @@
+<!---
 <cfsetting enablecfoutputonly="true">
 <cfsetting showdebugoutput="true">
+--->
 <cfset variables.forJSON = request.event.getArg("forJSON")>
 <cfset variables.serializeQueryByColumns = request.event.getArg('serializeQueryByColumns',false)>
 <cfset variables.useJsonHelper = request.event.getArg('useJsonHelper',false)>
