@@ -90,6 +90,13 @@
 		<cfreturn  variables.usersDAO.userHasDefaultRole(userid=arguments.userid) />
 	</cffunction>
 
+	<cffunction name="getUserRole" access="public" output="false" returntype="query">
+		<cfargument name="userid" type="string" required="false" />				
+		
+		<cfreturn  variables.usersDAO.getUserRole(userid=arguments.userid) />
+	</cffunction>
+
+
 	<cffunction name="updatepassword" access="public" output="false" returntype="boolean">
 		<cfargument name="UserPassword_1" type="string" required="true" />
 		<cfargument name="UserPassword_2" type="string" required="true" />

@@ -190,6 +190,22 @@
 	</cffunction>
 
 
+	<cffunction name="getUserRole" access="public" output="false" returntype="query">
+		<cfargument name="userid" type="string" required="true" />
+		
+
+		<cfset var qUserRole = "">
+		<cfquery name="qUserRole" datasource="#variables.dsn#" >
+			 SELECT ur.*, AssessmentRoleDescription  
+			 FROM UserRoles ur, Roles r  
+			 WHERE ur.UserID= <cfqueryparam value="#arguments.userid#" CFSQLType="cf_sql_integer" />
+			 AND ur.RoleID=r.AssessmentRoleID
+		</cfquery>
+
+		<cfreturn qUserRole />
+	</cffunction>
+
+
 
 	<cffunction name="setUserRole" access="public" output="false" returntype="boolean">
 		<cfargument name="RoleID" type="numeric" required="false" />

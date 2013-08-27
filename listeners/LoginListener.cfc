@@ -40,7 +40,13 @@
 																 userpassword=arguments.event.getArg("password"));
 
 				//writeDump(var=local.userexists, abort="false", label="@LoginListener");
+
+				//pull the first role you find
+				local.getUserRole = variables.usersService.getUserRole(userid=userexists.UserID);
 				
+
+				//writeDump(var=local.getUserRole, abort="true", label="@LoginListener");
+
 				if ( local.userexists.recordcount ) {
 					local.success = true;
 
@@ -52,6 +58,8 @@
 						{
 							session.user.userID = local.userexists.userID;
 							session.user.username = local.userexists.username;
+							session.user.userRoleID = local.getUserRole.roleID;
+							session.user.userRoleDescription = local.getUserRole.AssessmentRoleDescription;
 						}
 					
 				} else {
