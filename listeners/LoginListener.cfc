@@ -18,6 +18,7 @@
 		<cfset var sf = getProperty("ServiceFactory")>
 		
 		<cfset variables.usersService 	= sf.getBean('usersService') />
+		<cfset variables.stringHelper	= sf.getBean('stringHelper') /> 
 	</cffunction>
 	
 
@@ -50,7 +51,11 @@
 
 					local.qProgramIDs = variables.usersService.getProgramIDs(userid=userexists.UserID);
 					
-					local.progIDs = ValueList(local.qProgramIDs.programID);
+					local.progIDs 	  	 = ValueList(local.qProgramIDs.programID);
+					local.deptIDlist  	 = ValueList(local.getUserRole.deptID);
+					local.deptIDs  	  	 = variables.stringHelper.listRemoveDuplicates(local.deptIDlist);
+					local.divisionIDlist = ValueList(local.qProgramIDs.divisionID);
+					local.divisionIDs 	 = variables.stringHelper.listRemoveDuplicates(local.divisionIDlist);
 
 					//writeDump(var=local, abort="true", label="@LoginListener");
 
@@ -64,8 +69,9 @@
 							session.user.username = local.userexists.username;
 							session.user.userRoleID = local.getUserRole.roleID;
 							session.user.userRoleDescription = local.getUserRole.AssessmentRoleDescription;
-							session.user.deptID  = local.getUserRole.deptID;
+							session.user.deptID  = local.deptIDs;
 							session.user.programID = local.progIDs;
+							session.user.divisionID = local.divisionIDs;
 						}
 					
 				} else {

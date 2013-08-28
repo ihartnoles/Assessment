@@ -111,6 +111,23 @@
 
 			 				SELECT ReportingUnitID FROM ReportingUnit WHERE ( 
 
+
+			 				<!--- only Admins and View only should include this part of the query --->
+			 				<cfif session.user.userroleid EQ 1 OR  session.user.userroleid EQ 4 OR session.user.DeptID CONTAINS 999999>
+			 				   <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
+			 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
+			 				   </cfif>
+
+			 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID) AND arguments.quseraccessids.SuperDivisionID NEQ 999999>
+			 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.quseraccessids.SuperDivisionID#" CFSQLType="cf_sql_integer" />
+			 				   </cfif>
+
+			 				    <cfif structKeyExists(session.user,"divisionID") and len(session.user.DivisionID) >
+			 				   	 AND	DivisionID IN (<cfqueryparam value="#session.user.DivisionID#" CFSQLType="cf_sql_varchar" list="true" />)
+			 				   </cfif>
+
+			 				   OR
+			 				 </cfif>
 			 				
 			 				  <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
 			 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
@@ -121,20 +138,22 @@
 			 				   </cfif>
 
 			 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID) AND arguments.quseraccessids.DivisionID NEQ 999999>
-			 				   	 AND	DivisionID = <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_integer" />
+			 				   	 AND	DivisionID IN (<cfqueryparam value="#arguments.quseraccessids.divisionID#"  CFSQLType="cf_sql_varchar" list="true" />)
 			 				   </cfif>
 
-			 				   <cfif session.user.userroleid NEQ 1>	
-			 				 	 <cfif structKeyExists(session.user,"DeptID") and len(session.user.DeptID) AND session.user.DeptID NEQ 999999>
-			 				   	 	AND	DeptID = <cfqueryparam value="#session.user.DeptID#" CFSQLType="cf_sql_integer" />
-			 				   	 </cfif>
+			 				   <!--- exlude admins for this --->
+			 				   <cfif session.user.userroleid NEQ 1>		 				 
+				 				   <cfif structKeyExists(session.user,"DeptID") and len(session.user.DeptID) AND session.user.DeptID NEQ 999999>
+				 				   	 	AND	DeptID IN (<cfqueryparam value="#session.user.DeptID#" CFSQLType="cf_sql_varchar"  list="true"/>)
+				 				   	</cfif>
 
-			 				   	  <cfif NOT listfind(session.user.ProgramID,'999999') >
+				 				   <cfif NOT structKeyExists(session.user,"ProgramID")  and len(session.user.ProgramID) and listfind(session.user.ProgramID,'999999') >
 				 				   	 AND   ProgramID IN (<cfqueryparam value="#session.user.programID#" CFSQLType="cf_sql_varchar" list="true" />)
 				 				   </cfif>
 			 				   </cfif>
 			 				
-			 			) )
+			 				)
+						)
 						 AND a.ProgramID = p.ProgramID 
 						 And a.DeptID = d.DeptID And a.DivisionID = di.DivisionID 
 						 And a.SuperDivisionID = s.SuperDivisionID 
@@ -208,6 +227,23 @@
 
 			 				SELECT ReportingUnitID FROM ReportingUnit WHERE ( 
 
+
+			 				<!--- only Admins and View only should include this part of the query --->
+			 				<cfif session.user.userroleid EQ 1 OR  session.user.userroleid EQ 4 OR session.user.DeptID CONTAINS 999999 >	
+			 				  <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
+			 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
+			 				  </cfif>
+
+			 				   <cfif structKeyExists(arguments.quseraccessids,"SuperDivisionID") and len(arguments.quseraccessids.SuperDivisionID) AND arguments.quseraccessids.SuperDivisionID NEQ 999999>
+			 				   	 AND	SuperDivisionID = <cfqueryparam value="#arguments.quseraccessids.SuperDivisionID#" CFSQLType="cf_sql_integer" />
+			 				   </cfif>
+
+			 				   <cfif structKeyExists(session.user,"divisionID") and len(session.user.DivisionID) >
+			 				   	 AND	DivisionID IN (<cfqueryparam value="#session.user.DivisionID#" CFSQLType="cf_sql_varchar" list="true" />)
+			 				   </cfif>
+
+			 				   OR
+			 				  </cfif>
 			 				
 			 				  <cfif structKeyExists(arguments.quseraccessids,"OrganizationID") and len(arguments.quseraccessids.OrganizationID)>
 			 					OrganizationID=<cfqueryparam value="#arguments.quseraccessids.OrganizationID#" CFSQLType="cf_sql_integer" />
@@ -218,15 +254,16 @@
 			 				   </cfif>
 
 			 				  <cfif structKeyExists(arguments.quseraccessids,"DivisionID") and len(arguments.quseraccessids.DivisionID) AND arguments.quseraccessids.DivisionID NEQ 999999>
-			 				   	 AND	DivisionID = <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_integer" />
+			 				   	 AND	DivisionID IN ( <cfqueryparam value="#arguments.quseraccessids.divisionID#" CFSQLType="cf_sql_varchar" list="true"/> )
 			 				   </cfif>
-
+			 				   
+			 				   <!--- exlude admins for this --->
 			 				   <cfif session.user.userroleid NEQ 1>		 				 
 				 				   <cfif structKeyExists(session.user,"DeptID") and len(session.user.DeptID) AND session.user.DeptID NEQ 999999>
-				 				   	 AND   DeptID = <cfqueryparam value="#session.user.DeptID#" CFSQLType="cf_sql_integer" />
-				 				   </cfif> 
+				 				   	 	AND	DeptID IN (<cfqueryparam value="#session.user.DeptID#" CFSQLType="cf_sql_varchar"  list="true"/>)
+				 				   	</cfif>
 
-				 				   <cfif NOT listfind(session.user.ProgramID,'999999') >
+				 				   <cfif NOT structKeyExists(session.user,"ProgramID")  and len(session.user.ProgramID) and listfind(session.user.ProgramID,'999999') >
 				 				   	 AND   ProgramID IN (<cfqueryparam value="#session.user.programID#" CFSQLType="cf_sql_varchar" list="true" />)
 				 				   </cfif>
 			 				   </cfif>
