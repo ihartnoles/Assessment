@@ -2,6 +2,10 @@
 		qPlanGrid = request.event.getArg('qPlanGrid');
 </cfscript>
 
+<!---
+<cfdump var="#qPlanGrid#" abort="false" />
+--->
+
 <div class="box-content nopadding">
 		<table class="table table-hover table-nomargin">
 			<cfif qPlanGrid.recordcount>
@@ -28,7 +32,7 @@
 							<!--- <td class='hidden-480'>#qPlanGrid.WorkFlowStepDescription#</td> --->
 							<td class='hidden-1024'>
 								<cfoutput group="PlanPeriod">
-									<a href="index.cfm?event=showplan&reportingunitID=#qPlanGrid.reportingUnitID#&planid=#qPlanGrid.planID#">#qPlanGrid.PlanPeriod#</a>
+									<a href="index.cfm?event=showplan&reportingunitID=#qPlanGrid.reportingUnitID#&planid=#qPlanGrid.planID#&programID=#qPlanGrid.programID#&deptID=#qPlanGrid.deptID#&divisionID=#qPlanGrid.divisionID#">#qPlanGrid.PlanPeriod#</a>
 								</cfoutput>
 
 								
