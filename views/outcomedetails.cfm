@@ -85,7 +85,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																					<!---
 																					[<a href="index.cfm?event=editOutcome&outcomeID=#qOutcomeDetail.outcomeID#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#">edit</a>]
 																					--->
-																					<cfif session.user.userroleid neq 4>	
+																					<cfif session.user.userroleid lte 2>	
 																						<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
 																					</cfif>
 
@@ -287,7 +287,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																						<i class="icon-file"></i>
 																						Results
 
-																							<cfif session.user.userroleid neq 4>
+																							<cfif session.user.userroleid lte 2>
 																								<button class="btn editOutcome"><i class="icon-edit"></i>Edit</button>
 																							</cfif>
 																					</h3>
@@ -487,7 +487,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																	</div>
 																</div>
 																
-																<cfif session.user.userroleid neq 4>
+																<cfif session.user.userroleid lte 2>
 																	<div class="box">
 																		<div class="box-title">
 																			<h3><i class="icon-upload"></i> Upload Supporting Documents</h3>

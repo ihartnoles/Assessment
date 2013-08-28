@@ -41,14 +41,18 @@
 
 				//writeDump(var=local.userexists, abort="false", label="@LoginListener");
 
-				//pull the first role you find
-				local.getUserRole = variables.usersService.getUserRole(userid=userexists.UserID);
 				
-
-				//writeDump(var=local.getUserRole, abort="true", label="@LoginListener");
-
 				if ( local.userexists.recordcount ) {
 					local.success = true;
+
+					//pull the first role you find
+					local.getUserRole = variables.usersService.getUserRole(userid=userexists.UserID);
+
+					local.qProgramIDs = variables.usersService.getProgramIDs(userid=userexists.UserID);
+					
+					local.progIDs = ValueList(local.qProgramIDs.programID);
+
+					//writeDump(var=local, abort="true", label="@LoginListener");
 
 					//set the session.UserID
 					lock
@@ -60,6 +64,8 @@
 							session.user.username = local.userexists.username;
 							session.user.userRoleID = local.getUserRole.roleID;
 							session.user.userRoleDescription = local.getUserRole.AssessmentRoleDescription;
+							session.user.deptID  = local.getUserRole.deptID;
+							session.user.programID = local.progIDs;
 						}
 					
 				} else {

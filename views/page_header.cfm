@@ -7,7 +7,7 @@
 								<div class="span12">
 									
 									<cfoutput>
-										<cfif session.user.userroleid neq 4>
+										<cfif session.user.userroleid lte 2>
 											<a href="index.cfm?event=addPlan&reportingUnitID=#request.event.getArg('reportingUnitID')#&ProgramID=#request.event.getArg('ProgramID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#" class="btn btn-red">
 												<i class="icon-pencil"></i>									
 												<span>Add Assessment Plan</span>

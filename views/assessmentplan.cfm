@@ -23,9 +23,10 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-				<cfdump var="#session.user#" />
+				
 
 				<!---
+				<cfdump var="#session.user#" />
 				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
      			<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
 				<cfdump var="#qRatings#" label="qRatings"/>
@@ -55,7 +56,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 								<div class="row-fluid margin-top">
 									<div class="span12">
 
-											<cfif session.user.userroleid neq 4>
+											<cfif session.user.userroleid gt 2>
 												<div class="text-left">
 													<cfoutput>
 													<a href="index.cfm?event=addOutcome&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#" class="btn btn-red">
@@ -130,7 +131,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																					<cfoutput>
 																						#qcountOutcomes.currentrow#
 
-																						<cfif session.user.userroleid neq 4>																			
+																						<cfif session.user.userroleid lte 2>																			
 																							<button class="btn editOutcome" data-outcome="#qCountOutcomes.outcomeID#"><i class="icon-edit"></i>Edit</button>
 																						</cfif>
 																						<!---
@@ -418,7 +419,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																									</cfloop> 
 																								</cfoutput>
 																									<div class="form-actions">
-																										<cfif session.user.userroleid neq 4>
+																										<cfif session.user.userroleid gt 2>
 																											<button type="submit" class="btn btn-primary">Save "#listlast(qCheckListTypes.category,".")#" ratings</button>
 																										</cfif>
 																										<!--- <button type="button" class="btn">Cancel</button> --->

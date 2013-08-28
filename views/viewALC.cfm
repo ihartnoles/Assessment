@@ -98,7 +98,7 @@ qALCdocs		=  request.event.getArg('qALCdocs');
 						</div>
 						--->
 
-							<cfif session.user.userroleid neq 4>
+							<cfif session.user.userroleid lte 2>
 								<div class="box">
 									<div class="box-title">
 										<h3><i class="icon-upload"></i> Upload Academic Learning Compact</h3>

@@ -174,11 +174,12 @@
 
 		<cfset var qDefaultRole = "">
 		<cfquery name="qDefaultRole" datasource="#variables.dsn#" >
-			 SELECT ur.*, AssessmentRoleDescription  
-			 FROM UserRoles ur, Roles r  
+			 SELECT ur.*, AssessmentRoleDescription, ura.DeptID 
+			 FROM UserRoles ur, Roles r , UserRoleAccess ura
 			 WHERE ur.UserID= <cfqueryparam value="#arguments.userid#" CFSQLType="cf_sql_integer" />
 			 AND ur.DefaultRole = 1
 			 AND ur.RoleID=r.AssessmentRoleID
+			  AND ur.recordID = ura.UserRoleRecordID
 		</cfquery>
 
 
@@ -196,10 +197,11 @@
 
 		<cfset var qUserRole = "">
 		<cfquery name="qUserRole" datasource="#variables.dsn#" >
-			 SELECT ur.*, AssessmentRoleDescription  
-			 FROM UserRoles ur, Roles r  
+			 SELECT ur.*, AssessmentRoleDescription, ura.DeptID  
+			 FROM UserRoles ur, Roles r , UserRoleAccess ura
 			 WHERE ur.UserID= <cfqueryparam value="#arguments.userid#" CFSQLType="cf_sql_integer" />
 			 AND ur.RoleID=r.AssessmentRoleID
+			 AND ur.recordID = ura.UserRoleRecordID
 		</cfquery>
 
 		<cfreturn qUserRole />

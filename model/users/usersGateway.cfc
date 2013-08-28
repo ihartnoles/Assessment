@@ -263,6 +263,26 @@
 		<cfreturn qList />
 	</cffunction>
 
+	<cffunction name="getProgramIDs" access="public" output="false" returntype="query">
+		<cfargument name="userID" type="numeric" required="false" />
+
+		<cfset var qPrograms = "" />		
+		<cfquery name="qPrograms" datasource="#variables.dsn#">
+			SELECT ura.*, ur.RoleID, organizationname, superdivisionname, divisionname, deptname, programname, assessmentroledescription
+			FROM UserRoleAccess ura, UserRoles ur, organization o, organizationsuperdivision osd, organizationdivision odv, organizationdept odp, organizationprogram op, roles r
+			WHERE ura.UserRoleRecordID=ur.RecordID AND UserRoleRecordID IN (SELECT RecordID FROM UserRoles WHERE UserID=<cfqueryparam value="#arguments.userID#" CFSQLType="cf_sql_integer" />)
+			AND ura.organizationid=o.organizationid 
+			AND ura.superdivisionid=osd.superdivisionid 
+			AND ura.divisionid=odv.divisionid 
+			AND ura.deptid=odp.deptid 
+			AND ura.programid=op.programid 
+			AND ur.roleid = r.assessmentroleid
+		</cfquery>
+		
+		<cfreturn qPrograms />
+
+	</cffunction>
+
 
 	<cffunction name="queryRowToStruct" access="private" output="false" returntype="struct">
 		<cfargument name="qry" type="query" required="true">
