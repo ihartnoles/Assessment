@@ -29,7 +29,7 @@
 				<parameter name="resolveMachIIDependencies" 	 value="true"/>				
 			</parameters>
 		</property>
-		<property name="dsn" value="Assessment" />
+		<property name="dsn" value="RW_Assessment" />
 	</properties>
 
 	<!-- PLUGINS -->

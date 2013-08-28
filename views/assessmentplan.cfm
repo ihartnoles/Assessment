@@ -154,7 +154,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																				<p><strong>Academic Learning Categories related to this outcome:</strong></p>
 																				
 																					<!--- let's play HACKY SACK! --->	
-																				    <cfquery name="getSelectedALCCategories" datasource="Assessment">
+																				    <cfquery name="getSelectedALCCategories" datasource="RW_Assessment">
 																				    		SELECT 
 																									recordId,
 																									outcomeID,
@@ -268,7 +268,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																						<p><strong>Relates to FAU Strategic Plan goals & objectives</strong></p>
 
 																						<!--- let's play HACKY SACK! --->
-																					    <cfquery name="qSelectedGoals" datasource="Assessment">
+																					    <cfquery name="qSelectedGoals" datasource="RW_Assessment">
 																					    		SELECT StrategicPlanGoalList.ID, StrategicPlanGoalList.objective, StrategicPlanGoalList.goal
 																								FROM     OutcomeStrategicPlanGoals INNER JOIN
 																								                  StrategicPlanGoalList ON OutcomeStrategicPlanGoals.goalID = StrategicPlanGoalList.ID

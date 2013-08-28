@@ -108,7 +108,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																				<p><strong>Academic Learning Categories related to this outcome:</strong></p>
 																				
 																				<!--- let's play HACKY SACK! query to find the selected ALC Category Checkboxes--->	
-																				 <cfquery name="getSelectedALCCategories" datasource="Assessment">
+																				 <cfquery name="getSelectedALCCategories" datasource="RW_Assessment">
 																		    		SELECT 
 																							recordId,
 																							outcomeID,

@@ -10,7 +10,7 @@
 </cfscript>
 
 <!---
-<cfquery name="getIDS" datasource="Assessment">
+<cfquery name="getIDS" datasource="RW_Assessment">
 	SELECT      ReportingUnit.ReportingUnitID, PlanID
 	FROM            ReportingUnit INNER JOIN
 	                         AssessmentPlan ON ReportingUnit.ReportingUnitID = AssessmentPlan.ReportingUnitID
@@ -22,7 +22,7 @@
 	<cfoutput>
 		reportingUnitId: #reportingUnitID#  planID:#PlanID# <br>
 		<cfloop from="1" to="11" index="i">
-			<cfquery name="populate" datasource="Assessment">
+			<cfquery name="populate" datasource="RW_Assessment">
 				INSERT INTO AssessmentPlanChecklistRating(PlanID,ReportingUnitID,ChecklistTypeID,Rating)
 		    	VALUES( #PlanID#,#reportingUnitID#,#i#,NULL)
 	    	</cfquery>
