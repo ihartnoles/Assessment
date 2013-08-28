@@ -71,30 +71,34 @@ qReviewDetails				= request.event.getArg('qReviewDetails');
 
 									<hr>
 									
-									<div class="row-fluid">												
-								 		<strong>I have reviewed the Departmental Dashboard Indicator (DDI) data for this department:</strong>
-								  									  	
-									  	<cfset count=0>
-									  	<cfloop list="Yes,No" index="idx" delimiters=",">	
-  											<label class="radio inline" for="radios-#count#">
-									  		 <input type="radio" name="DeanReviewedDDI" value="#left(idx,1)#"  <cfif #qReviewDetails.DeanReviewedDDI# EQ #left(idx,1)#>checked</cfif>>#idx#
-									  		</label>
-									  		<cfset count = count + 1/>
-									  	</cfloop>
-									  	<p>Full DDI documents are available <a id="DDIDocsLink" href="http://www.fau.edu/iea/deptreview.php" target="_blank">here</a>.  DDI data relevant to each section of this review are also linked below.</p>								
+									<div class="row-fluid">		
+										<div class="text-center">										
+									 		<strong>I have reviewed the Departmental Dashboard Indicator (DDI) data for this department:</strong>
+									  									  	
+										  	<cfset count=0>
+										  	<cfloop list="Yes,No" index="idx" delimiters=",">	
+	  											<label class="radio inline" for="radios-#count#">
+										  		 <input type="radio" name="DeanReviewedDDI" value="#left(idx,1)#"  <cfif #qReviewDetails.DeanReviewedDDI# EQ #left(idx,1)#>checked</cfif>>#idx#
+										  		</label>
+										  		<cfset count = count + 1/>
+										  	</cfloop>
+										  	<p>Full DDI documents are available <a id="DDIDocsLink" href="http://www.fau.edu/iea/deptreview.php" target="_blank">here</a>.  DDI data relevant to each section of this review are also linked below.</p>	
+										  </div>							
 									</div>
 
-									<div class="row-fluid">												
-								 		<strong>I have reviewed the most current assessment plans for the programs in this department:</strong>
-								  									  	
-									  	<cfset count=0>
-									  	<cfloop list="Yes,No" index="idx" delimiters=",">	
-  											<label class="radio inline" for="radios-#count#">
-									  		 <input type="radio" name="DeanReviewedAssessmentPlans" value="#left(idx,1)#" <cfif #qReviewDetails.DEANREVIEWEDASSESSMENTPLANS# EQ #left(idx,1)#>checked</cfif>>#idx#
-									  		</label>
-									  		<cfset count = count + 1/>
-									  	</cfloop>
-									  	<p>Assessment plans are available <a href="index.cfm?event=showreportingunits" target="_blank">here</a>.</p>								
+									<div class="row-fluid">		
+										<div class="text-center">											
+									 		<strong>I have reviewed the most current assessment plans for the programs in this department:</strong>
+									  									  	
+										  	<cfset count=0>
+										  	<cfloop list="Yes,No" index="idx" delimiters=",">	
+	  											<label class="radio inline" for="radios-#count#">
+										  		 <input type="radio" name="DeanReviewedAssessmentPlans" value="#left(idx,1)#" <cfif #qReviewDetails.DEANREVIEWEDASSESSMENTPLANS# EQ #left(idx,1)#>checked</cfif>>#idx#
+										  		</label>
+										  		<cfset count = count + 1/>
+										  	</cfloop>
+										  	<p>Assessment plans are available <a href="index.cfm?event=showreportingunits" target="_blank">here</a>.</p>
+										  </div>								
 									</div>
 									
 									
@@ -116,38 +120,38 @@ qReviewDetails				= request.event.getArg('qReviewDetails');
 										<div class="row-fluid">	
 											Personnel:  
 
-											<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##personnel" target="_blank">B1</a> 
+											<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##personnel" target="_blank">B1</a> 
 
-											 <a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##faculty" target="_blank">B2</a> 
+											 <a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##faculty" target="_blank">B2</a> 
 										</div>
 
 										<div class="row-fluid">	
-											Courses taught: <a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##courses" target="_blank">B3</a>
+											Courses taught: <a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##courses" target="_blank">B3</a>
 										</div>
 
 										<div class="row-fluid">	
-											Student diversity: <a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##majors" target="_blank">B4</a>
+											Student diversity: <a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##majors" target="_blank">B4</a>
 										</div>
 
 										<div class="row-fluid">	
 											FTE Production: 
-												  <a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##fte" target="_blank">C1</a>
-												  <a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##fteinout" target="_blank">C2</a>
-												  <a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##fteper" target="_blank">D1</a> 
+												  <a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##fte" target="_blank">C1</a>
+												  <a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##fteinout" target="_blank">C2</a>
+												  <a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##fteper" target="_blank">D1</a> 
 										</div>
 
 										<div class="row-fluid">	
 											Degree Production: 
 												
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##degrees" target="_blank">C3</a>
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##degrees" target="_blank">C3</a>
 
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##degreesper" target="_blank">D2</a>  
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##degreesper" target="_blank">D2</a>  
 										</div>
 
 										<div class="row-fluid">	
 											Student Feedback: 
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##spot" target="_blank">E1</a>
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##stusat" target="_blank">E2</a>  
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##spot" target="_blank">E1</a>
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##stusat" target="_blank">E2</a>  
 										</div>
 
 										<div class="row-fluid">
@@ -194,9 +198,9 @@ qReviewDetails				= request.event.getArg('qReviewDetails');
 
 										<div class="row-fluid">	
 											Funded Research: 
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##resact" target="_blank">B1</a>
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##resprod" target="_blank">C7-9</a>  
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##reseff" target="_blank">D7-9</a>  
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##resact" target="_blank">B1</a>
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##resprod" target="_blank">C7-9</a>  
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##reseff" target="_blank">D7-9</a>  
 												(efficiency)
 										</div>
 
@@ -247,8 +251,8 @@ qReviewDetails				= request.event.getArg('qReviewDetails');
 
 										<div class="row-fluid">	
 											Service productivity: 
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##svcprod" target="_blank">B1-3</a>
-												<a title="Click to view DDI data" href="/Assessment/DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##svceff" target="_blank">C1-3</a>						
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##svcprod" target="_blank">B1-3</a>
+												<a title="Click to view DDI data" href="DDIDocuments/#qReviewDetails.reviewperiod#/PR_#qReviewDetails.reviewperiod#_#qReviewDetails.samasdeptid#.htm##svceff" target="_blank">C1-3</a>						
 												(efficiency)
 										</div>
 

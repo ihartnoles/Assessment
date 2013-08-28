@@ -56,10 +56,10 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 								<div class="row-fluid margin-top">
 									<div class="span12">
 
-											<cfif session.user.userroleid gt 2>
+											<cfif session.user.userroleid lte 2>
 												<div class="text-left">
 													<cfoutput>
-													<a href="index.cfm?event=addOutcome&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#" class="btn btn-red">
+													<a href="index.cfm?event=addOutcome&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&programID=#request.event.getArg('programID')#&deptID=#request.event.getArg('deptID')#&divisionID=#request.event.getArg('divisionID')#" class="btn btn-red">
 													<i class="icon-pencil"></i>									
 													<span>Add New Outcome</span>
 													</cfoutput>

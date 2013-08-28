@@ -1,3 +1,7 @@
+<!---
+<cfdump var="#qPrimaryAuthors#" abort="false" label="assessmentplansummary.cfm" />
+--->
+
 <form action="#" method="POST" class='form-horizontal form-column form-bordered'>
 								 <!---
 								 <cfloop query="qPlanDetails">

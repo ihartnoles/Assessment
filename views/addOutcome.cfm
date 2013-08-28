@@ -3,6 +3,7 @@
 qPlanDetails			= request.event.getArg('qPlanDetails');
 qcountOutcomes    		= request.event.getArg('qcountOutcomes');
 qALCCategories			= request.event.getArg('qALCCategories');
+qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 title 					= "Add a new outcome" ;
 </cfscript>
 
