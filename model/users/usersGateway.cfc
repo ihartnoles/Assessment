@@ -283,6 +283,40 @@
 
 	</cffunction>
 
+	
+	<cffunction name="getuserbyemail" access="public" output="false" returntype="query">
+		<cfargument name="UserEmail" type="string" required="false" />
+		
+		<cfset var qList = "" />		
+		<cfquery name="qList" datasource="#variables.dsn#">
+			SELECT
+				UserID,
+				UserLname,
+				UserFname,
+				UserInitial,
+				UserTitle,
+				UserAddress,
+				UserCampus,
+				UserPhoneAcode,
+				UserPhoneNumber,
+				UserEmail,
+				UserName,
+				UserPassword,
+				UserTrained
+			FROM	Users
+			WHERE	0=0
+		
+		
+		<cfif structKeyExists(arguments,"UserEmail") and len(arguments.UserEmail)>
+			AND	UserEmail = <cfqueryparam value="#arguments.UserEmail#" CFSQLType="cf_sql_varchar" />
+		</cfif>
+				
+			ORDER BY UserLname
+		
+		</cfquery>
+
+		<cfreturn qList />
+	</cffunction>
 
 	<cffunction name="queryRowToStruct" access="private" output="false" returntype="struct">
 		<cfargument name="qry" type="query" required="true">

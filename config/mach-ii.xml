@@ -106,6 +106,12 @@
 			<view-page name="layout" />
 		</event-handler>
 
+		<event-handler event="sendLogin" access="public">
+			<notify listener="messageListener" method="sendLogin"  resultArg="layout_message" />
+			<view-page name="sentLogin" contentArg="content" />
+			<view-page name="layout" />
+		</event-handler>
+
 		<event-handler event="ChooseUserRoleForSession" access="public">
 			<notify listener="UserListener" method="getUserBean" resultArg="userBean"  />
 			<event-arg name="userid" variable="session.userid" />
@@ -468,6 +474,7 @@
 		<page-view name="addOutcome" page="/views/addOutcome.cfm" />
 		<page-view name="editOutcome" page="/views/editOutcome.cfm" />
 		<page-view name="viewALC" page="/views/viewALC.cfm" />
+		<page-view name="sentLogin" page="/views/sentLogin.cfm" />
 	</page-views>
 
 </mach-ii>

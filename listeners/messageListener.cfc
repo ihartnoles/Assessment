@@ -61,6 +61,56 @@
 		<cfreturn MessageID />
 	</cffunction>
 
+
+
+	<cffunction name="sendLogin" access="public" output="false" 
+			returntype="string" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		
+		<!--- validate the email address entered 'username' --->
+		<cfset local.qExists = variables.usersService.getuserbyemail(UserEmail=trim(request.event.getArg('username'))) />
+		
+		<cfif local.qExists.recordcount>
+			<!--- pull the email address from the query --->
+			<cfset local.emailAddress = local.qExists.UserEmail />
+
+		 	<!---
+			<cfdump var="#local#" abort="true" label="@@messageListener" />
+			--->
+
+			<!--- physically mail out the message --->
+			<cfmail to="#local.emailAddress#"
+					from="admin@fau.edu"
+					subject="FAU Assessment Login Info"
+					type="text/html">
+					Dear #local.qExists.UserFname#,<br><br>
+
+					Your login credentials for the FAU Assessment Database are below:<br>
+
+					<ul>
+						<li>Username: #local.qExists.Username#</li>
+						<li>Password: #local.qExists.userpassword#</li>
+					</ul>
+
+			</cfmail>
+
+			<cfset local.layout_message = 'Login information sent! Please check your email for details' />
+		<cfelse>
+			<cfset local.layout_message = 'Sorry your email address was not found!'/>
+		</cfif>
+
+		
+
+		<!--- If the message was successfully saved AND sent let's return a message 
+		<cfif isNumeric(MessageID)>
+			<cfset request.event.setArg('layout_message','Message Sent!') />
+		
+		</cfif>
+		--->
+		<cfreturn local.layout_message />
+	</cffunction>
+
+
 	<cffunction name="getInboxMessages" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
