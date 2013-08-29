@@ -48,7 +48,9 @@
 <cfset variables.exception = request.event.getArg("exception") />
 <cfset variables.stError = variables.exception.getCaughtException()>
 
+<!---
 <cfsetting requesttimeout="#(GetRequestTimeout() + 5000)#" />
+--->
 
 <!--- check to see if this is an undefined mach II event and treat as 404 --->
 <cfif variables.stError.type eq 'MachII.framework.EventHandlerNotDefined'>

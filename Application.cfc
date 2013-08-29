@@ -175,7 +175,9 @@
 		<cfargument name="Exception" required=true/>
 		<cfargument type="String" name="EventName" required=true/>
 
+		<!---
 		<cfsetting requesttimeout="#(GetRequestTimeout() + 5000)#" />
+		--->
 			<!--- Log all errors. --->
 			<cflog file="#This.Name#" type="error" text="Event Name: #Arguments.Eventname#" >
 			<cflog file="#This.Name#" type="error" text="Message: #Arguments.Exception.message#">
