@@ -170,29 +170,27 @@
 	</cffunction>
  
  
-	<cffunction
-		name="OnError"
-		access="public"
-		returntype="void"
-		output="true"
-		hint="Fires when an exception occures that is not caught by a try/catch.">
- 
-		<!--- Define arguments. --->
-		<cfargument
-			name="Exception"
-			type="any"
-			required="true"
-			/>
- 
-		<cfargument
-			name="EventName"
-			type="string"
-			required="false"
-			default=""
-			/>
- 
-		<!--- Return out. --->
-		<cfreturn />
+	
+	<cffunction name="onError">
+		<cfargument name="Exception" required=true/>
+		<cfargument type="String" name="EventName" required=true/>
+
+		<cfsetting requesttimeout="#(GetRequestTimeout() + 5000)#" />
+			<!--- Log all errors. --->
+			<cflog file="#This.Name#" type="error" text="Event Name: #Arguments.Eventname#" >
+			<cflog file="#This.Name#" type="error" text="Message: #Arguments.Exception.message#">
+			<cflog file="#This.Name#" type="error" text="Root Cause Message: #Arguments.Exception.detail#">
+			<!--- Display an error message if there is a page context. --->
+			<cfif NOT (Arguments.EventName IS "onSessionEnd") OR 	(Arguments.EventName IS "onApplicationEnd")>
+			<cfoutput>
+			<h2>An unexpected error occurred.</h2>
+			<p>Please provide the following information to technical support:</p>
+			<p>Error Event: #Arguments.EventName#</p>
+			<p>Error details:<br>
+			<cfdump var=#Arguments.Exception#></p>
+			</cfoutput>
+		</cfif>
+		
 	</cffunction>
 
 	<cffunction name="onMissingTemplate"> 
@@ -287,5 +285,11 @@
 		
 	<cfreturn true>
 </cffunction>
+
+<cffunction	name="GetRequestTimeout" access="public" returntype="numeric" output="false" hint="Returns the current request timeout for the current page page request.">
+	<cfset local.RequestMonitor = CreateObject("java","coldfusion.runtime.RequestMonitor")>
+	<cfreturn local.RequestMonitor.GetRequestTimeout()>
+</cffunction>
+
 
 </cfcomponent>
