@@ -160,6 +160,9 @@ An error occurred.
 				<div class="desc">We've logged this error and we're working to fix it as soon as possible.</div>
 				<div class="desc">We're sorry for the inconvenience.</div>
 			</div>
+			<div class="buttons">
+				<div class="pull-left"><a href="index.cfm" class="btn"><i class="icon-arrow-left"></i> Back</a></div>
+			</div>
 	</div>
 		
 

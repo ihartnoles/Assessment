@@ -269,10 +269,11 @@
 
 			</head>
 
-			<body class='error theme-darkblue'>
+			<body class='error' style="background-color: ##204e81;">
 				<div class="wrapper">
 					<div class="code"><span>404</span><i class="icon-warning-sign"></i></div>
 					<div class="desc">Oops! Sorry, that page couldn't be found.</div>
+					<div class="desc">Maybe the page was moved or deleted or perhaps you mistyped the address. It happens.</div>
 					
 					<div class="buttons">
 						<div class="pull-left"><a href="index.cfm" class="btn"><i class="icon-arrow-left"></i> Back</a></div>
