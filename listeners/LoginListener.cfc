@@ -57,6 +57,18 @@
 					local.divisionIDlist = ValueList(local.qProgramIDs.divisionID);
 					local.divisionIDs 	 = variables.stringHelper.listRemoveDuplicates(local.divisionIDlist);
 
+					//do they want to be remembered?
+					if ( len(trim(arguments.event.getArg('remember'))) )  {
+						cookie.assessment_username = {value: trim(arguments.event.getArg("username")), expires: "never"};
+ 						cookie.assessment_password = {value: trim(arguments.event.getArg("password")), expires: "never"};
+					} else {
+
+						cookie.assessment_username = {value:"", expires: "now" };
+						cookie.assessment_password = {value:"", expires: "now" };
+					}
+
+					//writeDump(var=cookie, abort="true", label="cookie @@ loginlistener");
+
 					//writeDump(var=local, abort="true", label="@LoginListener");
 
 					//set the session.UserID

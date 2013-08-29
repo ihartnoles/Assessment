@@ -8,9 +8,10 @@ session.user.inboxcount = request.event.getArg('qInboxMessages').recordcount;
 qTasks					= request.event.getArg('qTasks');
 </cfscript>
 
-<!--- --->
+<!---
+<cfdump var="#cookie#" label="cookie" />
 <cfdump var="#session#" label="session" />
-
+ --->
 
 	<div id="new-task" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
