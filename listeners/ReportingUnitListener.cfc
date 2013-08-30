@@ -20,11 +20,17 @@
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
-		<!---
+		<!--- 
 		<cfdump var="#request.event.getArgs()#" abort="true" label="@@ReportinUnitListener" />
 		--->
+
+		<cfif request.event.getArg('qUserAccessIDs').recordcount >
+			<cfreturn variables.reportingUnitsService.getReportingUnitsQuery(qUserAccessIDs = request.event.getArg("qUserAccessIDs") ) >
+		<cfelse>
+			<cfset redirectEvent("showUserDashboard", {message = 'Sorry! You are not assigned any reporting units' }) />
+		</cfif>
 		
-		<cfreturn variables.reportingUnitsService.getReportingUnitsQuery(qUserAccessIDs = request.event.getArg("qUserAccessIDs") ) >
+		
 	</cffunction>
 
 	<cffunction name="getAdminReportingUnitsQuery" access="public" output="false" 

@@ -1,6 +1,9 @@
 <div class="page-header">
 					<div class="pull-left">
-						<h1><cfoutput>#title#</cfoutput></h1>
+
+						<cfif cgi.QUERY_STRING does not contain "validateLogin">
+							<h1><cfoutput>#title#</cfoutput></h1>
+						</cfif>
 						
 						<cfif cgi.QUERY_STRING contains "showAssessmentPlanList">
 							<div class="row-fluid">
@@ -66,27 +69,32 @@
 
 					</div>
 
-					<div class="pull-right">
-						<!--- 
-						<ul class="minitiles">
-							<li class='grey'>
-								<a href="#"><i class="icon-cogs"></i></a>
-							</li>							
-						</ul>
-						--->
-						<ul class="stats">
-							
-							<li class='lightred'>
-								<i class="icon-calendar"></i>
-								<div class="details">
-									<span class="big"><cfoutput>#DateFormat(now(),"long")#</cfoutput></span>
-									<span>
-										<cfoutput>#DateFormat(now(),"dddd")#, #TimeFormat(now(), "hh:mm tt")# </cfoutput>
-									</span>
-								</div>
-							</li>
-						</ul>
-					</div>
+
+					<cfif cgi.QUERY_STRING does not contain "validateLogin">
+
+						<div class="pull-right">
+							<!--- 
+							<ul class="minitiles">
+								<li class='grey'>
+									<a href="#"><i class="icon-cogs"></i></a>
+								</li>							
+							</ul>
+							--->
+							<ul class="stats">
+								
+								<li class='lightred'>
+									<i class="icon-calendar"></i>
+									<div class="details">
+										<span class="big"><cfoutput>#DateFormat(now(),"long")#</cfoutput></span>
+										<span>
+											<cfoutput>#DateFormat(now(),"dddd")#, #TimeFormat(now(), "hh:mm tt")# </cfoutput>
+										</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</cfif>
 				</div>
 				<!---
 				<div class="breadcrumbs">

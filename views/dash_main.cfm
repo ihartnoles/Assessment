@@ -107,7 +107,16 @@ qTasks					= request.event.getArg('qTasks');
 
 					</div>
 				</div>
-							
+				
+				<cfif len(trim(request.event.getArg('message')))>					
+					<div class="row-fluid text-center">
+						<div class="span12 alert alert-error text-center">
+							<cfoutput>#message#</cfoutput>
+							<button class="close" data-dismiss="alert" type="button"> x </button>
+						</div>
+					</div>
+				</cfif>
+
 
 				<div class="row-fluid">
 					<div class="span12">
