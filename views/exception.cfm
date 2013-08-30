@@ -105,6 +105,14 @@ An error occurred.
 	</cfcatch>
 </cftry>
 
+
+<!--- session has expired! Must redirect  --->
+<cfif NOT StructKeyExists(session,"USER.USERROLEID")>
+		<cfset structClear(session) />
+		<cfset session.message = "Sorry! Your session has expired. You must login again." />
+		<cflocation url="index.cfm" addtoken="false" />
+</cfif>
+
 <cfoutput>
 <!doctype html class="no-js">
 <html>

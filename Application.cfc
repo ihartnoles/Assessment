@@ -76,7 +76,10 @@
 		</cfif>
 		
 		<cfset request.do404 = do404>
- 
+ 		
+
+
+
 		<!--- Return out. --->
 		<cfreturn true />
 	</cffunction>
@@ -102,6 +105,7 @@
 		</cfif>
 
 
+		
 		<!--- Include the requested page. --->
 		<cfinclude template="#ARGUMENTS.TargetPage#" />
  
@@ -191,6 +195,10 @@
 			<p>Error details:<br>
 			<cfdump var=#Arguments.Exception#></p>
 			</cfoutput>
+
+
+ 	
+		
 		</cfif>
 		
 	</cffunction>
