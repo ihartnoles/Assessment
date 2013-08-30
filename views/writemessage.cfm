@@ -24,7 +24,9 @@ qUsers 	=	request.event.getArg('qUsers');
 														<select name="sendToUserID" id="sendToUserID" class="input-large" style="width:300px">
 															<cfloop query="qUsers">
 																<cfoutput>
-																	<option value="#qUsers.UserID#"><strong>[#qUsers.UserFname# #qUsers.UserLname#]</strong> #qUsers.UserEmail# </option>
+																	<option value="#qUsers.UserID#" <cfif len(trim(request.event.getArg('userid'))) AND request.event.getArg('userID') EQ #qUsers.UserID#>
+																		selected
+																	</cfif>  /><strong>[#qUsers.UserFname# #qUsers.UserLname#]</strong> #qUsers.UserEmail# </option>
 																</cfoutput>
 															</cfloop>	
 														</select>											
