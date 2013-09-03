@@ -3,8 +3,14 @@ title 			= "My Account Settings";
 qUserDetails 	= request.event.getArg('qUserDetails');
 qUserRoles		= request.event.getArg('qUserRoles');
 qCampuses		= request.event.getArg('qCampuses');
+qAllRoles		= request.event.getArg('qAllRoles');
 </cfscript>
 
+<!---
+<cfdump var="#qAllRoles#" label="qAllRoles" />
+<cfdump var="#qUserDetails#" label="qUserDetails" />
+<cfdump var="#qUserRoles#" label="qUserRoles" abort="false" />
+--->
 <div id="main" style="margin-left: 0px;">
 			<div class="container-fluid">
 				<cfinclude template="/Assessment/views/page_header.cfm">
@@ -129,10 +135,28 @@ qCampuses		= request.event.getArg('qCampuses');
 													<label class="radio"><input type="radio" name="roleID" id="#qUserRoles.AssessmentRoleDescription#" value="#qUserRoles.RecordID#@#qUserRoles.RoleID#" <cfif session.user.userroleid EQ qUserRoles.roleID>
 														checked
 													</cfif>/>#qUserRoles.AssessmentRoleDescription# <cfif qUserRoles.defaultrole > [default] </cfif></label>
-												</cfoutput>												
+												</cfoutput>				
+												
+
 												<!---
-												<label class="checkbox"><input type="checkbox" name="defaultrole" id="Default" selected/>Make this my default role</label>
+												<cfoutput>
+												<cfloop query="qAllRoles">
+													<cfloop query="qUserRoles">
+														
+														<cfif qUserRoles.roleID EQ  qAllRoles.roleID>
+															
+																<label class="radio"><input type="radio" name="roleID" id="#qUserRoles.AssessmentRoleDescription#" value="#qUserRoles.RecordID#@#qUserRoles.RoleID#" <cfif session.user.userroleid EQ qUserRoles.roleID>
+																	checked
+																</cfif>/>#qUserRoles.AssessmentRoleDescription# <cfif qUserRoles.defaultrole > [default] </cfif></label>
+															</cfoutput>	
+
+														</cfif>
+														
+													</cfloop>
+												</cfloop>		
+												</cfoutput>		
 												--->
+												
 											</div>
 										</div>
 										<div class="form-actions">
@@ -142,11 +166,11 @@ qCampuses		= request.event.getArg('qCampuses');
 										
 								</div>
 								<div class="tab-pane" id="security">
-									<form action="index.cfm?event=updatepassword" method="post" class="form-horizontal">
+									<form action="index.cfm?event=updatepassword" method="post" class="form-horizontal form-validate" id="updatepassword">
 										<div class="control-group">
-											<label for="password" class="control-label">Enter new password:</label>
+											<label for="UserPassword_1" class="control-label">Enter new password:</label>
 											<div class="controls">
-														<input type="password" name="UserPassword_1" class='input-xlarge'>
+														<input type="password" name="UserPassword_1" class='input-xlarge' id="UserPassword_1" data-rule-required="true">
 														<!---
 														<div class="form-button">
 															<a href="#" class="btn btn-grey-4 change-input">Change</a>
@@ -156,9 +180,9 @@ qCampuses		= request.event.getArg('qCampuses');
 											
 										</div>
 										<div class="control-group">
-											<label for="password_conf" class="control-label">Re-enter new password:</label>
+											<label for="UserPassword_2" class="control-label">Confirm password:</label>
 											<div class="controls">
-														<input type="password" name="UserPassword_2" class='input-xlarge' value="">
+														<input type="password" name="UserPassword_2" id="confirmfield" class='input-xlarge' data-rule-equalTo="#UserPassword_1" data-rule-required="true">
 														<!---
 														<div class="form-button">
 															<a href="#" class="btn btn-grey-4 change-input">Change</a>
@@ -173,6 +197,9 @@ qCampuses		= request.event.getArg('qCampuses');
 											<input type="reset" class='btn' value="Discard changes">
 										</div>
 									</form>
+
+
+
 								</div>
 							</div>
 						</div>

@@ -179,9 +179,9 @@ $(document).ready(function() {
 		$(".mask_productNumber").mask("aaa-9999-a");	
 	}
 	// tag-input
-	if($(".tagsinput").length > 0){
-		$('.tagsinput').tagsInput({width:'auto', height:'auto'});
-	}
+	//if($(".tagsinput").length > 0){
+	//	$('.tagsinput').tagsInput({width:'auto', height:'auto'});
+	//}
 
 	// datepicker
 	if($('.datepick').length > 0){

@@ -6,10 +6,9 @@ variables.beanFactory	  	  = variables.propertyManager.getProperty("serviceFacto
 stringHelper    			  = variables.beanFactory.getBean('stringHelper');
 </cfscript>
 
-<cfdump var="#session#"  label="session" >
-
 
 <!--- 
+<cfdump var="#session#"  label="session" >
 <cfdump var="#qReportingUnits#"  label="reportingunits">
 <cfdump var="#qAdminReportingUnits#" label="adminreportingunits" />
 --->

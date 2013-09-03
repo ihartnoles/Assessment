@@ -57,7 +57,9 @@
 	<script src="js/plugins/jquery-ui/jquery.ui.sortable.min.js"></script>
 	<script src="js/plugins/jquery-ui/jquery.ui.selectable.min.js"></script>
 	<script src="js/plugins/jquery-ui/jquery.ui.droppable.min.js"></script>
+	<!--
 	<script src="js/plugins/jquery-ui/jquery.ui.draggable.min.js"></script>
+	-->
 	
 	<script src="js/plugins/barrating/jquery.barrating.js"></script>
 
@@ -115,8 +117,9 @@
 	
 
 	<!-- Validation -->
+	<!-- Validation -->
 	<script src="js/plugins/validation/jquery.validate.min.js"></script>
-	<script src="js/plugins/validation/additional-methods.min.js"></script>
+	<script src="js/plugins/validation/additional-methods.min.js"></script>	
 
 	<!-- Sparkline -->
 	<script src="js/plugins/sparklines/jquery.sparklines.min.js"></script>

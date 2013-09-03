@@ -311,6 +311,7 @@
 
 		<event-handler event="accountsettings" access="public">
 			<notify listener="UserListener" method="getUserDetails" resultArg="qUserDetails"  />
+			<notify listener="UserRoleListener" method="getAllUserRoleLevels" resultArg="qAllRoles"  />
 			<notify listener="UserRoleListener" method="getUserRoleLevels" resultArg="qUserRoles"  />
 			<notify listener="campusListener" method="getAllCampuses" resultArg="qCampuses"  />
 			<view-page name="accountsettings" contentArg="content" />
