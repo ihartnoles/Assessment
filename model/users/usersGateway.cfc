@@ -220,10 +220,10 @@
 	</cffunction>
 
 	<cffunction name="getPrimaryAuthors" access="public" output="false" returntype="query">
-		<cfargument name="reportingUnitID" type="numeric" required="false" />
-		<cfargument name="programID" type="numeric" required="false" />
-		<cfargument name="DeptID" type="numeric" required="false" />
-		<cfargument name="DivisionID" type="numeric" required="false" />
+		<cfargument name="reportingUnitID" type="string" required="false" />
+		<cfargument name="programID" type="string" required="false" />
+		<cfargument name="DeptID" type="string" required="false" />
+		<cfargument name="DivisionID" type="string" required="false" />
 
 		<cfset var qList = "" />		
 		
@@ -237,15 +237,15 @@
 			
 			 WHERE ura.RecordID IN (	 
 				 SELECT RecordID FROM UserRoleAccess WHERE  
-				 (ProgramID=999999 OR ProgramID=<cfqueryparam value="#arguments.programID#" CFSQLType="cf_sql_integer" />)  
-					 AND (DeptID=999999 OR DeptID=<cfqueryparam value="#arguments.DeptID#" CFSQLType="cf_sql_integer" />)  
-					 AND (DivisionID=999999 OR DivisionID=<cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />)  
+				 (ProgramID=999999 OR ProgramID=<cfqueryparam value="#arguments.programID#" CFSQLType="cf_sql_varchar" />)  
+					 AND (DeptID=999999 OR DeptID=<cfqueryparam value="#arguments.DeptID#" CFSQLType="cf_sql_varchar" />)  
+					 AND (DivisionID=999999 OR DivisionID=<cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_varchar" />)  
 					 AND (SuperDivisionID=999999 OR SuperDivisionID=1) 
 					 AND (OrganizationID=999999 OR OrganizationID=1) 	 
 				 ) 
 			
 			<cfif structKeyExists(arguments,"reportingUnitID") and len(arguments.reportingUnitID)>
-				AND	 ru.reportingUnitID = <cfqueryparam value="#arguments.reportingUnitID#" CFSQLType="cf_sql_integer" />
+				AND	 ru.reportingUnitID = <cfqueryparam value="#arguments.reportingUnitID#" CFSQLType="cf_sql_varchar" />
 			</cfif>		
 
 

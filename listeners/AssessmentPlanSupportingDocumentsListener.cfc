@@ -48,7 +48,7 @@
 																																fileuserID 		 = session.user.userID,
 																																dateInserted     = now() ) />
 
-		<!---
+		<!--- 
 		<cfdump var="#request.event.getArgs()#" abort="false" label="@@uploaddocument_1" />
 		<cfdump var="#local#" abort="true" label="@@uploaddocument_2" />
 		--->	
@@ -88,10 +88,11 @@
 
 			<!---
 			<cfset session.layout_message = "Attachment Saved!" />
+
 			<cfset redirectEvent(local.successEvent, {outcomeID 		= arguments.event.getArg('outcomeID'),
 													  reportingUnitID	= arguments.event.getArg('reportingUnitID'),
-													  planID 			= arguments.event.getArg('planID')}) />
-			--->			
+													  planID 			= arguments.event.getArg('planID')}) />--->
+						
 		</cfif>
 
 	</cffunction>
@@ -134,6 +135,7 @@
 			local.outcomeID   		= arguments.event.getArg('outcomeID');
 			local.reportingUnitID   = arguments.event.getArg('reportingUnitID');
 			local.planID   			= arguments.event.getArg('planID');
+			local.doctype			= arguments.event.getArg('doctype');
 			
 			//writeDump(var=#request.event.getArgs()#, abort="false", label="@@ALCDocumentsListener" );
 			//writeDump(var=#local#, abort="true",  label="@@ALCDocumentsListener_2" );
@@ -141,7 +143,7 @@
 			local.attachmentExists 	= variables.AssessmentPlanSupportingDocumentsService.getByAttributesQuery(recordID = local.recordID);
 			
 			if(local.attachmentExists.recordcount gt 0){
-				local.success = variables.AssessmentPlanSupportingDocumentsService.deleteassessmentPlanSupportingDocuments(recordID = local.recordID);
+				local.success = variables.AssessmentPlanSupportingDocumentsService.deleteassessmentPlanSupportingDocuments(recordID = local.recordID , doctype = local.doctype);
 
 				if (local.success) {
 					redirectEvent( arguments.event.getArg('successEvent','outcomedetails'),{recordID = local.recordID ,

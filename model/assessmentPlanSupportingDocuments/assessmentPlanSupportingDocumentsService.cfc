@@ -53,11 +53,16 @@
 
 	<cffunction name="deleteassessmentPlanSupportingDocuments" access="public" output="false" returntype="boolean">
 		<cfargument name="RecordID" type="numeric" required="true" />
-		
+		<cfargument name="doctype" type="string" required="true" />
+
 		<!--- creeate the bean --->
 		<cfset local.documents 	 = getassessmentPlanSupportingDocuments(argumentCollection=arguments) />
 		<cfset local.doc 		 = DocExists(recordID = arguments.recordID) />
-		<cfset local.destination = "C:\IEAHome\ALC\" />
+		<cfif arguments.doctype eq 'support'>
+			<cfset local.destination  = application.SupportDocDirectory />
+		<cfelse>
+			<cfset local.destination  = application.ALCDocDirectory />
+		</cfif> 
 
 		<!---
 		<cfdump var="#local#" abort="true" label="@@assPlanSupportingDocsService" />
@@ -74,6 +79,7 @@
 
 	<cffunction name="downloadDocument" access="public" output="false" returntype="any">
 		<cfargument name="recordID" type="numeric" required="true" />
+		<cfargument name="doctype" type="string" required="true" />
 		
 		<cfset local.filecontents = "" />
 		<cfset local.doc 		  = DocExists(recordID = arguments.recordID) />

@@ -228,8 +228,9 @@
 
 		<event-handler event="uploaddocument">
 			<notify listener="AssessmentPlanSupportingDocumentsListener" method="uploaddocument" />
-			<redirect event="outcomeDetails" args="reportingUnitID,outcomeID,planID" />
 			<!-- 
+			<redirect event="outcomeDetails" args="reportingUnitID,outcomeID,planID,ProgramID" />
+			
 			<view-page name="upload" /> 
 			-->
 		</event-handler>

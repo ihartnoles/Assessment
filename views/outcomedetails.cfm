@@ -468,7 +468,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																								<td>#qSupportingDocs.FileNameUploaded#</td>
 																								<td>#qSupportingDocs.UserFname# #qSupportingDocs.UserLname#</td>
 																								<td>#DateFormat(qSupportingDocs.DateInserted,'mm/dd/yyy')# #TimeFormat(qSupportingDocs.DateInserted,'h:mm  tt')#</td>
-																								<td><a href="index.cfm?event=downloadDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&doctype=support"><i class="icon-download"></i></a> | <a href="index.cfm?event=deleteDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#"><i class="icon-trash"></i></a></d>
+																								<td><a href="index.cfm?event=downloadDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&doctype=support"><i class="icon-download"></i></a> | <a href="index.cfm?event=deleteDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&doctype=support"><i class="icon-trash"></i></a></d>
 																							</tr>
 																							</cfoutput>
 																						</cfloop>
@@ -637,7 +637,7 @@ $(function() {
 			var $el = $(this);
 			$el.pluploadQueue({
 				runtimes : 'html5,gears,flash,silverlight,browserplus',
-				url : 'index.cfm?event=uploaddocument&outcomeID=#request.event.getArg("outcomeID")#&reportingUnitID=#request.event.getArg("reportingUnitID")#&planID=#request.event.getArg("planID")#&doctype=support' ,
+				url : 'index.cfm?event=uploaddocument&outcomeID=#request.event.getArg("outcomeID")#&reportingUnitID=#request.event.getArg("reportingUnitID")#&planID=#request.event.getArg("planID")#&programID=#request.event.getArg('programID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#&doctype=support' ,
 				max_file_size : '10mb',
 				chunk_size : '1mb',
 				unique_names : false,
@@ -686,8 +686,13 @@ $(function() {
 	$(".pl_start").click(function() {
             //alert('Item selected');
             setTimeout( function () {         
-            	//location.reload(true);
-            	window.location.replace("index.cfm?event=outcomedetails&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#");
+            	location.reload(true);
+            	
+            	/*window.location.replace("index.cfm?event=outcomeetails&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&ProgramID=#request.event.getArg('programID')#");*/
+            	
+            	 
+            	
+
 	          	}, 2000);
        });
 	
