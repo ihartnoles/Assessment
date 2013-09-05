@@ -78,6 +78,12 @@
 
 		<!--- Request Scope Variable Defaults --->
 		<cfset request.self = "index.cfm">
+
+		<cfif (structKeyExists(url,"reapp") && url.reapp eq "glassdoor")>
+			<!--- if its the live server, the command must come from the office IP --->
+			<cfset onApplicationStart()>
+		</cfif>
+		
 		
 		<cfif StructKeyExists(url, "reinit")>
 			<cfsetting requesttimeout="120"/>
