@@ -468,7 +468,7 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																								<td>#qSupportingDocs.FileNameUploaded#</td>
 																								<td>#qSupportingDocs.UserFname# #qSupportingDocs.UserLname#</td>
 																								<td>#DateFormat(qSupportingDocs.DateInserted,'mm/dd/yyy')# #TimeFormat(qSupportingDocs.DateInserted,'h:mm  tt')#</td>
-																								<td><a href="index.cfm?event=downloadDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#"><i class="icon-download"></i></a> | <a href="index.cfm?event=deleteDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#"><i class="icon-trash"></i></a></d>
+																								<td><a href="index.cfm?event=downloadDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&doctype=support"><i class="icon-download"></i></a> | <a href="index.cfm?event=deleteDocument&recordID=#qSupportingDocs.recordID#&outcomeID=#request.event.getArg('outcomeID')#&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#"><i class="icon-trash"></i></a></d>
 																							</tr>
 																							</cfoutput>
 																						</cfloop>

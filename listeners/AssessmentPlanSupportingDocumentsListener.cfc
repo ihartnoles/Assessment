@@ -97,13 +97,14 @@
 			local.outcomeID   		= arguments.event.getArg('outcomeID');
 			local.reportingUnitID   = arguments.event.getArg('reportingUnitID');
 			local.planID   			= arguments.event.getArg('planID');
+			local.doctype			= arguments.event.getArg('doctype');
 
 			//writeDump(var=#local#, abort="true", label="@@ALCDocumentsListener" );
 
 			local.attachmentExists 			= variables.AssessmentPlanSupportingDocumentsService.getByAttributesQuery(recordID = local.recordID);
 			
 			if(local.attachmentExists.recordcount gt 0){
-				local.success = variables.AssessmentPlanSupportingDocumentsService.downloadDocument(recordID = local.recordID);
+				local.success = variables.AssessmentPlanSupportingDocumentsService.downloadDocument(recordID = local.recordID, doctype=local.doctype);
 				
 			}
 			

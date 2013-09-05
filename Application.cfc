@@ -32,6 +32,15 @@
 		output="false"
 		hint="Fires when the application is first created.">
  		
+
+ 		<cfif cgi.server_name contains "localhost">
+ 			<cfset application.ALCDocDirectory = "C:\inetpub\wwwroot\Assessment\ALCDocuments\" />
+ 			<cfset application.SupportDocDirectory = "C:\inetpub\wwwroot\Assessment\resultsDocuments\" />
+ 		<cfelse>
+ 			<cfset application.ALCDocDirectory = "ALCDocuments/" />
+ 			<cfset application.SupportDocDirectory = "resultsDocuments/" />
+ 		</cfif>
+ 		
  		<!--- Return out. 
 		<cfreturn true />--->
 	</cffunction>

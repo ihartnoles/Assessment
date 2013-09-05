@@ -146,7 +146,7 @@ qTasks					= request.event.getArg('qTasks');
 										<a id="calendar_button" href="#" rel="tooltip" data-placement="bottom" title="View Calendar"><span><i class="icon-calendar"></i></span><span class='name'>My Calendar</span></a>
 									</li>
 									<li class="orange">
-										<cfif structkeyexists(session.user, "inboxcount")>
+										<cfif structkeyexists(session.user, "inboxcount") AND session.user.inboxcount GT 0>
 											<span class="label label-inverse"><cfoutput>#session.user.inboxcount#</cfoutput></span>
 										</cfif>
 											

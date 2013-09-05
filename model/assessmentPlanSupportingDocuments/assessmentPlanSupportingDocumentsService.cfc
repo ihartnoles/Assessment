@@ -77,10 +77,20 @@
 		
 		<cfset local.filecontents = "" />
 		<cfset local.doc 		  = DocExists(recordID = arguments.recordID) />
-		<cfset local.destination  = "C:\IEAHome\ALC\" />
-
+		
 		<!---
-		<cfdump var="#local.doc#" abort="true" label="@@aaplansupdocservice" />
+		<cfdump var="#application#" abort="false" label="@@aaplansupdocservice_1" />
+		--->
+		
+		<cfif arguments.doctype eq 'support'>
+			<cfset local.destination  = application.SupportDocDirectory />
+		<cfelse>
+			<cfset local.destination  = application.ALCDocDirectory />
+		</cfif> 
+		
+		<!---
+		<cfdump var="#arguments#" abort="false" label="@@aaplansupdocservice_2" />
+		<cfdump var="#local#" abort="true" label="@@aaplansupdocservice_3" />
 		--->
 
 		<cfset local.FileToRead   = local.destination & local.doc.filename />
