@@ -39,6 +39,7 @@
 		
 		<cfset local.outcomeID 	  = arguments.event.getArg('outcomeID') />
 		<cfset local.name 		  = request.event.getArg('name') />
+		<cfset local.doctype	  = arguments.event.getArg('doctype') />
 
 		<cfset local.DocumentBean = variables.AssessmentPlanSupportingDocumentsService.createassessmentPlanSupportingDocuments(	recordID=0,
 																																outcomeID		 = local.outcomeID,
@@ -54,7 +55,13 @@
 
 
 		<!--- TO DO: Deterine where files should go when on server--->
-		<cfset local.destination = "C:\IEAHome\ALC" />
+		<!--- <cfset local.destination = "C:\IEAHome\ALC" /> --->
+		<cfif local.doctype eq 'support'>
+			<cfset local.destination  = application.SupportDocDirectory />
+		<cfelse>
+			<cfset local.destination  = application.ALCDocDirectory />
+		</cfif> 
+
 
 		 <cfif len(arguments.event.getArg('file'))> 
 			

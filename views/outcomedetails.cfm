@@ -637,7 +637,7 @@ $(function() {
 			var $el = $(this);
 			$el.pluploadQueue({
 				runtimes : 'html5,gears,flash,silverlight,browserplus',
-				url : 'index.cfm?event=uploaddocument&outcomeID=#request.event.getArg("outcomeID")#&reportingUnitID=#request.event.getArg("reportingUnitID")#&planID=#request.event.getArg("planID")#' ,
+				url : 'index.cfm?event=uploaddocument&outcomeID=#request.event.getArg("outcomeID")#&reportingUnitID=#request.event.getArg("reportingUnitID")#&planID=#request.event.getArg("planID")#&doctype=support' ,
 				max_file_size : '10mb',
 				chunk_size : '1mb',
 				unique_names : false,
