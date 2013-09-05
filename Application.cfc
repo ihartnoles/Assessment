@@ -37,8 +37,8 @@
  			<cfset application.ALCDocDirectory = "C:\inetpub\wwwroot\Assessment\ALCDocuments\" />
  			<cfset application.SupportDocDirectory = "C:\inetpub\wwwroot\Assessment\resultsDocuments\" />
  		<cfelse>
- 			<cfset application.ALCDocDirectory = "ALCDocuments/" />
- 			<cfset application.SupportDocDirectory = "resultsDocuments/" />
+ 			<cfset application.ALCDocDirectory = "E:\sites\dyndev\Web\Assessment\ALCDocuments\" />
+ 			<cfset application.SupportDocDirectory = "E:\sites\dyndev\Web\Assessment\resultsDocuments\" />
  		</cfif>
  		
  		<!--- Return out. 
@@ -85,7 +85,7 @@
 		</cfif>
 		
 		
-		<cfif StructKeyExists(url, "reinit")>
+		<cfif StructKeyExists(url, "reinit")>																																																																					
 			<cfsetting requesttimeout="120"/>
 			<cfset MACHII_CONFIG_MODE = 1 />
 		</cfif>

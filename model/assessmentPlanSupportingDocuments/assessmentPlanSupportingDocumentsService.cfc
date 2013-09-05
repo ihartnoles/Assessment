@@ -81,7 +81,7 @@
 		<!---
 		<cfdump var="#application#" abort="false" label="@@aaplansupdocservice_1" />
 		--->
-		
+
 		<cfif arguments.doctype eq 'support'>
 			<cfset local.destination  = application.SupportDocDirectory />
 		<cfelse>
@@ -128,10 +128,10 @@
 			<cfcase value="ppt">
 				<cfset local.fileMimeType = 'application/vnd.ms-powerpoint'>
 			</cfcase>
-			<cfcase value="doc">
+			<cfcase value="doc,docx">
 				<cfset local.fileMimeType = 'application/msword'>
 			</cfcase>
-			<cfcase value="xls">
+			<cfcase value="xls,xlxs">
 				<cfset local.fileMimeType = 'application/vnd.ms-excel'>
 			</cfcase>
 			<cfdefaultcase>
