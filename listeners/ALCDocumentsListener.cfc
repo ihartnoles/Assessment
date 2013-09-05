@@ -27,8 +27,9 @@
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
 		<cfset local.successEvent = 'viewALC' />
-		<cfset local.destination = "C:\IEAHome\ALC" />
 
+		<cfset local.destination  = application.ALCDocDirectory />
+		
 		<cfset local.aErrors      = [] />
 		<cfset local.errorMsg     = "" />
 

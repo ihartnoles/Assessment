@@ -125,7 +125,7 @@ $(function() {
 			var $el = $(this);
 			$el.pluploadQueue({
 				runtimes : 'html5,gears,flash,silverlight,browserplus',
-				url : 'index.cfm?event=uploadALCdocument&reportingUnitID=#request.event.getArg("reportingUnitID")#' ,
+				url : 'index.cfm?event=uploadALCdocument&reportingUnitID=#request.event.getArg("reportingUnitID")#&doctype=alc' ,
 				max_file_size : '10mb',
 				chunk_size : '1mb',
 				unique_names : false,

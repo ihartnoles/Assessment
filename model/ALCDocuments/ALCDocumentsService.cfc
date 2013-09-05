@@ -72,7 +72,7 @@
 		<cfset local.ALCDocuments = createALCDocuments(argumentCollection=arguments) />
 
 		<cfset local.ALCdoc = ALCExists(documentID = arguments.documentID) />
-		<cfset local.destination = "C:\IEAHome\ALC\" />
+		<cfset local.destination = application.ALCDocDirectory />
 		<cfset local.FileToRead  = local.destination & local.ALCDoc.documentname />
 		
 		<!--- delete physical file --->
@@ -89,7 +89,7 @@
 		
 		<cfset local.filecontents = "" />
 		<cfset local.ALCdoc = ALCExists(documentID = arguments.documentID) />
-		<cfset local.destination = "C:\IEAHome\ALC\" />
+		<cfset local.destination  = application.ALCDocDirectory />
 		<cfset local.FileToRead  = local.destination & local.ALCDoc.documentname />
 		<cfset local.tmp 		 = listlast(local.FileToRead,'.') />
 		<cfset local.fileext     = "." & local.tmp />
@@ -125,10 +125,10 @@
 			<cfcase value="ppt">
 				<cfset local.fileMimeType = 'application/vnd.ms-powerpoint'>
 			</cfcase>
-			<cfcase value="doc">
+			<cfcase value="doc,docx">
 				<cfset local.fileMimeType = 'application/msword'>
 			</cfcase>
-			<cfcase value="xls">
+			<cfcase value="xls,xlsx">
 				<cfset local.fileMimeType = 'application/vnd.ms-excel'>
 			</cfcase>
 			<cfdefaultcase>

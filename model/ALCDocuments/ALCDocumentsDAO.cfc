@@ -70,7 +70,7 @@
 
 		<cfset var qUpdate = "" />
 		<cftry>
-			<cfquery name="qUpdate" datasource="#variables.dsn#" result="res">
+			<cfquery name="qUpdate" datasource="#variables.dsn#">
 				UPDATE	ALCDocuments
 				SET
 					ReportingUnitID = <cfqueryparam value="#arguments.ALCDocuments.getReportingUnitID()#" CFSQLType="cf_sql_integer" />,
@@ -84,7 +84,7 @@
 				<cfreturn 0 />
 			</cfcatch>
 		</cftry>
-		<cfreturn res.identitycol />
+		<cfreturn arguments.ALCDocuments.getDocumentID() />
 	</cffunction>
 
 	<cffunction name="delete" access="public" output="false" returntype="boolean">
