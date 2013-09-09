@@ -99,11 +99,15 @@
 										
 
 										<div class="row-fluid text-center">
-											<cfoutput query="qPrimaryAuthors">
-													<div class="text-center">
-														<a href="index.cfm?event=writemessage&userid=#qPrimaryAuthors.userid#">#userfname# #userlname#</a>
-													</div>
-											</cfoutput>
+											<cfif qPrimaryAuthors.recordcount >													
+												
+												<cfoutput query="qPrimaryAuthors">
+														<div class="text-center">
+															<a href="index.cfm?event=writemessage&userid=#qPrimaryAuthors.userid#">#userfname# #userlname#</a>
+														</div>
+												</cfoutput>
+
+											</cfif>
 										</div>
 										<!---
 										<center>

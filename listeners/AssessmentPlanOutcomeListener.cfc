@@ -31,6 +31,24 @@
 		<cfreturn variables.assessmentPlanOutcomesService.getOutcomeDetail(outcomeID=arguments.event.getArg("outcomeID")) >
 	</cffunction>
 
+	<cffunction name="saveOutcomeOrder" access="public" output="false" 
+			returntype="void" >
+		<cfargument name="event" type="MachII.framework.Event" required="true" />
+		
+		<!---
+		<cfdump var="#request.event.getArgs()#" abort="false" label="@@AssPlanOutcomeListener" />
+		--->
+
+		<cfset local.count = 1>
+		<cfloop list="#request.event.getArg('order')#"  index="idx">
+			<!--- pull the outcomebean --->
+  			<cfset local.outcomeBean = variables.assessmentPlanOutcomesService.getassessmentPlanOutcomes(OutcomeID = idx) />
+  			<cfset local.outcomeBean.setoutcomeorder(local.count) />
+  			<cfset local.saveOutcomeBean = variables.assessmentPlanOutcomesService.saveassessmentPlanOutcomes(local.outcomeBean) />
+  			<cfset local.count = local.count + 1 >
+  		</cfloop>
+
+	</cffunction>
 
 	<cffunction name="saveOutcome" access="public" output="false" 
 			returntype="numeric" >

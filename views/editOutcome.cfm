@@ -22,7 +22,10 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
+				
 				<!---
+				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" abort="true" />
+				
 				<cfdump var="#qGoalList#" label="qGoalList" />
 				<cfdump var="#qSelectedGoals#" label="qSelectedGoals" />
 				<cfdump var="#qcountOutcomes#" />

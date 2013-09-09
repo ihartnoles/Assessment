@@ -5,7 +5,6 @@ qALCCategories			= request.event.getArg('qALCCategories');
 //qALCCategoriesSelected	= request.event.getArg('qALCCategoriesSelected');
 title 					= "Plan Period: " &  #qPlanDetails.planperiod#;
 qPlanDetails			= request.event.getArg('qPlanDetails');
-qcountOutcomes    		= request.event.getArg('qcountOutcomes');
 title 					= "Plan Period: " &  #qPlanDetails.planperiod#;
 qCheckListTypes			= request.event.getArg('qCheckListTypes');
 qRatings				= request.event.getArg('qRatings');
@@ -23,15 +22,15 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 				
-				
 
 				<!---
+				<cfdump var="#qcountOutcomes#" label="qCountOutcomes" />
 				<cfdump var="#session.user#" />
 				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
      			<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
 				<cfdump var="#qRatings#" label="qRatings"/>
 				<cfdump var="#qPlanDetails#" />
-				<cfdump var="#qcountOutcomes#" />
+				
 				<cfdump var="#qALCCategories#" />
 				--->
 
@@ -116,15 +115,22 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 															<!--- 
 															<cfdump var="#qALCCategories#" label="qALCCategories"/>
 															--->															
+														<div class="container-fluid sortable-box ui-sortable">
+															
 
 															<cfloop query="qcountOutcomes">
 															
 														
 															
-															<div class="row-fluid sortable-box">
-																<div class="span12">
-																	<div class="box box-color box-bordered blue">
-																			<div class="box-title">
+															
+																<!--- <div class="span12"> --->
+																<cfoutput>
+																	<div class="box box-color box-bordered blue" id="#qcountOutcomes.outcomeID#">
+																</cfoutput>	
+																		
+																		
+																			<div class="box-title" >
+																		
 																				<h3>
 																					<i class="icon-file"></i>
 																					Outcome 
@@ -308,12 +314,12 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																																								
 
 																			</div>
-																		</div>
 																		
-																	</div>
-																</div>														
+																		
+																</div> 
+																														
 															</cfloop>
-														
+														</div>
 
 														</div>
 														<div class="tab-pane" id="checklist">
@@ -483,6 +489,17 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 					//alert(outcome);
 					window.location.href = "index.cfm?event=editOutcome&outcomeID=" + outcome + "&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&programID=#request.event.getArg('programID')#&DeptID=#request.event.getArg('DeptID')#&DivisionID=#request.event.getArg('DivisionID')#";
 				});
+
+
+                
+				$('.ui-sortable').sortable({
+				    update: function(event, ui) {
+				            var newOrder = $(this).sortable('toArray').toString();
+				            alert(newOrder);
+				            $.post('index.cfm?event=saveOutcomeOrder', {order:newOrder});
+				        }
+				});
+				
           
         });
         </cfoutput>
