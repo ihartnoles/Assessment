@@ -556,7 +556,7 @@ $(".tasklist").on('click', '.task-delete', function(e){
     $el.parents("li").fadeOut();
 
     $taskid  = $(this).data("taskid");
-        alert('taskid ' + $taskid);
+       // alert('taskid ' + $taskid);
 
         jQuery.post(
                     "index.cfm?event=deleteTask&",
