@@ -495,8 +495,9 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 				$('.ui-sortable').sortable({
 				    update: function(event, ui) {
 				            var newOrder = $(this).sortable('toArray').toString();
-				            alert(newOrder);
+				            //alert(newOrder);
 				            $.post('index.cfm?event=saveOutcomeOrder', {order:newOrder});
+				            location.reload(true);
 				        }
 				});
 				
