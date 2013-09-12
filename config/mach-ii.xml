@@ -390,6 +390,7 @@
 			<notify listener="ALCCategoriesListener" method="getALCCheckboxes" resultArg="qALCCategories"  />
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanDetails" resultArg="qPlanDetails"  />
 			<notify listener="AssessmentPlanOutcomeListener" method="countOutcomes" resultArg="qcountOutcomes"  />
+			<notify listener="strategicPlanGoalsListener" method="getGoalList" resultArg="qGoalList"  />
 			<notify listener="UserListener" method="getPrimaryAuthors" resultArg="qPrimaryAuthors"  />
 			<view-page name="addOutcome" contentArg="content"/>
 			<view-page name="dash_layout" />

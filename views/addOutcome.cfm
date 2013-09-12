@@ -1,10 +1,10 @@
 <cfscript>
-
+title 					= "Add a new outcome" ;
 qPlanDetails			= request.event.getArg('qPlanDetails');
 qcountOutcomes    		= request.event.getArg('qcountOutcomes');
 qALCCategories			= request.event.getArg('qALCCategories');
 qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
-title 					= "Add a new outcome" ;
+qGoalList				= request.event.getArg('qGoalList');
 </cfscript>
 
 <div id="main" style="margin-left: 0px;">
@@ -101,6 +101,7 @@ title 					= "Add a new outcome" ;
 																	</div>
 																</div>
 
+															<!---
 															<div class="control-group">
 																<label class="control-label"><strong>Strategic Plan Goals</strong></label>
 																<div class="controls">
@@ -112,6 +113,30 @@ title 					= "Add a new outcome" ;
 																	</strong></label>
 																</div>
 															</div>
+															--->
+
+															<div class="row-fluid">
+																<div class="span12">
+																	<div class="control-group">
+																		<label class="control-label"><strong>Strategic Plan Goals <small>(ctrl + click to select more than one)</small></strong></label>
+																		<div class="controls">
+
+																			<select name="goalID" size="27" multiple style="width: 650px;">
+																			<cfoutput query="qGoalList" group="goal">
+																				<optgroup label="#qGoalList.goal#">
+																					<cfoutput group="objective">
+																						<option value="#qGoalList.id#">#qGoalList.objective#</option>
+																					</cfoutput>
+																				</optgroup>
+																			</cfoutput>
+																			</select>
+																		</div>
+																	</div>
+
+																	
+																</div>
+															</div>
+
 
 															<div class="control-group">
 																<label for="textarea" class="control-label"><strong>Implementing Strategy</strong></label>
