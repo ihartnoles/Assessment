@@ -501,13 +501,13 @@
 			AND p.PlanType=apt.PlanType 
 			AND p.PlanStatus=apw.WorkFlowStep AND ru.ProgramID=op.ProgramID 
 
-			 <cfif structKeyExists(arguments,"SuperDivisionID") and len(arguments.SuperDivisionID)>
+			 <cfif structKeyExists(arguments,"SuperDivisionID") and len(arguments.SuperDivisionID) AND arguments.SuperDivisionID NEQ 0>
 				AND	ru.SuperDivisionID = <cfqueryparam value="#arguments.SuperDivisionID#" CFSQLType="cf_sql_integer" />
  			 </cfif>
- 			 <cfif structKeyExists(arguments,"DivisionID") and len(arguments.DivisionID)>
+ 			 <cfif structKeyExists(arguments,"DivisionID") and len(arguments.DivisionID) AND arguments.DivisionID NEQ 0>
 				AND	ru.DivisionID = <cfqueryparam value="#arguments.DivisionID#" CFSQLType="cf_sql_integer" />
  			 </cfif>
- 			  <cfif structKeyExists(arguments,"departmentID") and len(arguments.departmentID)>
+ 			  <cfif structKeyExists(arguments,"departmentID") and len(arguments.departmentID) AND arguments.departmentID NEQ 0>
 				AND	ru.DeptID = <cfqueryparam value="#arguments.departmentID#" CFSQLType="cf_sql_integer" />
  			 </cfif>
  			  <cfif structKeyExists(arguments,"planperiod") and len(arguments.planperiod)>
@@ -525,9 +525,11 @@
 
 
 		</cfquery>
-		<!--- 
+		
+		<!---
 		  <cfdump var=#qList# abort="true" label="@assessmentplansGateway" /> 
 		--->
+		
 		<cfreturn qList />
 	</cffunction>
 

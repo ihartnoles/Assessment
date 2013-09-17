@@ -4,9 +4,10 @@ qSuperDivisions = request.event.getArg('qSuperDivisions');
 qPlanPeriods	= request.event.getArg('qPlanPeriods');
 qPlanTypes		= request.event.getArg('qPlanTypes');
 qPlanStatuses	= request.event.getArg('qPlanStatuses');
-superdivisionID = 0;
-divisionID 		= 0;
-departmentID	= 0;
+superdivisionID = '';
+divisionID 		= '';
+departmentID	= '';
+planStatus      = '';
 </cfscript>
 
 <!--- 
@@ -118,27 +119,29 @@ departmentID	= 0;
 
 						</div>
 
-						<!---
+						<!--- --->
 						<div class="row-fluid">
-							Plan Status:
-
-							<select id="planstatus" name="planstatus">
-								<option value="">-- Choose One --</option>
-								<cfloop query="qPlanStatuses">
-									<cfoutput>
-										<option value="#qPlanStatuses.workflowstep#">#qPlanStatuses.workflowstepdescription#</option>
-									</cfoutput>
-								</cfloop>
-							</select>
-
-							
-						</div>
-						--->
+							<div class="span3">
+									<div class="control-group">
+										<label class="control-group">Plan Status:</label>
+											<select id="planstatus" name="planstatus">
+												<option value="">-- Choose One --</option>
+												<cfloop query="qPlanStatuses">
+													<cfoutput>
+														<option value="#qPlanStatuses.workflowstep#">#qPlanStatuses.workflowstepdescription#</option>
+													</cfoutput>
+												</cfloop>
+											</select>							
+										</div>
+									</div>
+							</div>	
+						</div>					
 					<br>
 
 						<input type="submit" id="assBut" value="List Assessment Plans" class="btn btn-orange">
 						-or-
 						<input type="submit" id="assReport" value="Generate Report" class="btn btn-orange">
+					<br>
 					</form>
 			
 					<div class="row-fluid">
@@ -267,6 +270,7 @@ departmentID	= 0;
 			</div>
 --->
 
+
 <script type="text/javascript">
 	$(function() {
 
@@ -274,6 +278,15 @@ departmentID	= 0;
 		$("#departmentID").remoteChained("#superdivisionID ,#divisionID", "index.cfm?event=getDeptjson");
 		//$("#engine").remoteChained("#series, #model", "index.cfm?event=json");
 
+		
+		<cfif cgi.query_string CONTAINS "redirect">
+			//departmentID=1410&divisionID=14&planperiod=2011-2012&planstatus=10&plantype=&programdegreelevel=&superdivisionID=1
+			
+			var postString = "index.cfm?event=getPlanGrid&";
+
+
+			doPost(postString);
+		</cfif>
 		//List Assessment Plans
 		$("#assBut").click(function(e) {
 			e.preventDefault();
@@ -292,27 +305,7 @@ departmentID	= 0;
 
 			var postString = "index.cfm?event=getPlanGrid&";
 
-			//alert( postString );
-
-			jQuery.post(
-				postString,
-				{
-					superdivisionID: $('#superdivisionID').val(),
-					divisionID: $('#divisionID').val(),
-					departmentID:$('#departmentID').val(),
-					planperiod:$('#planperiod').val(),
-					plantype:$('#plantype').val(),
-					programdegreelevel:$("#programdegreelevel").val(),
-					planstatus:$('#planstatus').val()
-				},
-				//callback function
-				function(data){
-					//$('#grid').removeClass('hidden');
-					//alert(data);
-					//var content = $(data).find('#content');
-					$('#grid').empty().append(data);
-				}
-			)
+			doPost(postString);
 
 
 			});//end of button click
@@ -336,10 +329,33 @@ departmentID	= 0;
 
 				var postString = "index.cfm?event=getReportGrid&";
 
-				//alert( postString );
 
+				doPost(postString);
+			
+
+				});//end of button click		
+
+			
+			function doPost(posturl){
+				
 				jQuery.post(
-					postString,
+					posturl,
+
+
+					<cfif cgi.query_string CONTAINS "redirect">
+					{
+						<cfoutput>
+						superdivisionID   : 0,
+						divisionID   : 0,
+						departmentID : 0,
+						planperiod   : '#request.event.getArg('planperiod')#',
+						plantype     : '#request.event.getArg('plantype')#',
+						programdegreelevel : '',
+						planstatus     :  #request.event.getArg('planstatus')#,
+						redirect	: 1
+						</cfoutput>
+					},
+					<cfelse>
 					{
 						superdivisionID: $('#superdivisionID').val(),
 						divisionID: $('#divisionID').val(),
@@ -349,6 +365,7 @@ departmentID	= 0;
 						programdegreelevel:$("#programdegreelevel").val(),
 						planstatus:$('#planstatus').val()
 					},
+					</cfif>
 					//callback function
 					function(data){
 						//$('#grid').removeClass('hidden');
@@ -357,10 +374,7 @@ departmentID	= 0;
 						$('#grid').empty().append(data);
 					}
 				)
-
-
-				});//end of button click				
-				
+			}
 
 	});
 </script>

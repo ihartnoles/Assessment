@@ -35,13 +35,21 @@
 	<cffunction name="getPlanGrid" access="public" output="false" 
 			returntype="query" >
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
+
+		<!---
+		<cfset local.planStatus = len(arguments.event.getArg('planStatus')) ? arguments.event.getArg('planStatus') : '' />
+
+		
+		<cfdump var="#local#" abort="true" label="@@AssPlanListener - 42" />
+		--->
+
 		<cfreturn variables.assessmentplansService.getPlanGrid(SuperDivisionID	  =arguments.event.getArg("SuperDivisionID"),
 															   DivisionID  		  =arguments.event.getArg("DivisionID"),
 															   departmentID 	  =arguments.event.getArg("departmentID"),
 															   planperiod   	  =arguments.event.getArg("planperiod"),
 															   PlanType 		  =arguments.event.getArg("plantype"),
 															   programDegreeLevel =arguments.event.getArg("programdegreelevel"),
-															   PlanStatus 		  =arguments.event.getArg("PlanStatus")) >
+															   planStatus		  =arguments.event.getArg('planStatus')) />
 	</cffunction>
 
 	

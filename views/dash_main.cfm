@@ -314,13 +314,19 @@ qTasks					= request.event.getArg('qTasks');
 							<div class="box box-color box-bordered">
 								<div class="box-title">
 									<h3>
-										2012-2013 Quick Stats
+										2011-2012 Quick Stats
 									</h3>
+
+									<div class="actions">
+									<a href="##" class='btn' rel="popover" data-trigger="hover" title="" data-placement="left" data-content="These are quick statistics of the plans in the system. Click on a tile for more information in the system." ><i class=" icon-question-sign"></i> Help</a>
+									</div>
 								</div>
 								<div class="box-content">
 									<ul class="tiles tiles-center nomargin">
 											
 											<h4>Learning Outcome Plans (<cfoutput>#qLearningOutcomes.total#</cfoutput> total)</h4><br>
+
+											
 
 											<cfoutput query="qLearningOutcomes">
 
@@ -334,30 +340,30 @@ qTasks					= request.event.getArg('qTasks');
 												<cfset LOApproved		= ((qLearningOutcomes.approved / qLearningOutcomes.total) *100) />
 
 												<li class="lightgrey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOpercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(LOpercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=10&redirect=true"><span><div class="chart" data-percent="#left(LOpercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(LOpercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
 												</li>
 												<li class="orange has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(LOReview,4)#%</div></span><span class='name'>Review</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=20&redirect=true"><span><div class="chart" data-percent="#left(LOReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(LOReview,4)#%</div></span><span class='name'>Review</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOreviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOreviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=30&redirect=true"><span><div class="chart" data-percent="#left(LOreviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOreviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
 												</li>
 												<li class="darkblue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOCollect,4)#%</div></span><span class='name'>Collect data</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=40&redirect=true"><span><div class="chart" data-percent="#left(LOCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOCollect,4)#%</div></span><span class='name'>Collect data</span></a>
 												</li>
 												<br>
 												<li class="blue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=50&redirect=true"><span><div class="chart" data-percent="#left(LOEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
 												</li>
 												<li class="grey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=60&redirect=true"><span><div class="chart" data-percent="#left(LOReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=70&redirect=true"><span><div class="chart" data-percent="#left(LOReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
 												</li>
 
 												<li class="green has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(LOApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOApproved,4)#%</div></span><span class='name'>Approved</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=1&programdegreelevel=&planstatus=80&redirect=true"><span><div class="chart" data-percent="#left(LOApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(LOApproved,4)#%</div></span><span class='name'>Approved</span></a>
 												</li>
 
 												
@@ -366,6 +372,8 @@ qTasks					= request.event.getArg('qTasks');
 											<hr>
 
 											<h4>Research Plans (<cfoutput>#qResearchPlans.total#</cfoutput> total):</h4><br>
+
+											
 
 											<cfoutput query="qResearchPlans">
 
@@ -379,30 +387,30 @@ qTasks					= request.event.getArg('qTasks');
 												<cfset ResearchApproved		= ((qResearchPlans.approved / qResearchPlans.total) *100) />
 
 												<li class="lightgrey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchpercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(ResearchpercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=10&redirect=true"><span><div class="chart" data-percent="#left(ResearchpercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(ResearchpercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
 												</li>
 												<li class="orange has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(ResearchReview,4)#%</div></span><span class='name'>Review</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=20&redirect=true"><span><div class="chart" data-percent="#left(ResearchReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(ResearchReview,4)#%</div></span><span class='name'>Review</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(Researchreviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(Researchreviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=30&redirect=true"><span><div class="chart" data-percent="#left(Researchreviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(Researchreviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
 												</li>
 												<li class="darkblue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchCollect,4)#%</div></span><span class='name'>Collect data</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=40&redirect=true"><span><div class="chart" data-percent="#left(ResearchCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchCollect,4)#%</div></span><span class='name'>Collect data</span></a>
 												</li>
 												<br>
 												<li class="blue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=50&redirect=true"><span><div class="chart" data-percent="#left(ResearchEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
 												</li>
 												<li class="grey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=60&redirect=true"><span><div class="chart" data-percent="#left(ResearchReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=70&redirect=true"><span><div class="chart" data-percent="#left(ResearchReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
 												</li>
 
 												<li class="green has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(ResearchApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchApproved,4)#%</div></span><span class='name'>Approved</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=2&programdegreelevel=&planstatus=80&redirect=true"><span><div class="chart" data-percent="#left(ResearchApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(ResearchApproved,4)#%</div></span><span class='name'>Approved</span></a>
 												</li>
 
 											</cfoutput>			
@@ -412,6 +420,7 @@ qTasks					= request.event.getArg('qTasks');
 											
 											<h4>Administrative Support Plans (<cfoutput>#qAdminPlans.total#</cfoutput> total):</h4><br>
 
+											
 											<cfoutput query="qAdminPlans">
 
 												<cfset adminpercentNew 	= ((qAdminPlans.new / qAdminPlans.total) *100) />
@@ -424,30 +433,30 @@ qTasks					= request.event.getArg('qTasks');
 												<cfset adminApproved		= ((qAdminPlans.approved / qAdminPlans.total) *100) />
 
 												<li class="lightgrey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminpercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(adminpercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=10&redirect=true"><span><div class="chart" data-percent="#left(adminpercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(adminpercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
 												</li>
 												<li class="orange has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(adminReview,4)#%</div></span><span class='name'>Review</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=20&redirect=true"><span><div class="chart" data-percent="#left(adminReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(adminReview,4)#%</div></span><span class='name'>Review</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminreviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminreviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=30&redirect=true"><span><div class="chart" data-percent="#left(adminreviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminreviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
 												</li>
 												<li class="darkblue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminCollect,4)#%</div></span><span class='name'>Collect data</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=40&redirect=true"><span><div class="chart" data-percent="#left(adminCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminCollect,4)#%</div></span><span class='name'>Collect data</span></a>
 												</li>
 												<br>
 												<li class="blue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=50&redirect=true"><span><div class="chart" data-percent="#left(adminEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
 												</li>
 												<li class="grey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=60&redirect=true"><span><div class="chart" data-percent="#left(adminReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=70&redirect=true"><span><div class="chart" data-percent="#left(adminReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
 												</li>
 
 												<li class="green has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(adminApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminApproved,4)#%</div></span><span class='name'>Approved</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=3&programdegreelevel=&planstatus=80&redirect=true"><span><div class="chart" data-percent="#left(adminApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(adminApproved,4)#%</div></span><span class='name'>Approved</span></a>
 												</li>
 
 											</cfoutput>		
@@ -457,6 +466,7 @@ qTasks					= request.event.getArg('qTasks');
 
 											<h4>Service Plans (<cfoutput>#qServicePlans.total#</cfoutput> total):</h4><br>
 
+											
 											<cfoutput query="qServicePlans">
 
 												<cfset servicepercentNew 	= ((qServicePlans.new / qServicePlans.total) *100) />
@@ -469,30 +479,30 @@ qTasks					= request.event.getArg('qTasks');
 												<cfset serviceApproved		= ((qServicePlans.approved / qServicePlans.total) *100) />
 
 												<li class="lightgrey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(servicepercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(servicepercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=10&redirect=true"><span><div class="chart" data-percent="#left(servicepercentNew,4)#" data-color="##ffffff" data-trackcolor="##333333">#left(servicepercentNew,4)#%</div></span><span class='name'>New Plans</span></a>
 												</li>
 												<li class="orange has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(serviceReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(serviceReview,4)#%</div></span><span class='name'>Review</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=20&redirect=true"><span><div class="chart" data-percent="#left(serviceReview,4)#" data-color="##ffffff" data-trackcolor="##f96d6d">#left(serviceReview,4)#%</div></span><span class='name'>Review</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(servicereviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(servicereviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=30&redirect=true"><span><div class="chart" data-percent="#left(servicereviseplan,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(servicereviseplan,4)#%</div></span><span class='name'>Revise plan</span></a>
 												</li>
 												<li class="darkblue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(serviceCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceCollect,4)#%</div></span><span class='name'>Collect data</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=40&redirect=true"><span><div class="chart" data-percent="#left(serviceCollect,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceCollect,4)#%</div></span><span class='name'>Collect data</span></a>
 												</li>
 												<br>
 												<li class="blue has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(serviceEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=50&redirect=true"><span><div class="chart" data-percent="#left(serviceEnterResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceEnterResults,4)#%</div></span><span class='name'>Enter Report</span></a>
 												</li>
 												<li class="grey has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(serviceReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=60&redirect=true"><span><div class="chart" data-percent="#left(serviceReportResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceReportResults,4)#%</div></span><span class='name'>Report Results</span></a>
 												</li>
 												<li class="lightred has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(serviceReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=70&redirect=true"><span><div class="chart" data-percent="#left(serviceReviseResults,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceReviseResults,4)#%</div></span><span class='name'>Revise Results</span></a>
 												</li>
 
 												<li class="green has-chart">
-													<a href="##"><span><div class="chart" data-percent="#left(serviceApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceApproved,4)#%</div></span><span class='name'>Approved</span></a>
+													<a href="index.cfm?event=reports&superdivisionID=0&divisionID=0&departmentID=0&planperiod=2011-2012&plantype=4&programdegreelevel=&planstatus=80&redirect=true"><span><div class="chart" data-percent="#left(serviceApproved,4)#" data-color="##ffffff" data-trackcolor="##5facf3">#left(serviceApproved,4)#%</div></span><span class='name'>Approved</span></a>
 												</li>
 
 											</cfoutput>		
@@ -543,7 +553,9 @@ qTasks					= request.event.getArg('qTasks');
         )
 
 	});
+
 */
+
 	$(".icheck-me").click(function(){
 		//alert('CHECK-A');
 		if ($('.icheck-me').is(':checked')) {

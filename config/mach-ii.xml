@@ -347,6 +347,12 @@
 			<view-page name="json"/>			
 		</event-handler>
 
+		<event-handler event="redirectToReport" access="public">
+			<!--
+			<notify listener="OrganizationDivisionListener" method="getDivisions" resultArg="qDivisionResults"  />
+			-->
+		</event-handler>
+
 		<event-handler event="getPlanGrid" access="public">
 			<notify listener="AssessmentPlanListener" method="getPlanGrid" resultArg="qPlanGrid"  />
 			<view-page name="grid"/>			
