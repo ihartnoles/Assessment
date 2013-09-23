@@ -17,7 +17,8 @@
 			SELECT
 				ChecklistTypeID,
 				Category,
-				SubCategory
+				SubCategory,
+				LineItem
 			FROM	AssessmentPlanChecklistType
 			WHERE	0=0
 		
@@ -30,9 +31,9 @@
 		<cfif structKeyExists(arguments,"SubCategory") and len(arguments.SubCategory)>
 			AND	SubCategory = <cfqueryparam value="#arguments.SubCategory#" CFSQLType="cf_sql_varchar" />
 		</cfif>
-		<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
-			ORDER BY #arguments.orderby#
-		</cfif>
+		
+			ORDER BY Category,SubCategory,ChecklistTypeID
+		
 		</cfquery>
 		
 		<cfreturn qList />

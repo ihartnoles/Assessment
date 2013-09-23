@@ -21,14 +21,18 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 			<div class="container-fluid">
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
-				
 
-				<!---
-				<cfdump var="#qcountOutcomes#" label="qCountOutcomes" />
-				<cfdump var="#session.user#" />
-				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
-     			<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
 				<cfdump var="#qRatings#" label="qRatings"/>
+
+	<!---		<cfdump var="#session.user#" />				
+				<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
+				
+			
+				<cfdump var="#qcountOutcomes#" label="qCountOutcomes" />
+				
+				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
+     			
+				
 				<cfdump var="#qPlanDetails#" />
 				
 				<cfdump var="#qALCCategories#" />
@@ -396,7 +400,8 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 																				<div class="row-fluid">
 																					<div class="span12">
-																							
+																					
+																					<!---
 																							<cfoutput query="qCheckListTypes" group="category">
 																							<h4>#qCheckListTypes.category#</h4>
 																								
@@ -432,27 +437,127 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																									</div>
 																								<hr>
 																							</cfoutput>
-																					      
-																						
+																					     --->
+																						<table class="table table-hover table-nomargin table-bordered table-condensed">
+																							<thead>
+																								<tr>
+																									<th class="span4">&nbsp;</th>
+																									<th class="span4">&nbsp;</th>
+																									<th class='hidden-350'>Content Knowledge</th>
+																									<th class='hidden-1024'>Critical Thinking</th>
+																									<th class='hidden-480'>Communication</th>
+																									<th class='hidden-480'>Other Program Outcomes</th>
+																									<th class='hidden-480'>Comments</th>
+																								</tr>
+																							</thead>
+																							<tbody>
+																							     <cfoutput query="qCheckListTypes" group="category">
+																									
+
+																									<tr>
+																										<td colspan="7" style="background-color:##f8f8f8;"><h4>#qCheckListTypes.category#</h4></td>
+																										
+																									</tr>
+																										
+																										<cfoutput group="subcategory">
+
+																											<!---<cfloop query="#qRatings#">			
+																												<cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID >--->
+
+																													<cfif len(trim(qCheckListTypes.subcategory))>	
+																												
+
+																														<tr>
+																															<td colspan="2"><p><strong>#qCheckListTypes.subcategory#</strong></p></td>
+																															<td>
+																																	<!--- example
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif> disabled="disabled"> 
+																																	--->
+																																
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Content Knowlege" <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Content Knowlege")>checked</cfif>> 
+
+
+																																	<!---ValueList(qRatings.composite) CONTAINS #qCheckListTypes.checklisttypeid#@Content Knowlege --->
+																															</td>
+																															
+																															<td>
+																																
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Critical Thinking" <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Critical Thinking")>checked</cfif>>
+																															</td>
+																															<td>	
+																																
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Communication" <cfif  listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Communication")>checked</cfif>>
+																															</td>
+																															<td>
+																																
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Other" <cfif  listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Other")>checked</cfif>>
+																															</td>
+																															<td>
+																																X
+																															</td>
+																															
+																														</tr>
+																													</cfif>
+																														<cfoutput group="lineitem">	
+																															<cfif len(trim(qCheckListTypes.lineitem))>	
+																															
+																															<tr>
+																																<td colspan="2"><p>#qCheckListTypes.lineitem#</p></td>
+																																<td>
+																																	
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Content Knowlege"  <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Content Knowlege")>checked</cfif>>  
+																																</td>
+																																<td>
+																																	
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Critical Thinking" <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Critical Thinking")>checked</cfif>>
+																																</td>
+																																<td>
+																																	
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Communication" <cfif  listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Communication")>checked</cfif>>
+																																</td>
+																																<td>
+																																	
+																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Other"  <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Other")>checked</cfif>>
+																																</td>
+																																<td>
+																																	Y
+																																</td>
+																																
+																															</tr>
+																															
+																														</cfif>
+																														</cfoutput>
+																												<!---</cfif>
+																											</cfloop> --->
+
+																										
+																									
+																										</cfoutput>
+
+																										<!---
+																											<div class="form-actions">
+																												<cfif session.user.userroleid gt 2>
+																													<button type="submit" class="btn btn-primary">Save "#listlast(qCheckListTypes.category,".")#" ratings</button>
+																												</cfif>
+																												<!--- <button type="button" class="btn">Cancel</button> --->
+																											</div>
+																										--->
+
+																									</cfoutput>
+
+																									
+																							</tbody>
+																						</table>
 
 																					</div>
 																					
-																					<!---
-																					<div class="span4">
-																						<div class="control-group">
-																							<label for="textarea" class="control-label">Comments:</label>
-																							<div class="controls">
-																								<textarea name="textarea" id="textarea" class="input-block-level">Lorem ipsum mollit minim fugiat tempor dolore sit officia ut dolore. </textarea>
-																							</div>
-																						</div>
-																						<div class="form-actions">
-																							<button type="submit" class="btn btn-primary">Save changes</button>
-																							<button type="button" class="btn">Cancel</button>
-																						</div>
-																					</div>		
-																					--->												 
+																									 
 																				</div>
-																			
+																			<div class="form-actions">
+																				<cfif session.user.userroleid EQ 1 OR session.user.userroleid EQ 3>				
+																					<button type="submit" class="btn btn-red">Save Checklist</button>
+																				</cfif>																					
+																			</div>
 																		</form>
 																
 														</div>

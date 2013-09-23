@@ -21,7 +21,8 @@
 				PlanID,
 				ReportingUnitID,
 				ChecklistTypeID,
-				Rating
+				Rating,
+				CAST(ChecklistTypeID as varchar(10)) + '@' + Rating AS composite
 			FROM	AssessmentPlanChecklistRating
 			WHERE	0=0
 		

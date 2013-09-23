@@ -83,6 +83,24 @@
 		<cfreturn true />
 	</cffunction>
 
+	<cffunction name="deleteExisting" access="public" output="false" returntype="boolean">
+		<cfargument name="reportingUnitID" type="numeric" required="true" />
+		<cfargument name="planID" type="numeric" required="true" />
+
+		<cfset var qDelete = "">
+		<cftry>
+			<cfquery name="qDelete" datasource="#variables.dsn#">
+				DELETE FROM	AssessmentPlanChecklistRating 
+				WHERE	reportingUnitID = <cfqueryparam value="#arguments.reportingUnitID#" CFSQLType="cf_sql_integer" />
+				AND 	PlanID = <cfqueryparam value="#arguments.planID#" CFSQLType="cf_sql_integer" />
+			</cfquery>
+			<cfcatch type="database">
+				<cfreturn false />
+			</cfcatch>
+		</cftry>
+		<cfreturn true />
+	</cffunction>
+
 	<cffunction name="delete" access="public" output="false" returntype="boolean">
 		<cfargument name="AssessmentPlanChecklistRatings" type="AssessmentPlanChecklistRatings" required="true" />
 
