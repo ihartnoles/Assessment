@@ -428,4 +428,20 @@
 			<ref bean="outcomeStrategicPlanGoalsGateway"/>
 		</constructor-arg>
 	</bean>
+
+	<!-- assessment plan checklist comments -->
+	<bean id="ChecklistCommentsDAO" class="Assessment.model.ChecklistComments.ChecklistCommentsDAO">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ChecklistCommentsGateway" class="Assessment.model.ChecklistComments.ChecklistCommentsGateway">
+		<constructor-arg name="dsn"><value>${dsn}</value></constructor-arg>
+	</bean>
+	<bean id="ChecklistCommentsService" class="Assessment.model.ChecklistComments.ChecklistCommentsService">
+		<constructor-arg name="ChecklistCommentsDAO">
+			<ref bean="ChecklistCommentsDAO"/>
+		</constructor-arg>
+		<constructor-arg name="ChecklistCommentsGateway">
+			<ref bean="ChecklistCommentsGateway"/>
+		</constructor-arg>
+	</bean>
 </beans>

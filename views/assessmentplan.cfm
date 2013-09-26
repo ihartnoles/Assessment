@@ -22,21 +22,17 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 
-				<cfdump var="#qRatings#" label="qRatings"/>
+				  	 
 
-	<!---		<cfdump var="#session.user#" />				
-				<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
-				
-			
-				<cfdump var="#qcountOutcomes#" label="qCountOutcomes" />
-				
-				<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
-     			
-				
-				<cfdump var="#qPlanDetails#" />
-				
-				<cfdump var="#qALCCategories#" />
-				--->
+		<!---	
+		 <cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
+						<cfdump var="#session.user#" />	
+			<cfdump var="#qRatings#" label="qRatings"/>
+			<cfdump var="#qcountOutcomes#" label="qCountOutcomes" />
+			<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
+			<cfdump var="#qPlanDetails#" />
+			<cfdump var="#qALCCategories#" />
+			--->
 
 			<div class="row-fluid">
 					<div class="span12">
@@ -389,55 +385,22 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																		</cfoutput>
 																	--->
 
-														   		
-																			<form action="index.cfm?event=saveCheckList" method="post" id="#qCheckListTypes.checklisttypeid#">
+
+
+																		<form action="index.cfm?event=saveCheckList" method="post" id="mainform">
 																				
 																				<cfoutput>
 																					<input type="hidden" name="planID" value="#request.event.getArg('planID')#" />
 																					<input type="hidden" name="reportingUnitID" value="#request.event.getArg('reportingUnitID')#" />
 																				</cfoutput>
+														   		
+																			
 																				
 
 																				<div class="row-fluid">
 																					<div class="span12">
 																					
-																					<!---
-																							<cfoutput query="qCheckListTypes" group="category">
-																							<h4>#qCheckListTypes.category#</h4>
-																								
-																								<cfoutput group="subcategory">	
-																									<cfloop query="#qRatings#">
-																																															
-																													
-																										<cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID >
-																											<!--- #qratings.checklistratingID# YES --->
-
-																											<p><strong>#qCheckListTypes.subcategory#</strong></p>
-
-																											  <div class="input select rating-b">								           
-																											            <select id="tmp-#checklisttypeid#" name="rating-#checklisttypeid#-#checklistRatingID#">
-																											                <option value="">N/A</option>
-																											                <option value="Not Evident"<cfif qRatings.rating EQ "Not Evident">selected</cfif>>Not Evident</option>
-																											                <option value="Developing" <cfif qRatings.rating EQ "Developing">selected</cfif>>Developing</option>
-																											                <option value="Operational" <cfif qRatings.rating EQ "Operational">selected</cfif>>Operational</option>
-																											                <option value="Exemplary" <cfif qRatings.rating EQ "Exemplary">selected</cfif>>Exemplary</option>
-																											            </select>
-																											 </div>
-																										</cfif>
-																										
-
-																										
-																									</cfloop> 
-																								</cfoutput>
-																									<div class="form-actions">
-																										<cfif session.user.userroleid gt 2>
-																											<button type="submit" class="btn btn-primary">Save "#listlast(qCheckListTypes.category,".")#" ratings</button>
-																										</cfif>
-																										<!--- <button type="button" class="btn">Cancel</button> --->
-																									</div>
-																								<hr>
-																							</cfoutput>
-																					     --->
+																					
 																						<table class="table table-hover table-nomargin table-bordered table-condensed">
 																							<thead>
 																								<tr>
@@ -451,24 +414,26 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																								</tr>
 																							</thead>
 																							<tbody>
+
+
+
 																							     <cfoutput query="qCheckListTypes" group="category">
 																									
 
 																									<tr>
 																										<td colspan="7" style="background-color:##f8f8f8;"><h4>#qCheckListTypes.category#</h4></td>
-																										
 																									</tr>
+
+																															
 																										
 																										<cfoutput group="subcategory">
 
-																											<!---<cfloop query="#qRatings#">			
-																												<cfif qCheckListTypes.checklisttypeID EQ qRatings.checklisttypeID >--->
-
+																											
 																													<cfif len(trim(qCheckListTypes.subcategory))>	
 																												
 
 																														<tr>
-																															<td colspan="2"><p><strong>#qCheckListTypes.subcategory#</strong></p></td>
+																															<td colspan="2"><p><strong> #qCheckListTypes.subcategory#</strong></p></td>
 																															<td>
 																																	<!--- example
 																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" <cfif ValueList(getSelectedALCCategories.subcategoryID) CONTAINS qALCCategories.SubCategoryID >checked</cfif> disabled="disabled"> 
@@ -493,16 +458,54 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Other" <cfif  listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Other")>checked</cfif>>
 																															</td>
 																															<td>
-																																X
+																																<div class="row-fluid">
+																																	<a href="##x-modal-#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-blue" data-toggle="modal" data-checklistTypeid="#qCheckListTypes.checklisttypeid#" >Add a comment</a> 
+
+																																	<a href="index.cfm?event=getChecklistComments&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&checklistTypeID=#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-blue popup">View comments</a>
+																																</div>		
+
+																																<!--- Modal --->
+																																<div id="x-modal-#qCheckListTypes.checklisttypeid#" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+																																				<div class="modal-header">				
+																																					<h3 id="myModalLabel">#qCheckListTypes.category#</h3><br>
+																																					<h4>#qCheckListTypes.subcategory#</h4>
+																																				</div>
+																																				
+																																				
+																																			<div class="grid text-center alert alert-success hidden">
+																																				<button class="close" data-dismiss="alert" type="button">×</button>
+																																			</div>
+
+																																				<div class="modal-body">
+																																					
+																																					<input type="hidden" name="checklisttypeid" class="checklisttypeid" value="#qCheckListTypes.checklisttypeid#" />
+																																
+																																						<div class="control-group">
+																																						<label for="textarea" class="control-label"><strong>Comment</strong></label>
+																																							<div class="controls">
+																																							<textarea name="comment" rows="5" class="input-block-level comment"></textarea>
+																																							</div>
+																																						</div>
+
+																																					<div class="modal-footer">
+																																						<button type="btn btn-primary" class="btn btn-red commentButton">Save Comment</button>
+																																						<button class="btn btn-primary" data-dismiss="modal">Close</button>
+																																					</div>
+
+																																				</div>
+																																	</div>
 																															</td>
 																															
 																														</tr>
 																													</cfif>
+
+																													
+
 																														<cfoutput group="lineitem">	
 																															<cfif len(trim(qCheckListTypes.lineitem))>	
 																															
 																															<tr>
-																																<td colspan="2"><p>#qCheckListTypes.lineitem#</p></td>
+																																<td colspan="2"><p> #qCheckListTypes.lineitem#</p></td>
 																																<td>
 																																	
 																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Content Knowlege"  <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Content Knowlege")>checked</cfif>>  
@@ -520,18 +523,50 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																																	<input type="checkbox"  class='icheck-me' data-skin="square" data-color="blue"  name="subcategoryID" value="#qCheckListTypes.checklisttypeid#@Other"  <cfif listFindNoCase(ValueList(qRatings.composite), "#qCheckListTypes.checklisttypeid#@Other")>checked</cfif>>
 																																</td>
 																																<td>
-																																	Y
+																																
+																																<div class="row-fluid">
+																																	<a href="##x-modal-#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-green" data-toggle="modal" data-checklistTypeid="#qCheckListTypes.checklisttypeid#">Add a comment</a>
+
+																																	<a href="index.cfm?event=getChecklistComments&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&checklistTypeID=#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-blue popup">View comments</a>				
+																																</div>		
+
+																																<div id="x-modal-#qCheckListTypes.checklisttypeid#" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+																																			<div class="modal-header">				
+																																				<h3 id="myModalLabel">#qCheckListTypes.category#</h3><br>
+																																				<h3 id="myModalLabel">#qCheckListTypes.subcategory#</h3><br>
+																																				<h4>#qCheckListTypes.lineitem#</h4>
+																																			</div>
+
+																																			<div class="grid text-center alert alert-success hidden">
+																																				<button class="close" data-dismiss="alert" type="button">×</button>
+																																			</div>
+
+																																			<div class="modal-body">
+
+																																				<input type="hidden" name="checklisttypeid" class="checklisttypeid" value="#qCheckListTypes.checklisttypeid#" />
+
+																																					<div class="control-group">
+																																					<label for="textarea" class="control-label"><strong>Comment</strong></label>
+																																						<div class="controls">
+																																						<textarea name="comment" rows="5" class="input-block-level comment"></textarea>
+																																						</div>
+																																					</div>
+
+																																				<div class="modal-footer">
+																																					<button type="btn btn-primary" class="btn btn-red commentButton">Save Comment</button>
+																																					<button class="btn btn-primary" data-dismiss="modal">Close</button>
+																																				</div>
+
+																																			</div>
+
+																																</div>
+																																
 																																</td>
 																																
 																															</tr>
 																															
 																														</cfif>
 																														</cfoutput>
-																												<!---</cfif>
-																											</cfloop> --->
-
-																										
-																									
 																										</cfoutput>
 
 																										<!---
@@ -604,6 +639,61 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 				            $.post('index.cfm?event=saveOutcomeOrder', {order:newOrder});
 				            location.reload(true);
 				        }
+				});
+
+				$('.popup').click(function(event) {
+				    event.preventDefault();
+				    window.open($(this).attr("href"), "popupWindow", "width=600,height=600,scrollbars=yes");
+				});
+								
+				$(".btn-mini").click(function(e) {
+					$('.grid').addClass('hidden');
+					$('.grid').empty();
+				});
+
+				$(".commentButton").click(function(e) {
+					e.preventDefault();
+					
+					alert('BOOYAH');
+					//alert($(this).data("item"));
+
+					
+					//alert( $(this).closest('tr').find('.checklisttypeid').val());
+
+					
+					var reportingUnitID   = #request.event.getArg('reportingUnitID')#;
+					var planID   		  = #request.event.getArg('planID')#;
+					var checklisttypeid   = $(this).closest('tr').find('.checklisttypeid').val();
+					var comment 		  = $(this).closest('tr').find('.comment').val();
+					var created_by        = #session.user.userid#;
+										
+					//var planstatus    = $(this).data("status");
+
+					var postString = "index.cfm?event=saveChecklistComment&";
+
+					//alert( postString );
+					
+					//alert( comment );
+
+					jQuery.post(
+						postString,
+						{
+							reportingUnitID: reportingUnitID,
+							planID: planID,
+							checklisttypeid : checklisttypeid,
+							comment:comment,
+							created_by:created_by
+							
+						},
+
+						//callback function
+						function(data){
+							$('.grid').removeClass('hidden');
+							$('.grid').empty().append('Comment Saved! Please click the \'CLOSE\' button to continue');
+						}
+					)
+
+
 				});
 				
           

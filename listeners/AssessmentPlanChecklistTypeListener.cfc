@@ -23,6 +23,7 @@
 		<cfreturn variables.AssessmentPlanChecklistTypeService.getByAttributesQuery() >
 	</cffunction>
 
+
    <!---
 
 	<cffunction name="getAllAssessmentPlanChecklistTypees" access="public" output="false" 

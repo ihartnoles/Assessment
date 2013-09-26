@@ -73,6 +73,7 @@
         <listener name="TaskListener" type="Assessment.listeners.taskListener" />  
         <listener name="strategicPlanGoalsListener" type="Assessment.listeners.strategicPlanGoalsListener" />         
         <listener name="outcomeStrategicPlanGoalsListener" type="Assessment.listeners.outcomeStrategicPlanGoalsListener" />
+        <listener name="ChecklistCommentsListener" type="Assessment.listeners.ChecklistCommentsListener" />
      </listeners>
 	
 	<!-- EVENT-HANDLERS -->
@@ -184,6 +185,20 @@
 			<view-page name="assessmentplan" contentArg="content" />
 			<view-page name="dash_layout" />
 		</event-handler>
+
+
+		<event-handler event="saveChecklistComment" access="public">
+			<notify listener="ChecklistCommentsListener" method="saveComments" />
+			<!-- <view-page name="dash_layout" /> -->
+		</event-handler>
+
+		
+		<event-handler event="getChecklistComments" access="public">
+			<notify listener="ChecklistCommentsListener" method="getChecklistComments" resultArg="qChecklistcomments" />
+			<notify listener="ChecklistCommentsListener" method="getChecklistCommentDetails" resultArg="qChecklistCommentDetails"  />
+			<view-page name="checklistcomments" />
+		</event-handler>
+
 
 		<event-handler event="showDepartmentPlanList" access="public">
 			<notify listener="AssessmentPlanListener" method="getAssessmentPlanPeriodsQuery" resultArg="planperiods"  />
@@ -489,6 +504,7 @@
 		<page-view name="editOutcome" page="/views/editOutcome.cfm" />
 		<page-view name="viewALC" page="/views/viewALC.cfm" />
 		<page-view name="sentLogin" page="/views/sentLogin.cfm" />
+		<page-view name="checklistcomments" page="/views/checklistcomments.cfm" />
 	</page-views>
 
 </mach-ii>
