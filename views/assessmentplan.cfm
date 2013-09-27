@@ -459,9 +459,14 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																															</td>
 																															<td>
 																																<div class="row-fluid">
-																																	<a href="##x-modal-#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-blue" data-toggle="modal" data-checklistTypeid="#qCheckListTypes.checklisttypeid#" >Add a comment</a> 
+																																	<a href="##x-modal-#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-darkblue" data-toggle="modal" data-checklistTypeid="#qCheckListTypes.checklisttypeid#" ><i class="icon-plus-sign"></i>
+																																		Add a comment
+																																	</a>
 
-																																	<a href="index.cfm?event=getChecklistComments&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&checklistTypeID=#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-blue popup">View comments</a>
+																																	<a href="index.cfm?event=getChecklistComments&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&checklistTypeID=#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-red popup">
+
+																																		<i class="icon-search"></i>
+																																		View comments</a>		
 																																</div>		
 
 																																<!--- Modal --->
@@ -525,9 +530,14 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 																																<td>
 																																
 																																<div class="row-fluid">
-																																	<a href="##x-modal-#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-green" data-toggle="modal" data-checklistTypeid="#qCheckListTypes.checklisttypeid#">Add a comment</a>
+																																	<a href="##x-modal-#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-darkblue" data-toggle="modal" data-checklistTypeid="#qCheckListTypes.checklisttypeid#">
+																																	<i class="icon-plus-sign"></i>
+																																		Add a comment
+																																	</a>
 
-																																	<a href="index.cfm?event=getChecklistComments&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&checklistTypeID=#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-blue popup">View comments</a>				
+																																	<a href="index.cfm?event=getChecklistComments&reportingUnitID=#request.event.getArg('reportingUnitID')#&planID=#request.event.getArg('planID')#&checklistTypeID=#qCheckListTypes.checklisttypeid#" role="button" class="btn btn-mini btn-red popup">
+																																		<i class="icon-search"></i>
+																																		View comments</a>				
 																																</div>		
 
 																																<div id="x-modal-#qCheckListTypes.checklisttypeid#" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
@@ -645,35 +655,29 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 				    event.preventDefault();
 				    window.open($(this).attr("href"), "popupWindow", "width=600,height=600,scrollbars=yes");
 				});
-								
+				
+
+
 				$(".btn-mini").click(function(e) {
-					$('.grid').addClass('hidden');
 					$('.grid').empty();
+					$('.grid').addClass('hidden');
+					
 				});
 
 				$(".commentButton").click(function(e) {
 					e.preventDefault();
 					
-					alert('BOOYAH');
-					//alert($(this).data("item"));
-
-					
-					//alert( $(this).closest('tr').find('.checklisttypeid').val());
-
-					
+					//alert('BOOYAH');
+										
 					var reportingUnitID   = #request.event.getArg('reportingUnitID')#;
 					var planID   		  = #request.event.getArg('planID')#;
 					var checklisttypeid   = $(this).closest('tr').find('.checklisttypeid').val();
 					var comment 		  = $(this).closest('tr').find('.comment').val();
 					var created_by        = #session.user.userid#;
 										
-					//var planstatus    = $(this).data("status");
-
 					var postString = "index.cfm?event=saveChecklistComment&";
 
 					//alert( postString );
-					
-					//alert( comment );
 
 					jQuery.post(
 						postString,
