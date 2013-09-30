@@ -66,9 +66,9 @@
 		<cfset local.PlanID = request.event.getArg('planID') />
 		<cfset local.ReportingUnitID = request.event.getArg('ReportingUnitID') />
 
-		
+		<!---
 		<cfdump var="#request.event.getArgs()#" abort="false" label="@@ChecklistRatingID" />
-		<!---  --->
+		  --->
 
 		<!--- original ratings
 		<cfloop collection="#request.event.getArgs()#" item="idx">
@@ -136,6 +136,11 @@
 				<cfset local.saveRatingsBean = variables.AssessmentPlanChecklistRatingsDAO.save(local.RatingsBean) />
 
 			</cfloop>
+		<cfelse>
+			<!--- I guess they want no checkmarks to be saved --->
+			<cfset local.deleteexisting = variables.AssessmentPlanChecklistRatingsDAO.deleteExisting(PlanID 			= local.PlanID,
+															 									     ReportingUnitID	= local.ReportingUnitID) />
+
 		</cfif>
 		
 
@@ -145,7 +150,7 @@
 		--->
 
 		
-		<cfreturn local.saveRatingsBean />
+		<cfreturn true />
 		
 	</cffunction>
 
