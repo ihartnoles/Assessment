@@ -22,12 +22,11 @@ qPrimaryAuthors			= request.event.getArg('qPrimaryAuthors');
 
 				<cfinclude template="/Assessment/views/page_header.cfm">
 
-				  	 
 
 		<!---	
-		 <cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
-						<cfdump var="#session.user#" />	
+		 	<cfdump var="#qCheckListTypes#" label="qChecklistTypes" />
 			<cfdump var="#qRatings#" label="qRatings"/>
+			<cfdump var="#session.user#" />	
 			<cfdump var="#qcountOutcomes#" label="qCountOutcomes" />
 			<cfdump var="#qPrimaryAuthors#" label="qPrimaryAuthors" />
 			<cfdump var="#qPlanDetails#" />

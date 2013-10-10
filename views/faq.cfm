@@ -7,23 +7,39 @@ title = "Frequently Asked Questions";
 					<div class="row-fluid">
 						<div class="span12">
 							<div class="box">
+								<!---
 								<div class="box-title">
 									<h3>
 										<i class="icon-reorder"></i>
 										Simple FAQ
 									</h3>
 								</div>
+								--->
 								<div class="box-content">
 									<div class="accordion" id="accordion2">
 										<div class="accordion-group">
 											<div class="accordion-heading">
 												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-													Anim pariatur cliche...Lorem  ???
+													Q: What is a "learning outcome," and how does a program-level learning outcome differ from a course-level learning outcome?
 												</a>
 											</div>
 											<div id="collapseOne" class="accordion-body collapse in">
 												<div class="accordion-inner">
-													Anim pariatur cliche...Lorem ipsum dolore dolor occaecat dolore elit deserunt incididunt ex sed nostrud aute aliquip ut elit sed nisi. 
+													<p>
+														A "program" can refer to any broad program of study that has a defined curriculum. It can be a degree program leading to a major within a department. It can be a certificate program offered within a center or an interdisciplinary program. It can be a general education program, like FAU's Intellectual Foundations Program (IFP), or a targeted program like FAU’s Distinction Through Discovery Quality Enhancement Plan (QEP). Each of these curricula has stated learning outcomes that guide the structure and content of its constituent coursework and other experiential components.
+													</p>
+													<p>
+														"Learning outcomes" describe the kinds of knowledge and skills (i.e., competencies) you intend students to develop during the experiences they have in your courses or programs. These outcomes are articulated in language about particular activities students will perform; they are concrete and measurable and target a specific dimension of learning. Sometimes, programs may distinguish between course-level outcomes and program-level outcomes, the latter typically being broader skills and knowledge students are expected to achieve at certain points in your academic program (e.g., by the time students reach the upper division, or by the time they graduate). In this case, one or more course-level learning outcomes may be associated with one or more general program-level learning outcomes. This is because individual courses may introduce or reinforce specific knowledge and skills that are eventually refined, broadened, or mastered by the end of a program. This relationship is illustrated in the three examples below.
+													</p>
+													<p>
+														<strong>Example 1:</strong> Course A in history may focus on social movements that occurred in the U.S. between 1783 and 1815. It may include a course-level learning outcome that students will be able to describe the economic goals of the most influential social movements in the U.S. during this time. This outcome may be demonstrated (and thus measured) in a required subsection of a term paper or in a presentation delivered at the end of the semester in this course. A student who achieves this course-level outcome would be on the way to achieving a broader program-level outcome like one in which students will be able to identify key social movements in U.S. history from 1783 to the present..
+													</p>
+													<p>
+														<strong>Example 2:</strong> Course B in business may cover the topic of ethics in business practices. Thus, it may include the course-level outcome that students will be able to describe in their own words the principal methods of ethical thinking in business, perhaps measured in the opening paragraph of an essay on an exam. By achieving this outcome, students would be working their way toward achieving the more general program-level outcome that students will be able to apply the principal methods of ethical thinking when developing solutions for complex business problems.
+													</p>
+													<p>
+														<strong>Example 3:</strong> Course C in computer science may include a course-level learning outcome that students will be able to identify and explain the best practices in design for web pages that are accessible to individuals who are blind. Perhaps students would demonstrate this ability in a written homework assignment in which students describe the features of an ideal web site, or via specific questions included in a multiple choice exam. This may be the first step in students’ achievement of a larger program-level outcome that students will be able to design various electronic media that are accessible to the broadest audience possible.
+													</p>
 												</div>
 											</div>
 										</div>
